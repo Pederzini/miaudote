@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,58 @@
     <link href="../css/cadastro-adotante.css" rel="stylesheet">
     <title>Cadastro Adotante</title>
 </head>
+
 <body>
     <div class="cadastro-adotante-header">
         <div class="cadastro-adotante-seta-voltar">
             <img id="seta-voltar" src="../imagens/Geral/icon-voltar.svg">
         </div>
-        
+
         <div class="cadastro-adotante-logo">
             <img id="logo" src="../imagens/Geral/logo.svg">
-        </div>        
+        </div>
     </div>
 
-    <label class="cadastro-adotante-titulo">CADASTRO</label>
-    <label class="cadastro-adotante-subtitulo">CRIE SUA CONTA</label>
+    <div class="cadastro-adotante">
+        <label class="cadastro-adotante-titulo">CADASTRO</label>
+        <label class="cadastro-adotante-subtitulo">CRIE SUA CONTA</label>
+    </div>
+
+    <div class="cadastro-adotante-informacoes-pessoais">
+        <div class="cadastro-adotante-coluna-esquerda"></div>
+
+        <div class="cadastro-adotante-coluna-centro">
+            <div class="cadastro-adotante-container-campos">
+                <span class="cadastro-adotante-titulos-campos">Nome</span>
+                <input class="cadastro-adotante-campos" id="campo_nome" type="text" name="cmp_nme">
+
+                <span class="cadastro-adotante-titulos-campos">Data de nascimento</span>
+                <input class="cadastro-adotante-campos" id="campo_nascimento" type="text">
+
+                <span class="cadastro-adotante-titulos-campos">CPF</span>
+                <input class="cadastro-adotante-campos" id="campo_cpf" type="text">
+
+                <span class="cadastro-adotante-titulos-campos">Telefone</span>
+                <input class="cadastro-adotante-campos" id="telefone" type="text">
+            </div>
+        </div>
+
+        <div class="cadastro-adotante-coluna-direita">
+            <img src="../imagens/Cadastro/gato-cadastro.svg">
+        </div>
+    </div>
+
+    <div class="cadastro-adotante-divisoria">
+        <div class="cadastro-adotante-linhas-esquerda">
+            <img src="../imagens/Cadastro/caminho-esquerda-cadastro.svg">
+        </div>
+        <div class="cadastro-adotante-titulo-divisoria">
+            <label class="cadastro-adotante-titulo">ENDEREÇO</label>
+        </div>
+        <div class="cadastro-adotante-linhas-direita">
+            <img src="../imagens/Cadastro/caminho-direita-cadastro.svg">
+        </div>
+    </div>
 </body>
+
 </html>

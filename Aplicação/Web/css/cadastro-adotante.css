@@ -1,7 +1,7 @@
 body {
     font-family: 'Nunito';
-    font-weight: 800;
     width: 1440px;
+    color: #434343;
 }
 
 /* Início - Header */
@@ -35,7 +35,133 @@ body {
 }
 
 #logo {
+    padding-right: 6.87%;
     height: 84px;
 }
 
 /* Fim - Header */
+
+/* Início - Título */
+
+.cadastro-adotante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastro-adotante-titulo {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.cadastro-adotante-subtitulo {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* Fim - Título */
+
+/* Início - Cadastro Dados Pessoais */
+
+.cadastro-adotante-informacoes-pessoais {
+    width: 100%;
+    height: 650px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cadastro-adotante-coluna-esquerda {
+    width: 30%;
+    height: 100%;
+    background-color: khaki;
+}
+
+.cadastro-adotante-coluna-centro {
+    width: 40%;
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro-adotante-coluna-direita {
+    width: 30%;
+    height: 100%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cadastro-adotante-coluna-direita img {
+    height: 270px;
+}
+
+.cadastro-adotante-titulos-campos {
+    width: 100%;
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: start;
+    color: #6250D1;
+}
+
+.cadastro-adotante-campos {
+/* Grey AA Large */
+    width: 335px;
+    height: 59px;
+    padding-left: 12px;
+    border: 1px solid #949494;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    color: #646363;
+    font-size: 18px;
+}
+
+.cadastro-adotante-container-campos {
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fim - Cadastro Dados Pessoais */
+
+/* Início - Divisória */
+
+.cadastro-adotante-divisoria {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cadastro-adotante-linhas-esquerda {
+    width: 30%;
+    height: 250px;
+}
+
+.cadastro-adotante-linhas-esquerda img {
+    max-width:100%;
+}
+
+.cadastro-adotante-titulo-divisoria {
+    width: 40%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastro-adotante-linhas-direita {
+    width: 30%;
+    height: 250px;
+}
+
+.cadastro-adotante-linhas-direita img {
+    max-width:100%;
+}
+
+/* Fim - Divisória */
+
