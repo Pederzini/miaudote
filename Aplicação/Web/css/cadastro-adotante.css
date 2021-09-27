@@ -1,11 +1,21 @@
+:root {
+    --titulo-campos: #6250D1;
+    --fonte-padrao: #434343;
+    --roxo-botao: #8F7FAC;
+    --branco: #FFFFFF;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Nunito';
     width: 1440px;
-    color: #434343;
+    color: var(--fonte-padrao);
 }
 
 /* Início - Header */
-.cadastro-adotante-header {
+
+header {
     background: url("../imagens/Cadastro/forma-header-cadastro.svg") no-repeat;
     width: 100%;
     height: 270px;
@@ -14,100 +24,102 @@ body {
     align-items: center;
 }
 
-.cadastro-adotante-seta-voltar {
+.seta-voltar {
     display: flex;
     justify-content: center;
     width: 6.87%;
+    cursor: pointer;
 }
 
-.cadastro-adotante-logo {
+.logo {
     display: flex;
     justify-content: center;
     width: 93.13%;
 }
 
-.cadastro-adotante-header img {
+header img {
     margin-bottom: 100px;
+    aspect-ratio: 122.35/84;
 }
 
-.cadastro-adotante-header:first-child {
+header:first-child {
     left: 0;
 }
 
 #logo {
     padding-right: 6.87%;
-    height: 84px;
 }
 
 /* Fim - Header */
 
 /* Início - Título */
 
-.cadastro-adotante {
+.titulos {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.cadastro-adotante-titulo {
+.titulo {
     font-size: 30px;
     font-weight: 800;
 }
 
-.cadastro-adotante-subtitulo {
+.subtitulo {
     margin-top: 10px;
     font-size: 20px;
 }
 
 /* Fim - Título */
 
-/* Início - Cadastro Dados Pessoais */
+/* Início - Campos formulário */
 
-.cadastro-adotante-informacoes-pessoais {
-    width: 100%;
-    height: 650px;
-    display: flex;
-    flex-direction: row;
+input {
+    font-family: 'Nunito';
+    color: var(--fonte-padrao)
 }
 
-.cadastro-adotante-coluna-esquerda {
+.coluna-esquerda {
     width: 30%;
     height: 100%;
-    background-color: khaki;
-}
-
-.cadastro-adotante-coluna-centro {
-    width: 40%;
-    height: 100%;
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
-}
-
-.cadastro-adotante-coluna-direita {
-    width: 30%;
-    height: 100%;
-    background-color: yellowgreen;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-.cadastro-adotante-coluna-direita img {
-    height: 270px;
+.coluna-esquerda img {
+    height: 250px;
 }
 
-.cadastro-adotante-titulos-campos {
+.coluna-centro {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.coluna-direita {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.coluna-direita img {
+    height: 250px;
+}
+
+.titulos-campos {
     width: 100%;
     margin-top: 40px;
     font-size: 20px;
     text-align: start;
-    color: #6250D1;
+    color: var(--titulo-campos);
 }
 
-.cadastro-adotante-campos {
-/* Grey AA Large */
+.campos {
     width: 335px;
     height: 59px;
     padding-left: 12px;
@@ -115,11 +127,14 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
     outline: none;
-    color: #646363;
     font-size: 18px;
 }
 
-.cadastro-adotante-container-campos {
+.campos:focus {
+    border-color: var(--titulo-campos);
+  }
+
+.container-campos {
     width: 335px;
     display: flex;
     flex-direction: column;
@@ -127,41 +142,122 @@ body {
     justify-content: center;
 }
 
-/* Fim - Cadastro Dados Pessoais */
+/* Fim - Campos formulário */
 
-/* Início - Divisória */
+/* Início - Grupos de cadastro */
 
-.cadastro-adotante-divisoria {
+form {
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grupo-colunas-dados-pessoais {
     width: 100%;
+    height: 550px;
     display: flex;
     flex-direction: row;
 }
 
-.cadastro-adotante-linhas-esquerda {
-    width: 30%;
-    height: 250px;
+.grupo-colunas-endereco {
+    width: 100%;
+    height: 650px;
+    display: flex;
+    flex-direction: row;
 }
 
-.cadastro-adotante-linhas-esquerda img {
+.grupo-colunas-email {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Fim - Grupos de cadastro */
+
+/* Início - Divisória */
+
+.divisoria {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.linhas-esquerda {
+    width: 30%;
+}
+
+.linhas-esquerda img {
     max-width:100%;
 }
 
-.cadastro-adotante-titulo-divisoria {
+.titulo-divisoria {
     width: 40%;
-    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cadastro-adotante-linhas-direita {
+.linhas-direita {
     width: 30%;
-    height: 250px;
 }
 
-.cadastro-adotante-linhas-direita img {
+.linhas-direita img {
     max-width:100%;
 }
 
 /* Fim - Divisória */
 
+/* Início - Botão cadastro */
+
+.div-botao-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.botao-cadastro {
+    width: 335px;
+    height: 45px;
+    margin-top: 42px;
+    border: none;
+    border-radius: 94px;
+    padding: 11px;
+    background-color: var(--roxo-botao);
+    font-family: 'Nunito';
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--branco);
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.subtitulo-botao {
+    margin-top: 19px;
+}
+
+.palavra-clicavel {
+    cursor: pointer;
+    font-family: Nunito;
+    color: var(--roxo-botao);
+    text-decoration-line: underline;
+}
+
+/* Fim - Botão cadastro */
+
+/* Início - Footer */
+
+footer {
+    background: url("../imagens/Cadastro/forma-footer-cadastro.svg");
+    width: 100%;
+    height: 188px;
+}
+
+/* Fim - Footer */
