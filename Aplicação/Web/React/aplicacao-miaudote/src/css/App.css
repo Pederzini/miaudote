@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+  --nunito: 'Nunito', sans-serif;
+  --nunito-sans: 'Nunito Sans', sans-serif;
+  --roxo: #8675A5;
+  --branco: #fff;
+  --cinza: #434343;
+}
+
 .App {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--branco);
 }
 
 /* HEADER */
@@ -14,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--nunito);
   font-size: 22.77px;
 }
 
@@ -32,7 +40,6 @@
   left: 50px;
   right: 50px;
   height: 90vh;
-  /* background-color:red; */
 }
 
 .header {
@@ -44,7 +51,7 @@
 .header-botoes {
   display: flex;
   align-items: center;
-  color: #434343;
+  color: var(--cinza);
   font-size: 22.77px;
 }
 
@@ -62,14 +69,14 @@
   height: 44.65px;
   width: 146px;
   background-color: transparent;
-  border: 0.61px solid #434343;
+  border: 0.61px solid var(--cinza);
   border-radius: 94.86px;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--nunito);
   font-weight: 800;
   font-style: normal;
   font-size: 20.86px;
-  color: #434343;
+  color: var(--cinza);
 }
 /* FIM HEADER */
 
@@ -90,8 +97,8 @@
   flex-direction: column;
   justify-content: flex-end;
   text-transform: uppercase;
-  font-family: 'Nunito Sans', sans-serif;
-  color: #434343;
+  font-family: var(--nunito-sans);
+  color: var(--cinza);
 }
 
 .texto-grande {
@@ -111,13 +118,12 @@
   height: 67.20px;
   border: none;
   border-radius: 94.86px;
-  background-color: #8675A5;
-  color: #fff;
-  font-family: 'Nunito', sans-serif;
+  background-color: var(--roxo);
+  color: var(--branco);
+  font-family: var(--nunito);
   font-weight: 800;
   font-size: 20.87px;
   text-transform: uppercase;
 }
-
 
 /* FIM CONTEUDO HOME */

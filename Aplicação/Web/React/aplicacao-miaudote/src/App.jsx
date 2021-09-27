@@ -19,10 +19,10 @@ function App() {
                 <li>HOME</li>
                 <li>COMO FUNCIONA</li>
                 <li>ADOTE</li>
-              </ul>
+              </ul> {/* fim hedaer-lista */}
               <button className="botao-login">LOGIN</button>
-            </div>
-          </div>
+            </div> {/* fim header-botoes */}
+          </div> {/* fim header */}
 
           {/* CONTEUDO HOME */}
           <div className="container-home">
@@ -34,13 +34,13 @@ function App() {
                 OU AJUDE AS PESSOAS A <br/> ENCONTRAREM O SEU PET IDEAL
               </p>
               <button className="botao-cadastrar">Cadastre-se</button>
-            </div>
+            </div> {/* fim content-home */}
             <img src={imgHome}/>
-          </div>
+          </div> {/* fim container home */}
 
-        </div>
-      </div>
-    </div>
+        </div> {/* fim content */}
+      </div> {/* fim container */}
+    </div> // fim App 
   );
 }
 
