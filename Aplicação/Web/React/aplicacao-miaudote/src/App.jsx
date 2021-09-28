@@ -5,6 +5,7 @@ import imgLogo from './imagens/Geral/logo-header.svg';
 import imgHome from './imagens/Home/mulher-cachorro-gato-home.svg';
 import imgHeader from './imagens/Geral/forma-header-encolhido.svg'
 import BotaoCadastro from './components/BotaoCadastro';
+import Titulo from './components/Titulo';
 import imgOsso from './imagens/Geral/icon-osso.svg'
 import React from 'react'
 
@@ -45,6 +46,13 @@ function App() {
 
         </div> {/* fim content */}
       </div> {/* fim container */}
+
+      <div className="container-como-funciona">
+
+        <Titulo titulo="Como funciona"></Titulo>
+
+      </div>
+
     </div> // fim App 
   );
 }

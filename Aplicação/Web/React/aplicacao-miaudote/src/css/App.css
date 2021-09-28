@@ -129,17 +129,41 @@
   padding: 5vh 0 5vh 0;
 }
 
+/* COMPONENTE BOTAO-CADASTRAR */
 .botao-cadastrar {
   width: 217.23px;
   height: 67.20px;
   border: none;
   border-radius: 94.86px;
   background-color: var(--roxo);
+  box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
   color: var(--branco);
   font-family: var(--nunito);
   font-weight: 800;
   font-size: 20.87px;
   text-transform: uppercase;
+  cursor: pointer;
 }
+/* FIM COMPONENTE BOTAO-CADASTRAR */
 
 /* FIM CONTEUDO HOME */
+
+
+/* CONTEUDO COMO FUNCIONA */
+
+.container-como-funciona {
+  margin-top: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  font-family: var(--nunito-sans);
+  font-weight: bold;
+  font-size: 37.94px;
+  text-transform: uppercase;
+}
+
+/* FIM CONTEUDO COMO FUNCIONA */
