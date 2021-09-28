@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/App.css';
+import React from 'react'
+
+// import imagens
 import background from './imagens/Geral/forma-header.svg';
 import imgLogo from './imagens/Geral/logo-header.svg';
 import imgHome from './imagens/Home/mulher-cachorro-gato-home.svg';
-import imgHeader from './imagens/Geral/forma-header-encolhido.svg'
+import imgHeader from './imagens/Geral/forma-header-encolhido.svg';
+import imgOsso from './imagens/Geral/icon-osso.svg';
+import imgHLD from './imagens/Home/HLD.svg'
+
+// import componentes
 import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
-import imgOsso from './imagens/Geral/icon-osso.svg'
-import React from 'react'
 
 function App() {
   return (
@@ -47,11 +52,13 @@ function App() {
         </div> {/* fim content */}
       </div> {/* fim container */}
 
+      {/* COMO FUNCIONA */}
       <div className="container-como-funciona">
-
         <Titulo titulo="Como funciona"></Titulo>
-
-      </div>
+          <div className="container-imagem">
+            <img src={imgHLD} />
+          </div>
+      </div> {/* fim container-como-funciona */}
 
     </div> // fim App 
   );

@@ -19,7 +19,7 @@
 /* HEADER */
 .container {
   width: 100vw;
-  height: 90vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  top: 165px;
+  top: 190px;
   left: 50px;
   right: 50px;
 }
@@ -105,7 +105,7 @@
 
 .container-home img {
   height: 75vh;
-  margin-right: 108px;
+  margin-right: 50px;
 }
 
 .content-home {
@@ -115,6 +115,7 @@
   text-transform: uppercase;
   font-family: var(--nunito-sans);
   color: var(--cinza);
+  padding-bottom: 10vh;
 }
 
 .texto-grande {
@@ -126,7 +127,7 @@
 .texto-pequeno {
   margin: 0;
   font-size: 18.97px;
-  padding: 5vh 0 5vh 0;
+  padding: 2vh 0 6vh 0;
 }
 
 /* COMPONENTE BOTAO-CADASTRAR */
@@ -164,6 +165,17 @@
   font-weight: bold;
   font-size: 37.94px;
   text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.container-imagem {
+  display: flex;
+  width: 50vw;
+  justify-content: center;
+}
+
+.container-imagem img {
+  width: 100%;
 }
 
 /* FIM CONTEUDO COMO FUNCIONA */
