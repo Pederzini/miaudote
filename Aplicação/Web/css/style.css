@@ -1,0 +1,268 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
+
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  font-family: Nunito Sans;
+}
+
+/* Inicio da tela de adoções, login como ONG*/
+
+
+.page {
+    width: 1366px;
+    height: 657px;
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    background-color: royalblue;
+}
+
+.svg-menu-menor {
+    width: 100%;
+    height: 100%;
+    
+
+}
+
+.container-adocoes {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+   
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #b8dbca;
+    border-radius: 6px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A3C6C1; 
+    border-radius: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:#638481; 
+  }
+
+
+.menu-lateral-adocoes{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   
+}
+
+.container-linha {
+    width: 0.1%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linha-divisao {
+    width: 90%;
+    height: 85%;
+    background-color: #8675A5;
+}
+
+.cards-adocoes {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+   
+
+}
+
+.opcoes-adocoes {
+    width: 100%;
+    height: 28%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ 
+    
+}
+
+.img-opcoes {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.img-opcoes img {
+    width: 45%;
+}
+
+.texto-opcoes {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.texto-opcoes p {
+    color: #434343;
+    font-size: 20px;
+    padding-left: 10%;
+
+}
+
+
+.card-animais-favoritos {
+    width: 90%;
+    height: 22%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    box-sizing: border-box;
+    border-radius: 9px;
+    margin: 2%;
+    
+
+} 
+
+.dados-pet {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.img-pet {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.img-pet img {
+    width: 55%;
+    border-radius: 100%;
+
+}
+
+.texto-pet{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto-pet p {
+    color: #434343;
+    font-size: 20px;
+
+}
+
+.sexo-pet {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.sexo-pet img {
+    margin: 1.5%;
+}
+
+.dados-favoritos {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  
+
+}
+
+.img-favorito {
+    width: 100%;
+    height: 53%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.container-favorito {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+   
+}
+
+.img-favorito img {
+    width: 40%;
+
+}
+
+.clique-favorito {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.container-clique {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container-alinhamento {
+    width: 66%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.container-alinhamento p {
+    color: #434343;
+    font-size: 12px;
+    text-align: center;
+
+}
