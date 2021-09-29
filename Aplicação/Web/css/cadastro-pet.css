@@ -1,0 +1,152 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  /* max-width: 1440px; */
+}
+
+html, body {
+  /* width: 1440px; */
+  font-family: 'Nunito';
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.header {
+  background: url("../imagens/header-simples/header-simplificado-rosa.svg") no-repeat;
+  background-size: 100%;
+  /* overflow: hidden;
+  background-color: #f1f1f1; */
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  /* padding: 50px; */
+  text-decoration: none;
+  font-size: 24px; 
+  line-height: 25px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.menu-text {
+  padding-left: 36px;
+}
+
+#logo {
+  height: 50px;
+  padding-bottom: 16px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+.header a.active {
+  background: url("../imagens/Geral/icon-osso.svg") no-repeat;
+  background-position: 70%;
+  background-position-y: bottom;
+  padding-bottom: 16px;
+  
+}
+
+/* .login-border {
+  padding: 10px;
+  border: 1px solid #434343;
+  box-sizing: border-box;
+  border-radius: 12px;
+} */
+
+/* .login-border {
+  height: 44.65px;
+  width: 146px;
+  background-color: transparent;
+  border: 0.61px solid red;
+  border-radius: 94.86px;
+  cursor: pointer;
+  font-family: var(--nunito);
+  font-weight: 800;
+  font-style: normal;
+  font-size: 20.86px;
+  color: var(--cinza);
+} */
+
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+/* .cadastro-pet-header {
+  background: url("../imagens/header-simples/header-simplificado-rosa.svg") no-repeat;
+  width: 100%;
+  background-size: 100%;
+  overflow: hidden;
+}
+
+.cadastro-pet-logo{
+  display: flex;
+  margin-left: 50px;
+
+}
+
+.cadastro-pet-logo img {
+  width: 20%;
+}
+
+.cadastro-pet-menu {
+  display: flex;
+  flex-direction: row;
+  font-size: 24vh;
+}
+
+.header-menu-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 34px;
+  margin-right: 50px;
+} */
+
+/* FIM HEADER*/
+
+/* FOOTER */
+
+#footer {
+  margin-top: auto;
+  display: flex;
+  justify-self: flex-end;
+}
+
+.footer-pet{
+  background: url("../imagens/footer/footer-rosa.svg") no-repeat;
+  width:100%;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FIM FOOTER*/
+
+/* RESPONSIVE */
+@media only screen and (min-width: 1200px) {
+
+}
