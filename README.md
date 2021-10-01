@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/P-Shoyo/miaudote/blob/master/Aplica%C3%A7%C3%A3o/Web/imagens/Geral/logo.svg" alt="Logo MiAuDote"/>
+  <img src="https://github.com/P-Shoyo/miaudote/blob/master/aplicacao/web/imagens/geral/logo.svg" alt="Logo MiAuDote"/>
 </p>
 <h1 align="center"> MiAuDote </h1>
 
