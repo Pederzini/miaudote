@@ -10,6 +10,7 @@ import java.util.Date;
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_animal")
     private Integer id;
 
     @Column(length = 45, nullable = false)

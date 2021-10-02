@@ -1,6 +1,5 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import org.springframework.boot.jackson.JsonComponent;
 
 import javax.persistence.*;
@@ -11,6 +10,7 @@ import javax.persistence.*;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_endereco")
     private Integer id;
 
     @Column(length = 255, nullable = false)

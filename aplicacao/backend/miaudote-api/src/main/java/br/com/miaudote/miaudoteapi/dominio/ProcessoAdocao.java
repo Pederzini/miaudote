@@ -10,6 +10,7 @@ import java.util.Date;
 public class ProcessoAdocao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_adocao")
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")

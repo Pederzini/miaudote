@@ -10,6 +10,7 @@ import java.util.Date;
 public class Adotante extends Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_adotante")
     private Integer id;
 
     @Column(length = 60, nullable = false)

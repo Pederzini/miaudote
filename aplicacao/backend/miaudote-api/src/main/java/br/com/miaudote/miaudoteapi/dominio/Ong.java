@@ -10,6 +10,7 @@ import java.util.Date;
 public class Ong extends Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_ong")
     private Integer id;
 
     @Column(length = 60, nullable = false)
