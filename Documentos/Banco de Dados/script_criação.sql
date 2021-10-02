@@ -15,6 +15,7 @@ CREATE TABLE Adotante (
     telefone CHAR(11),
     email VARCHAR(255),
     senha VARCHAR(16),
+    urlImagem VARCHAR(2083),
     fkEndereco INT FOREIGN KEY REFERENCES Endereco(idEndereco)
 );
 
@@ -27,6 +28,7 @@ CREATE TABLE Ong (
     telefone CHAR(11),
     email VARCHAR(255),
     senha VARCHAR(16),
+    urlImagem VARCHAR(2083),
     fkEndereco INT FOREIGN KEY REFERENCES Endereco(idEndereco)
 );
 
@@ -43,27 +45,19 @@ CREATE TABLE Animal (
     tipoPelagem VARCHAR(7),
     vacinado TINYINT,
     comportamento VARCHAR(45),
-    uriImagem VARCHAR(2083),
+    adotado TINYINT, 
+    necessidadeEspeciais TEXT,
+    urlImagem VARCHAR(2083),
     fkOng INT FOREIGN KEY REFERENCES Ong(idOng)
 
 );
 
-CREATE TABLE Adocao (
+CREATE TABLE ProcessoAdocao (
     idAdocao INT,
     dataAdocao DATETIME,
+    favoritado TINYINT,
+    feedback TEXT,
+    avaliacaoSite INT,
     fkAdotante INT FOREIGN KEY REFERENCES Adotante(idAdotante),
     fkAnimal INT FOREIGN KEY REFERENCES Animal(idAnimal)
-);
-
-CREATE TABLE NecessidadeEspecial (
-    idNecessidadeEspecial INT PRIMARY KEY IDENTITY,
-    necessidade VARCHAR(45),
-    fkAnimal INT FOREIGN KEY REFERENCES Animal(idAnimal)
-);
-
-CREATE TABLE AdotanteFavoritoAnimal (
-     fkAdotante INT FOREIGN KEY REFERENCES Adotante(idAdotante),
-     fkAnimal INT FOREIGN KEY REFERENCES Animal(idAnimal),
-     PRIMARY KEY (fkAdotante,fkAnimal),
-     favoritado TINYINT
 );
