@@ -1,10 +1,10 @@
-package br.com.miaudote.miaudote;
+package br.com.miaudote.miaudoteapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MiaudoteApplicationTests {
+class MiaudoteApiApplicationTests {
 
 	@Test
 	void contextLoads() {

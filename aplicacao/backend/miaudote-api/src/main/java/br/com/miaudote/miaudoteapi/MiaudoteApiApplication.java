@@ -1,13 +1,13 @@
-package br.com.miaudote.miaudote;
+package br.com.miaudote.miaudoteapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MiaudoteApplication {
+public class MiaudoteApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MiaudoteApplication.class, args);
+		SpringApplication.run(MiaudoteApiApplication.class, args);
 	}
 
 }
