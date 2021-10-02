@@ -1,13 +1,16 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import org.springframework.boot.jackson.JsonComponent;
+
 import javax.persistence.*;
 
 @Entity
+@JsonComponent
 @Table(name = "Endereco")
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idEndereco")
     private Integer id;
 
     @Column(length = 255, nullable = false)
@@ -24,7 +27,6 @@ public class Endereco {
 
     @Column(length = 9, nullable = false)
     private String cep;
-
 
     public Endereco() {
     }

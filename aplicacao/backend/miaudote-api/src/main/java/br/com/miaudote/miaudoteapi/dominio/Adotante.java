@@ -10,7 +10,7 @@ import java.util.Date;
 public class Adotante extends Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAdotante;
+    private Integer id;
 
     @Column(length = 60, nullable = false)
     private String nome;
@@ -26,6 +26,7 @@ public class Adotante extends Usuario {
 
     }
 
+
     public Adotante(String telefone, String email, String senha, String urlImagem, Endereco endereco,
                     String nome, Date dataNascimento, String cpf) {
         super(telefone, email, senha, urlImagem, endereco);
@@ -35,11 +36,11 @@ public class Adotante extends Usuario {
     }
 
     public Integer getIdAdotante() {
-        return idAdotante;
+        return id;
     }
 
-    public void setIdAdotante(Integer idAdotante) {
-        this.idAdotante = idAdotante;
+    public void setIdAdotante(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

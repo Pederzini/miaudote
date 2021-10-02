@@ -17,7 +17,7 @@ public abstract class Usuario {
     private String urlImagem;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fkEndereco", referencedColumnName ="id")
+    @JoinColumn(name="fk_endereco")
     private Endereco endereco;
 
     public Usuario(){

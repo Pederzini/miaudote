@@ -10,7 +10,7 @@ import java.util.Date;
 public class ProcessoAdocao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAdocao;
+    private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     @Column(nullable = false)
@@ -43,11 +43,11 @@ public class ProcessoAdocao {
     }
 
     public Integer getIdAdocao() {
-        return idAdocao;
+        return id;
     }
 
-    public void setIdAdocao(Integer idAdocao) {
-        this.idAdocao = idAdocao;
+    public void setIdAdocao(Integer id) {
+        this.id = id;
     }
 
     public Date getDataAdocao() {

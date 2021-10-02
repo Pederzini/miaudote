@@ -10,7 +10,7 @@ import java.util.Date;
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAnimal;
+    private Integer id;
 
     @Column(length = 45, nullable = false)
     private String nome;
@@ -83,11 +83,11 @@ public class Animal {
     }
 
     public Integer getIdAnimal() {
-        return idAnimal;
+        return id;
     }
 
-    public void setIdAnimal(Integer idAnimal) {
-        this.idAnimal = idAnimal;
+    public void setIdAnimal(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

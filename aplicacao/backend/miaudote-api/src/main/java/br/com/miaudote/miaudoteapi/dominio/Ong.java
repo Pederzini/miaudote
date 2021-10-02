@@ -10,10 +10,13 @@ import java.util.Date;
 public class Ong extends Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idOng;
+    private Integer id;
 
     @Column(length = 60, nullable = false)
     private String nomeResponsavel;
+
+    @Column(length = 45, nullable = false)
+    private String razaoSocial;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
@@ -26,20 +29,28 @@ public class Ong extends Usuario {
 
     }
 
-    public Ong(String telefone, String email, String senha, String urlImagem, Endereco endereco,
-               String nomeResponsavel, Date dataFundacao, String cnpj) {
+    public Ong(String telefone, String email, String senha, String urlImagem, Endereco endereco, String nomeResponsavel, String razaoSocial, Date dataFundacao, String cnpj) {
         super(telefone, email, senha, urlImagem, endereco);
         this.nomeResponsavel = nomeResponsavel;
+        this.razaoSocial = razaoSocial;
         this.dataFundacao = dataFundacao;
         this.cnpj = cnpj;
     }
 
-    public Integer getIdOng() {
-        return idOng;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
-    public void setIdOng(Integer idOng) {
-        this.idOng = idOng;
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+
+    public Integer getIdOng() {
+        return id;
+    }
+
+    public void setIdOng(Integer id) {
+        this.id = id;
     }
 
     public String getNomeResponsavel() {
