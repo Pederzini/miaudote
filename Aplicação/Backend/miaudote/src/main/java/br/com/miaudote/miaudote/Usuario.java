@@ -1,7 +1,10 @@
 package br.com.miaudote.miaudote;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public abstract class Usuario {
 
+    private String nome;
     private String email;
     private String senha;
     private String telefone;
@@ -14,6 +17,19 @@ public abstract class Usuario {
         this.telefone = telefone;
         this.rua = rua;
         this.autenticado = false;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @JsonIgnore
+    public String getSenha() {
+        return senha;
     }
 
     public abstract Boolean verificarIdentidade(String documento);
@@ -46,6 +62,15 @@ public abstract class Usuario {
 
     public Boolean getAutenticado() {
         return autenticado;
+    }
+
+    public void atualizarUsuario(Usuario usuario){
+        this.nome = usuario.getNome();
+        this.rua = usuario.getRua();
+        this.telefone = usuario.getTelefone();
+        this.email = usuario.getEmail();
+        this.senha = usuario.getSenha();
+        this.autenticado = usuario.getAutenticado();
     }
 
 }
