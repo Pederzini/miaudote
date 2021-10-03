@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
+*{
+  padding: 0;
+  margin:0;
+}
+
 :root {
   --nunito: 'Nunito', sans-serif;
   --nunito-sans: 'Nunito Sans', sans-serif;
@@ -12,8 +17,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-color: var(--branco);
-  height: 200vh;
+  /* background-color: var(--branco); */
+  height: 400vh;
 }
 
 /* HEADER */
@@ -29,6 +34,7 @@
 }
 
 .img-backgound {
+  /* position: absolute; */
   object-fit: contain;
   width: 100%;
 }
@@ -38,7 +44,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  top: 190px;
+  top: 160px;
   left: 50px;
   right: 50px;
 }
@@ -115,7 +121,7 @@
   text-transform: uppercase;
   font-family: var(--nunito-sans);
   color: var(--cinza);
-  padding-bottom: 10vh;
+  padding-bottom: 3vh;
 }
 
 .texto-grande {
@@ -149,9 +155,7 @@
 
 /* FIM CONTEUDO HOME */
 
-
 /* CONTEUDO COMO FUNCIONA */
-
 .container-como-funciona {
   margin-top: 30vh;
   display: flex;
@@ -163,7 +167,7 @@
 .titulo {
   font-family: var(--nunito-sans);
   font-weight: bold;
-  font-size: 37.94px;
+  font-size: 30px;
   text-transform: uppercase;
   margin-bottom: 0;
 }
@@ -179,3 +183,64 @@
 }
 
 /* FIM CONTEUDO COMO FUNCIONA */
+
+/* CONTEUDO ANIMAIS PARA ADOÇÃO */
+
+.container-adocao {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.caminho-HLD-adocao {
+  position: absolute;
+  right: -6vw;
+  top: 195vh;
+  height: 60%;
+  z-index: -1;
+}
+
+.caminho-adocao-cadastro {
+  position: absolute;
+  left: 0vw;
+  top: 250vh;
+  height: 40%;
+  z-index: -1;
+}
+
+.conteudo-adocao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 50vh;
+  margin-top: 5vh;
+}
+
+.conteudo-adocao img { 
+  cursor: pointer;
+}
+
+.cards-adocao {
+  display: flex;
+  flex-direction: row;
+  height: 85%;
+  width: 60%;
+}
+
+/* FIM CONTEUDO ANIMAIS PARA ADOÇÃO */
+
+/* CONTEUDO CADASTRO */
+
+.container-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+
+/* FIM CONTEUDO CADASTRO */

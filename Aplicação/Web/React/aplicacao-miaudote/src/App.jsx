@@ -8,11 +8,18 @@ import imgLogo from './imagens/Geral/logo-header.svg';
 import imgHome from './imagens/Home/mulher-cachorro-gato-home.svg';
 import imgHeader from './imagens/Geral/forma-header-encolhido.svg';
 import imgOsso from './imagens/Geral/icon-osso.svg';
-import imgHLD from './imagens/Home/HLD.svg'
-
+import imgHLD from './imagens/Home/HLD.svg';
+import imgHldAdocao from './imagens/Home/caminho-HLD-adocao.svg';
+import imgAdocaoCadastro from './imagens/Home/caminho-adocao-cadastro.svg';
+import imgBtnEsquerda from './imagens/Geral/icon-seta-esquerda.svg';
+import imgBtnDireita from './imagens/Geral/icon-seta-direita.svg';
+import imgFavoritarBranco from './imagens/Geral/icon-coracao-branco.svg';
+import imgFavoritarVermelho from './imagens/Geral/icon-coracao-vermelho.svg';
+import imgLocalizacao from './imagens/Geral/icon-localizacao.svg';
 // import componentes
 import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
+import Card from './components/Card';
 
 function App() {
   return (
@@ -55,10 +62,36 @@ function App() {
       {/* COMO FUNCIONA */}
       <div className="container-como-funciona">
         <Titulo titulo="Como funciona"></Titulo>
-          <div className="container-imagem">
-            <img src={imgHLD} />
-          </div>
+        <div className="container-imagem">
+          <img src={imgHLD} />
+        </div>
       </div> {/* fim container-como-funciona */}
+
+      {/* ANIMAIS PARA ADOÇÃO */}
+      <div className="container-adocao">
+        <Titulo titulo="Animais disponÍveis para adoção"></Titulo>
+        <img src={imgHldAdocao} className="caminho-HLD-adocao" />
+        <img src={imgAdocaoCadastro} className="caminho-adocao-cadastro" />
+
+        {/* CONTEUDO ADOCAO */}
+        <div className="conteudo-adocao">
+          <img src={imgBtnEsquerda} />
+
+          {/* CARDS ADOCAO */}
+          <div className="cards-adocao">
+            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
+            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
+            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
+          </div> {/* fim cards-adocao */}
+
+          <img src={imgBtnDireita} />
+        </div> {/* fim conteudo-adocao */}
+      </div> {/* fim container-adocao */}
+
+      {/* FAÇA O SEU CADASTRO */}
+      <div className="container-cadastro">
+        <Titulo titulo="Faça o seu cadastro"></Titulo>
+      </div>
 
     </div> // fim App 
   );
