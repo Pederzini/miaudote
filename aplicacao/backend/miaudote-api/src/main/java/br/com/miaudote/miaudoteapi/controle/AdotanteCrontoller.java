@@ -2,6 +2,7 @@ package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.Login;
+import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,11 +26,13 @@ public class AdotanteCrontoller {
 
     @PostMapping("/login")
     public ResponseEntity loginAdotante(@RequestBody Login login) {
-        List<Adotante> adot = adotanteRepository.validarLoginOng(login.getEmail(), login.getSenha());
-        if (adot.isEmpty()) {
+        Adotante adotante = adotanteRepository.findByEmailAndSenha(login.getEmail(), login.getSenha());
+
+        if (adotante == null) {
             return ResponseEntity.status(404).build();
         }
-        return ResponseEntity.status(200).body(adot.get(0));
+
+        return ResponseEntity.status(200).body(adotante);
     }
 
     @GetMapping
@@ -38,9 +41,9 @@ public class AdotanteCrontoller {
 
         if (adotantes.isEmpty()) {
             return ResponseEntity.status(204).build();
-        } else {
-            return ResponseEntity.status(200).body(adotantes);
         }
+
+        return ResponseEntity.status(200).body(adotantes);
     }
 
 }
