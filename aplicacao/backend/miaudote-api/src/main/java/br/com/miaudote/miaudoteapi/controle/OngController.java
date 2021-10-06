@@ -18,7 +18,7 @@ public class OngController {
     private OngRepository ongRepository;
 
     @PostMapping
-    public ResponseEntity cadastroAdotante(@RequestBody Ong ongCad) {
+    public ResponseEntity cadastroOng(@RequestBody Ong ongCad) {
         ongRepository.save(ongCad);
         return ResponseEntity.status(201).build();
     }
@@ -27,13 +27,11 @@ public class OngController {
     public ResponseEntity loginOng(@RequestBody Login login) {
         Ong ong = ongRepository.findByEmailAndSenha(login.getEmail(), login.getSenha());
 
-
         if (ong == null) {
             return ResponseEntity.status(404).build();
         }
 
         return ResponseEntity.status(200).body(ong);
-
     }
 
     @GetMapping
@@ -42,9 +40,9 @@ public class OngController {
 
         if (ongs.isEmpty()) {
             return ResponseEntity.status(204).build();
-        } else {
-            return ResponseEntity.status(200).body(ongs);
         }
+
+        return ResponseEntity.status(200).body(ongs);
     }
 
 }
