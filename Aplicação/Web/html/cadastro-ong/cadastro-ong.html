@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
-    <link href="cadastro-adotante.css" rel="stylesheet">
-    <script src="cadastro-adotante.js"></script>
+    <link href="cadastro-ong.css" rel="stylesheet">
+    <script src="cadastro-ong.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-    <title>Cadastro Adotante</title>
+    <title>Cadastro ONG</title>
 </head>
 
 <body>
@@ -48,19 +48,21 @@
 
             <div class="coluna-centro">
                 <div class="container-campos">
-                    <span class="titulos-campos">Nome</span>
-                    <input onclick="validaNome()" placeholder="Nome Completo" class="campos" id="campo_nome" type="text" name="cmp_nme">
+                    <span class="titulos-campos">Razão Social</span>
+                    <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme">
 
-                    <span class="titulos-campos">Data de nascimento</span>
-                    <input class="campos" id="campo_nascimento" type="date" name="cmp_nasc" utocomplete="off">
+                    <span class="titulos-campos">CNPJ</span>
+                    <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj" oninput="mascara(this, 'cnpj')">
 
-                    <span class="titulos-campos">CPF</span>
-                    <input class="campos" placeholder="123.456.789-01" id="campo_cpf" oninput="mascara(this, 'cpf')"
-                        type="text" name="cmp_nme">
+                    <span class="titulos-campos">Data da Fundação</span>
+                    <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off">
+
+                    <span class="titulos-campos">Nome do Responsável</span>
+                    <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp">
 
                     <span class="titulos-campos">Telefone</span>
                     <input class="campos" oninput="mascara(this, 'tel')" placeholder="99999-9999" id="telefone" type="text"
-                        name="cmp_nme">
+                        name="cmp_tel">
                 </div>
             </div>
 
