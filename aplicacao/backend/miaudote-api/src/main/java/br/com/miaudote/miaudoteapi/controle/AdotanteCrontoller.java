@@ -46,4 +46,23 @@ public class AdotanteCrontoller {
         return ResponseEntity.status(200).body(adotantes);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getAdotante(@PathVariable Integer id) {
+        return ResponseEntity.of(adotanteRepository.findById(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity putAdotante(
+            @PathVariable Integer id,
+            @RequestBody Adotante adotanteAlterado
+    ) {
+        if (adotanteRepository.existsById(id)) {
+            adotanteAlterado.setIdAdotante(id);
+            adotanteRepository.save(adotanteAlterado);
+            return ResponseEntity.status(200).build();
+        }
+
+        return ResponseEntity.status(404).build();
+    }
+
 }

@@ -45,4 +45,23 @@ public class OngController {
         return ResponseEntity.status(200).body(ongs);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getOng(@PathVariable Integer id) {
+        return ResponseEntity.of(ongRepository.findById(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity putOng(
+            @PathVariable Integer id,
+            @RequestBody Ong ongAlterada
+    ) {
+        if (ongRepository.existsById(id)) {
+            ongAlterada.setIdOng(id);
+            ongRepository.save(ongAlterada);
+            return ResponseEntity.status(200).build();
+        }
+
+        return ResponseEntity.status(404).build();
+    }
+
 }
