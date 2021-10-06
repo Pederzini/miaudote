@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -57,10 +58,31 @@ public class Animal {
     private String urlImagem;
 
     @ManyToOne
+    @JoinColumn(name = "fk_ong",referencedColumnName = "id_ong")
     private Ong ong;
 
     public Animal() {
 
+    }
+
+    public Animal(String nome, String descricao, Date dataNascimento, String genero,
+                  Date dataChegada, String corPelagem, Boolean castrado, String porte,
+                  String tipoPelagem, Boolean vacinado, String comportamento,
+                  Boolean adotado, String necessidadeEspeciais, String urlImagem) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.dataNascimento = dataNascimento;
+        this.genero = genero;
+        this.dataChegada = dataChegada;
+        this.corPelagem = corPelagem;
+        this.castrado = castrado;
+        this.porte = porte;
+        this.tipoPelagem = tipoPelagem;
+        this.vacinado = vacinado;
+        this.comportamento = comportamento;
+        this.adotado = adotado;
+        this.necessidadeEspeciais = necessidadeEspeciais;
+        this.urlImagem = urlImagem;
     }
 
     public Animal(String nome, String descricao, Date dataNascimento, String genero, Date dataChegada,

@@ -9,4 +9,8 @@ public interface OngRepository extends JpaRepository<Ong, Integer> {
 
     Ong findByEmailAndSenha(String email, String senha);
 
+    Ong findByEmail(String email);
+
+    Ong findByCnpj(String cnpj);
+
 }
