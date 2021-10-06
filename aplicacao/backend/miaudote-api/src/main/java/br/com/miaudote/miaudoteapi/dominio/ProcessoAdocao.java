@@ -6,8 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="ProcessoAdocao")
+@Table(name = "ProcessoAdocao")
 public class ProcessoAdocao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_adocao")
@@ -98,4 +99,5 @@ public class ProcessoAdocao {
     public void setAnimal(Animal animal) {
         this.animal = animal;
     }
+
 }

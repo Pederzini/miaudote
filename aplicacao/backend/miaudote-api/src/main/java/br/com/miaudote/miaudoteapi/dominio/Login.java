@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
 public class Login {
+
     private String email;
     private String senha;
 
@@ -27,4 +28,5 @@ public class Login {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }

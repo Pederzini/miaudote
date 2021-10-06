@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Animal")
 public class Animal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_animal")
@@ -58,7 +59,7 @@ public class Animal {
     @ManyToOne
     private Ong ong;
 
-    public Animal(){
+    public Animal() {
 
     }
 
@@ -210,4 +211,5 @@ public class Animal {
     public void setOng(Ong ong) {
         this.ong = ong;
     }
+
 }

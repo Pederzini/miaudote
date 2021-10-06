@@ -18,8 +18,9 @@ public class EnderecoController {
 
 
     @PostMapping
-    public ResponseEntity cadastrarEndereco(@RequestBody Endereco endereco){
+    public ResponseEntity cadastrarEndereco(@RequestBody Endereco endereco) {
         enderecoRepository.save(endereco);
         return ResponseEntity.status(201).build();
     }
+
 }

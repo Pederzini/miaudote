@@ -8,6 +8,7 @@ import javax.persistence.*;
 @JsonComponent
 @Table(name = "Endereco")
 public class Endereco {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_endereco")
@@ -86,4 +87,5 @@ public class Endereco {
     public void setCep(String cep) {
         this.cep = cep;
     }
+
 }

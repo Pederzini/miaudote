@@ -12,6 +12,9 @@ import java.util.List;
 public interface AdotanteRepository extends JpaRepository<Adotante, Integer> {
 
     @Query("SELECT a FROM Adotante a WHERE a.email = :email AND a.senha = :senha")
-    List<Adotante> validarLoginOng(@Param("email") String email,
-                         @Param("senha") String senha);
+    List<Adotante> validarLoginOng(
+            @Param("email") String email,
+            @Param("senha") String senha
+    );
+
 }

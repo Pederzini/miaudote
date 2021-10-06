@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Adotante")
 public class Adotante extends Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_adotante")
@@ -26,7 +27,6 @@ public class Adotante extends Usuario {
     public Adotante() {
 
     }
-
 
     public Adotante(String telefone, String email, String senha, String urlImagem, Endereco endereco,
                     String nome, Date dataNascimento, String cpf) {
@@ -67,4 +67,5 @@ public class Adotante extends Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
 }

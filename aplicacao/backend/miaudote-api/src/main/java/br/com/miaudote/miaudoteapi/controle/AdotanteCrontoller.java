@@ -16,28 +16,24 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/miaudote/adotante")
 public class AdotanteCrontoller {
+
     @Autowired
     private AdotanteRepository adotanteRepository;
 
     @PostMapping
-    public ResponseEntity cadastroAdotante(@RequestBody Adotante adotanteCad){
+    public ResponseEntity cadastroAdotante(@RequestBody Adotante adotanteCad) {
         adotanteRepository.save(adotanteCad);
         return ResponseEntity.status(201).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity loginAdotante(@RequestBody Login login){
+    public ResponseEntity loginAdotante(@RequestBody Login login) {
         List<Adotante> adot = adotanteRepository.validarLoginOng(login.getEmail(), login.getSenha());
-        if (adot.isEmpty()){
+        if (adot.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
         return ResponseEntity.status(200).body(adot.get(0));
-//        List adotante =
-
-
-
     }
-
 
 
 }

@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class Usuario {
+
     @Column(length = 11, nullable = false)
     private String telefone;
 
@@ -17,10 +18,10 @@ public abstract class Usuario {
     private String urlImagem;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_endereco")
+    @JoinColumn(name = "fk_endereco")
     private Endereco endereco;
 
-    public Usuario(){
+    public Usuario() {
 
     }
 
@@ -71,6 +72,7 @@ public abstract class Usuario {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
 }
 
 

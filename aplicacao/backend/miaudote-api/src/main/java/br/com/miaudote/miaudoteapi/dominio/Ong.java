@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Ong")
 public class Ong extends Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ong")
@@ -26,7 +27,7 @@ public class Ong extends Usuario {
     @Column(length = 14, nullable = false)
     private String cnpj;
 
-    public Ong(){
+    public Ong() {
 
     }
 
@@ -77,4 +78,5 @@ public class Ong extends Usuario {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
 }
