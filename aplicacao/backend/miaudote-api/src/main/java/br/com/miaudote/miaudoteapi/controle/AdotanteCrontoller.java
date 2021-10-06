@@ -5,10 +5,7 @@ import br.com.miaudote.miaudoteapi.dominio.Login;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,5 +32,15 @@ public class AdotanteCrontoller {
         return ResponseEntity.status(200).body(adot.get(0));
     }
 
+    @GetMapping
+    public ResponseEntity getAdotantes() {
+        List<Adotante> adotantes = adotanteRepository.findAll();
+
+        if (adotantes.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        } else {
+            return ResponseEntity.status(200).body(adotantes);
+        }
+    }
 
 }
