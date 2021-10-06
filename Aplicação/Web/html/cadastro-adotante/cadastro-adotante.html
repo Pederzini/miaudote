@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href="cadastro-adotante.css" rel="stylesheet">
+    <script src="cadastro-adotante.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <title>Cadastro Adotante</title>
+</head>
+
+<body>
+    <header>
+        <div class="overlay">
+            <div class="seta-voltar">
+                <img id="seta-voltar" src="../../imagens/Geral/icon-voltar.svg">
+            </div>
+
+            <div class="logo">
+                <img id="logo" src="../../imagens/Geral/logo.svg">
+            </div>
+        </div>
+    </header>
+    <!-- <header class="header">
+        <div class="seta-voltar">
+            <img id="seta-voltar" src="../../imagens/Geral/icon-voltar.svg">
+        </div>
+
+        <div class="logo">
+            <img id="logo" src="../../imagens/Geral/logo.svg">
+        </div>
+    </header> -->
+
+    <div class="content">
+        <div class="titulos">
+            <label class="titulo">CADASTRO</label>
+            <label class="subtitulo">CRIE SUA CONTA</label>
+        </div>
+
+        <div class="grupo-colunas-dados-pessoais">
+            <div class="coluna-esquerda"></div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <span class="titulos-campos">Nome</span>
+                    <input placeholder="Nome Completo" class="campos" id="campo_nome" type="text" name="cmp_nme">
+
+                    <span class="titulos-campos">Data de nascimento</span>
+                    <input class="campos" id="campo_nascimento" type="date" name="cmp_nasc" utocomplete="off">
+
+                    <span class="titulos-campos">CPF</span>
+                    <input class="campos" placeholder="123.456.789-01" id="campo_cpf" oninput="mascara(this, 'cpf')"
+                        type="text" name="cmp_nme">
+
+                    <span class="titulos-campos">Telefone</span>
+                    <input class="campos" oninput="mascara(this, 'tel')" placeholder="99999-9999" id="telefone" type="text"
+                        name="cmp_nme">
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <img src="../../imagens/Cadastro/gato-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="divisoria">
+            <div class="linhas-esquerda">
+                <img src="../../imagens/Cadastro/caminho-esquerda-cadastro.svg">
+            </div>
+            <div class="titulo-divisoria">
+                <label class="titulo">ENDEREÇO</label>
+            </div>
+            <div class="linhas-direita">
+                <img src="../../imagens/Cadastro/caminho-direita-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="grupo-colunas-endereco">
+            <div class="coluna-esquerda">
+                <img src="../../imagens/Cadastro/cachorro-rosa-cadastro.svg">
+            </div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <form method="get" action=".">
+                        <span class="titulos-campos">CEP</span>
+                        <input class="campos" type="text" size="10" id="cep" maxlength="9"
+                            onblur="pesquisacep(this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')">
+
+                        <span class="titulos-campos">Logradouro</span>
+                        <input class="campos" type="text" placeholder="Rua Central" size="60" id="logradouro" disabled="">
+
+                        <span class="titulos-campos">Bairro</span>
+                        <input class="campos" placeholder="Centro" type="text" size="40" id="bairro" disabled="">
+
+                        <span class="titulos-campos">Número</span>
+                        <input class="campos" placeholder="123" type="text" id="numero">
+
+                        <span class="titulos-campos">Complemento</span>
+                        <input class="campos" placeholder="Casa 01" type="text" id="comp">
+                    </form>
+                </div>
+            </div>
+
+            <div class="coluna-direita"></div>
+        </div>
+
+        <div class="divisoria">
+            <div class="linhas-esquerda">
+                <img src="../../imagens/Cadastro/caminho-esquerda-cadastro.svg">
+            </div>
+            <div class="titulo-divisoria">
+                <label class="titulo">EMAIL</label>
+            </div>
+            <div class="linhas-direita">
+                <img src="../../imagens/Cadastro/caminho-direita-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="grupo-colunas-email">
+            <div class="coluna-esquerda"></div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <span class="titulos-campos">E-mail</span>
+                    <input class="campos" placeholder="email@mail.com" id="email" type="text">
+
+                    <span class="titulos-campos">Senha</span>
+                    <div class="container-senha">
+                        <input placeholder="*****" class="campos" id="senha" type="password">
+                        <i id="status-senha" class="fa fa-eye" onclick="exibeSenha()" style="display: flex; align-items: center; margin-left: -30px; cursor: pointer;"></i>
+                    </div>
+
+                    <span class="titulos-campos">Confirmar Senha</span>
+                    <div style="display: flex; margin-left: -10px;">
+                        <input placeholder="*****" class="campos" id="confirmar-senha" type="password" >
+                        <i id="status-senha-confirmar" class="fa fa-eye" onclick="exibeConfirmaSenha()" style="display: flex; align-items: center; margin-left: -30px; cursor: pointer;"></i>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <img src="../../imagens/Cadastro/cachorro-amarelo-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="div-botao-cadastro">
+            <button class="botao-cadastro" onclick="cadastrar()">CADASTRAR</button>
+            <span class="subtitulo-botao">JÁ POSSUI UMA CONTA? <span class="palavra-clicavel" onclick="login()">CLIQUE
+                    AQUI</span></span>
+        </div>
+
+    </div>
+    <footer>
+        <img src="../../imagens/Cadastro/forma-footer-cadastro.svg" alt="">
+    </footer>
+
+</body>
+
+</html>
