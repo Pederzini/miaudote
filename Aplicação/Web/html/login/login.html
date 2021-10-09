@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="login.js"></script>
-  <link rel="stylesheet" href="../../css/style-login.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link href="style-login.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  
   <title>Login</title>
 </head>
 
@@ -44,9 +47,15 @@
             </div>
 
             <div class="input">
-              <label for="senha">Senha: </label>
+              <label>Senha: </label>
               <input placeholder="********" id="senha" type="password">
-              <i id="status-senha" class="fa fa-eye" onclick="exibeSenha()" style="cursor: pointer; display: flex; align-self: end;"></i>
+              <!-- <i id="status-senha" class="fa fa-eye" onclick="exibeSenha()" style="display: flex; align-self: end; margin-left: -30px; cursor: pointer;"></i> -->
+              <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer;">
+                visibility
+                </span>
+              <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer;">
+                visibility_off
+                </span>
             </div>
           </div>
 
@@ -65,7 +74,8 @@
             <p></p>
           </div>
 
-        </div> <!--fim login-->
+        </div>
+        <!--fim login-->
 
         <div class="caminho-login-direita">
           <img class="img-caminho-direita" src="../../imagens/Login/caminho-direita-login.svg" alt="">
@@ -73,9 +83,9 @@
       </div> <!-- fim conteudo-login-->
 
       <!-- FOOTER -->
-      <footer>    
-        <img src="../../imagens/Login/forma-footer-login.svg" alt="">  
-      </footer> 
+      <footer>
+        <img src="../../imagens/Login/forma-footer-login.svg" alt="">
+      </footer>
 
     </div> <!-- fim container-header-footer-->
   </div> <!-- fim container-login-->
@@ -83,3 +93,26 @@
 </body>
 
 </html>
+
+<script>
+  function exibeSenha()
+{
+  var passwordInput = document.getElementById('senha');
+  var passStatus = document.getElementById('status-senha');
+  var iconeOlhoOn = document.getElementById('eye-icon-on');
+  var iconeOlhoOff = document.getElementById('eye-icon-off');
+ 
+  if (passwordInput.type == 'password'){
+    passwordInput.type='text';
+    iconeOlhoOn.style.display = 'none'
+    iconeOlhoOff.style.display = 'block'
+    
+  }
+  else{
+    passwordInput.type='password';
+    iconeOlhoOn.style.display = 'block'
+    iconeOlhoOff.style.display = 'none'
+   
+  }
+}
+</script>
