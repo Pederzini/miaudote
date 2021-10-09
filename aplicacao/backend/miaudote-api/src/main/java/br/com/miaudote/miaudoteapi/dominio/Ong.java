@@ -1,9 +1,12 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Ong")
@@ -26,6 +29,10 @@ public class Ong extends Usuario {
 
     @Column(length = 14, nullable = false)
     private String cnpj;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "ong")
+    private Set<Animal> animais = new HashSet();
 
     public Ong() {
 
@@ -79,4 +86,7 @@ public class Ong extends Usuario {
         this.cnpj = cnpj;
     }
 
+    public Set<Animal> getAnimais() {
+        return this.animais;
+    }
 }

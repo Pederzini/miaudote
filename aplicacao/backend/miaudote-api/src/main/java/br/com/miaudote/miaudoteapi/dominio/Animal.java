@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Animal")
@@ -57,8 +59,8 @@ public class Animal {
     @Column(length = 2083, nullable = false)
     private String urlImagem;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_ong",referencedColumnName = "id_ong")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_ong", referencedColumnName = "id_ong")
     private Ong ong;
 
     public Animal() {

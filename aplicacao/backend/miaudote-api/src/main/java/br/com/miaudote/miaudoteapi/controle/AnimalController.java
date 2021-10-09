@@ -8,6 +8,7 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class AnimalController {
 
     @Autowired
     private AnimalRepository animalRepository;
+
+    @Autowired
     private OngRepository ongRepository;
 
     @GetMapping("/{id}")
@@ -37,15 +40,30 @@ public class AnimalController {
         return ResponseEntity.status(200).body(animal);
     }
 
-    @PostMapping("/{email}")
-    public ResponseEntity cadastroAnimal(@RequestBody Animal animalCad,@PathVariable String cnpj) {
-        Ong ong = ongRepository.findByEmail(cnpj);
-        animalCad.setOng(ong);
-        animalRepository.save(animalCad);
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteAnimal(@PathVariable int id) {
 
-        return ResponseEntity.status(201).build();
+        if (animalRepository.existsById(id)) {
+            animalRepository.delete(animalRepository.getById(id));
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+    
+    @PostMapping
+    public ResponseEntity cadastroAnimal(@RequestBody Animal animalCad) {
+        animalRepository.save(animalCad);
+        return ResponseEntity.status(201).body(animalCad);
     }
 
+    @PutMapping("/{cnpj}/{idAnimal}")
+    public ResponseEntity atribuiOng(@PathVariable String cnpj, @PathVariable int idAnimal) {
+        Animal animal = animalRepository.findById(idAnimal).get();
+        Ong ong = ongRepository.findByCnpj(cnpj);
+        animal.setOng(ong);
+        animalRepository.save(animal);
+        return ResponseEntity.status(201).build();
+    }
     @PutMapping("/{id}")
     public ResponseEntity putAnimal(
             @PathVariable Integer id,
@@ -60,14 +78,6 @@ public class AnimalController {
         return ResponseEntity.status(404).build();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteAnimal(@PathVariable int id) {
 
-        if (animalRepository.existsById(id)) {
-            animalRepository.delete(animalRepository.getById(id));
-            return ResponseEntity.status(200).build();
-        }
-        return ResponseEntity.status(404).build();
-    }
 
 }
