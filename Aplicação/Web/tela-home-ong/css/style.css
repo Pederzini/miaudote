@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap%27');
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  font-family: Nunito Sans;
+  
+}
+
+.menu {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    
+}
+
+.logo-header {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.logo-header img {
+    width: 80%;
+}
+
+.text-menu{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.text-menu p{
+    font-family: Nunito;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin: 3%;
+
+}
+
+.container-btn {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login{
+    height: 35%;
+    width: 47%;
+    border: 0.637931px solid #434343;
+    box-sizing: border-box;
+    border-radius: 94.8611px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(240, 255, 255, 0);
+    cursor: pointer;
+
+}
+  
+
+
+.btn-login img {
+    width: 37%;
+    margin-right: 7%;
+}
+
+
+.btn-login p{
+    font-family: Nunito;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px;  
+    letter-spacing: 0.01em;
+    color: #434343;
+
+
+}
+
+.container-page-1 {
+    width: 1349px;
+    height: 657px;
+}
+
+header{
+    width: 98.7vw;
+    height: 100vh;
+   
+}
+
+header img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-menu{
+    height: 100%;
+    width: 32%;
+    position: absolute;
+    z-index: 1;
+    top: 22%;
+    left: 52%;
+}
+
+.img-menu img {
+    width: 100%;
+ 
+
+}
+
+.container-menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 52%;
+    left: 3%;
+    z-index: 2;
+}
+
+.mensagem {
+    width: 70%;
+}
+
+.mensagem p{
+    font-family: Nunito Sans;
+    font-size: 57px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 77px;
+    letter-spacing: 0.01em;
+    color: #434343;
+  
+
+
+}
+
+#btn-ver-pets{ 
+  width: 201.23px;
+  height: 59.2px;
+  border: none;
+  border-radius: 94.86px;
+  background: #8675A5;
+  box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: 800;
+  font-size: 20.87px;
+  text-transform: uppercase;
+  cursor: pointer;
+ 
+
+}
+
+.container-page-2 {
+    width: 1349px;
+    height: 657px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-adocoes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.container-adocoes img {
+    width: 100%;
+}
+
+.contador-adocoes{
+    width: 17%;
+    height: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 5%;
+    margin-right: 2.8%;
+}
+
+
+
+.contador-adocoes p {
+    font-family: Nunito Sans;
+    font-size: 57px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 78px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: white;
+
+}
+
+.texto-adocoes {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Nunito Sans;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    margin-top: 3%;
+    margin-right: 3%;
+
+}
+
+.texto-adocoes p::before {
+    color: #6250D1;
+    content: "32 ";
+}
+  
+.texto-adocoes p::after {
+    color: #434343;
+    content: "animais já encontrarem um lar";
+
+  }
+  
+.container-page-3 {
+    width: 1349px;
+    height: 657px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+
+.text-doar {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  .text-doar p {
+    font-family: Nunito Sans;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    
+  }
+
+  .container-page-3 img {
+      width: 70%;
+  }
+
+  footer {
+    width: 98.7vw;
+    height: 50vh;
+   
+}
+
+.svg-footer {
+    width: 100%;
+    object-fit: cover;
+}
+
+.container-footer{
+    width: 100%;
+    height: 27%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 324%;
+}
+
+.coluna-1 {
+    width: 33%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.coluna-1 img {
+    width: 40%;
+}
+
+.text-footer P{
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin-top: 5%;
+
+}
+
+.text-footer {
+    width: 40%;
+    height: 29%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.coluna-2{
+    width: 33%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-rede-sociais{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.container-rede-sociais img {
+    height: 80%;
+    margin: 2%;
+}
+
+.coluna-2 p {
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin-top: 6%;
+
+}
+
+.coluna-3{
+    width: 33%;
+    height: 89%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.coluna-3 p {
+    font-family: Nunito Sans;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    text-align: left;
+
+} 
+
+.container-contato {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.btn-contato {
+    height: 20.994733810424805px;
+    width: 21.818056106567383px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8675A5;
+    box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    margin-left: 6%;
+}
