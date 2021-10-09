@@ -77,13 +77,13 @@ function mostrarDivs(valor) {
         divSexoPet.appendChild(imgSexo)
        
         // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
-        let divDadosFavoritos = document.createElement('div')
-        divAnimaisFavoritos.appendChild(divDadosFavoritos)
-        if (divDadosFavoritos.classList) divDadosFavoritos.classList.add("dados-favoritos");
-        else divDadosFavoritos.className += " dados-favoritos";
+        let divDadosAdotante = document.createElement('div')
+        divAnimaisFavoritos.appendChild(divDadosAdotante)
+        if (divDadosAdotante.classList) divDadosAdotante.classList.add("dados-favoritos");
+        else divDadosAdotante.className += " dados-favoritos";
 
         let divImgFavorito = document.createElement('div')
-        divDadosFavoritos.appendChild(divImgFavorito)
+        divDadosAdotante.appendChild(divImgFavorito)
         if (divImgFavorito.classList) divImgFavorito.classList.add("img-favorito");
         else divImgFavorito.className += " img-favorito";
 
@@ -97,12 +97,12 @@ function mostrarDivs(valor) {
         containerFavorito.appendChild(imgCoracaoVermelho)
 
         let caontadorFavorito = document.createElement('div')
-        divDadosFavoritos.appendChild(caontadorFavorito)
+        divDadosAdotante.appendChild(caontadorFavorito)
         if (caontadorFavorito.classList) caontadorFavorito.classList.add("contador-favvorito");
         else caontadorFavorito.className += " contador-favvorito";
 
         let cliqueFavorito = document.createElement('div')
-        divDadosFavoritos.appendChild(cliqueFavorito)
+        divDadosAdotante.appendChild(cliqueFavorito)
         if (cliqueFavorito.classList) cliqueFavorito.classList.add("clique-favorito");
         else cliqueFavorito.className += " clique-favorito";
 
@@ -121,12 +121,161 @@ function mostrarDivs(valor) {
         containerAlinhamento.appendChild(pAlinhamento)
 
     } else if (valor == 2) {
-        let div = document.querySelector(".cards-adocoes")
 
-        let divDadosFavoritos = document.createElement('div')
-        divAnimaisFavoritos.appendChild(divDadosFavoritos)
-        if (divDadosFavoritos.classList) divDadosFavoritos.classList.add("dados-favoritos");
-        else divDadosFavoritos.className += " dados-favoritos";
+        let divCardProcessoAdocao = document.createElement('div')
+        div.appendChild(divCardProcessoAdocao)
+        if (divCardProcessoAdocao.classList) divCardProcessoAdocao.classList.add("card-processo-adocao");
+        else divCardProcessoAdocao.className += " card-processo-adocao";
+
+        let divDadosAdotante = document.createElement('div')
+        divCardProcessoAdocao.appendChild(divDadosAdotante)
+        if (divDadosAdotante.classList) divDadosAdotante.classList.add("dados-adotante");
+        else divDadosAdotante.className += " dados-adotante";
+
+        let divTextoAdotante = document.createElement('div')
+        divDadosAdotante.appendChild(divTextoAdotante)
+        if (divTextoAdotante.classList) divTextoAdotante.classList.add("texto-adotante");
+        else divTextoAdotante.className += " texto-adotante";
+
+        let pNomeAdotante = document.createElement('p')
+        pNomeAdotante.innerHTML = "TABATA FERNANDA"
+        divTextoAdotante.appendChild(pNomeAdotante)
+
+        let pIdadeAdotante = document.createElement('p')
+        pIdadeAdotante.innerHTML = "20 ANOS"
+        divTextoAdotante.appendChild(pIdadeAdotante)
+
+        let pCidadeAdotante = document.createElement('p')
+        pCidadeAdotante.innerHTML = "SÃO PAULO, SP"
+        divTextoAdotante.appendChild(pCidadeAdotante)
+
+        let divImgAdotante = document.createElement('div')
+        divDadosAdotante.appendChild(divImgAdotante)
+        if (divImgAdotante.classList) divImgAdotante.classList.add("img-adotante");
+        else divImgAdotante.className += " img-adotante";
+
+        let imgAdotante = document.createElement('img')
+        imgAdotante.src = "../../imagens/Pets-teste/tabata.svg"
+        divImgAdotante.appendChild(imgAdotante)
+
+        let divTipoContatoAdotante = document.createElement('div')
+        divCardProcessoAdocao.appendChild(divTipoContatoAdotante)
+        if (divTipoContatoAdotante.classList) divTipoContatoAdotante.classList.add("tipo-contato");
+        else divTipoContatoAdotante.className += " tipo-contato";
+
+        let divLinhaContato = document.createElement('div')
+        divTipoContatoAdotante.appendChild(divLinhaContato)
+        if (divLinhaContato.classList) divLinhaContato.classList.add("linha-contato");
+        else divLinhaContato.className += " linha-contato";
+
+        let divImgContato = document.createElement('div')
+        divTipoContatoAdotante.appendChild(divImgContato)
+        if (divImgContato.classList) divImgContato.classList.add("img-contato");
+        else divImgContato.className += " img-contato";
+
+        let imgContato = document.createElement('img')
+        imgContato.src = "../../imagens/Adocoes/icon-whatsapp.svg"
+        divImgContato.appendChild(imgContato)
+
+        let divDadosPetProcesso = document.createElement('div')
+        divCardProcessoAdocao.appendChild(divDadosPetProcesso)
+        if (divDadosPetProcesso.classList) divDadosPetProcesso.classList.add("dados-pet-processo");
+        else divDadosPetProcesso.className += " dados-pet-processo";
+
+        let divImgPetProcesso = document.createElement('div')
+        divDadosPetProcesso.appendChild(divImgPetProcesso)
+        if (divImgPetProcesso.classList) divImgPetProcesso.classList.add("img-pet-processo");
+        else divImgPetProcesso.className += " img-pet-processo";
+
+        let imgPetProcesso = document.createElement('img')
+        imgPetProcesso.src = "../../imagens/Pets-teste/cachorro.svg"
+        divImgPetProcesso.appendChild(imgPetProcesso)
+
+        let divTextoPetProcesso = document.createElement('div')
+        divDadosPetProcesso.appendChild(divTextoPetProcesso)
+        if (divTextoPetProcesso.classList) divTextoPetProcesso.classList.add("texto-pet-processo");
+        else divTextoPetProcesso.className += " texto-pet-processo";
+
+        let pNomePet = document.createElement('p')
+        pNomePet.innerHTML = "THOR"
+        divTextoPetProcesso.appendChild(pNomePet)
+
+        let pIdadePet = document.createElement('p')
+        pIdadePet.innerHTML = "3 ANOS"
+        divTextoPetProcesso.appendChild(pIdadePet)
+
+        let divSexoPetProcesso = document.createElement('div')
+        divTextoPetProcesso.appendChild(divSexoPetProcesso)
+        if (divSexoPetProcesso.classList) divSexoPetProcesso.classList.add("sexo-pet-processo");
+        else divSexoPetProcesso.className += " sexo-pet-processo";
+
+        let pSexoPet = document.createElement('p')
+        pSexoPet.innerHTML = "MACHO"
+        divSexoPetProcesso.appendChild(pSexoPet)
+
+        let imgSexoPetProcesso = document.createElement('img')
+        imgSexoPetProcesso.src = "../../imagens/Adocoes/sexo-masculino.svg"
+        divSexoPetProcesso.appendChild(imgSexoPetProcesso)
+
+        let divContainerBtn = document.createElement('div')
+        divCardProcessoAdocao.appendChild(divContainerBtn)
+        if (divContainerBtn.classList) divContainerBtn.classList.add("container-bnt");
+        else divContainerBtn.className += " container-bnt"
+
+        let btnAdoutou = document.createElement('button')
+        divContainerBtn.appendChild(btnAdoutou)
+        btnAdoutou.id = "btn-adotou"
+
+        let divContainerDentroBtn = document.createElement('div')
+        btnAdoutou.appendChild(divContainerDentroBtn)
+        if (divContainerDentroBtn.classList) divContainerDentroBtn.classList.add("container-dentro-btn");
+        else divContainerDentroBtn.className += " container-dentro-btn"
+
+        let divImgBtn = document.createElement('div')
+        divContainerDentroBtn.appendChild(divImgBtn)
+        if (divImgBtn.classList) divImgBtn.classList.add("img-btn");
+        else divImgBtn.className += " img-btn"
+
+        let imgCasa = document.createElement('img')
+        imgCasa.src = "../../imagens/Adocoes/icon-casa.svg"
+        divImgBtn.appendChild(imgCasa)
+
+        let divTextoAdotou = document.createElement('div')
+        divContainerDentroBtn.appendChild(divTextoAdotou)
+        if (divTextoAdotou.classList) divTextoAdotou.classList.add("texto-adotou");
+        else divTextoAdotou.className += " texto-adotou"
+
+        let pAdotouPet = document.createElement('p')
+        pAdotouPet.innerHTML = "ADOTOU"
+        divTextoAdotou.appendChild(pAdotouPet)
+
+        let btnNaoAdoutou = document.createElement('button')
+        divContainerBtn.appendChild(btnNaoAdoutou)
+        btnNaoAdoutou.id = "btn-nao-adotou"
+
+        let divContainerDentroBtn2 = document.createElement('div')
+        btnNaoAdoutou.appendChild(divContainerDentroBtn2)
+        if (divContainerDentroBtn2.classList) divContainerDentroBtn2.classList.add("container-dentro-btn");
+        else divContainerDentroBtn2.className += " container-dentro-btn"
+
+        let divImgBtn2 = document.createElement('div')
+        divContainerDentroBtn2.appendChild(divImgBtn2)
+        if (divImgBtn2.classList) divImgBtn2.classList.add("img-btn");
+        else divImgBtn2.className += " img-btn"
+
+        let imgLixeira = document.createElement('img')
+        imgLixeira.src = "../../imagens/Adocoes/icon-lixeira.svg"
+        divImgBtn2.appendChild(imgLixeira)
+
+        let divTextoNaoAdotou = document.createElement('div')
+        divContainerDentroBtn2.appendChild(divTextoNaoAdotou)
+        if (divTextoNaoAdotou.classList) divTextoNaoAdotou.classList.add("texto-nao-adotou");
+        else divTextoNaoAdotou.className += " texto-nao-adotou"
+
+        let pNaoAdotouPet = document.createElement('p')
+        pNaoAdotouPet.innerHTML = "NÃO ADOTOU"
+        divTextoNaoAdotou.appendChild(pNaoAdotouPet)
+
     }
 }
 
