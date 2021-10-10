@@ -168,14 +168,17 @@ background:#638481;
 
 }
 
+.cards-adocoes p {
+    text-transform: uppercase;
+}
+
 .opcoes-adocoes {
     width: 100%;
     height: 28%;
     display: flex;
     flex-direction: row;
     align-items: center;
- 
-    
+    cursor: pointer;
 }
 
 .img-opcoes {

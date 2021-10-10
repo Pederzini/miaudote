@@ -1,26 +1,28 @@
 function trocaMenu(valor) {
-    
+
     let todasDivs = document.querySelectorAll('.opcoes-adocoes');
 
     const divs = [document.querySelectorAll('.card-animais-favoritos'),
-                  document.querySelectorAll('.card-processo-adocao'), 
+                  document.querySelectorAll('.card-processo-adocao'),
                   document.querySelectorAll('.card-animais-adotados')]
 
-    todasDivs.forEach(element => {
-        let valorDiv = element.getAttribute('value') - 1
-        if (valor == element.getAttribute('value')) {
-            mostrarDivs(valor)
-            element.style.backgroundColor = '#FFD8D5';
-        } else {
-            let div = divs[valorDiv]
-            bloquearDivs(div)
-            element.style.backgroundColor = '#FFFFFF';
-        }
-    });
+    if (divs[valor -1].length == 0) {
+        todasDivs.forEach(element => {
+            let valorDiv = element.getAttribute('value') - 1
+            if (valor == element.getAttribute('value')) {
+                mostrarDivs(valor)
+                element.style.backgroundColor = '#FFD8D5';
+            } else {
+                let div = divs[valorDiv]
+                bloquearDivs(div)
+                element.style.backgroundColor = '#FFFFFF';
+            }
+        });
+    }
 
     function bloquearDivs(div) {
         div.forEach(element => {
-            element.style.display = 'none';
+            element.parentNode.removeChild(element);
         });
     }
 
@@ -56,12 +58,12 @@ function mostrarDivs(valor) {
         else divTextoPet.className += " texto-pet";
 
         let pThor = document.createElement('p')
-        pThor.innerHTML = "THOR" 
+        pThor.innerHTML = "THOR"
         divTextoPet.appendChild(pThor)
-       
+
         let pAnos = document.createElement('p')
         pAnos.innerHTML = "3 ANOS"
-        divTextoPet.appendChild(pAnos)  
+        divTextoPet.appendChild(pAnos)
 
         let divSexoPet = document.createElement('div')
         divTextoPet.appendChild(divSexoPet)
@@ -69,13 +71,13 @@ function mostrarDivs(valor) {
         else divSexoPet.className += " sexo-pet";
 
         let pSexo = document.createElement('p')
-        pSexo.innerHTML = "MACHO" 
+        pSexo.innerHTML = "MACHO"
         divSexoPet.appendChild(pSexo)
 
         let imgSexo = document.createElement('img')
         imgSexo.src = "../../imagens/Adocoes/sexo-masculino.svg"
         divSexoPet.appendChild(imgSexo)
-       
+
         // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
         let divDadosAdotante = document.createElement('div')
         divAnimaisFavoritos.appendChild(divDadosAdotante)
@@ -121,7 +123,6 @@ function mostrarDivs(valor) {
         containerAlinhamento.appendChild(pAlinhamento)
 
     } else if (valor == 2) {
-
         let divCardProcessoAdocao = document.createElement('div')
         div.appendChild(divCardProcessoAdocao)
         if (divCardProcessoAdocao.classList) divCardProcessoAdocao.classList.add("card-processo-adocao");
@@ -225,6 +226,9 @@ function mostrarDivs(valor) {
         let btnAdoutou = document.createElement('button')
         divContainerBtn.appendChild(btnAdoutou)
         btnAdoutou.id = "btn-adotou"
+        btnAdoutou.addEventListener('click', () => {
+            // Ação de marcar como adotado
+        })
 
         let divContainerDentroBtn = document.createElement('div')
         btnAdoutou.appendChild(divContainerDentroBtn)
@@ -252,6 +256,9 @@ function mostrarDivs(valor) {
         let btnNaoAdoutou = document.createElement('button')
         divContainerBtn.appendChild(btnNaoAdoutou)
         btnNaoAdoutou.id = "btn-nao-adotou"
+        btnNaoAdoutou.addEventListener('click', function () {
+            // Ação de apagar
+        })
 
         let divContainerDentroBtn2 = document.createElement('div')
         btnNaoAdoutou.appendChild(divContainerDentroBtn2)
@@ -276,6 +283,101 @@ function mostrarDivs(valor) {
         pNaoAdotouPet.innerHTML = "NÃO ADOTOU"
         divTextoNaoAdotou.appendChild(pNaoAdotouPet)
 
+    } else if (valor == 3) {
+        let divCardAnimaisAdotados = document.createElement('div')
+        div.appendChild(divCardAnimaisAdotados)
+        if (divCardAnimaisAdotados.classList) divCardAnimaisAdotados.classList.add("card-animais-adotados");
+        else divCardAnimaisAdotados.className += " card-animais-adotados"
+
+        let divInformacoesAdotante = document.createElement('div')
+        divCardAnimaisAdotados.appendChild(divInformacoesAdotante)
+        if (divInformacoesAdotante.classList) divInformacoesAdotante.classList.add("informacoes-adotante");
+        else divInformacoesAdotante.className += " informacoes-adotante"
+
+        let divTextAdotante = document.createElement('div')
+        divInformacoesAdotante.appendChild(divTextAdotante)
+        if (divTextAdotante.classList) divTextAdotante.classList.add("text-adotante");
+        else divTextAdotante.className += " text-adotante";
+
+        let pNomeAdotante = document.createElement('p')
+        pNomeAdotante.innerHTML = "TABATA FERNANDA"
+        divTextAdotante.appendChild(pNomeAdotante)
+
+        let pIdadeAdotante = document.createElement('p')
+        pIdadeAdotante.innerHTML = "20 ANOS"
+        divTextAdotante.appendChild(pIdadeAdotante)
+
+        let pCidadeAdotante = document.createElement('p')
+        pCidadeAdotante.innerHTML = "SÃO PAULO, SP"
+        divTextAdotante.appendChild(pCidadeAdotante)
+
+        let divImagemAdotante = document.createElement('div')
+        divInformacoesAdotante.appendChild(divImagemAdotante)
+        if (divImagemAdotante.classList) divImagemAdotante.classList.add("imagem-adotante");
+        else divImagemAdotante.className += " imagem-adotante";
+
+        let imgAdotante = document.createElement('img')
+        imgAdotante.src = "../../imagens/Pets-teste/tabata.svg"
+        divImagemAdotante.appendChild(imgAdotante)
+
+        let divContainerCasa = document.createElement('div')
+        divCardAnimaisAdotados.appendChild(divContainerCasa)
+        if (divContainerCasa.classList) divContainerCasa.classList.add("container-casa");
+        else divContainerCasa.className += " container-casa";
+
+        let divLinhaCasa = document.createElement('div')
+        divContainerCasa.appendChild(divLinhaCasa)
+        if (divLinhaCasa.classList) divLinhaCasa.classList.add("linha-casa");
+        else divLinhaCasa.className += " linha-casa";
+
+        let divImgCasaAdocao = document.createElement('div')
+        divContainerCasa.appendChild(divImgCasaAdocao)
+        if (divImgCasaAdocao.classList) divImgCasaAdocao.classList.add("img-casa-adocao");
+        else divImgCasaAdocao.className += " img-casa-adocao";
+
+        let imgCasaAdocao = document.createElement('img')
+        imgCasaAdocao.src = "../../imagens/Geral/casa-azul.svg"
+        divImgCasaAdocao.appendChild(imgCasaAdocao)
+
+        let divDadosPet = document.createElement('div')
+        divCardAnimaisAdotados.appendChild(divDadosPet)
+        if (divDadosPet.classList) divDadosPet.classList.add("dados-pet");
+        else divDadosPet.className += " dados-pet";
+
+        let divImgPet = document.createElement('div')
+        divDadosPet.appendChild(divImgPet)
+        if (divImgPet.classList) divImgPet.classList.add("img-pet");
+        else divImgPet.className += " img-pet";
+
+        let imgPet = document.createElement('img')
+        imgPet.src = "../../imagens/Pets-teste/cachorro.svg"
+        divImgPet.appendChild(imgPet)
+
+        let divTextoPet = document.createElement('div')
+        divDadosPet.appendChild(divTextoPet)
+        if (divTextoPet.classList) divTextoPet.classList.add("texto-pet");
+        else divTextoPet.className += " texto-pet";
+
+        let pNomePet = document.createElement('p')
+        pNomePet.innerHTML = "THOR"
+        divTextoPet.appendChild(pNomePet)
+
+        let pIdadePet = document.createElement('p')
+        pIdadePet.innerHTML = "THOR"
+        divTextoPet.appendChild(pIdadePet)
+
+        let divSexoPet = document.createElement('div')
+        divTextoPet.appendChild(divSexoPet)
+        if (divSexoPet.classList) divSexoPet.classList.add("sexo-pet");
+        else divSexoPet.className += " sexo-pet";
+
+        let pSexoPet = document.createElement('p')
+        pSexoPet.innerHTML = "MACHO"
+        divSexoPet.appendChild(pSexoPet)
+
+        let imgSexoPet = document.createElement('img')
+        imgSexoPet.src = "../../imagens/Adocoes/sexo-masculino.svg"
+        divSexoPet.appendChild(imgSexoPet)
     }
 }
 
