@@ -1,6 +1,5 @@
 package br.com.miaudote.miaudoteapi.controle;
 
-import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
@@ -8,12 +7,9 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-
-// FAZER OS ENDPOINTS
 @RestController
 @RequestMapping("/miaudote/animal")
 public class AnimalController {
@@ -49,7 +45,7 @@ public class AnimalController {
         }
         return ResponseEntity.status(404).build();
     }
-    
+
     @PostMapping
     public ResponseEntity cadastroAnimal(@RequestBody Animal animalCad) {
         animalRepository.save(animalCad);
@@ -64,6 +60,7 @@ public class AnimalController {
         animalRepository.save(animal);
         return ResponseEntity.status(201).build();
     }
+
     @PutMapping("/{id}")
     public ResponseEntity putAnimal(
             @PathVariable Integer id,
@@ -77,7 +74,5 @@ public class AnimalController {
 
         return ResponseEntity.status(404).build();
     }
-
-
 
 }
