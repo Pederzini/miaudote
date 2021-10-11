@@ -1,4 +1,4 @@
-package br.com.miaudote.miaudoteapi.dominio;
+package br.com.miaudote.miaudoteapi.utilitarios;
 
 public class Login {
 

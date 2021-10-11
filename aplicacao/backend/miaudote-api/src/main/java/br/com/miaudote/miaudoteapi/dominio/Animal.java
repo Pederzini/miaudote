@@ -1,12 +1,10 @@
 package br.com.miaudote.miaudoteapi.dominio;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "Animal")
@@ -132,8 +130,9 @@ public class Animal {
         this.descricao = descricao;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public String getDataNascimento() {
+        SimpleDateFormat formatoCerto = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoCerto.format(dataNascimento);
     }
 
     public void setDataNascimento(Date dataNascimento) {
@@ -141,15 +140,20 @@ public class Animal {
     }
 
     public String getGenero() {
-        return genero;
+        if(genero.equals("f")) {
+            return "Femea";
+        }
+
+        return "Macho";
     }
 
     public void setGenero(String genero) {
         this.genero = genero;
     }
 
-    public Date getDataChegada() {
-        return dataChegada;
+    public String getDataChegada() {
+        SimpleDateFormat formatoCerto = new SimpleDateFormat("dd/MM/yyyy");
+        return formatoCerto.format(dataChegada);
     }
 
     public void setDataChegada(Date dataChegada) {
@@ -164,8 +168,12 @@ public class Animal {
         this.corPelagem = corPelagem;
     }
 
-    public Boolean getCastrado() {
-        return castrado;
+    public String getCastrado() {
+        if(castrado) {
+            return "Sim";
+        }
+
+        return "Nao";
     }
 
     public void setCastrado(Boolean castrado) {
@@ -188,8 +196,12 @@ public class Animal {
         this.tipoPelagem = tipoPelagem;
     }
 
-    public Boolean getVacinado() {
-        return vacinado;
+    public String getVacinado() {
+        if(vacinado) {
+            return "Sim";
+        }
+
+        return "Nao";
     }
 
     public void setVacinado(Boolean vacinado) {
@@ -204,8 +216,12 @@ public class Animal {
         this.comportamento = comportamento;
     }
 
-    public Boolean getAdotado() {
-        return adotado;
+    public String getAdotado() {
+        if(adotado) {
+            return "Sim";
+        }
+
+        return "Nao";
     }
 
     public void setAdotado(Boolean adotado) {
@@ -213,6 +229,10 @@ public class Animal {
     }
 
     public String getNecessidadeEspeciais() {
+        if(necessidadeEspeciais == null) {
+            return "-";
+        }
+
         return necessidadeEspeciais;
     }
 

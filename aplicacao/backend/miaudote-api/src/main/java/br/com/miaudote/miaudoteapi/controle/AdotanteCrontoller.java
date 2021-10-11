@@ -1,15 +1,13 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
-import br.com.miaudote.miaudoteapi.dominio.Login;
-import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/miaudote/adotante")

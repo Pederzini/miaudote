@@ -89,4 +89,5 @@ public class Ong extends Usuario {
     public Set<Animal> getAnimais() {
         return this.animais;
     }
+
 }
