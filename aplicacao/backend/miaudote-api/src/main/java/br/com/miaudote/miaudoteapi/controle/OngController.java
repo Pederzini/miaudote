@@ -1,6 +1,6 @@
 package br.com.miaudote.miaudoteapi.controle;
 
-import br.com.miaudote.miaudoteapi.dominio.Login;
+import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
