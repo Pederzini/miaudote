@@ -1,14 +1,17 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/miaudote/ong")
 public class OngController {
@@ -18,7 +21,12 @@ public class OngController {
 
     @PostMapping
     public ResponseEntity cadastroOng(@RequestBody Ong ongCad) {
-        ongRepository.save(ongCad);
+        try {
+            ongRepository.save(ongCad);
+        } catch (DataIntegrityViolationException erro) {
+            return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroOng(erro));
+        }
+
         return ResponseEntity.status(201).build();
     }
 

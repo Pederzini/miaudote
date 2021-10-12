@@ -14,7 +14,7 @@ public abstract class Usuario {
     @Column(length = 16, nullable = false)
     private String senha;
 
-    @Column(length = 2083, nullable = false)
+    @Column(length = 2083, nullable = true)
     private String urlImagem;
 
     @OneToOne(cascade = CascadeType.ALL)
