@@ -1,4 +1,5 @@
 var contador = 0;
+var senhas = false;
 
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
@@ -91,7 +92,7 @@ function verificaCamposVazios() {
     senha.style.borderColor = '#949494';
     confirmarSenha.style.borderColor = '#949494';
     
-    if(!nome.validity.valid) {
+    if (!nome.validity.valid) {
         nome.style.borderColor = '#ff0000';
         contador++;
     } if (!nascimento.validity.valid) {
@@ -261,25 +262,33 @@ function exibeConfirmaSenha()
   }
 }
 
-function cadastrar() {
-    var senha = document.getElementById('senha').value;
-    var senhaConfirma = document.getElementById('confirmar-senha').value;
-    
-    if (senha == senhaConfirma) {
-    console.log("CAdastrado com sucesso")
+function validaSenhas() {
+    var senha = document.getElementById('campo-senha').value
+    var confirmarSenha = document.getElementById('campo-confirmar-senha').value
+
+    if(senha != confirmarSenha) {
+        return false
     } else {
-        console.log("Senha errada")
+        return true
     }
 }
 
 function postCadastroAdotante() {
     var camposVazios = verificaCamposVazios()
+    senhas = validaSenhas()
 
     if(camposVazios != 0) {
         Swal.fire({
             title: 'Campo(s) vazio(s)!',
             text: 'Não deixe nenhum campo vazio',
-            icon: 'error',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    } else if(!senhas){
+        Swal.fire({
+            title: 'Senhas não são iguais!',
+            text: 'Verifique as senhas digitadas para serem iguais',
+            icon: 'warning',
             confirmButtonText: 'Ok'
         })
     } else {   
@@ -325,7 +334,7 @@ function postCadastroAdotante() {
             Swal.fire({
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonText: 'Ok'
             })
         })
