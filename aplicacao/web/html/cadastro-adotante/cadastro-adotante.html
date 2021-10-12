@@ -99,7 +99,7 @@
                         <input onblur="trocaCorBorda(this)" class="campos" placeholder="Centro" type="text" size="40" id="campo-bairro" disabled="" required>
 
                         <span class="titulos-campos">Número</span>
-                        <input onblur="trocaCorBorda(this)" class="campos" placeholder="123" type="text" id="campo-numero" required>
+                        <input onblur="trocaCorBorda(this)" class="campos" placeholder="123" type="text" id="campo-numero" maxlength="6" required>
 
                         <span class="titulos-campos">Complemento</span>
                         <input onblur="trocaCorBorda(this)" class="campos" placeholder="Casa 01" type="text" id="campo-complemento" required>
@@ -132,7 +132,7 @@
 
                     <span class="titulos-campos">Senha</span>
                     <div class="container-senha">
-                        <input onblur="trocaCorBorda(this)" placeholder="*****" class="campos" id="campo-senha" type="password" required>
+                        <input onblur="trocaCorBorda(this)" placeholder="*****" class="campos" id="campo-senha" type="password" maxlength="16" required>
                         <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                             visibility
                         </span>           
@@ -143,7 +143,7 @@
 
                     <span class="titulos-campos">Confirmar Senha</span>
                     <div style="display: flex; margin-left: -10px;">
-                        <input onblur="trocaCorBorda(this)" placeholder="*****" class="campos" id="campo-confirmar-senha" type="password" required>
+                        <input onblur="trocaCorBorda(this)" placeholder="*****" class="campos" id="campo-confirmar-senha" type="password" maxlength="16" required>
                         <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                             visibility
                         </span>           
