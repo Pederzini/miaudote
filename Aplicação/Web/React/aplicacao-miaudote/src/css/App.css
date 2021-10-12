@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   /* background-color: var(--branco); */
-  height: 400vh;
 }
 
 /* HEADER */
@@ -53,7 +52,7 @@
   display: flex;
   position: fixed;
   justify-content: space-between;
-  top: 25px;
+  top: 15px;
   left: 50px;
   right: 50px;
 }
@@ -83,7 +82,7 @@
 
 .pagina-atual img {
   position: absolute;
-  top: 50px;
+  top: 40px;
   margin-left: 8px;
 }
 
@@ -237,10 +236,150 @@
 
 .container-cadastro {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10%;
 }
 
+.conteudo-cadastro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 3%;
+  width: 100vw;
+  height: 75vh;
+  background-image: url(../imagens/Home/formas-cadastro.svg);
+  background-repeat: no-repeat;
+}
 
+.content-doar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-adotar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texto-cadastro {
+  padding: 5%;
+  color: var(--cinza);
+  font-family: Nunito Sans;
+  font-size: 22.77px;
+  font-style: 500;
+  font-weight: 400;
+  line-height: 31.5px;
+  letter-spacing: 0.01em;
+}
 /* FIM CONTEUDO CADASTRO */
+
+
+/* CONTEUDO QUEM SOMOS */
+.container-quem-somos {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.img-quem-somos {
+  width: 100%;
+}
+
+/* FIM CONTEUDO QUEM SOMOS */
+
+/* FOOTER */
+footer {
+  margin-top: 5%;
+  height: 341px;
+  width: 100vw;
+  background-image: url(../imagens/Geral/forma-footer.svg);
+  background-repeat: no-repeat;
+}
+
+footer p {
+  color: var(--cinza);
+  font-family: var(--nunito-sans);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.container-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-footer {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: space-around;
+  padding-left: 5%;
+  padding-bottom: 1%;
+}
+
+.content-redes-sociais {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30%;
+  justify-content: space-around;
+  padding-bottom: 1%;
+
+}
+
+.redes-sociais {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.content-contato-footer {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  width: 10%;
+  justify-content: space-around;
+  padding-right: 5%;
+  padding-bottom: 1%;
+}
+
+.titulo-contato p {
+  color: var(--cinza);
+  font-family: var(--nunito-sans);
+  font-size: 13.28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18.11px;
+  letter-spacing: 0.01em;
+}
+
+.email {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.telefone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* FIM FOOTER */

@@ -16,6 +16,15 @@ import imgBtnDireita from './imagens/Geral/icon-seta-direita.svg';
 import imgFavoritarBranco from './imagens/Geral/icon-coracao-branco.svg';
 import imgFavoritarVermelho from './imagens/Geral/icon-coracao-vermelho.svg';
 import imgLocalizacao from './imagens/Geral/icon-localizacao.svg';
+import imgMulherCadastro from './imagens/Home/mulher-caixa-cachorro.svg';
+import imgHomemCadastro from './imagens/Home/homem-cachorro.svg';
+import imgQuemSomos from './imagens/Home/quem-somos.svg';
+import imgFacebook from './imagens/Geral/icon-facebook.svg';
+import imgInstagram from './imagens/Geral/icon-instagram.svg';
+import imgGithub from './imagens/Geral/icon-github.svg';
+import imgWspp from './imagens/Geral/icon-whatsapp-footer.svg';
+import imgEmail from './imagens/Geral/icon-email-footer.svg';
+
 // import componentes
 import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
@@ -91,9 +100,74 @@ function App() {
       {/* FAÇA O SEU CADASTRO */}
       <div className="container-cadastro">
         <Titulo titulo="Faça o seu cadastro"></Titulo>
+        <div className="conteudo-cadastro">
+
+          <div className="content-doar">
+            <div className="img-doar">
+              <img src={imgMulherCadastro} alt="" />
+            </div>
+            <div className="texto-cadastro">
+              <p>Quero doar</p>
+            </div>
+            <BotaoCadastro />
+          </div> {/* fim content-doar */}
+
+          <div className="content-adotar">
+            <div className="img-adotar">
+              <img src={imgHomemCadastro} alt="" />
+            </div>
+
+            <div className="texto-cadastro">
+              <p>Quero adotar</p>
+            </div>
+            <BotaoCadastro />
+          </div>
+        </div> {/* fim conteudo-cadastro */}
+      </div> {/* fim container-cadastro */}
+
+      {/* QUEM SOMOS */}
+      <div className="container-quem-somos">
+        <Titulo titulo="Quem somos"></Titulo>
+        <div className="img-quem-somos">
+          <img src={imgQuemSomos} alt="" />
+        </div>
       </div>
 
-    </div> // fim App 
+      {/* FOOTER */}
+      <footer>
+        <div className="container-footer">
+
+          <div className="logo-footer">
+            <img src={imgLogo} alt="" />
+            <p>Copyright© 2021</p>
+          </div>
+
+          <div className="content-redes-sociais">
+            <div className="redes-sociais">
+              <img src={imgFacebook} alt="" />
+              <img src={imgInstagram} alt="" />
+              <img src={imgGithub} alt="" />
+            </div>
+            <p>Desenvolvido por alunos BandTec</p>
+          </div> {/* fim content-redes-sociais */}
+
+          <div className="content-contato-footer">
+            <div className="titulo-contato">
+              <p>Contato</p>
+            </div>
+            <div className="email">
+              <p>emai@mail.com</p> <img src={imgEmail} alt="" />
+            </div>
+            <div className="telefone">
+              <p>(11)99555-5555</p> <img src={imgWspp} alt="" />
+            </div>
+          </div> {/* fim content-contato-footer */}
+
+        </div> {/* fim container-footer */}
+      </footer>
+
+
+    </div> // fim App
   );
 }
 
