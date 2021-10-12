@@ -43,9 +43,20 @@
 
 /* Inicio da tela de adoções, opção de favorito*/
 
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.container-header {
+    width: 100%;
+    height: 22%;
+}
+
 .menu {
     width: 100%;
-    height: 20%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -227,7 +238,7 @@ align-items: center;
 }
 
 .opcoes-adocoes:hover {
-    background-color: #FFD8D5;
+    background-color: #ffe9e9 !important;
 }
 
 
