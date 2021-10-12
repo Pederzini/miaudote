@@ -5,11 +5,19 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 public class AnalisaException {
 
-    public static String analisaErroCadastro(DataIntegrityViolationException erro) {
+    public static String analisaErroCadastroAdotante(DataIntegrityViolationException erro) {
         if(erro.getMostSpecificCause().getMessage().contains("@")) {
             return "Email já cadastrado!";
         }
 
-        return "CPF já cadastrado";
+        return "CPF já cadastrado!";
+    }
+
+    public static String analisaErroCadastroOng(DataIntegrityViolationException erro) {
+        if(erro.getMostSpecificCause().getMessage().contains("@")) {
+            return "Email já cadastrado!";
+        }
+
+        return "CNPJ já cadastrado!";
     }
 }

@@ -1,16 +1,14 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
+import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
-import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @CrossOrigin
@@ -26,7 +24,7 @@ public class AdotanteCrontoller {
         try {
             adotanteRepository.save(adotanteCad);
         } catch (DataIntegrityViolationException erro) {
-            return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastro(erro));
+            return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroAdotante(erro));
         }
 
         return ResponseEntity.status(201).build();
