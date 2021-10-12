@@ -9,7 +9,6 @@
     <link href="cadastro-ong.css" rel="stylesheet">
     <script src="cadastro-ong.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Cadastro ONG</title>
@@ -40,20 +39,20 @@
             <div class="coluna-centro">
                 <div class="container-campos">
                     <span class="titulos-campos">Razão Social</span>
-                    <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme">
+                    <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" required>
 
                     <span class="titulos-campos">CNPJ</span>
-                    <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj" oninput="mascara(this, 'cnpj')">
+                    <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj" onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" required>
 
                     <span class="titulos-campos">Data da Fundação</span>
-                    <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off">
+                    <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off" required>
 
                     <span class="titulos-campos">Nome do Responsável</span>
-                    <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp">
+                    <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp" required>
 
                     <span class="titulos-campos">Telefone</span>
-                    <input class="campos" oninput="mascara(this, 'tel')" placeholder="99999-9999" id="telefone" type="text"
-                        name="cmp_tel">
+                    <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone" type="text"
+                        name="cmp_tel" maxlength="15" required>
                 </div>
             </div>
 
@@ -83,20 +82,20 @@
                 <div class="container-campos">
                     <form method="get" action=".">
                         <span class="titulos-campos">CEP</span>
-                        <input class="campos" type="text" size="10" id="cep" maxlength="9"
-                            onblur="pesquisacep(this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')">
+                        <input class="campos" type="text" size="10" id="campo_cep" maxlength="9"
+                            onblur="pesquisacep(this,this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')" required>
 
                         <span class="titulos-campos">Logradouro</span>
-                        <input class="campos" type="text" placeholder="Rua Central" size="60" id="logradouro" disabled="">
+                        <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled="" required>
 
                         <span class="titulos-campos">Bairro</span>
-                        <input class="campos" placeholder="Centro" type="text" size="40" id="bairro" disabled="">
+                        <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
 
                         <span class="titulos-campos">Número</span>
-                        <input class="campos" placeholder="123" type="text" id="numero">
+                        <input class="campos" placeholder="123" type="text" id="campo_numero" maxlength="6" required>
 
                         <span class="titulos-campos">Complemento</span>
-                        <input class="campos" placeholder="Casa 01" type="text" id="comp">
+                        <input class="campos" placeholder="Casa 01" type="text" id="campo_complemento" required>
                     </form>
                 </div>
             </div>
@@ -122,11 +121,11 @@
             <div class="coluna-centro">
                 <div class="container-campos">
                     <span class="titulos-campos">E-mail</span>
-                    <input class="campos" placeholder="email@mail.com" id="email" type="text">
+                    <input class="campos" placeholder="email@mail.com" id="campo_email" type="text" required>
 
                     <span class="titulos-campos">Senha</span>
                     <div class="container-senha">
-                        <input placeholder="*****" class="campos" id="senha" type="password">
+                        <input placeholder="*****" class="campos" id="campo_senha" type="password" maxlength="16" required>
                         <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                             visibility
                         </span>           
@@ -137,7 +136,7 @@
 
                     <span class="titulos-campos">Confirmar Senha</span>
                     <div style="display: flex; margin-left: -10px;">
-                        <input placeholder="*****" class="campos" id="confirmar-senha" type="password" >
+                        <input placeholder="*****" class="campos" id="campo_confirmar_senha" type="password" maxlength="16" required>
                         <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                             visibility
                         </span>           
@@ -154,7 +153,7 @@
         </div>
 
         <div class="div-botao-cadastro">
-            <button class="botao-cadastro" onclick="cadastrar()">CADASTRAR</button>
+            <button class="botao-cadastro" onclick="postCadastroOng()">CADASTRAR</button>
             <span class="subtitulo-botao">JÁ POSSUI UMA CONTA? <span class="palavra-clicavel" onclick="login()">CLIQUE
                     AQUI</span></span>
         </div>
@@ -164,6 +163,7 @@
         <img src="../../imagens/Cadastro/forma-footer-cadastro.svg" alt="">
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
