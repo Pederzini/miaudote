@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +8,8 @@
   <script src="login.js"></script>
   <link href="style-login.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  
-  
+
+
   <title>Login</title>
 </head>
 
@@ -40,7 +39,7 @@
           </div>
 
           <!-- CCONTAINER INPUTS -->
-          <div class="container-inputs">
+          <!-- <div class="container-inputs">
             <div class="input">
               <label for="email">Email:</label>
               <input placeholder="Email" type="text" name="email" id="">
@@ -48,14 +47,34 @@
 
             <div class="input">
               <label>Senha: </label>
-              <input placeholder="********" id="senha" type="password">
-              <!-- <i id="status-senha" class="fa fa-eye" onclick="exibeSenha()" style="display: flex; align-self: end; margin-left: -30px; cursor: pointer;"></i> -->
-              <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer;">
+              <div class="senha-input">
+                <input placeholder="********" id="senha" type="password">
+                <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer;display: flex; align-self: self-end;">
+                  visibility
+                  </span>
+                <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer;">
+                  visibility_off
+                  </span>
+
+              </div>
+            </div>
+          </div> -->
+
+          <div class="container-campos">
+            <span class="titulos-campos">E-mail</span>
+            <input class="campos" placeholder="email@mail.com" id="email" type="text">
+
+            <span class="titulos-campos">Senha</span>
+            <div class="container-senha">
+              <input placeholder="*****" class="campos" id="senha" type="password">
+              <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons"
+                style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                 visibility
-                </span>
-              <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer;">
+              </span>
+              <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons"
+                style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
                 visibility_off
-                </span>
+              </span>
             </div>
           </div>
 
@@ -95,24 +114,23 @@
 </html>
 
 <script>
-  function exibeSenha()
-{
-  var passwordInput = document.getElementById('senha');
-  var passStatus = document.getElementById('status-senha');
-  var iconeOlhoOn = document.getElementById('eye-icon-on');
-  var iconeOlhoOff = document.getElementById('eye-icon-off');
- 
-  if (passwordInput.type == 'password'){
-    passwordInput.type='text';
-    iconeOlhoOn.style.display = 'none'
-    iconeOlhoOff.style.display = 'block'
-    
+  function exibeSenha() {
+    var passwordInput = document.getElementById('senha');
+    var passStatus = document.getElementById('status-senha');
+    var iconeOlhoOn = document.getElementById('eye-icon-on');
+    var iconeOlhoOff = document.getElementById('eye-icon-off');
+
+    if (passwordInput.type == 'password') {
+      passwordInput.type = 'text';
+      iconeOlhoOn.style.display = 'none'
+      iconeOlhoOff.style.display = 'block'
+
+    }
+    else {
+      passwordInput.type = 'password';
+      iconeOlhoOn.style.display = 'block'
+      iconeOlhoOff.style.display = 'none'
+
+    }
   }
-  else{
-    passwordInput.type='password';
-    iconeOlhoOn.style.display = 'block'
-    iconeOlhoOff.style.display = 'none'
-   
-  }
-}
 </script>
