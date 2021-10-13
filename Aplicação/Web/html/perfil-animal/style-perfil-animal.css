@@ -1,0 +1,49 @@
+
+
+.background-header-rosa {
+position: fixed;
+top: 0;
+width: 100vw;
+}
+   
+.botoes-header {
+display: flex;
+align-items: center;
+color: var(--cinza);
+font-size: 20.77px;
+}
+
+.header-lista {
+display: flex;
+list-style-type: none;
+}
+
+.lista-header > li {
+margin: 0 60px 0 0;
+cursor: pointer;
+}
+
+.botao-login {
+height: 40.65px;
+width: 132px;
+background-color: transparent;
+border: 0.61px solid var(--cinza);
+border-radius: 94.86px;
+cursor: pointer;
+font-family: var(--nunito);
+font-weight: 800;
+font-style: normal;
+font-size: 16.86px;
+color: var(--cinza);
+}
+
+.pagina-atual img {
+position: absolute;
+top: 50px;
+margin-left: 8px;
+}
+
+.page {
+width: 1366px;
+height: 657px;
+}
