@@ -515,7 +515,6 @@ footer {
 }
 
 .text-footer P {
-  font-family: Nunito Sans;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -557,7 +556,6 @@ footer {
 }
 
 .coluna-2 p {
-  font-family: Nunito Sans;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -579,7 +577,6 @@ footer {
 }
 
 .container-contato p {
-  font-family: Nunito Sans;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -609,7 +606,6 @@ footer {
 }
 
 .text-titulo-contato {
-  font-family: Nunito Sans;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
