@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;  
+  font-family: Nunito Sans;
+}
+
+.container-login {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-header-footer {
+  width: 100%;
+  height: 100%;
+  display: flex;    
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* INICIO HEADER */
+header {
+  width: 100vw;
+  display: flex;   
+}
+
+header img {
+  width: 100%;
+} 
+
+.botao-voltar img {
+  width: 25%;
+}
+
+.logo {
+  width: 10%;
+  height: 15%;
+  position: absolute;
+  left: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5vh;
+}
+
+.logo img {
+  width: 75%;
+}
+/* FIM HEADER */
+
+/* INICIO CONTEUDO LOGIN */
+.conteudo-login {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+}
+
+.caminho-login {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-caminho {
+  height: 372px;
+}
+
+.caminho-login-direita {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+/* INICIO LOGIN */
+.login {
+  width: 40%;
+  height: 105%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo p {
+  font-family: Nunito;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 39px;
+  letter-spacing: 0.01em;
+  color: #434343;
+}
+
+.subtitulo {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.subtitulo p {
+  font-family: Nunito;
+  font-size: 18.97px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25.88px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #434343;
+}
+
+.container-inputs {
+  width: 100%;
+  height: 50%;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  justify-content: space-between;
+}
+
+.input input {
+  height: 60%;
+  background: #FFFFFF;
+  border: 0.948611px solid #949494;
+  box-sizing: border-box;
+  border-radius: 3.79444px;
+}
+
+.input input::-webkit-input-placeholder {
+  padding-left: 3%;
+  color: #646363;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+}
+
+.input label {
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0px;
+  color: #6250D1;
+}
+
+/*CAMPO EMAIL E SENHA*/
+
+.titulos-campos {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: start;
+  color: var(--titulo-campos);
+}
+
+.campos {
+  width: 335px;
+  height: 59px;
+  padding-left: 12px;
+  border: 1px solid #949494;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 18px;
+}
+
+.campos:focus {
+  border-color: var(--titulo-campos);
+}
+
+.container-campos {
+  /* width: 100%; */
+  /* width: 335px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-senha {
+  width: 100%;
+  display: flex;
+  padding-bottom: 14px;
+}
+
+
+/* END CAMPO EMAIL E SENHA*/
+.container-checkbox {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-checkbox label {
+  color: #434343;
+  margin-right: 2%;
+  font-family: Nunito;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25.88px;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.container-checkbox label:nth-child(3) {
+    color: #434343;
+    margin-right: 2%;
+    margin-left: 5%;
+  }
+
+
+.container-checkbox input {
+  accent-color: #6250D1;
+}
+
+
+
+.container-botao-entrar {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container-botao-entrar button {
+  width: 40%;
+  height: 36%;
+  border: none;
+  background: #8F7FAC;
+  border-radius: 94.8611px;
+  font-family: Nunito;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: white;
+}
+ 
+.container-botao-entrar p {
+  font-family: Nunito;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0.01em;
+  padding-bottom: 7px;
+}
+
+
+.container-botao-entrar p::before {
+  color: #434343;
+  content: "NÃO TEM UMA CONTA?";
+}
+
+.container-botao-entrar p::after {
+  color: #6250D1;
+  content: " ACESSE AQUI";
+}
+
+
+
+/* FIM LOGIN */
+
+.img-caminho-direita {
+  height: 372px;
+}
+
+/* FIM CONTEUDO LOGIN */
+
+/* INICIO FOOTER */
+footer {
+  width: 100%;
+  display: flex;   
+}
+    
+footer img {
+  width: 100%; 
+} 
+
+/* FIM FOOTER */
+
+
