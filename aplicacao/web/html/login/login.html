@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="login.js"></script>
   <link href="style-login.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 
   <title>Login</title>
 </head>
@@ -38,35 +37,13 @@
             <p>BEM-VINDO DE VOLTA</p>
           </div>
 
-          <!-- CCONTAINER INPUTS -->
-          <!-- <div class="container-inputs">
-            <div class="input">
-              <label for="email">Email:</label>
-              <input placeholder="Email" type="text" name="email" id="">
-            </div>
-
-            <div class="input">
-              <label>Senha: </label>
-              <div class="senha-input">
-                <input placeholder="********" id="senha" type="password">
-                <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer;display: flex; align-self: self-end;">
-                  visibility
-                  </span>
-                <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer;">
-                  visibility_off
-                  </span>
-
-              </div>
-            </div>
-          </div> -->
-
           <div class="container-campos">
             <span class="titulos-campos">E-mail</span>
-            <input class="campos" placeholder="email@mail.com" id="email" type="text">
+            <input class="campos" placeholder="email@mail.com" id="campo_email" type="text" required>
 
             <span class="titulos-campos">Senha</span>
             <div class="container-senha">
-              <input placeholder="*****" class="campos" id="senha" type="password">
+              <input placeholder="*****" class="campos" id="campo_senha" type="password" required>
               <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons"
                 style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
                 visibility
@@ -81,16 +58,16 @@
           <!-- CONTAINER RADIOS BUTTONS -->
           <div class="container-checkbox">
             <label for="ong">ONG</label>
-            <input type="checkbox" name="ong" id="">
+            <input type="radio" name="login" id="radio_ong" value="ong" checked>
 
             <label for="adotante">Adotante</label>
-            <input type="checkbox" name="adotante" id="">
+            <input type="radio" name="login" id="radio_adotante" value="adotante">
           </div>
 
           <!-- CONTAINER BOTAO ENTRAR -->
           <div class="container-botao-entrar">
-            <button>Entrar</button>
-            <p style=""></p>
+            <button onclick="postLogin()">Entrar</button>
+            <p></p>
           </div>
 
         </div>
@@ -109,28 +86,11 @@
     </div> <!-- fim container-header-footer-->
   </div> <!-- fim container-login-->
 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </body>
 
 </html>
 
-<script>
-  function exibeSenha() {
-    var passwordInput = document.getElementById('senha');
-    var passStatus = document.getElementById('status-senha');
-    var iconeOlhoOn = document.getElementById('eye-icon-on');
-    var iconeOlhoOff = document.getElementById('eye-icon-off');
-
-    if (passwordInput.type == 'password') {
-      passwordInput.type = 'text';
-      iconeOlhoOn.style.display = 'none'
-      iconeOlhoOff.style.display = 'block'
-
-    }
-    else {
-      passwordInput.type = 'password';
-      iconeOlhoOn.style.display = 'block'
-      iconeOlhoOff.style.display = 'none'
-
-    }
-  }
-</script>
+<script defer src="login.js"></script>
+<script defer src="../script.js"></script>

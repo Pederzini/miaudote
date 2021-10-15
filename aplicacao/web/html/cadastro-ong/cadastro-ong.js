@@ -16,6 +16,10 @@ function limpa_formulário_cep() {
     document.getElementById('campo_bairro').value = ("");
 }
 
+function login() {
+    window.location.href = '../login/login.html'
+}
+
 function endereco(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
@@ -329,7 +333,7 @@ function postCadastroOng() {
                 confirmButtonText: 'Ok'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = '../cadastro-ong/cadastro-adotante.html'
+                    window.location.href = '../login/login.html'
                 }
             })
         }).catch(function (error) {

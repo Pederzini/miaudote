@@ -274,6 +274,7 @@ header img {
   line-height: 26px;
   letter-spacing: 0.01em;
   color: white;
+  cursor: pointer;
 }
  
 .container-botao-entrar p {
