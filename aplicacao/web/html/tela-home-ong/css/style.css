@@ -302,41 +302,32 @@ header img {
       width: 70%;
   }
 
-  footer {
-    width: 98.7vw;
-    height: 50vh;
-   
-}
-
 .svg-footer {
-    width: 100%;
+    position: absolute;
     object-fit: cover;
+    z-index: 1;
 }
 
 .container-footer{
     width: 100%;
-    height: 27%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: absolute;
-    z-index: 1;
-    top: 324%;
+    z-index: 2;
+    margin-bottom: 50px;
 }
 
 .coluna-1 {
     width: 33%;
-    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1%;
 }
 
 .coluna-1 img {
-    width: 40%;
+    width: 180px;
 }
 
 .text-footer P{
@@ -344,11 +335,8 @@ header img {
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
-    line-height: 16px;
-    letter-spacing: 0.01em;
     color: #434343;
-    margin-top: 5%;
-
+    margin-top: 10px;
 }
 
 .text-footer {
@@ -360,7 +348,7 @@ header img {
 
 .coluna-2{
     width: 33%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -369,7 +357,6 @@ header img {
 
 .container-rede-sociais{
     width: 100%;
-    height: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -377,7 +364,7 @@ header img {
 }
 
 .container-rede-sociais img {
-    height: 80%;
+    height: 38px;
     margin: 2%;
 }
 
@@ -389,8 +376,7 @@ header img {
     line-height: 16px;
     letter-spacing: 0.01em;
     color: #434343;
-    margin-top: 6%;
-
+    margin-top: 10px;
 }
 
 .coluna-3{
@@ -400,7 +386,6 @@ header img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
 }
 
 .container-contato p {
@@ -408,10 +393,8 @@ header img {
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    line-height: 16px;
     letter-spacing: 0.01em;
     color: #434343;
-
 }
 
 .alinhamento-contato {
@@ -419,18 +402,14 @@ header img {
     width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-   justify-content: center;
-   
+    justify-content: space-between;
 }
 
 .container-contato {
     width: 100%;
-    height: 13%;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    margin-top: 5%;
 }
 
 .text-titulo-contato {
@@ -441,26 +420,41 @@ header img {
     line-height: 18px;
     letter-spacing: 0.01em;
     color: #434343;
-
 }
 
 .container-btn-contato{
-    height: 100%;
-    width: 10%;
-    
+    height: 100%;   
 }
 
-
 .btn-contato {
-    height: 20.994733810424805px;
-    width: 21.818056106567383px;
+    height: 20px;
+    width: 20px;
     border-radius: 100%;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #8675A5;
-    box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
     cursor: pointer;
-    margin-left: 6%;
+}
+
+#svg1 {
+    display: flex;
+    position: absolute;
+    z-index: 0;
+}
+
+#svg2 {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 292px; 
 }
