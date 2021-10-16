@@ -44,6 +44,7 @@ public class AnimalController {
     public ResponseEntity deleteAnimal(@PathVariable int id) {
 
         if (animalRepository.existsById(id)) {
+            animalRepository.getById(id).setOng(null);
             animalRepository.delete(animalRepository.getById(id));
             return ResponseEntity.status(200).build();
         }
