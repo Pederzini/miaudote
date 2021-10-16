@@ -26,7 +26,7 @@ function logoff() {
 }
 
 function redirecionarCadastro() {
-    window.location.href= "../cadastro-pet/cadastro-pet.html"
+    window.location.href= "../../cadastro-pet/cadastro-pet.html"
 }
 
 function gerarRelatorio() {

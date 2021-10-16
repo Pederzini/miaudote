@@ -76,11 +76,8 @@ function postLogin() {
         if (usuario == "ong") {
           window.location.href= "../tela-home-ong/html/home-ong.html"
         } else {
-          // window.location.href= "./tela-card-adocoes/html/tela-card-adocoes.html"
-        }
-
-        
-        
+          window.location.href= "../home-adotante/home-adotante.html"
+        } 
       }).catch(function (error) {
           Swal.fire({
               title: error.response.data,
