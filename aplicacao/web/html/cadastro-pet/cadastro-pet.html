@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
-  <link rel="stylesheet" href="../../css/cadastro-pet.css">
+  <link rel="stylesheet" href="cadastro-pet.css">
   <title>Cadastro Pet</title>
 </head>
 
 <body>
-  <div class="header">
+
+  <div class="container-page-1">
+    <header>
+      <div class="menu">
+        <div class="logo-header">
+          <img src="../../imagens/geral/logo-header.svg" alt="">
+
+        </div>
+        <div class="text-menu">
+          <p>HOME</p>
+          <p>MEU PETS</p>
+          <p>ADOÇÕES</p>
+        </div>
+        <div class="container-btn">
+          <button class="btn-login">
+            <img src="../../imagens/geral/icon-menu.svg" alt="">
+            <p>JOANA</p>
+          </button>
+        </div>
+      </div>
+
+      <img src="../../imagens/perfil-animal/header-simplificado-rosa.svg" alt="">
+    </header>
+  </div>
+
+  <!-- <div class="header">
     <a href="#home" class="logo">
       <img id="logo" src="../../imagens/Geral/logo-header.svg" alt="">
     </a>
@@ -23,7 +50,7 @@
         <img src="" alt="">
         Login</a>
     </div>
-  </div>
+  </div> -->
 
   <!-- <div class="cadastro-pet-header">
     <div class="cadastro-pet-menu">
@@ -39,15 +66,196 @@
       </div>
     </div>
   </div> -->
+
+  <div class="main-container">
+    
+    <div class="titulos">
+      <img class="caminho-esquerda" src="../../imagens/cadastro-pet/caminho-esquerda-cadastro-pet.svg" alt="">
+      <div class="titulo-center">
+        <label class="titulo">CADASTRO</label>
+        <label class="subtitulo">CADASTRE SEU PET</label>
+      </div>
+    </div>
+
+    <div class="conteudo">
+      <div class="container-input">
+        <form class="form-pet" name="cadastro-pet">
+        
+          <label class="titulos-campos" for="nome">Nome do Pet</label>
+          <input class="campos" type="text" id="campo_nome" placeholder="Nome do Pet" required="required" name="nome" />
+
+          <label class="titulos-campos" for="nasc">Data de Nascimento</label>
+          <input class="campos" type="date" id="campos" required="required" name="cmp_nasc" />
+
+          <label class="titulos-campos" for="chegada">Data de Chegada</label>
+          <input class="campos" type="date" id="campos" required="required" name="cmp_chegada" />
+
+          <label class="titulos-campos" for="genero">Gênero</label>          
+          <div class="checkbox">
+            <input class="campos-checkbox" type="checkbox" id="campos"  name="cmp_fem">
+            <label class="texto-checkbox" for="fem">Feminino</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_masc">
+            <label class="texto-checkbox" for="masc">Masculino</label>
+          </div>
+
+          <label class="titulos-campos" for="genero">Porte</label>          
+          <div class="checkbox">
+            <input class="campos-checkbox" type="checkbox" id="campos"  name="cmp_peq">
+            <label class="texto-checkbox" for="peq">Pequeno</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_medio">
+            <label class="texto-checkbox" for="med">Médio</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_grande">
+            <label class="texto-checkbox" for="gran">Grande</label>
+          </div>
+
+          <label class="titulos-campos" for="genero">Pelagem</label>          
+          <div class="checkbox">
+            <input class="campos-checkbox" type="checkbox" id="campos"  name="cmp_curto">
+            <label class="texto-checkbox" for="curto">Curto</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_longo" style="margin-left: 90px;">
+            <label class="texto-checkbox" for="longo">Longo</label>
+          </div>
+
+          <label class="titulos-campos" for="cor">Cor de Pelagem</label>
+          <input class="campos" type="text" id="campos" required="required" name="cmp_cor" placeholder="Ex: Marrom, bege, manchas brancas..."/>     
+          
+          <label class="titulos-campos" for="castrado">Castrado</label>          
+          <div class="checkbox">
+            <input class="campos-checkbox" type="checkbox" id="campos"  name="cmp_cast_sim">
+            <label class="texto-checkbox" for="sim_castr">Sim</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_cast_nao" style="margin-left: 100px;">
+            <label class="texto-checkbox" for="nao_castr">Não</label>
+          </div>
+
+          <label class="titulos-campos" for="castrado">Vacinado</label>          
+          <div class="checkbox">
+            <input class="campos-checkbox" type="checkbox" id="campos"  name="cmp_vac_sim">
+            <label class="texto-checkbox" for="sim_vac">Sim</label>
+
+            <input class="campos-checkbox2" type="checkbox" id="campos" name="cmp_vac_nao" style="margin-left: 100px;">
+            <label class="texto-checkbox" for="nao_vac">Não</label>
+          </div>
+
+          <label class="titulos-campos" for="comport">Comportamento
+            <select class="campos" name="comportamento" id="comp">
+              <option value="1">Agitado</option>
+              <option value="2">Brincalhão</option>
+              <option value="3">Animado</option>
+              <option value="4">Ansioso</option>
+              <option value="5">Calmo</option>
+            </select>
+          </label>
+
+          <label class="titulos-campos" for="especial">Necessidades especiais</label>
+          <input class="campos" type="text" id="campo_especial" placeholder="Ex: Idade avançada..." required="required" name="esp" />
+        </form>
+      </div>
+      
+      <div class="container-imagem">
+        <div class="borda-container">
+          <img class="placeholder-img" src="../../imagens//geral/placeholder-imagem-pet.svg" alt="">
+          
+          <div class="botoes-imagem">
+            <div class="div-arquivo">
+              <div class="arquivo-selecionar">
+                <label class="titulos-campos" for="nome">Arquivo</label>
+                <input class="campos" type="text" id="campo_nome" placeholder="Nome do Pet" required="required" name="nome" />
+              </div>
   
+              <div class="div-botao-cadastro">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
+              </div>
+            </div>
+  
+            <div class="div-arquivo-upload">
+              <div class="div-botao-cadastro-upload">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">UPLOAD</button>
+              </div>
+              <div class="div-botao-cadastro-limpar">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">LIMPAR IMAGEM</button>
+              </div>
+            </div>
+          </div>
 
-  <div>
-    <h1>conteudo</h1>
+        </div>
+
+        <label class="titulo-desc" for="nome">Descrição</label>
+        <div class="borda-container-desc">         
+          <!-- <input class="campo-desc" type="text" id="campo_desc" placeholder="Escreva uma descrição do animal*" required="required" name="desc" size="240" rows="4" cols="50"/>    -->
+          <textarea id="campo_desc" class="campo-desc" placeholder="Escreva uma descrição do animal*" rows="4" cols="50"></textarea>
+        </div>
+        
+        <p class="texto-sugestao">*Sugestão: Digite o texto como se o animal estivesse falando</p>
+    
+      </div>
+    </div>
+    <div class="div-botao-cadastro">
+      <button class="botao-cadastro" onclick="cadastrar()">CADASTRAR PET</button>
+    </div>
+    
   </div>
 
-  <div class="footer-pet">
-     <img class="footer-pet" src="../../imagens/footer/footer-rosa.svg" alt="">
-  </div>
+  
+  <!-- <div class="footer-pet">
+    <img class="footer-pet" src="../../imagens/footer/footer-rosa.svg" alt="">
+  </div> -->
+
+  <footer>
+    <img class="svg-footer" src="../../imagens/home-ong/footer.svg" alt="">
+    <div class="container-footer">
+      <div class="coluna-1">
+        <img src="../../imagens/geral/logo-header.svg" alt="">
+        <div class="text-footer">
+          <P>Copyright© 2021</P>
+        </div>
+
+      </div>
+      <div class="coluna-2">
+        <div class="container-rede-sociais">
+          <img src="../../imagens/geral/icon-facebook.svg" alt="">
+          <img src="../../imagens/geral/icon-instagram.svg" alt="">
+          <img src="../../imagens/geral/icon-github.svg" alt="">
+
+        </div>
+        <p>Desenvolvido por alunos BandTec </p>
+      </div>
+      <div class="coluna-3">
+        <div class="alinhamento-contato">
+          <h1 class="text-titulo-contato">Contato</h1>
+          <div class="container-contato">
+            <p>email@email</p>
+            <div class="container-btn-contato">
+              <button class="btn-contato">
+                <img src="../../imagens/geral/carta.svg" alt="">
+              </button>
+            </div>
+
+          </div>
+          <div class="container-contato">
+            <p>(11)4002-8922</p>
+            <div class="container-btn-contato">
+              <button class="btn-contato">
+                <img src="../../imagens/geral/wpp.svg" alt="">
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
 
 </body>
+
 </html>
+
+<script>
+  var image = "../../imagens//geral/placeholder-imagem-pet.svg";
+</script>
