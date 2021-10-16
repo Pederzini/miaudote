@@ -11,6 +11,10 @@
   
 }
 
+body {
+    min-width: 1366px;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 17.9px;
@@ -39,7 +43,7 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     
 }
 
@@ -117,20 +121,46 @@
     line-height: 28px;  
     letter-spacing: 0.01em;
     color: #434343;
-
-
-}
-
-.container-page-1 {
-    width: 1349px;
-    height: 657px;
-  
 }
 
 header{
-    width: 98.7vw;
-    height: 100vh;
-   
+    width: 100%;
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    display: flex;
+}
+
+.container-mulher {
+    z-index: 3;
+    min-height: 612px;
+    min-width: 715px;
+    display: flex;
+    align-self: self-end;
+}
+
+.svg-fundo {
+    position: absolute;
+    z-index: 0;
+}
+
+.svg-mulher {
+    position: absolute;
+    z-index: 3;
+}
+
+.svg-fundo-mulher {
+    position: absolute;
+    z-index: 2;
+}
+
+.container-geral {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    min-height: 720px;
+    flex-direction: row-reverse;   
 }
 
 header img {
@@ -156,10 +186,10 @@ header img {
 .container-menu{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 52%;
-    left: 3%;
-    z-index: 2;
+    align-self: self-end;
+    justify-self: unset;
+    margin-left: 35px;
+    z-index: 4;
 }
 
 .mensagem {
