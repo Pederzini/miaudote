@@ -31,8 +31,6 @@ import Titulo from './components/Titulo';
 import Card from './components/Card';
 import Modal from './components/Modal';
 
-// const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
-
 function App() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -44,7 +42,6 @@ function App() {
   const homeRef = useRef(null);
   const comoFuncionaRef = useRef(null);
   const adoteRef = useRef(null);
-
 
   const imgAtual = [setIsHome, setIsComoFunciona, setIsAdote]
 
@@ -58,10 +55,26 @@ function App() {
       } else {
         element("inativo")
       }
-      
+
     }
 
     ref.current.scrollIntoView();
+  }
+
+  function linkLogin(tela) {
+    switch (tela) {
+      case "login":
+        window.location.replace('https://www.google.com')
+        break;
+      case "ong":
+        window.location.replace('https://www.youtube.com')
+        break
+      case "adotante":
+        window.location.replace('https://www.twitch.tv')
+        break
+      default:
+        break;
+    }
   }
 
   return (
@@ -76,13 +89,13 @@ function App() {
             <img src={imgLogo} />
             <div className="header-botoes">
               <ul className="header-lista">
-                <li onClick={() => scroll(homeRef, 0)} className={`home ${isHome}`}> <img src={imgOsso}/> HOME</li>
+                <li onClick={() => scroll(homeRef, 0)} className={`home ${isHome}`}> <img src={imgOsso} /> HOME</li>
 
-                <li onClick={() => scroll(comoFuncionaRef, 1)} className={`como-funciona ${isComoFunciona}`}> <img src={imgOsso}/>COMO FUNCIONA</li>
+                <li onClick={() => scroll(comoFuncionaRef, 1)} className={`como-funciona ${isComoFunciona}`}> <img src={imgOsso} />COMO FUNCIONA</li>
 
-                <li onClick={() => scroll(adoteRef, 2)} className={`adote ${isAdote}`}> <img src={imgOsso}/>ADOTE</li>
+                <li onClick={() => scroll(adoteRef, 2)} className={`adote ${isAdote}`}> <img src={imgOsso} />ADOTE</li>
               </ul> {/* fim hedaer-lista */}
-              <button className="botao-login">LOGIN</button>
+              <button onClick={() => linkLogin("login")} className="botao-login">LOGIN</button>
             </div> {/* fim header-botoes */}
           </div> {/* fim header */}
 
@@ -147,7 +160,7 @@ function App() {
             <div className="texto-cadastro">
               <p>Quero doar</p>
             </div>
-            <BotaoCadastro />
+            <BotaoCadastro onOpen={() => linkLogin("adotante")}/>
           </div> {/* fim content-doar */}
 
           <div className="content-adotar">
@@ -158,7 +171,7 @@ function App() {
             <div className="texto-cadastro">
               <p>Quero adotar</p>
             </div>
-            <BotaoCadastro />
+            <BotaoCadastro onOpen={() => linkLogin("ong")}/>
           </div>
         </div> {/* fim conteudo-cadastro */}
       </div> {/* fim container-cadastro */}
