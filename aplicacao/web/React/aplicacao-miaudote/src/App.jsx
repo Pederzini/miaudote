@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/App.css';
-import React from 'react'
+import React, { useState } from 'react'
 
 // import imagens
 import background from './imagens/Geral/forma-header.svg';
@@ -29,8 +29,14 @@ import imgEmail from './imagens/Geral/icon-email-footer.svg';
 import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
 import Card from './components/Card';
+import Modal from './components/Modal';
 
 function App() {
+  
+ const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+  
   return (
     <div className="App">
       <img className="background-header" src={imgHeader} alt="" />
@@ -51,6 +57,10 @@ function App() {
             </div> {/* fim header-botoes */}
           </div> {/* fim header */}
 
+          {/* MODAL */}
+          {isModalVisible ? <Modal onClose={() => setIsModalVisible(false)}/> : null}
+          
+
           {/* CONTEUDO HOME */}
           <div className="container-home">
             <div className="content-home">
@@ -60,7 +70,7 @@ function App() {
               <p className="texto-pequeno">
                 OU AJUDE AS PESSOAS A <br /> ENCONTRAREM O SEU PET IDEAL
               </p>
-              <BotaoCadastro />
+              <BotaoCadastro onOpen={() => setIsModalVisible(true)}/>
             </div> {/* fim content-home */}
             <img src={imgHome} />
           </div> {/* fim container home */}
