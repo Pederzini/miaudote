@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
@@ -362,6 +363,7 @@ span {
     width: 100%;
     display: flex;
     flex-direction: column;
+
    
 }
 
@@ -417,7 +419,7 @@ option{
 
 .localizacao {
     width: 100%;
-    height: 17%;
+    height: 14%;
     display: flex;
     flex-direction: column;
 }
@@ -523,6 +525,66 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	margin-top: -1px;
 }
 
+.container-btn-filtro {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: space-around;
+  
+}
+
+.container-text-btn {
+    width: 75%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+    justify-content: space-between;
+
+}
+
+.container-text-btn u {
+    font-family: Nunito;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #434343;
+  
+}
+
+
+.btn-filtros {
+    border: none;
+    height: 44.584720611572266px;
+    width: 285px;
+    left: 59.7626953125px;
+    top: 1160.1513671875px;
+    border: 0.948611px solid #8F7FAC;
+    border-radius: 94.86111450195312px;
+    box-sizing: border-box;
+    background-color: white;
+    color:#8675A5;
+    font-family: Nunito;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+
+}
+
+
 .btn-filtrar {
     border: none;
     height: 44.584720611572266px;
@@ -595,7 +657,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .img-pet {
     width: 100%;
-    height: 65%;
+    height: 70%;
     border-radius: 25px 25px 0px 0px;
     
 }
