@@ -67,7 +67,7 @@ function App() {
         window.location.replace('https://www.google.com')
         break;
       case "ong":
-        window.location.replace('https://www.youtube.com')
+        window.location.replace('https://pinheiro-dev.github.io/teste/aplicacao/web/html/cadastro-ong/cadastro-ong.html')
         break
       case "adotante":
         window.location.replace('https://www.twitch.tv')
