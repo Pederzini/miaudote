@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/App.css';
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 // import imagens
 import background from './imagens/Geral/forma-header.svg';
@@ -31,14 +31,41 @@ import Titulo from './components/Titulo';
 import Card from './components/Card';
 import Modal from './components/Modal';
 
+// const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
 function App() {
-  
- const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [isHome, setIsHome] = useState("ativo");
+  const [isComoFunciona, setIsComoFunciona] = useState("inativo");
+  const [isAdote, setIsAdote] = useState("inativo");
+
+  const homeRef = useRef(null);
+  const comoFuncionaRef = useRef(null);
+  const adoteRef = useRef(null);
 
 
-  
+  const imgAtual = [setIsHome, setIsComoFunciona, setIsAdote]
+
+  function scroll(ref, value) {
+
+    for (let index = 0; index < imgAtual.length; index++) {
+      const element = imgAtual[index];
+
+      if (value == index) {
+        element("ativo")
+      } else {
+        element("inativo")
+      }
+      
+    }
+
+    ref.current.scrollIntoView();
+  }
+
   return (
-    <div className="App">
+    <div ref={homeRef} className="App">
       <img className="background-header" src={imgHeader} alt="" />
       <div className="container">
         <img className="img-backgound" src={background} />
@@ -49,17 +76,18 @@ function App() {
             <img src={imgLogo} />
             <div className="header-botoes">
               <ul className="header-lista">
-                <li className="pagina-atual"> <img src={imgOsso} /> HOME</li>
-                <li>COMO FUNCIONA</li>
-                <li>ADOTE</li>
+                <li onClick={() => scroll(homeRef, 0)} className={`home ${isHome}`}> <img src={imgOsso}/> HOME</li>
+
+                <li onClick={() => scroll(comoFuncionaRef, 1)} className={`como-funciona ${isComoFunciona}`}> <img src={imgOsso}/>COMO FUNCIONA</li>
+
+                <li onClick={() => scroll(adoteRef, 2)} className={`adote ${isAdote}`}> <img src={imgOsso}/>ADOTE</li>
               </ul> {/* fim hedaer-lista */}
               <button className="botao-login">LOGIN</button>
             </div> {/* fim header-botoes */}
           </div> {/* fim header */}
 
           {/* MODAL */}
-          {isModalVisible ? <Modal onClose={() => setIsModalVisible(false)}/> : null}
-          
+          {isModalVisible ? <Modal onClose={() => setIsModalVisible(false)} /> : null}
 
           {/* CONTEUDO HOME */}
           <div className="container-home">
@@ -70,7 +98,7 @@ function App() {
               <p className="texto-pequeno">
                 OU AJUDE AS PESSOAS A <br /> ENCONTRAREM O SEU PET IDEAL
               </p>
-              <BotaoCadastro onOpen={() => setIsModalVisible(true)}/>
+              <BotaoCadastro onOpen={() => setIsModalVisible(true)} />
             </div> {/* fim content-home */}
             <img src={imgHome} />
           </div> {/* fim container home */}
@@ -79,7 +107,7 @@ function App() {
       </div> {/* fim container */}
 
       {/* COMO FUNCIONA */}
-      <div className="container-como-funciona">
+      <div ref={comoFuncionaRef} className="container-como-funciona">
         <Titulo titulo="Como funciona"></Titulo>
         <div className="container-imagem">
           <img src={imgHLD} />
@@ -87,7 +115,7 @@ function App() {
       </div> {/* fim container-como-funciona */}
 
       {/* ANIMAIS PARA ADOÇÃO */}
-      <div className="container-adocao">
+      <div ref={adoteRef} className="container-adocao">
         <Titulo titulo="Animais disponÍveis para adoção"></Titulo>
         <img src={imgHldAdocao} className="caminho-HLD-adocao" />
         <img src={imgAdocaoCadastro} className="caminho-adocao-cadastro" />

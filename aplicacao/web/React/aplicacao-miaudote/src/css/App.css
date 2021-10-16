@@ -80,10 +80,30 @@
   cursor: pointer;
 }
 
-.pagina-atual img {
+.home img {
   position: absolute;
   top: 40px;
   margin-left: 8px;
+}
+
+.como-funciona img {
+  position: absolute;
+  top: 40px;
+  margin-left: 65px;
+}
+
+.adote img {
+  position: absolute;
+  top: 40px;
+  margin-left: 15px;
+}
+
+.ativo img{
+  visibility: visible;
+}
+
+.inativo img{
+  visibility: hidden;
 }
 
 .botao-login {
