@@ -334,13 +334,12 @@ header img {
     justify-content: center;
     position: absolute;
     z-index: 1;
-    top: 130%;
+    top: 40%;
 }
 
 .container-feedbacks{
-    height: 657px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    height: 500px;
+    display: flex;
     align-items: center;
     justify-content: center;
     grid-auto-rows: 100px;
@@ -531,3 +530,164 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > label:hover ~ input:checked ~ label, 
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
+
+.container-page-3 img {
+    width: 70%;
+}
+
+.svg-footer {
+  position: absolute;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.container-footer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  margin-bottom: 50px;
+}
+
+.coluna-1 {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coluna-1 img {
+  width: 180px;
+}
+
+.text-footer P{
+  font-family: Nunito Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  color: #434343;
+  margin-top: 10px;
+}
+
+.text-footer {
+  width: 40%;
+  height: 29%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.coluna-2{
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-rede-sociais{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container-rede-sociais img {
+  height: 38px;
+  margin: 2%;
+}
+
+.coluna-2 p {
+  font-family: Nunito Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  color: #434343;
+  margin-top: 10px;
+}
+
+.coluna-3{
+  width: 33%;
+  height: 89%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-contato p {
+  font-family: Nunito Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #434343;
+}
+
+.alinhamento-contato {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-contato {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-titulo-contato {
+  font-family: Nunito Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #434343;
+}
+
+.container-btn-contato{
+  height: 100%;   
+}
+
+.btn-contato {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
+  cursor: pointer;
+}
+
+#svg1 {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+}
+
+#svg2 {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 292px; 
+}
