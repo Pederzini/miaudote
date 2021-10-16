@@ -12,7 +12,7 @@
 }
 
 body {
-    min-width: 1366px;
+    min-width: 1348.1px;
 }
 
 /* width */
@@ -134,7 +134,7 @@ header{
 .container-mulher {
     z-index: 3;
     min-height: 612px;
-    min-width: 715px;
+    min-width: 700px;
     display: flex;
     align-self: self-end;
 }
@@ -147,6 +147,8 @@ header{
 .svg-mulher {
     position: absolute;
     z-index: 3;
+    margin-left: 6%;
+    margin-top: 20px;
 }
 
 .svg-fundo-mulher {
@@ -189,7 +191,7 @@ header img {
     align-self: self-end;
     justify-self: unset;
     margin-left: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 127px;
     z-index: 4;
 }
 
