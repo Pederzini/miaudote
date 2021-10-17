@@ -99,7 +99,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    
+  
 }
 
 .text-menu a{
@@ -111,9 +111,47 @@ header {
     letter-spacing: 0.01em;
     color: #434343;
     margin: 3%;
-    cursor: pointer;
     text-decoration: none;
+
 }
+
+.container-btn {
+    height: 100%;
+    width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container-sair {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+
+}
+
+.container-sair img {
+    width: 30%;
+}
+
+.btn-login{
+    height: 33%;
+    width: 72%;
+    border: 0.637931px solid #434343;
+    box-sizing: border-box;
+    border-radius: 94.8611px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(240, 255, 255, 0);
+    cursor: pointer;
+
+}
+  
+  
 
 .text-menu span{
     font-family: Nunito;
@@ -128,29 +166,6 @@ header {
 
 }
 
-.container-btn {
-    height: 100%;
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-login{
-    height: 35%;
-    width: 47%;
-    border: 0.637931px solid #434343;
-    box-sizing: border-box;
-    border-radius: 94.8611px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(240, 255, 255, 0);
-    cursor: pointer;
-
-}
-  
 
 
 .btn-login img {

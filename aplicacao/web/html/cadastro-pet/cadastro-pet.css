@@ -77,16 +77,17 @@ header {
 }
 
 
-.text-menu {
+.text-menu{
   height: 100%;
   width: 60%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+
 }
 
-.text-menu a {
+.text-menu a{
   font-family: Nunito;
   font-size: 23px;
   font-style: normal;
@@ -101,15 +102,28 @@ header {
 
 .container-btn {
   height: 100%;
-  width: 20%;
+  width: 13%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
-.btn-login {
-  height: 35%;
-  width: 47%;
+.container-sair {
+  height: 100%;
+  width: 10%;
+  display: flex;
+  align-items: center;
+
+}
+
+.container-sair img {
+  width: 30%;
+}
+
+.btn-login{
+  height: 33%;
+  width: 72%;
   border: 0.637931px solid #434343;
   box-sizing: border-box;
   border-radius: 94.8611px;
@@ -119,7 +133,9 @@ header {
   justify-content: center;
   background-color: rgba(240, 255, 255, 0);
   cursor: pointer;
+
 }
+
 
 .btn-login img {
   width: 37%;
