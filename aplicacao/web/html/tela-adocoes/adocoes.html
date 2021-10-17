@@ -5,34 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../../../imagens/geral/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <title>MiauDote - Adoçoes</title>
-    <script src="../js/adocoes.js"></script>
+    <script src="adocoes.js"></script>
+    <script src="../script.js"></script>
 </head>
 
-<body>
+<body onload="validarSessao(), trocaMenu(1)">
     <main class="page">
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
-                    <img src="../../../imagens/geral/logo-header.svg" alt="">
+                    <img src="../../imagens/geral/logo-header.svg" alt="">
     
                 </div>
                 <div class="text-menu">
-                    <a href="../../tela-home-ong/html/home-ong.html">HOME</p>
-                    <a href="../../tela-card-adocoes-ong/html/cards-ong.html">MEU PETS</a>
-                    <a href="../html/adocoes.html">ADOÇÕES</a>
+                    <a href="../tela-home-ong/home-ong.html">HOME</p>
+                    <a href="../tela-card-adocoes-ong/cards-ong.html">MEU PETS</a>
+                    <a href="adocoes.html">ADOÇÕES</a>
 
                 </div>
                 <div class="container-btn">
                     <button class="btn-login">
-                        <img src="../../../imagens/geral/icon-menu.svg" alt="">
+                        <img src="../../imagens/geral/icon-menu.svg" alt="">
                         <p id="nome">JOANA</p>
                     </button>
                 </div>
                 <div class="container-sair">
-                    <img src="../../../imagens/geral/sair.svg">
+                    <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
     
                 </div>
 
@@ -59,7 +60,7 @@
 
                 <div class="opcoes-adocoes" value="1" onclick="trocaMenu(1)">
                     <div class="img-opcoes">
-                        <img src="../../../imagens/adocoes/icon-animais-favoritados.svg">
+                        <img src="../../imagens/adocoes/icon-animais-favoritados.svg">
 
                     </div>
                     <div class="texto-opcoes">
@@ -69,7 +70,7 @@
                 </div>
                 <div class="opcoes-adocoes" value="2" onclick="trocaMenu(2)">
                     <div class="img-opcoes">
-                        <img src="../../../imagens/adocoes/icon-processo-de-adocao.svg" alt="">
+                        <img src="../../imagens/adocoes/icon-processo-de-adocao.svg" alt="">
 
                     </div>
                     <div class="texto-opcoes">
@@ -80,12 +81,11 @@
                 </div>
                 <div class="opcoes-adocoes" value="3" onclick="trocaMenu(3)">
                     <div class="img-opcoes">
-                        <img src="../../../imagens/geral/casa-cinza.svg">
+                        <img src="../../imagens/geral/casa-cinza.svg">
 
                     </div>
                     <div class="texto-opcoes">
                         <p>ANIMAIS ADOTADOS</p>
-
                     </div>
 
                 </div>
@@ -93,281 +93,12 @@
             </div>
             <div class="container-linha">
                 <div class="linha-divisao">
-
                 </div>
 
             </div>
 
             <div class="cards-adocoes">
-
-                <!-- <div class="card-animais-favoritos">
-                    <div class="dados-pet">
-                        <div class="img-pet">
-                            <img src="../../imagens/Pets-teste/cachorro.svg" alt="">
-
-                        </div>
-                        <div class="texto-pet">
-                            <p>THOR</p>
-                            <p>3 ANOS</p>
-                            <div class="sexo-pet">
-                                <p> MACHO</p>
-
-                                <img src="../../../imagens/adocoes/sexo-masculino.svg" alt="">
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="dados-favoritos">
-                        <div class="img-favorito">
-                            <div class="container-favorito">
-                                <img src="../../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-                            </div>
-
-
-                        </div>
-                        <div class="contador-favvorito">
-
-                        </div>
-                        <div class="clique-favorito">
-                            <div class="container-clique">
-                                <div class="container-alinhamento">
-                                    <p>CLIQUE AQUI PRA VER QUEM FAVORITOU O THOR</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-animais-favoritos">
-                    <div class="dados-pet">
-                        <div class="img-pet">
-
-                        </div>
-                        <div class="texto-pet">
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <div class="img-sexo-pet">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dados-favoritos">
-                        <div class="img-favorito">
-                            <div class="container-favorito">
-                                <img src="../../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="contador-favvorito">
-
-                        </div>
-                        <div class="clique-favorito">
-
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-animais-favoritos">
-                    <div class="dados-pet">
-                        <div class="img-pet">
-
-                        </div>
-                        <div class="texto-pet">
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <div class="img-sexo-pet">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dados-favoritos">
-                        <div class="img-favorito">
-                            <div class="container-favorito">
-                                <img src="../../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="contador-favvorito">
-
-                        </div>
-                        <div class="clique-favorito">
-
-
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- <div class="card-processo-adocao">
-                    <div class="dados-adotante">
-                        <div class="texto-adotante">
-                            <p>TABATA FERNANDA</p>
-                            <p>20 ANOS</p>
-                            <p>SÃO PAULO, SP</p>
-
-                        </div>
-
-                        <div class="img-adotante">
-                            <img src="../../imagens/Pets-teste/tabata.svg">
-
-                        </div>
-
-                    </div>
-                    <div class="tipo-contato">
-
-                        <div class="linha-contato">
-
-
-                        </div>
-                        <div class="img-contato">
-                            <img src="../../../imagens/adocoes/icon-whatsapp.svg">
-
-                        </div>
-
-
-                    </div>
-                    <div class="dados-pet-processo">
-                        <div class="img-pet-processo">
-                            <img src="../../imagens/Pets-teste/cachorro.svg">
-
-
-                        </div>
-                        <div class="texto-pet-processo">
-                            <p>THOR</p>
-                            <p>3 ANOS</p>
-                            <div class="sexo-pet-processo">
-                                <p> MACHO</p>
-                                <img src="../../../imagens/adocoes/sexo-masculino.svg" alt="">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="container-bnt">
-                        <button id="btn-adotou">
-                            <div class="container-dentro-btn">
-                                <div class="img-btn">
-                                    <img src="../../../imagens/adocoes/icon-casa.svg">
-                                </div>
-                                <div class="texto-adotou">
-                                    <p>
-                                        ADOTOU
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                        </button>
-                        <button id="btn-nao-adotou">
-                            <div class="container-dentro-btn">
-                                <div class="img-btn">
-                                    <img src="../../../imagens/adocoes/icon-lixeira.svg">
-                                </div>
-                                <div class="texto-nao-adotou">
-                                    <p>
-                                        NÃO ADOTOU
-                                    </p>
-                                </div>
-
-                            </div>
-                        </button>
-
-                    </div>
-
-
-
-                </div>
-                <div class="card-processo-adocao">
-
-
-                </div>
-                <div class="card-processo-adocao">
-
-
-                </div> -->
-
-               
-                <!-- <div class="card-animais-adotados">
-                    <div class="informacoes-adotante">
-                        <div class="text-adotante">
-                            <p>TABATA FERNANDA</p>
-                            <p>20 ANOS</p>
-                            <p>SÃO PAULO, SP</p>
-
-                        </div>
-                        <div class="imagem-adotante">
-                            <img src="../../imagens/Pets-teste/tabata.svg">
-
-                        </div>
-
-                    </div>
-                    <div class="container-casa">
-
-                        <div class="linha-casa">
-
-
-                        </div>
-                        <div class="img-casa-adocao">
-                            <img src="../../../imagens/geral/casa-azul.svg">
-                        </div>
-
-
-                    </div>
-                    <div class="dados-pet">
-                        <div class="img-pet">
-                            <img src="../../imagens/Pets-teste/cachorro.svg" alt="">
-
-                        </div>
-                        <div class="texto-pet">
-                            <p>THOR</p>
-                            <p>3 ANOS</p>
-                            <div class="sexo-pet">
-                                <p> MACHO</p>
-
-                                <img src="../../../imagens/adocoes/sexo-masculino.svg" alt="">
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                    
-
-                </div>
-                <div class="card-animais-adotados">
-                    <div class="informacoes-adotante">
-
-                    </div>
-                    
-                    <div class="imagem-adotante">
-
-                    </div>
-
-                </div>
-                <div class="card-animais-adotados">
-                    <div class="informacoes-adotante">
-
-                    </div>
-                    
-                    <div class="imagem-adotante">
-
-                    </div>
-
-                </div> -->
-
-
-
             </div>
-
 
         </div>
 
@@ -426,7 +157,7 @@
     <footer>
         <div class="container-footer">
             <div class="coluna-1">
-                <img src="../../../imagens/geral/logo-header.svg" alt="">
+                <img src="../../imagens/geral/logo-header.svg" alt="">
                 <div class="text-footer">
                     <P>Copyright© 2021</P>
                 </div>
@@ -434,9 +165,9 @@
             </div>
             <div class="coluna-2">
                 <div class="container-rede-sociais">
-                    <img src="../../../imagens/geral/icon-facebook.svg" alt="">
-                    <img src="../../../imagens/geral/icon-instagram.svg" alt="">
-                    <img src="../../../imagens/geral/icon-github.svg" alt="">
+                    <img src="../../imagens/geral/icon-facebook.svg" alt="">
+                    <img src="../../imagens/geral/icon-instagram.svg" alt="">
+                    <img src="../../imagens/geral/icon-github.svg" alt="">
 
                 </div>
                 <p>Desenvolvido por alunos BandTec </p>
@@ -448,7 +179,7 @@
                         <p>email@email</p>
                         <div class="container-btn-contato">
                             <button class="btn-contato">
-                                <img src="../../../imagens/geral/carta.svg" alt="">
+                                <img src="../../imagens/geral/carta.svg" alt="">
                             </button>
                         </div>
 
@@ -457,7 +188,7 @@
                         <p>(11)4002-8922</p>
                         <div class="container-btn-contato">
                             <button class="btn-contato">
-                                <img src="../../../imagens/geral/wpp.svg" alt="">
+                                <img src="../../imagens/geral/wpp.svg" alt="">
                             </button>
                         </div>
 
@@ -485,6 +216,6 @@
 
 </html>
 
-<script>
+<!-- <script>
     window.onload = trocaMenu(1)
-</script>
+</script> -->

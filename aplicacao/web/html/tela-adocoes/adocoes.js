@@ -49,7 +49,7 @@ function mostrarDivs(valor) {
         else divImgPet.className += " img-pet";
 
         let imgPet = document.createElement('img')
-        imgPet.src = "../../../imagens/pets-teste/cachorro.svg"
+        imgPet.src = "../../imagens/pets-teste/cachorro.svg"
         divImgPet.appendChild(imgPet)
 
         let divTextoPet = document.createElement('div')
@@ -75,7 +75,7 @@ function mostrarDivs(valor) {
         divSexoPet.appendChild(pSexo)
 
         let imgSexo = document.createElement('img')
-        imgSexo.src = "../../../imagens/adocoes/sexo-masculino.svg"
+        imgSexo.src = "../../imagens/adocoes/sexo-masculino.svg"
         divSexoPet.appendChild(imgSexo)
 
         // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
@@ -95,7 +95,7 @@ function mostrarDivs(valor) {
         else containerFavorito.className += " container-favorito";
 
         let imgCoracaoVermelho = document.createElement('img')
-        imgCoracaoVermelho.src = "../../../imagens/geral/icon-coracao-vermelho.svg"
+        imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
         containerFavorito.appendChild(imgCoracaoVermelho)
 
         let caontadorFavorito = document.createElement('div')
@@ -156,7 +156,7 @@ function mostrarDivs(valor) {
         else divImgAdotante.className += " img-adotante";
 
         let imgAdotante = document.createElement('img')
-        imgAdotante.src = "../../../imagens/pets-teste/tabata.svg"
+        imgAdotante.src = "../../imagens/pets-teste/tabata.svg"
         divImgAdotante.appendChild(imgAdotante)
 
         let divTipoContatoAdotante = document.createElement('div')
@@ -175,7 +175,7 @@ function mostrarDivs(valor) {
         else divImgContato.className += " img-contato";
 
         let imgContato = document.createElement('img')
-        imgContato.src = "../../../imagens/adocoes/icon-whatsapp.svg"
+        imgContato.src = "../../imagens/adocoes/icon-whatsapp.svg"
         divImgContato.appendChild(imgContato)
 
         let divDadosPetProcesso = document.createElement('div')
@@ -189,7 +189,7 @@ function mostrarDivs(valor) {
         else divImgPetProcesso.className += " img-pet-processo";
 
         let imgPetProcesso = document.createElement('img')
-        imgPetProcesso.src = "../../../imagens/pets-teste/cachorro.svg"
+        imgPetProcesso.src = "../../imagens/pets-teste/cachorro.svg"
         divImgPetProcesso.appendChild(imgPetProcesso)
 
         let divTextoPetProcesso = document.createElement('div')
@@ -215,7 +215,7 @@ function mostrarDivs(valor) {
         divSexoPetProcesso.appendChild(pSexoPet)
 
         let imgSexoPetProcesso = document.createElement('img')
-        imgSexoPetProcesso.src = "../../../imagens/adocoes/sexo-masculino.svg"
+        imgSexoPetProcesso.src = "../../imagens/adocoes/sexo-masculino.svg"
         divSexoPetProcesso.appendChild(imgSexoPetProcesso)
 
         let divContainerBtn = document.createElement('div')
@@ -241,7 +241,7 @@ function mostrarDivs(valor) {
         else divImgBtn.className += " img-btn"
 
         let imgCasa = document.createElement('img')
-        imgCasa.src = "../../../imagens/adocoes/icon-casa.svg"
+        imgCasa.src = "../../imagens/adocoes/icon-casa.svg"
         divImgBtn.appendChild(imgCasa)
 
         let divTextoAdotou = document.createElement('div')
@@ -271,7 +271,7 @@ function mostrarDivs(valor) {
         else divImgBtn2.className += " img-btn"
 
         let imgLixeira = document.createElement('img')
-        imgLixeira.src = "../../../imagens/adocoes/icon-lixeira.svg"
+        imgLixeira.src = "../../imagens/adocoes/icon-lixeira.svg"
         divImgBtn2.appendChild(imgLixeira)
 
         let divTextoNaoAdotou = document.createElement('div')
@@ -317,7 +317,7 @@ function mostrarDivs(valor) {
         else divImagemAdotante.className += " imagem-adotante";
 
         let imgAdotante = document.createElement('img')
-        imgAdotante.src = "../../../imagens/pets-teste/tabata.svg"
+        imgAdotante.src = "../../imagens/pets-teste/tabata.svg"
         divImagemAdotante.appendChild(imgAdotante)
 
         let divContainerCasa = document.createElement('div')
@@ -336,7 +336,7 @@ function mostrarDivs(valor) {
         else divImgCasaAdocao.className += " img-casa-adocao";
 
         let imgCasaAdocao = document.createElement('img')
-        imgCasaAdocao.src = "../../../imagens/geral/casa-azul.svg"
+        imgCasaAdocao.src = "../../imagens/geral/casa-azul.svg"
         divImgCasaAdocao.appendChild(imgCasaAdocao)
 
         let divDadosPet = document.createElement('div')
@@ -350,7 +350,7 @@ function mostrarDivs(valor) {
         else divImgPet.className += " img-pet";
 
         let imgPet = document.createElement('img')
-        imgPet.src = "../../../imagens/pets-teste/cachorro.svg"
+        imgPet.src = "../../imagens/pets-teste/cachorro.svg"
         divImgPet.appendChild(imgPet)
 
         let divTextoPet = document.createElement('div')
@@ -376,7 +376,7 @@ function mostrarDivs(valor) {
         divSexoPet.appendChild(pSexoPet)
 
         let imgSexoPet = document.createElement('img')
-        imgSexoPet.src = "../../../imagens/adocoes/sexo-masculino.svg"
+        imgSexoPet.src = "../../imagens/adocoes/sexo-masculino.svg"
         divSexoPet.appendChild(imgSexoPet)
     }
 }

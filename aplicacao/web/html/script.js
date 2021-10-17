@@ -2,7 +2,7 @@ let login_usuario;
 
 function redirecionar_login() {
     console.log("Redirecionado para a tela de login")
-    // window.location.href = '../Institucional/login.html';
+    window.location.href = '../login/login.html';
 }
 
 function validarSessao() {
@@ -12,12 +12,14 @@ function validarSessao() {
 
     if (login_usuario == undefined) {
         logoff();
-    }
+    } else {
 
-    let nome = document.getElementById("nome")
+        // se no storage tiver CNPJ, mostrar nomeResponsavel, senao mosstrar nome
+        let nome = document.getElementById("nome")
 
-    nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel}`
-    console.log(JSON.parse(login_usuario).nomeResponsavel)    
+        nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel}`
+        console.log(JSON.parse(login_usuario).nomeResponsavel)    
+    } 
 }
 
 function logoff() {

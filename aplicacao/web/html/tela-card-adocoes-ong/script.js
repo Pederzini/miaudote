@@ -2,7 +2,7 @@ let login_usuario;
 
 function redirecionar_login() {
     console.log("Redirecionado para a tela de login")
-    // window.location.href = '../Institucional/login.html';
+    window.location.href = '../login/login.html';
 }
 
 function validarSessao() {
@@ -12,12 +12,13 @@ function validarSessao() {
 
     if (login_usuario == undefined) {
         logoff();
+    } else {
+        let nome = document.getElementById("nome")
+        nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel}`
+        console.log(JSON.parse(login_usuario).nomeResponsavel)
     }
 
-    let nome = document.getElementById("nome")
-
-    nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel}`
-    console.log(JSON.parse(login_usuario).nomeResponsavel)    
+        
 }
 
 function logoff() {
@@ -26,7 +27,7 @@ function logoff() {
 }
 
 function redirecionarCadastro() {
-    window.location.href= "../../cadastro-pet/cadastro-pet.html"
+    window.location.href= "../cadastro-pet/cadastro-pet.html"
 }
 
 function gerarRelatorio() {

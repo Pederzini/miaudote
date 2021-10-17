@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../../../imagens/geral/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
-    <script src="../js/card-adocoes.js"></script>
-    <script src="../js/script.js"></script>
+    <script defer src="card-adocoes.js"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body onload="validarSessao()">
@@ -18,23 +18,23 @@
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
-                    <img src="../../../imagens/geral/logo-header.svg" alt="">
+                    <img src="../../imagens/geral/logo-header.svg" alt="">
 
                 </div>
                 <div class="text-menu">
-                    <a href="../../tela-home-ong/html/home-ong.html">HOME</p>
-                    <a href="../html/cards-ong.html">MEU PETS</a>
-                    <a href="../../tela-adocoes/html/adocoes.html">ADOÇÕES</a>
+                    <a href="../tela-home-ong/home-ong.html">HOME</p>
+                    <a href="cards-ong.html">MEU PETS</a>
+                    <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
 
                 </div>
                 <div class="container-btn">
                     <button class="btn-login">
-                        <img src="../../../imagens/geral/icon-menu.svg" alt="">
+                        <img src="../../imagens/geral/icon-menu.svg" alt="">
                         <p id="nome"></p>
                     </button>
                 </div>
                 <div class="container-sair">
-                    <img src="../../../imagens/geral/sair.svg">
+                    <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
     
                 </div>
 
@@ -51,6 +51,9 @@
 
 
         </header>
+        <div class="container-header">
+
+        </div>
 
         <div class="titulo">
             <p>
@@ -69,7 +72,7 @@
                 </div>
                 <div class="favoritos">
                     <p>Favoritos</p>
-                    <img src="../../../imagens/adote/coracao-filtro.svg" alt="">
+                    <img src="../../imagens/adote/coracao-filtro.svg" alt="">
 
 
                 </div>
@@ -161,7 +164,7 @@
 
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
 
                             </div>
@@ -179,7 +182,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -194,7 +197,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/labrador.svg" alt="">
+                                <img src="../../imagens/pets-teste/labrador.svg" alt="">
 
                             </div>
 
@@ -210,7 +213,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -225,7 +228,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -241,7 +244,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -261,7 +264,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -277,7 +280,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -292,7 +295,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -308,7 +311,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -323,7 +326,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -339,7 +342,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -360,7 +363,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -376,7 +379,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -391,7 +394,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -407,7 +410,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -421,7 +424,7 @@
                         <div class="card-dentro">
                             <div class="img-pet">
 
-                                <img src="../../../imagens/pets-teste/cachorro.svg" alt="">
+                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                             </div>
 
@@ -437,7 +440,7 @@
 
                                     </div>
                                     <div class="local">
-                                        <img src="../../../imagens/adote/local.svg" alt="">
+                                        <img src="../../imagens/adote/local.svg" alt="">
                                         <p>20KM</p>
 
                                     </div>
@@ -460,12 +463,12 @@
         </div>
         <div class="container-pagination">
             <div class="pagination">
-                <a href="#"><img src="../../../imagens/adote/icon-seta-esquerda-adote.svg" alt=""></a>
+                <a href="#"><img src="../../imagens/adote/icon-seta-esquerda-adote.svg" alt=""></a>
                 <a href="#" class="active">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
-                <a href="#"><img src="../../../imagens/adote/icon-seta-direita-adote.svg" alt=""></a>
+                <a href="#"><img src="../../imagens/adote/icon-seta-direita-adote.svg" alt=""></a>
             </div>
         </div>
         <a href="#topo" style="cursor: pointer;">
@@ -520,7 +523,7 @@
         <footer>
             <div class="container-footer">
                 <div class="coluna-1">
-                    <img src="../../../imagens/geral/logo-header.svg" alt="">
+                    <img src="../../imagens/geral/logo-header.svg" alt="">
                     <div class="text-footer">
                         <P>Copyright© 2021</P>
                     </div>
@@ -528,9 +531,9 @@
                 </div>
                 <div class="coluna-2">
                     <div class="container-rede-sociais">
-                        <img src="../../../imagens/geral/icon-facebook.svg" alt="">
-                        <img src="../../../imagens/geral/icon-instagram.svg" alt="">
-                        <img src="../../../imagens/geral/icon-github.svg" alt="">
+                        <img src="../../imagens/geral/icon-facebook.svg" alt="">
+                        <img src="../../imagens/geral/icon-instagram.svg" alt="">
+                        <img src="../../imagens/geral/icon-github.svg" alt="">
 
                     </div>
                     <p>Desenvolvido por alunos BandTec </p>
@@ -542,7 +545,7 @@
                             <p>email@email</p>
                             <div class="container-btn-contato">
                                 <button class="btn-contato">
-                                    <img src="../../../imagens/geral/carta.svg" alt="">
+                                    <img src="../../imagens/geral/carta.svg" alt="">
                                 </button>
                             </div>
 
@@ -551,7 +554,7 @@
                             <p>(11)4002-8922</p>
                             <div class="container-btn-contato">
                                 <button class="btn-contato">
-                                    <img src="../../../imagens/geral/wpp.svg" alt="">
+                                    <img src="../../imagens/geral/wpp.svg" alt="">
                                 </button>
                             </div>
 
