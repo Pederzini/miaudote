@@ -10,6 +10,11 @@
   font-family: Nunito Sans;
   
 }
+html{
+    /*PARA O ONLY PAGE*/
+       scroll-behavior: smooth; 
+   }
+  
 
 body {
     min-width: 1348.1px;
@@ -70,7 +75,7 @@ body {
     justify-content: flex-end;
 }
 
-.text-menu p{
+.text-menu a{
     font-family: Nunito;
     font-size: 23px;
     font-style: normal;
@@ -79,6 +84,7 @@ body {
     letter-spacing: 0.01em;
     color: #434343;
     margin: 3%;
+    text-decoration: none;
 
 }
 

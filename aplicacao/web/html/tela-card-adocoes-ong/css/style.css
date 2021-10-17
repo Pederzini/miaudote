@@ -16,6 +16,11 @@ body{
   font-family: Nunito Sans;
   scroll-behavior: smooth;
 }
+html{
+    /*PARA O ONLY PAGE*/
+       scroll-behavior: smooth; 
+   }
+  
 
 /* width */
 ::-webkit-scrollbar {
@@ -97,7 +102,7 @@ header {
     
 }
 
-.text-menu p{
+.text-menu a{
     font-family: Nunito;
     font-size: 23px;
     font-style: normal;
@@ -107,6 +112,7 @@ header {
     color: #434343;
     margin: 3%;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .text-menu span{

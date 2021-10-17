@@ -5,6 +5,11 @@
   --branco: #FFFFFF;
 }
 
+html{
+  /*PARA O ONLY PAGE*/
+     scroll-behavior: smooth; 
+ }
+
 *,
 *:before,
 *:after {
@@ -36,14 +41,25 @@
 }
 
 /*  HEADER  */
+header {
+  min-width: 1366px;
+  position: sticky;
+}
+
+.container-header {
+  width: 100%;
+  height: 25%;
+  
+}
+
 .menu {
   width: 100%;
-  height: 20%;
+  height: 80%;
   display: flex;
   flex-direction: row;
   position: absolute;
   z-index: 1;
-
+  
 }
 
 .logo-header {
@@ -52,13 +68,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
 
 }
 
 .logo-header img {
   width: 80%;
 }
+
 
 .text-menu {
   height: 100%;
@@ -69,7 +86,7 @@
   justify-content: flex-end;
 }
 
-.text-menu p {
+.text-menu a {
   font-family: Nunito;
   font-size: 23px;
   font-style: normal;
@@ -78,6 +95,7 @@
   letter-spacing: 0.01em;
   color: #434343;
   margin: 3%;
+  text-decoration: none;
 
 }
 
@@ -476,53 +494,41 @@ h3 {
 /* FIM BOTAO CADASTRO  */
 
 
-/* FOOTER */
-footer {
-  width: 99.1vw;
-  /* width: 98.7vw; */
-  height: 49vh;
-}
-
 .svg-footer {
-  width: 100%;
+  position: absolute;
   object-fit: cover;
+  z-index: 1;
 }
 
-.container-footer {
+.container-footer{
   width: 100%;
-  height: 27%;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 1;
-  top: 202%;
+  z-index: 2;
+  margin-bottom: 50px;
 }
 
 .coluna-1 {
   width: 33%;
-  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1%;
 }
 
 .coluna-1 img {
-  width: 40%;
+  width: 180px;
 }
 
-.text-footer P {
+.text-footer P{
+  font-family: Nunito Sans;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 0.01em;
   color: #434343;
-  margin-top: 5%;
-
+  margin-top: 10px;
 }
 
 .text-footer {
@@ -532,18 +538,17 @@ footer {
   align-items: flex-end;
 }
 
-.coluna-2 {
+.coluna-2{
   width: 33%;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.container-rede-sociais {
+.container-rede-sociais{
   width: 100%;
-  height: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -551,39 +556,37 @@ footer {
 }
 
 .container-rede-sociais img {
-  height: 80%;
+  height: 38px;
   margin: 2%;
 }
 
 .coluna-2 p {
+  font-family: Nunito Sans;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
   letter-spacing: 0.01em;
   color: #434343;
-  margin-top: 6%;
-
+  margin-top: 10px;
 }
 
-.coluna-3 {
+.coluna-3{
   width: 33%;
   height: 89%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2%;
 }
 
 .container-contato p {
+  font-family: Nunito Sans;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px;
   letter-spacing: 0.01em;
   color: #434343;
-
 }
 
 .alinhamento-contato {
@@ -591,47 +594,76 @@ footer {
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-
+  justify-content: space-between;
 }
 
 .container-contato {
   width: 100%;
-  height: 13%;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
-  margin-top: 5%;
 }
 
 .text-titulo-contato {
+  font-family: Nunito Sans;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: 0.01em;
   color: #434343;
-
 }
 
-.container-btn-contato {
-  height: 100%;
-  width: 10%;
-
+.container-btn-contato{
+  height: 100%;   
 }
-
 
 .btn-contato {
-  height: 20.994733810424805px;
-  width: 21.818056106567383px;
+  height: 20px;
+  width: 20px;
   border-radius: 100%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #8675A5;
-  box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
   cursor: pointer;
-  margin-left: 6%;
+}
+
+#svg1 {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+}
+
+#svg2 {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+}
+
+.svg-gato {
+  position: absolute;
+  z-index: 3;
+  margin-right: 100px;
+}
+
+.container-gato {
+  min-height: 177px;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 55px;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 292px; 
+  margin-top: 150px;
 }
