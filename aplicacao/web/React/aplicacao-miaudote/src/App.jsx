@@ -61,7 +61,7 @@ function App() {
     ref.current.scrollIntoView();
   }
 
-  function linkLogin(tela) {
+  function linkTela(tela) {
     switch (tela) {
       case "login":
         window.location.replace('https://www.google.com')
@@ -95,7 +95,7 @@ function App() {
 
                 <li onClick={() => scroll(adoteRef, 2)} className={`adote ${isAdote}`}> <img src={imgOsso} />ADOTE</li>
               </ul> {/* fim hedaer-lista */}
-              <button onClick={() => linkLogin("login")} className="botao-login">LOGIN</button>
+              <button onClick={() => linkTela("login")} className="botao-login">LOGIN</button>
             </div> {/* fim header-botoes */}
           </div> {/* fim header */}
 
@@ -160,7 +160,7 @@ function App() {
             <div className="texto-cadastro">
               <p>Quero doar</p>
             </div>
-            <BotaoCadastro onOpen={() => linkLogin("adotante")}/>
+            <BotaoCadastro onOpen={() => linkTela("ong")} />
           </div> {/* fim content-doar */}
 
           <div className="content-adotar">
@@ -171,7 +171,7 @@ function App() {
             <div className="texto-cadastro">
               <p>Quero adotar</p>
             </div>
-            <BotaoCadastro onOpen={() => linkLogin("ong")}/>
+            <BotaoCadastro onOpen={() => linkTela("adotante")} />
           </div>
         </div> {/* fim conteudo-cadastro */}
       </div> {/* fim container-cadastro */}
