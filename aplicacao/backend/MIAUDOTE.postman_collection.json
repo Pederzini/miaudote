@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "f31f1b50-a948-4b5c-8d6a-45ea75a17955",
+		"name": "MIAUDOTE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Miaudote",
+			"item": [
+				{
+					"name": "CadastroAdotante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"cpf\":\"12345678911\",\r\n        \"senha\": \"123456789\",\r\n        \"telefone\":\"11132457899\",\r\n        \"email\": \"isa@haircollor.com.br\",\r\n        \"urlImagem\":\"https://assets.pokemon.com/assets/cms2/img/pokedex/full/807.png\",\r\n        \"dataNascimento\":\"15/06/2010\",\r\n        \"nome\":\"Isabella\",\r\n        \"endereco\":{\r\n            \"logradouro\": \"Rua da Isa\",\r\n            \"numero\": 56,\r\n            \"complemento\": \"Casa\",\r\n            \"bairro\": \"Bairro da Isa\",\r\n            \"cep\": \"Cep daisa\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/adotante",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"adotante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro Ong",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"cnpj\":\"70271856000187\",\r\n        \"senha\": \"123456789\",\r\n        \"telefone\":\"11132457899\",\r\n        \"email\": \"animais2@animais2.com.br\",\r\n        \"urlImagem\":\"https://assets.pokemon.com/assets/cms2/img/pokedex/full/807.png\",\r\n        \"dataFundacao\":\"15/06/2010\",\r\n        \"razaoSocial\": \"Amo Animais\",\r\n        \"nomeResponsavel\":\"Isabella\",\r\n        \"endereco\":{\r\n            \"logradouro\": \"Rua Firmiano Cardoso\",\r\n            \"numero\": 62,\r\n            \"complemento\": \"Casa\",\r\n            \"bairro\": \"Chácara Cruzeiro do Sul\",\r\n            \"cep\": \"03732040\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/ong",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"ong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro Animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Pituca 2\",\r\n    \"descricao\":\"Orgulhosa\",\r\n    \"dataNascimento\":\"20/12/2018\",\r\n    \"genero\":\"f\",\r\n    \"dataChegada\":\"22/12/2018\",\r\n    \"corPelagem\":\"amarelo\",\r\n    \"castrado\":true,\r\n    \"porte\":\"grande\",\r\n    \"tipoPelagem\":\"Curta\",\r\n    \"vacinado\":true,\r\n    \"comportamento\":\"amigavel\",\r\n    \"adotado\":true,\r\n    \"necessidadeEspecial\":\"mimos\",\r\n    \"urlImagem\":\"url da imagem\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/animal",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CadastroEndereco",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"logradouro\": \"Rua Cambuquira\",\r\n    \"numero\": 49,\r\n    \"complemento\": \"Casa\",\r\n    \"bairro\": \"Jardim Tietê\",\r\n    \"cep\": \"03944-100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Adotante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"isa@haircollor.com.br\",\r\n    \"senha\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/adotante/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"adotante",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Ong",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"animais2@animais2.com.br\",\r\n    \"senha\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/ong/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"ong",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ongs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/miaudote/ong",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"ong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Animais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/miaudote/animal",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"animal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Animal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/miaudote/animal/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"animal",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Animal Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/miaudote/animal/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"animal",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api google",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://maps.googleapis.com/maps/api/geocode/json?address=03732040,62&key=AIzaSyBW_ZLgy04TjWvV9i_5HaGXG1ypQ7lsMDs",
+							"protocol": "https",
+							"host": [
+								"maps",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"maps",
+								"api",
+								"geocode",
+								"json"
+							],
+							"query": [
+								{
+									"key": "address",
+									"value": "03732040,62"
+								},
+								{
+									"key": "key",
+									"value": "AIzaSyBW_ZLgy04TjWvV9i_5HaGXG1ypQ7lsMDs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Animal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/miaudote/animal/70271856000187/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"miaudote",
+								"animal",
+								"70271856000187",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
