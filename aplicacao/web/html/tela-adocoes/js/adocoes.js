@@ -363,7 +363,7 @@ function mostrarDivs(valor) {
         divTextoPet.appendChild(pNomePet)
 
         let pIdadePet = document.createElement('p')
-        pIdadePet.innerHTML = "THOR"
+        pIdadePet.innerHTML = "3 ANOS"
         divTextoPet.appendChild(pIdadePet)
 
         let divSexoPet = document.createElement('div')
