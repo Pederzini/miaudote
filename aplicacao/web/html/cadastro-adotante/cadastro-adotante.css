@@ -13,7 +13,6 @@
 }
 
 body {
-    /* height: 100%; */
     height: 100vh;
     width: 100%;
     color: var(--fonte-padrao);
@@ -21,8 +20,7 @@ body {
 
 /* Início - Header */
 header {
-	background: url('../../imagens/Cadastro/forma-header-cadastro.svg') no-repeat;
-	/* width: 100%; */
+	background: url('../../imagens/cadastro/forma-header-cadastro.svg') no-repeat;
     height: 39%;
 	background-size: cover;
     background-attachment: local;
@@ -34,22 +32,8 @@ header {
 header .overlay{
 	width: 100%;
 	height: 100%;
-	padding: 50px;
-    
-     /* display: flex;
-     padding: 2rem; */
-	
+	padding: 50px;	
 }
-
-/* header {
-    background: url("../../imagens/Cadastro/forma-header-cadastro.svg")center center no-repeat;
-    background-size: cover;
-    background-attachment: local;
-    display: flex;
-    align-items: center;
-    padding-top: 5rem;
-    padding-bottom: 7.5rem;
-} */
 
 .seta-voltar {
     cursor: pointer;
@@ -60,13 +44,7 @@ header .overlay{
 .logo {
     display: flex;
     justify-content: center;
-    /* width: 93.13%; */
 }
-
-/* header img {
-    margin-bottom: 100px;
-    aspect-ratio: 122.35/84;
-} */
 
 header:first-child {
     left: 0;
@@ -214,7 +192,6 @@ form {
 
 .grupo-colunas-email {
     width: 100%;
-    /* height: 350px; */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -313,10 +290,6 @@ form {
 /* Início - Footer */
 
 footer {
-    /* background-image: url("../../imagens/Cadastro/forma-footer-cadastro.svg") no-repeat; */
-    /* background-size: 100%; */
-    /* height: 13rem; */
-    /* flex-shrink: 0; */
     width: 100%;
     display: flex;   
 }

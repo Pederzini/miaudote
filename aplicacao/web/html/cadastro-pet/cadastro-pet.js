@@ -82,7 +82,7 @@ function putOng(idAnimal) {
   }).then(response => {
     Swal.fire({
       title: 'Cadastro concluído!',
-      text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
+      text: 'Animal cadastrado com sucesso!',
       icon: 'success',
       confirmButtonText: 'Ok'
     })
