@@ -50,7 +50,7 @@ function App() {
     for (let index = 0; index < imgAtual.length; index++) {
       const element = imgAtual[index];
 
-      if (value == index) {
+      if (value === index) {
         element("ativo")
       } else {
         element("inativo")
@@ -64,13 +64,13 @@ function App() {
   function linkTela(tela) {
     switch (tela) {
       case "login":
-        window.location.replace('https://www.google.com')
+        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/login.html')
         break;
       case "ong":
-        window.location.replace('https://pinheiro-dev.github.io/teste/aplicacao/web/html/cadastro-ong/cadastro-ong.html')
+        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/cadastro-ong/cadastro-ong.html')
         break
       case "adotante":
-        window.location.replace('https://www.twitch.tv')
+        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/cadastro-adotante/cadastro-adotante.html')
         break
       default:
         break;
