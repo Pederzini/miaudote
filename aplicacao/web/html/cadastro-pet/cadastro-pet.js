@@ -40,7 +40,8 @@ function postCadastroPet() {
   var cor = document.getElementById("formulario").elements['cmp_cor'].value
   var castrado = document.getElementById("cmp_cast_sim").checked ? true : false
   var vacinado = document.getElementById("cmp_vac_sim").checked ? true : false
-  var comportamento = document.getElementById("formulario").elements['comportamento'].value
+  var comportamento = document.getElementById("formulario").elements['comportamento']
+  comportamento = comportamento.options[comportamento.selectedIndex].text
   var necessidadesEspeciais = document.getElementById('campo_especial').value
   var imagem = null
   var descricao = document.getElementById("campo_desc").value
