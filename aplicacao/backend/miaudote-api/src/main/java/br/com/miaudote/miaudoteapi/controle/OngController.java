@@ -1,5 +1,7 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Animal;
+import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
@@ -15,6 +17,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/miaudote/ong")
 public class OngController {
+
+    @Autowired
+    private AnimalRepository animalRepository;
 
     @Autowired
     private OngRepository ongRepository;
@@ -69,6 +74,21 @@ public class OngController {
         }
 
         return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/{cnpj}/numeroadotados")
+    public ResponseEntity getNumeroAnimaisAdotados(@PathVariable String cnpj) {
+        Ong ong = ongRepository.findByCnpj(cnpj);
+        List<Animal> animais = animalRepository.findByOng(ong);
+        Integer numeroAdotados = 0;
+
+        for (Animal animal : animais) {
+            if (animal.getAdotado().equalsIgnoreCase("Sim")) {
+                numeroAdotados++;
+            }
+        }
+
+        return ResponseEntity.status(200).body(numeroAdotados);
     }
 
 }
