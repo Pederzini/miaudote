@@ -26,9 +26,11 @@ public class ProcessoAdocao {
     private Integer avaliacaoSite;
 
     @ManyToOne
+    @JoinColumn(name = "fk_adotante", referencedColumnName = "id_adotante")
     private Adotante adotante;
 
     @ManyToOne
+    @JoinColumn(name = "fk_animal", referencedColumnName = "id_animal")
     private Animal animal;
 
     public ProcessoAdocao() {
