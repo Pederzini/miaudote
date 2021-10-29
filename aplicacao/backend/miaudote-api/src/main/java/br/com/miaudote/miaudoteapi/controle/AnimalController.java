@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin
@@ -87,7 +88,7 @@ public class AnimalController {
         List<Animal> animais = animalRepository.findByOng(ong);
         ListaObj<Animal> listaObj = new ListaObj(animais.size());
 
-        for(Animal animal : animais) {
+        for (Animal animal : animais) {
             listaObj.adiciona(animal);
         }
 
@@ -99,4 +100,30 @@ public class AnimalController {
         return new ResponseEntity(relatorio, headers, HttpStatus.OK);
     }
 
+    @GetMapping("/vitrine")
+    public ResponseEntity getAnimaisVitrine() {
+        List<Animal> animais = animalRepository.findAll();
+
+        if (animais.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        Collections.shuffle(animais);
+
+        return ResponseEntity.status(200).body(animais.subList(0, 6));
+    }
+
+    @GetMapping("/numeroadotados")
+    public ResponseEntity getNumeroAnimaisAdotados() {
+        List<Animal> animais = animalRepository.findAll();
+        Integer numeroAdotados = 0;
+
+        for (Animal animal : animais) {
+            if (animal.getAdotado().equalsIgnoreCase("Sim")) {
+                numeroAdotados++;
+            }
+        }
+
+        return ResponseEntity.status(200).body(numeroAdotados);
+    }
 }
