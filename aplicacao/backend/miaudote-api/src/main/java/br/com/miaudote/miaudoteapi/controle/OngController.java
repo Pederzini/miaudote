@@ -79,9 +79,9 @@ public class OngController {
     @GetMapping("/{cnpj}/numero-adotados")
     public ResponseEntity getAdotados(@PathVariable String cnpj) {
         Integer idOng = ongRepository.findByCnpj(cnpj).getIdOng();
-        List<Animal> animais = animalRepository.findByAdotadoTrueAndOngId(idOng);
+        Integer numeroAdotados = animalRepository.countByAdotadoTrueAndOngId(idOng);
 
-        return ResponseEntity.status(200).body(animais.size());
+        return ResponseEntity.status(200).body(numeroAdotados);
     }
 
 }

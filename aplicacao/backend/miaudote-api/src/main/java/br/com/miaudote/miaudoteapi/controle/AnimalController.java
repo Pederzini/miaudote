@@ -113,16 +113,9 @@ public class AnimalController {
         return ResponseEntity.status(200).body(animais.subList(0, 6));
     }
 
-    @GetMapping("/numeroadotados")
+    @GetMapping("/numero-adotados")
     public ResponseEntity getNumeroAnimaisAdotados() {
-        List<Animal> animais = animalRepository.findAll();
-        Integer numeroAdotados = 0;
-
-        for (Animal animal : animais) {
-            if (animal.getAdotado().equalsIgnoreCase("Sim")) {
-                numeroAdotados++;
-            }
-        }
+        Integer numeroAdotados = animalRepository.countByAdotadoTrue();
 
         return ResponseEntity.status(200).body(numeroAdotados);
     }
