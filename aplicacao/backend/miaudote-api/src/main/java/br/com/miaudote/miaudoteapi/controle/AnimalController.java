@@ -101,7 +101,7 @@ public class AnimalController {
     }
 
     @GetMapping("/vitrine")
-    public ResponseEntity getVitrine() {
+    public ResponseEntity getAnimaisVitrine() {
         List<Animal> animais = animalRepository.findRandomTop6();
 
         if (animais.isEmpty()) {
