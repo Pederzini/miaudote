@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "ProcessoAdocao")
+@Table(name = "Processo_Adocao")
 public class ProcessoAdocao {
 
     @Id
@@ -15,21 +15,21 @@ public class ProcessoAdocao {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    @Column(nullable = false)
     private Date dataAdocao;
 
-    @Column(nullable = false)
     private Boolean favoritado;
 
     private String feedback;
 
     private Integer avaliacaoSite;
 
-    @ManyToOne
+    private String modoContato;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_adotante", referencedColumnName = "id_adotante")
     private Adotante adotante;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_animal", referencedColumnName = "id_animal")
     private Animal animal;
 
@@ -37,11 +37,12 @@ public class ProcessoAdocao {
     }
 
     public ProcessoAdocao(Date dataAdocao, Boolean favoritado, String feedback,
-                          Integer avaliacaoSite, Adotante adotante, Animal animal) {
+                          Integer avaliacaoSite, String modoContato, Adotante adotante, Animal animal) {
         this.dataAdocao = dataAdocao;
         this.favoritado = favoritado;
         this.feedback = feedback;
         this.avaliacaoSite = avaliacaoSite;
+        this.modoContato = modoContato;
         this.adotante = adotante;
         this.animal = animal;
     }
@@ -84,6 +85,14 @@ public class ProcessoAdocao {
 
     public void setAvaliacaoSite(Integer avaliacaoSite) {
         this.avaliacaoSite = avaliacaoSite;
+    }
+
+    public String getModoAdocao() {
+        return modoContato;
+    }
+
+    public void setModoAdocao(String modoContato) {
+        this.modoContato = modoContato;
     }
 
     public Adotante getAdotante() {
