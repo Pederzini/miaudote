@@ -76,19 +76,12 @@ public class OngController {
         return ResponseEntity.status(404).build();
     }
 
-    @GetMapping("/{cnpj}/numeroadotados")
-    public ResponseEntity getNumeroAnimaisAdotados(@PathVariable String cnpj) {
-        Ong ong = ongRepository.findByCnpj(cnpj);
-        List<Animal> animais = animalRepository.findByOng(ong);
-        Integer numeroAdotados = 0;
+    @GetMapping("/{cnpj}/numero-adotados")
+    public ResponseEntity getAdotados(@PathVariable String cnpj) {
+        Integer idOng = ongRepository.findByCnpj(cnpj).getIdOng();
+        List<Animal> animais = animalRepository.findByAdotadoTrueAndOngId(idOng);
 
-        for (Animal animal : animais) {
-            if (animal.getAdotado().equalsIgnoreCase("Sim")) {
-                numeroAdotados++;
-            }
-        }
-
-        return ResponseEntity.status(200).body(numeroAdotados);
+        return ResponseEntity.status(200).body(animais.size());
     }
 
 }

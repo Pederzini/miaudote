@@ -11,4 +11,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
 
     List<Animal> findByOng(Ong ongForeignKey);
 
+    List<Animal> findByAdotadoTrueAndOngId(Integer idOng);
+
 }
