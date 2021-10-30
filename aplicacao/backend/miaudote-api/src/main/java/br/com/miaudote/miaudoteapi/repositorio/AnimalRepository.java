@@ -12,6 +12,9 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
 
     List<Animal> findByOng(Ong ongForeignKey);
 
+    @Query(value = "select top 6 * from Animal order by newid()", nativeQuery = true)
+    List<Animal> findRandomTop6();
+
     Integer countByAdotadoTrue();
 
     Integer countByAdotadoTrueAndOngId(Integer idOng);

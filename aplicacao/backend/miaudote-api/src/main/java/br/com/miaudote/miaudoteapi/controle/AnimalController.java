@@ -101,16 +101,14 @@ public class AnimalController {
     }
 
     @GetMapping("/vitrine")
-    public ResponseEntity getAnimaisVitrine() {
-        List<Animal> animais = animalRepository.findAll();
+    public ResponseEntity getVitrine() {
+        List<Animal> animais = animalRepository.findRandomTop6();
 
         if (animais.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
-        Collections.shuffle(animais);
-
-        return ResponseEntity.status(200).body(animais.subList(0, 6));
+        return ResponseEntity.status(200).body(animais);
     }
 
     @GetMapping("/numero-adotados")
