@@ -1,5 +1,8 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Adotante;
+import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
+import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
 import br.com.miaudote.miaudoteapi.dto.FeedbackDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
@@ -7,10 +10,7 @@ import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,5 +48,16 @@ public class ProcessoAdocaoController {
         }
 
         return ResponseEntity.status(200).body(animaisFavoritados);
+    }
+
+    @GetMapping("/{id}/pessoas-que-favoritaram")
+    public ResponseEntity getPessoasQueFavoritaram(@PathVariable Integer id) {
+        List<AdotantesQueFavoritaramDTO> processosAdocao = processoAdocaoRepository.findByAnimalId(id);
+
+        if(processosAdocao.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(processosAdocao);
     }
 }

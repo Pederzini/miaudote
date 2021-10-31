@@ -1,6 +1,8 @@
 package br.com.miaudote.miaudoteapi.repositorio;
 
+import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
+import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
 import br.com.miaudote.miaudoteapi.dto.FeedbackDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,5 +25,7 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
             "AND processo.favoritado = 1 " +
             "GROUP BY id_animal, animal.nome, animal.data_nascimento, animal.genero, animal.url_imagem, processo.favoritado", nativeQuery = true)
     List<AnimaisFavoritadosDTO> encontrarAnimaisFavoritados();
+
+    List<AdotantesQueFavoritaramDTO> findByAnimalId(Integer idAnimal);
 
 }
