@@ -1,6 +1,5 @@
 package br.com.miaudote.miaudoteapi.repositorio;
 
-import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
 import br.com.miaudote.miaudoteapi.dto.AdocaoEmProcessoDTO;
 import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;

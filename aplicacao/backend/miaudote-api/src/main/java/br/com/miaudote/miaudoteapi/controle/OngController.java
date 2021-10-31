@@ -1,11 +1,10 @@
 package br.com.miaudote.miaudoteapi.controle;
 
-import br.com.miaudote.miaudoteapi.dominio.Animal;
+import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
+import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
-import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;

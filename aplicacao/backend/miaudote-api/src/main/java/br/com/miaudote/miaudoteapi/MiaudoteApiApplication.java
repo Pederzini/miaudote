@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MiaudoteApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MiaudoteApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MiaudoteApiApplication.class, args);
+    }
 
 }

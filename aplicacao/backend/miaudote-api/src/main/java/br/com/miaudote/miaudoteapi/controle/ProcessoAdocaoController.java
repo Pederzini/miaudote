@@ -1,7 +1,5 @@
 package br.com.miaudote.miaudoteapi.controle;
 
-import br.com.miaudote.miaudoteapi.dominio.Adotante;
-import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
 import br.com.miaudote.miaudoteapi.dto.AdocaoEmProcessoDTO;
 import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
@@ -33,7 +31,7 @@ public class ProcessoAdocaoController {
     public ResponseEntity getFeedbacksAdotantes() {
         List<FeedbackDTO> feedbacks = processoAdocaoRepository.findByFeedbackNotNull();
 
-        if(feedbacks.isEmpty()) {
+        if (feedbacks.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
@@ -44,7 +42,7 @@ public class ProcessoAdocaoController {
     public ResponseEntity getAnimaisFavoritados() {
         List<AnimaisFavoritadosDTO> animaisFavoritados = processoAdocaoRepository.encontrarAnimaisFavoritados();
 
-        if(animaisFavoritados.isEmpty()) {
+        if (animaisFavoritados.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
@@ -55,7 +53,7 @@ public class ProcessoAdocaoController {
     public ResponseEntity getPessoasQueFavoritaram(@PathVariable Integer id) {
         List<AdotantesQueFavoritaramDTO> processosAdocao = processoAdocaoRepository.findByAnimalId(id);
 
-        if(processosAdocao.isEmpty()) {
+        if (processosAdocao.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
