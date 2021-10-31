@@ -2,11 +2,11 @@ package br.com.miaudote.miaudoteapi.dto;
 
 public interface AnimaisFavoritadosDTO {
 
-    Integer getId_Animal();
+    Integer getIdAnimal();
     String getNome();
     Integer getIdadeAnimal();
     String getGenero();
-    String getUrl_Imagem();
+    String getUrl();
     Integer getFavoritado();
     Integer getNumFavoritado();
 
