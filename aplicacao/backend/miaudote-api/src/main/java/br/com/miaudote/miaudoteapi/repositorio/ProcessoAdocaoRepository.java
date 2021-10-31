@@ -2,6 +2,7 @@ package br.com.miaudote.miaudoteapi.repositorio;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
+import br.com.miaudote.miaudoteapi.dto.AdocaoEmProcessoDTO;
 import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
 import br.com.miaudote.miaudoteapi.dto.FeedbackDTO;
@@ -27,5 +28,7 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
     List<AnimaisFavoritadosDTO> encontrarAnimaisFavoritados();
 
     List<AdotantesQueFavoritaramDTO> findByAnimalId(Integer idAnimal);
+
+    List<AdocaoEmProcessoDTO> findByModoContatoNotNull();
 
 }

@@ -2,6 +2,7 @@ package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
+import br.com.miaudote.miaudoteapi.dto.AdocaoEmProcessoDTO;
 import br.com.miaudote.miaudoteapi.dto.AdotantesQueFavoritaramDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
 import br.com.miaudote.miaudoteapi.dto.FeedbackDTO;
@@ -59,5 +60,12 @@ public class ProcessoAdocaoController {
         }
 
         return ResponseEntity.status(200).body(processosAdocao);
+    }
+
+    @GetMapping("/adocoes-em-processo")
+    public ResponseEntity getEmProcesso() {
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByModoContatoNotNull();
+
+        return ResponseEntity.status(200).body(adocoesEmProcesso);
     }
 }
