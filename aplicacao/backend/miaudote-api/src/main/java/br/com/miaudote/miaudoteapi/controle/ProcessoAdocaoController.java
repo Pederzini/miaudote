@@ -1,5 +1,6 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dto.AnimaisFavoritadosDTO;
 import br.com.miaudote.miaudoteapi.dto.FeedbackDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
@@ -38,4 +39,14 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(200).body(feedbacks);
     }
 
+    @GetMapping("/animais-favoritados")
+    public ResponseEntity getAnimaisFavoritados() {
+        List<AnimaisFavoritadosDTO> animaisFavoritados = processoAdocaoRepository.encontrarAnimaisFavoritados();
+
+        if(animaisFavoritados.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(animaisFavoritados);
+    }
 }
