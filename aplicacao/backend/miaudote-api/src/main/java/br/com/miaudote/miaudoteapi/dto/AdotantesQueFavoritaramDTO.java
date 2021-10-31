@@ -7,10 +7,12 @@ public interface AdotantesQueFavoritaramDTO {
     Adotante getAdotante();
 
     interface Animal {
+        Integer getIdAnimal();
         String getNome();
     }
 
     interface Adotante {
+        Integer getIdAdotante();
         String getNome();
         String getDataNascimento();
         String getUrlImagem();
