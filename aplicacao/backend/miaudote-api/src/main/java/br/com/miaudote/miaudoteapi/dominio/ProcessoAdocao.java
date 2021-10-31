@@ -17,6 +17,9 @@ public class ProcessoAdocao {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date dataAdocao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private Date dataInicioProcesso;
+
     private Boolean favoritado;
 
     private String feedback;
@@ -36,9 +39,10 @@ public class ProcessoAdocao {
     public ProcessoAdocao() {
     }
 
-    public ProcessoAdocao(Date dataAdocao, Boolean favoritado, String feedback,
+    public ProcessoAdocao(Date dataAdocao, Date dataInicioProcesso, Boolean favoritado, String feedback,
                           Integer avaliacaoSite, String modoContato, Adotante adotante, Animal animal) {
         this.dataAdocao = dataAdocao;
+        this.dataInicioProcesso = dataInicioProcesso;
         this.favoritado = favoritado;
         this.feedback = feedback;
         this.avaliacaoSite = avaliacaoSite;
@@ -61,6 +65,14 @@ public class ProcessoAdocao {
 
     public void setDataAdocao(Date dataAdocao) {
         this.dataAdocao = dataAdocao;
+    }
+
+    public Date getDataInicioProcesso() {
+        return dataInicioProcesso;
+    }
+
+    public void setDataInicioProcesso(Date dataInicioProcesso) {
+        this.dataInicioProcesso = dataInicioProcesso;
     }
 
     public Boolean getFavoritado() {
@@ -87,11 +99,11 @@ public class ProcessoAdocao {
         this.avaliacaoSite = avaliacaoSite;
     }
 
-    public String getModoAdocao() {
+    public String getModoContato() {
         return modoContato;
     }
 
-    public void setModoAdocao(String modoContato) {
+    public void setModoContato(String modoContato) {
         this.modoContato = modoContato;
     }
 
