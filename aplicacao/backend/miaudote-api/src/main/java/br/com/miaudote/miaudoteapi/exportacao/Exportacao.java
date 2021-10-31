@@ -13,7 +13,7 @@ public class Exportacao {
         Integer contador = 0;
 
         for (int i = 0; i < lista.getTamanho(); i++) {
-            if(lista.getElemento(i).getAdotado().equalsIgnoreCase("Sim")) {
+            if (lista.getElemento(i).getAdotado().equalsIgnoreCase("Sim")) {
                 contador++;
             }
         }
@@ -25,7 +25,7 @@ public class Exportacao {
         Integer contador = 0;
 
         for (int i = 0; i < lista.getTamanho(); i++) {
-            if(lista.getElemento(i).getAdotado().equalsIgnoreCase("Sim")) {
+            if (lista.getElemento(i).getAdotado().equalsIgnoreCase("Sim")) {
                 contador++;
             }
         }

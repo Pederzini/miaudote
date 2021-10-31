@@ -140,7 +140,7 @@ public class Animal {
     }
 
     public String getGenero() {
-        if(genero.equals("f")) {
+        if (genero.equals("f")) {
             return "Femea";
         }
 
@@ -169,7 +169,7 @@ public class Animal {
     }
 
     public String getCastrado() {
-        if(castrado) {
+        if (castrado) {
             return "Sim";
         }
 
@@ -197,7 +197,7 @@ public class Animal {
     }
 
     public String getVacinado() {
-        if(vacinado) {
+        if (vacinado) {
             return "Sim";
         }
 
@@ -217,7 +217,7 @@ public class Animal {
     }
 
     public String getAdotado() {
-        if(adotado) {
+        if (adotado) {
             return "Sim";
         }
 
@@ -229,7 +229,7 @@ public class Animal {
     }
 
     public String getNecessidadeEspeciais() {
-        if(necessidadeEspeciais == null) {
+        if (necessidadeEspeciais == null) {
             return "-";
         }
 

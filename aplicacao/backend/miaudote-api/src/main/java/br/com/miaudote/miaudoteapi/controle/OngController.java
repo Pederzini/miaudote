@@ -1,9 +1,10 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
+import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
-import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/miaudote/ong")
 public class OngController {
+
+    @Autowired
+    private AnimalRepository animalRepository;
 
     @Autowired
     private OngRepository ongRepository;
@@ -69,6 +73,14 @@ public class OngController {
         }
 
         return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/{cnpj}/numero-adotados")
+    public ResponseEntity getAdotados(@PathVariable String cnpj) {
+        Integer idOng = ongRepository.findByCnpj(cnpj).getIdOng();
+        Integer numeroAdotados = animalRepository.countByAdotadoTrueAndOngId(idOng);
+
+        return ResponseEntity.status(200).body(numeroAdotados);
     }
 
 }

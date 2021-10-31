@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "ProcessoAdocao")
+@Table(name = "Processo_Adocao")
 public class ProcessoAdocao {
 
     @Id
@@ -15,31 +15,38 @@ public class ProcessoAdocao {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    @Column(nullable = false)
     private Date dataAdocao;
 
-    @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private Date dataInicioProcesso;
+
     private Boolean favoritado;
 
     private String feedback;
 
     private Integer avaliacaoSite;
 
-    @ManyToOne
+    private String modoContato;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_adotante", referencedColumnName = "id_adotante")
     private Adotante adotante;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_animal", referencedColumnName = "id_animal")
     private Animal animal;
 
     public ProcessoAdocao() {
     }
 
-    public ProcessoAdocao(Date dataAdocao, Boolean favoritado, String feedback,
-                          Integer avaliacaoSite, Adotante adotante, Animal animal) {
+    public ProcessoAdocao(Date dataAdocao, Date dataInicioProcesso, Boolean favoritado, String feedback,
+                          Integer avaliacaoSite, String modoContato, Adotante adotante, Animal animal) {
         this.dataAdocao = dataAdocao;
+        this.dataInicioProcesso = dataInicioProcesso;
         this.favoritado = favoritado;
         this.feedback = feedback;
         this.avaliacaoSite = avaliacaoSite;
+        this.modoContato = modoContato;
         this.adotante = adotante;
         this.animal = animal;
     }
@@ -58,6 +65,14 @@ public class ProcessoAdocao {
 
     public void setDataAdocao(Date dataAdocao) {
         this.dataAdocao = dataAdocao;
+    }
+
+    public Date getDataInicioProcesso() {
+        return dataInicioProcesso;
+    }
+
+    public void setDataInicioProcesso(Date dataInicioProcesso) {
+        this.dataInicioProcesso = dataInicioProcesso;
     }
 
     public Boolean getFavoritado() {
@@ -82,6 +97,14 @@ public class ProcessoAdocao {
 
     public void setAvaliacaoSite(Integer avaliacaoSite) {
         this.avaliacaoSite = avaliacaoSite;
+    }
+
+    public String getModoContato() {
+        return modoContato;
+    }
+
+    public void setModoContato(String modoContato) {
+        this.modoContato = modoContato;
     }
 
     public Adotante getAdotante() {

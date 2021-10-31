@@ -44,14 +44,14 @@ public class ListaObj<T> {
         return -1;
     }
 
-    public boolean removePeloIndice (int indice) {
+    public boolean removePeloIndice(int indice) {
         if (indice < 0 || indice >= nroElem) {
             System.out.println("\nÍndice inválido!");
             return false;
         }
 
         for (int i = indice; i < nroElem - 1; i++) {
-            vetor[i] = vetor[i+1];
+            vetor[i] = vetor[i + 1];
         }
 
         nroElem--;
@@ -85,7 +85,7 @@ public class ListaObj<T> {
         }
 
         for (int i = nroElem - 1; i >= 0; i--) {
-            vetor[i+1] = vetor[i];
+            vetor[i + 1] = vetor[i];
         }
 
         vetor[0] = elemento;
@@ -94,4 +94,3 @@ public class ListaObj<T> {
     }
 
 }
-

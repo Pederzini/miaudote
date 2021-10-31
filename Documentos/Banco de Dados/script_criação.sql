@@ -52,12 +52,14 @@ CREATE TABLE Animal (
 
 );
 
-CREATE TABLE ProcessoAdocao (
-    id_adocao INT,
+CREATE TABLE Processo_Adocao (
+    id_adocao INT PRIMARY KEY IDENTITY,
     data_adocao DATETIME,
+    data_inicio_processo DATETIME NOT NULL,
     favoritado TINYINT,
     feedback TEXT,
     avaliacao_site INT,
-    fk_adotante INT FOREIGN KEY REFERENCES Adotante(id_adotante),
-    fk_animal INT FOREIGN KEY REFERENCES Animal(id_animal)
+    modo_contato VARCHAR(25),
+    fk_adotante INT FOREIGN KEY REFERENCES Adotante(id_adotante) NOT NULL,
+    fk_animal INT FOREIGN KEY REFERENCES Animal(id_animal) NOT NULL
 );

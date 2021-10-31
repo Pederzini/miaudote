@@ -87,7 +87,7 @@ public class AnimalController {
         List<Animal> animais = animalRepository.findByOng(ong);
         ListaObj<Animal> listaObj = new ListaObj(animais.size());
 
-        for(Animal animal : animais) {
+        for (Animal animal : animais) {
             listaObj.adiciona(animal);
         }
 
@@ -99,4 +99,21 @@ public class AnimalController {
         return new ResponseEntity(relatorio, headers, HttpStatus.OK);
     }
 
+    @GetMapping("/vitrine")
+    public ResponseEntity getAnimaisVitrine() {
+        List<Animal> animais = animalRepository.findRandomTop6();
+
+        if (animais.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(animais);
+    }
+
+    @GetMapping("/numero-adotados")
+    public ResponseEntity getNumeroAnimaisAdotados() {
+        Integer numeroAdotados = animalRepository.countByAdotadoTrue();
+
+        return ResponseEntity.status(200).body(numeroAdotados);
+    }
 }
