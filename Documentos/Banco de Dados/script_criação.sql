@@ -55,6 +55,7 @@ CREATE TABLE Animal (
 CREATE TABLE Processo_Adocao (
     id_adocao INT PRIMARY KEY IDENTITY,
     data_adocao DATETIME,
+    data_inicio_processo DATETIME NOT NULL,
     favoritado TINYINT,
     feedback TEXT,
     avaliacao_site INT,
