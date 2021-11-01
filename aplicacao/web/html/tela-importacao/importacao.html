@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
-    <script defer src="card-adocoes.js"></script>
-    <script defer src="script.js"></script>
+    <script src="card-adocoes.js"></script>
+    <script defer src="../script.js"></script>
 </head>
 
-<body onload="validarSessao()">
-    <main>
+<body trocaMenu(1)">
+    <main class="page">
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
@@ -22,15 +21,15 @@
 
                 </div>
                 <div class="text-menu">
-                    <a href="../tela-home-ong/home-ong.html">HOME<a>
-                    <a href="cards-ong.html">MEU PETS</a>
-                    <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
+                    <a href="../tela-home-ong/home-ong.html">HOME</p>
+                        <a href="../tela-card-adocoes-ong/cards-ong.html">MEU PETS</a>
+                        <a href="adocoes.html">ADOÇÕES</a>
 
                 </div>
                 <div class="container-btn">
                     <button class="btn-login">
                         <img src="../../imagens/geral/icon-menu.svg" alt="">
-                        <p id="nome"></p>
+                        <p id="nome">JOANA</p>
                     </button>
                 </div>
                 <div class="container-sair">
@@ -55,422 +54,41 @@
 
         </div>
 
-        <div class="titulo">
-            <p>
-                MEUS PETS
-            </p>
+        <div class="container-svg">
 
         </div>
-        <div class="sub-titulo">
-            <p>AJUDE AS PESSOAS A ENCONTRAREM SEU PET IDEAL</p>
+        <div class="download">
+            <u>FAÇA DOWNLOAD DO MODELO DE LAYOUT</u>
+        </div>
+        <div class="text-upload">
+            <p>FAÇA UPLOAD DO ARQUIVO</p>
         </div>
 
-        <div class="container">
-            <div class="filtros">
-                <div class="titulo-filtro">
-                    <p>FILTROS</p>
+        <div class="container-upload">
+            <form method="post" action="http://example.com/">
+                <div id="holder">
+                    <p>ARRASTE E SOLTE O ARQUIVO AQUI</p>
+                    <p>OU</p>
+                    <div class=input-wrapper>
+                        <label for=input-file>
+                            Selecionar um arquivo
+                        </label>
+                        <input id=input-file type=file value='' />
+
+                    </div>
                 </div>
-                <div class="favoritos">
-                    <p>Favoritos</p>
-                    <img src="../../imagens/adote/coracao-filtro.svg" alt="">
-
-
+                <div class="container-name">
+                    <p>ARQUIVO: </p>
+                    <input id="fileDragName">
                 </div>
-                <div class="container-select">
-                    <div class="select">
-                        <p>Idade</p>
-                        <select name="idade" required>
-                            <option value="" disabled selected>Qualquer</option>
-                            <option value="volvo">Qualque um</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Porte</p>
-                        <select name="porte" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Cor</p>
-                        <select name="cor" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Tipo Pelagem</p>
-                        <select name="pelagem" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Comportamento</p>
-                        <select name="comportamento" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="localizacao">
-                        <p>Distância</p>
-                        <div class="container-localizacao">
-                            <div class="distancia">
-                                <p>0Km</p>
-
-                            </div>
-                            <div class="range-wrap">
-                                <div class="range-value" id="rangeV">
-                                    <span>
-                                        0
-                                    </span>
-                                </div>
-                                <input id="range" type="range" min="200" max="800" value="200" step="1">
-                            </div>
-                            <div class="distancia">
-                                <p>100Km</p>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="container-btn-filtro">
-                        <button class="btn-filtrar">FILTRAR</button>
-                        <div class="container-text-btn">
-                            <u>TEM UM NOVO PET PARA CADASTRAR?</u>
-                            <button class="btn-filtros" onclick=redirecionarCadastro()>CADASTRAR</button>
-
-                        </div>
-                        <div class="container-text-btn">
-                            <u>GERAR RELATÓRIO DOS PETS?</u>
-                            <button class="btn-filtros" onclick=gerarRelatorio() download>GERAR</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-            <div class="linha">
-
-            </div>
-            <div class="cards">
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-                            </div>
-
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/labrador.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
+            </form>
+        </div>
+
+        <div class="btn-cadastro">
+            <button>CADASTRAR PETS</button>
 
         </div>
-        <div class="container-pagination">
-            <div class="pagination">
-                <a href="#"><img src="../../imagens/adote/icon-seta-esquerda-adote.svg" alt=""></a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#"><img src="../../imagens/adote/icon-seta-direita-adote.svg" alt=""></a>
-            </div>
-        </div>
+
         <a href="#topo" style="cursor: pointer;">
             <div class="container-gato">
                 <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
@@ -578,8 +196,33 @@
             </svg>
 
         </footer>
+
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 </body>
+<script>
+
+    function readfiles(files) {
+        for (var i = 0; i < files.length; i++) {
+            document.getElementById('fileDragName').value = files[i].name
+            reader = new FileReader();
+        }
+    }
+    var holder = document.getElementById('holder');
+    holder.ondragover = function () { this.className = 'hover'; return false; };
+    holder.ondragend = function () { this.className = ''; return false; };
+    holder.ondrop = function (e) {
+        this.className = '';
+        e.preventDefault();
+        readfiles(e.dataTransfer.files);
+    }
+
+    var $input = document.getElementById('input-file'),
+        $fileName = document.getElementById('file-name');
+
+    $input.addEventListener('change', function () {
+        $fileName.textContent = this.value;
+    });
+
+</script>
