@@ -1,6 +1,6 @@
 package br.com.miaudote.miaudoteapi.dto;
 
-public interface AnimaisFavoritadosDTO {
+public interface AnimalFavoritadoDTO {
 
     Integer getIdAnimal();
 

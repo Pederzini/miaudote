@@ -1,6 +1,6 @@
 package br.com.miaudote.miaudoteapi.dto;
 
-public interface AdotantesQueFavoritaramDTO {
+public interface AdotanteQueFavoritouDTO {
 
     String getDataInicioProcesso();
 
