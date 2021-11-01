@@ -27,7 +27,7 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
 
     List<AdotanteQueFavoritouDTO> findByAnimalId(Integer idAnimal);
 
-    List<AdocaoEmProcessoDTO> findByModoContatoNotNull();
+    List<AdocaoEmProcessoDTO> findByDataAdocaoIsNull();
 
     List<AdocaoFinalizadaDTO> findByDataAdocaoNotNull();
 

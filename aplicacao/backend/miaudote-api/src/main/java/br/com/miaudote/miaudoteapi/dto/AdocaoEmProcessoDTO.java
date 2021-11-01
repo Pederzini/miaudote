@@ -20,6 +20,14 @@ public interface AdocaoEmProcessoDTO {
         String getGenero();
 
         String getUrlImagem();
+
+        Ong getOng();
+    }
+
+    interface Ong {
+        Integer getIdOng();
+
+        String getCnpj();
     }
 
     interface Adotante {

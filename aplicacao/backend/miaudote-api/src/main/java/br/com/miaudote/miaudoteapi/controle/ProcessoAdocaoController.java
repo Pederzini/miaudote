@@ -57,9 +57,15 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(200).body(processosAdocao);
     }
 
-    @GetMapping("/adocoes-em-processo")
-    public ResponseEntity getEmProcesso() {
-        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByModoContatoNotNull();
+    @GetMapping("/{cnpj}/adocoes-em-processo")
+    public ResponseEntity getEmProcesso(@PathVariable String cnpj) {
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNull();
+
+        adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+
+        if (adocoesEmProcesso.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
 
         return ResponseEntity.status(200).body(adocoesEmProcesso);
     }
