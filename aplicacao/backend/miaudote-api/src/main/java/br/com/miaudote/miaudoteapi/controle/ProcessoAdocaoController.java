@@ -82,4 +82,11 @@ public class ProcessoAdocaoController {
 
         return ResponseEntity.status(200).body(adocoesConcluidas);
     }
+
+    @GetMapping("/{id}/informacoes-pessoa-que-favoritou")
+    public ResponseEntity getInformacoesPessoaQueFavoritou(@PathVariable Integer id) {
+        AdotanteDTO adotante = adotanteRepository.findByIdEquals(id);
+
+        return ResponseEntity.status(200).body(adotante);
+    }
 }
