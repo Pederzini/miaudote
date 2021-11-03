@@ -2,11 +2,12 @@ import './css/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
+import Artigo from './Artigo.jsx';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <App/>,
+    <Artigo/>, 
   document.getElementById('root')
 );
 
