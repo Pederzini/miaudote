@@ -65,21 +65,23 @@
         </div>
 
         <div class="container-upload">
-            <form method="post" action="http://example.com/">
+            <form method="post" action="">
                 <div id="holder">
-                    <p>ARRASTE E SOLTE O ARQUIVO AQUI</p>
+                    <p>ARRASTE E SOLTE UM ARQUIVO AQUI</p>
                     <p>OU</p>
                     <div class=input-wrapper>
                         <label for=input-file>
-                            Selecionar um arquivo
+                            SELECIONE UM ARQUIVO
                         </label>
-                        <input id=input-file type=file value='' />
+                        <input id=input-file type=file value='' accept=".txt" />
+
 
                     </div>
                 </div>
                 <div class="container-name">
                     <p>ARQUIVO: </p>
-                    <input id="fileDragName">
+                    <input readonly id="fileDragName">
+                    <span id='file-name'></span>
                 </div>
             </form>
         </div>
@@ -205,10 +207,20 @@
 
     function readfiles(files) {
         for (var i = 0; i < files.length; i++) {
-            document.getElementById('fileDragName').value = files[i].name
+            if (files[i].type == "text/plain") {
+                if (files[i].size <= 10000) {
+                    document.getElementById('fileDragName').value = files[i].name
+                } else {
+                    alert("Tamanho do arquivo exede o permitido")
+                }
+            } else {
+                alert("Tipo de arquivo não permitido")
+            }
+
             reader = new FileReader();
         }
     }
+
     var holder = document.getElementById('holder');
     holder.ondragover = function () { this.className = 'hover'; return false; };
     holder.ondragend = function () { this.className = ''; return false; };
@@ -216,13 +228,27 @@
         this.className = '';
         e.preventDefault();
         readfiles(e.dataTransfer.files);
+        console.log
     }
 
     var $input = document.getElementById('input-file'),
-        $fileName = document.getElementById('file-name');
+        $fileName = document.getElementById('fileDragName');
 
     $input.addEventListener('change', function () {
-        $fileName.textContent = this.value;
+        $fileName.value = this.value;
+    });
+
+
+    var upload = document.getElementById("input-file");
+    upload.addEventListener("change", function (e) {
+        var size = upload.files[0].size;
+        if (size < 1) { //1MB
+            alert('Permitido'); //Abaixo do permitido
+        } else {
+            alert('Não permitido'); //Acima do limite
+            upload.value = ""; //Limpa o campo
+        }
+        e.preventDefault();
     });
 
 </script>
