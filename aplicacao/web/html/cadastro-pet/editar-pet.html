@@ -62,8 +62,8 @@
     <div class="titulos">
       <img class="caminho-esquerda" src="../../imagens/cadastro-pet/caminho-esquerda-cadastro-pet.svg" alt="">
       <div class="titulo-center">
-        <label class="titulo">CADASTRO</label>
-        <label class="subtitulo">CADASTRE SEU PET</label>
+        <label class="titulo">EDITAR</label>
+        <label class="subtitulo">EDITAR AS INFORMAÇÕES</label>
       </div>
     </div>
 
@@ -180,12 +180,35 @@
           </div>
 
           <p class="texto-sugestao margem-texto">*Caso não complete as fotos, a imagem exibida será a imagem do cachorro exibido acima</p>
+         
+          
+          <!-- <div class="botoes-imagem">
+            <div class="div-arquivo">
+              <div class="arquivo-selecionar">
+                <label class="titulos-campos" for="nome">Arquivo</label>
+                <input class="campo-selecao" type="text" id="campo_nome" placeholder="Selecione no botão a foto" required="required" name="nome" />
+              </div>
+  
+              <div class="div-botao-cadastro">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
+              </div>
+            </div>
+  
+            <div class="div-arquivo-upload">
+              <div class="div-botao-cadastro-upload">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">UPLOAD</button>
+              </div>
+              <div class="div-botao-cadastro-limpar">
+                <button class="botao-cadastro-selecao" onclick="selecionar()">LIMPAR IMAGEM</button>
+              </div>
+            </div>
+          </div> -->
 
         </div>
 
         <label class="titulo-desc" for="nome">Descrição</label>
         <div class="borda-container-desc">         
-          <textarea id="campo_desc" class="campo-desc" placeholder="Escreva uma descrição do animal*" rows="4" cols="50"></textarea>
+          <textarea id="campo_desc" class="campo-desc" placeholder="Escreva uma descrição do animal(máximo de 200 caracteres)*" rows="4" cols="50"></textarea>
         </div>
         
         <p class="texto-sugestao">*Sugestão: Digite o texto como se o animal estivesse falando</p>
@@ -193,7 +216,7 @@
       </div>
     </div>
     <div class="div-botao-center">
-      <button class="botao-cadastro" onclick="postCadastroPet()">CADASTRAR PET</button>
+      <button class="botao-cadastro" onclick="postCadastroPet()">ATUALIZAR PET</button>
     </div>
     
   </div>
