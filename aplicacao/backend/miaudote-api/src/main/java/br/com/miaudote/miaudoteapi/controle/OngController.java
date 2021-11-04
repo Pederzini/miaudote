@@ -26,6 +26,8 @@ public class OngController {
     @PostMapping
     public ResponseEntity cadastroOng(@RequestBody Ong ongCad) {
         try {
+            GoogleAdapter googleAdapter = new GoogleAdapter();
+            ongCad = (Ong) googleAdapter.registrarLatAndLong(ongCad);
             ongRepository.save(ongCad);
         } catch (DataIntegrityViolationException erro) {
             return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroOng(erro));

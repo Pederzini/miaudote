@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
+import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
@@ -22,6 +23,8 @@ public class AdotanteCrontoller {
     @PostMapping
     public ResponseEntity cadastroAdotante(@RequestBody Adotante adotanteCad) {
         try {
+            GoogleAdapter googleAdapter = new GoogleAdapter();
+            adotanteCad = (Adotante) googleAdapter.registrarLatAndLong(adotanteCad);
             adotanteRepository.save(adotanteCad);
         } catch (DataIntegrityViolationException erro) {
             return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroAdotante(erro));

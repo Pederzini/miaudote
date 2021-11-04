@@ -29,6 +29,10 @@ public class Endereco {
     @Column(length = 9, nullable = false)
     private String cep;
 
+    private Double latitude;
+
+    private Double longitude;
+
     public Endereco() {
     }
 
@@ -88,4 +92,23 @@ public class Endereco {
         this.cep = cep;
     }
 
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getEnderecoFormatado (){
+        return String.format("%s %d %s",getLogradouro(),getNumero(),getCep());
+    }
 }
