@@ -59,7 +59,7 @@ public class ProcessoAdocaoController {
 
     @GetMapping("/{cnpj}/adocoes-em-processo")
     public ResponseEntity getEmProcesso(@PathVariable String cnpj) {
-        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNull();
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
 
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
 
