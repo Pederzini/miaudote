@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
@@ -83,6 +84,17 @@ public class OngController {
         Integer numeroAdotados = animalRepository.countByAdotadoTrueAndOngId(idOng);
 
         return ResponseEntity.status(200).body(numeroAdotados);
+    }
+
+    @GetMapping("/informacoes-ongs-mapa")
+    public ResponseEntity getOngsMapa() {
+        List<OngMapaDTO> ongs = ongRepository.encontrarTodasAsOngs();
+
+        if (ongs.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(ongs);
     }
 
 }
