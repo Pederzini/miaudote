@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/miaudote/ong")
+@RequestMapping("/miaudote/ongs")
 public class OngController {
 
     @Autowired

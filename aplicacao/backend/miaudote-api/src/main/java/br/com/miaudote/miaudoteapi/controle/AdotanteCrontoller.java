@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/miaudote/adotante")
+@RequestMapping("/miaudote/adotantes")
 public class AdotanteCrontoller {
 
     @Autowired

@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/miaudote/adocao")
+@RequestMapping("/miaudote/adocoes")
 public class ProcessoAdocaoController {
 
     @Autowired

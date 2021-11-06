@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/miaudote/endereco")
+@RequestMapping("/miaudote/enderecos")
 public class GoogleAdapter {
 
     @Autowired
