@@ -2,12 +2,16 @@ package br.com.miaudote.miaudoteapi.dto;
 
 public interface FeedbackDTO {
 
-    String getNome();
-
-    Long getAvaliacao();
+    Long getAvaliacaoSite();
 
     String getFeedback();
 
-    String getUrl();
+    Adotante getAdotante();
+
+    interface Adotante {
+        String getNome();
+
+        String getUrlImagem();
+    }
 
 }
