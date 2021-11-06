@@ -29,12 +29,8 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
 
     ProcessoAdocao findByAdotanteIdAndAnimalId(Integer idAdotante, Integer idAnimal);
 
-    @Query(value = "SELECT * " +
-            "FROM Processo_Adocao AS processo " +
-            "INNER JOIN Animal AS animal ON fk_animal = id_animal " +
-            "INNER JOIN Ong AS ong ON fk_ong = id_ong " +
-            "INNER JOIN Adotante AS adotante ON fk_adotante = id_adotante " +
-            "WHERE animal.id_animal = ?1 " +
-            "AND adotante.id_adotante = ?2", nativeQuery = true)
-    ProcessoAdocao encontrarProcessoPorAnimalEOng(Integer idAnimal, Integer idAdotante);
+    ProcessoAdocao findByAnimalIdAndAdotanteId(Integer idAnimal, Integer idAdotante);
+
+    ProcessoAdocao findByAnimalIdAndAdotanteIdAndDataInicioProcessoNotNull(Integer idAnimal, Integer idAdotante);
+
 }

@@ -142,11 +142,11 @@ public class ProcessoAdocaoController {
 
     @PatchMapping("inicia-processo-adocao/{idAdotante}/{idAnimal}/{modoContato}")
     public ResponseEntity iniciaProcessoAdocao(
-            @PathVariable Integer idAnimal,
             @PathVariable Integer idAdotante,
+            @PathVariable Integer idAnimal,
             @PathVariable String modoContato
     ) {
-        ProcessoAdocao processoAdocao = processoAdocaoRepository.encontrarProcessoPorAnimalEOng(idAnimal, idAdotante);
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAnimalIdAndAdotanteId(idAnimal, idAdotante);
 
         if (processoAdocao != null) {
             processoAdocao.setModoContato(modoContato);
@@ -181,6 +181,42 @@ public class ProcessoAdocaoController {
         processoAdocaoRepository.save(processoAdocao);
 
         return ResponseEntity.status(201).build();
+    }
+
+    @GetMapping("/verifica-existencia-processo/{idAdotante}/{idAnimal}")
+    public ResponseEntity verificaExistenciaProcessoAdocao(
+            @PathVariable Integer idAdotante,
+            @PathVariable Integer idAnimal
+    ) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAnimalIdAndAdotanteIdAndDataInicioProcessoNotNull(idAnimal, idAdotante);
+
+        if (processoAdocao != null && processoAdocao.getDataAdocao() == null) {
+            String nomeAdotante = processoAdocao.getAdotante().getNome();
+            String primeiroNome = nomeAdotante.contains(" ") ? nomeAdotante.substring(0, nomeAdotante.indexOf(" ")) : nomeAdotante;
+            String nomeAnimal = processoAdocao.getAnimal().getNome();
+
+            String mensagem = String.format(
+                    "Processo de adoção entre adotante %s e animal %s já foi iniciado ",
+                    primeiroNome,
+                    nomeAnimal
+            );
+
+            return ResponseEntity.status(200).body(mensagem);
+        } else if (processoAdocao != null && processoAdocao.getDataAdocao() != null) {
+            String nomeAdotante = processoAdocao.getAdotante().getNome();
+            String primeiroNome = nomeAdotante.contains(" ") ? nomeAdotante.substring(0, nomeAdotante.indexOf(" ")) : nomeAdotante;
+            String nomeAnimal = processoAdocao.getAnimal().getNome();
+
+            String mensagem = String.format(
+                    "Processo de adoção entre adotante %s e animal %s já foi finalizado",
+                    primeiroNome,
+                    nomeAnimal
+            );
+
+            return ResponseEntity.status(200).body(mensagem);
+        }
+
+        return ResponseEntity.status(404).build();
     }
 
 }
