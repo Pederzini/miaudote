@@ -110,7 +110,6 @@ public class OngController {
         );
 
         return ResponseEntity.status(200).body(cardOng);
-
     }
 
 }

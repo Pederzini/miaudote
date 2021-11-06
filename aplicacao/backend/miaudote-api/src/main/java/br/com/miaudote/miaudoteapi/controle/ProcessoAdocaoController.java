@@ -1,9 +1,12 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Adotante;
+import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
 import br.com.miaudote.miaudoteapi.dto.*;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
+import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.DataHora;
 import br.com.miaudote.miaudoteapi.utilitarios.Feedback;
@@ -24,6 +27,9 @@ public class ProcessoAdocaoController {
 
     @Autowired
     private AnimalRepository animalRepository;
+
+    @Autowired
+    private OngRepository ongRepository;
 
     @Autowired
     private ProcessoAdocaoRepository processoAdocaoRepository;
@@ -132,6 +138,49 @@ public class ProcessoAdocaoController {
         processoAdocaoRepository.save(processoAdocao);
 
         return ResponseEntity.status(200).build();
+    }
+
+    @PatchMapping("inicia-processo-adocao/{idAdotante}/{idAnimal}/{modoContato}")
+    public ResponseEntity iniciaProcessoAdocao(
+            @PathVariable Integer idAnimal,
+            @PathVariable Integer idAdotante,
+            @PathVariable String modoContato
+    ) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.encontrarProcessoPorAnimalEOng(idAnimal, idAdotante);
+
+        if (processoAdocao != null) {
+            processoAdocao.setModoContato(modoContato);
+            processoAdocao.setDataInicioProcesso(DataHora.retornaDataHoraAtual());
+
+            processoAdocaoRepository.save(processoAdocao);
+
+            return ResponseEntity.status(200).build();
+        }
+
+        Animal animal = animalRepository.findById(idAnimal).get();
+        Adotante adotante = adotanteRepository.findById(idAdotante).get();
+
+        ProcessoAdocao processoAdocaoCad = new ProcessoAdocao(
+                null,
+                DataHora.retornaDataHoraAtual(),
+                null,
+                null,
+                null,
+                modoContato,
+                adotante,
+                animal
+        );
+
+        cadastroProcessoAdocao(processoAdocaoCad);
+
+        return ResponseEntity.status(201).build();
+    }
+
+    @PostMapping()
+    public ResponseEntity cadastroProcessoAdocao(@RequestBody ProcessoAdocao processoAdocao) {
+        processoAdocaoRepository.save(processoAdocao);
+
+        return ResponseEntity.status(201).build();
     }
 
 }
