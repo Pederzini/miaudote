@@ -9,11 +9,7 @@ import java.util.List;
 
 public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, Integer> {
 
-    @Query(value = "SELECT adotante.nome, processo.avaliacao_site AS avaliacao, processo.feedback, adotante.url_imagem AS url " +
-            "FROM Processo_Adocao AS processo inner join Adotante AS adotante " +
-            "ON fk_adotante = id_adotante " +
-            "WHERE datalength(feedback) > 0", nativeQuery = true)
-    List<FeedbackDTO> findByFeedbackNotNull();
+    List<FeedbackDTO> findByFeedbackNotNullAndDataAdocaoNotNull();
 
     @Query(value = "SELECT animal.id_animal AS idAnimal, animal.nome, FLOOR((CAST (GetDate() AS DECIMAL) - CAST(animal.data_nascimento AS DECIMAL)) / 365.25) as idadeAnimal, animal.genero, animal.url_imagem AS url, processo.favoritado, COUNT(processo.favoritado) AS numFavoritado " +
             "FROM Processo_Adocao AS processo " +
@@ -27,8 +23,14 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
 
     List<AdotanteQueFavoritouDTO> findByAnimalId(Integer idAnimal);
 
-    List<AdocaoEmProcessoDTO> findByDataAdocaoIsNull();
+    List<AdocaoEmProcessoDTO> findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
 
     List<AdocaoFinalizadaDTO> findByDataAdocaoNotNull();
+
+    ProcessoAdocao findByAdotanteIdAndAnimalId(Integer idAdotante, Integer idAnimal);
+
+    ProcessoAdocao findByAnimalIdAndAdotanteIdAndDataInicioProcessoNotNull(Integer idAnimal, Integer idAdotante);
+
+    PerfilAnimalDTO findByAnimalIdAndAdotanteIdAndFavoritadoTrue(Integer idAnimal, Integer idAdotante);
 
 }

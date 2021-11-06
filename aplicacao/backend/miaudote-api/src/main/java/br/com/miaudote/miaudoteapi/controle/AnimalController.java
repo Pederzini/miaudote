@@ -2,10 +2,12 @@ package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.dto.PerfilAnimalDTO;
 import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
 import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
+import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,9 @@ public class AnimalController {
 
     @Autowired
     private OngRepository ongRepository;
+
+    @Autowired
+    private ProcessoAdocaoRepository processoAdocaoRepository;
 
     @GetMapping("/{id}")
     public ResponseEntity getAnimal(@PathVariable Integer id) {
@@ -115,5 +120,19 @@ public class AnimalController {
         Integer numeroAdotados = animalRepository.countByAdotadoTrue();
 
         return ResponseEntity.status(200).body(numeroAdotados);
+    }
+
+    @GetMapping("/perfil-animal/{idAnimal}/{idAdotante}")
+    public ResponseEntity getPerfilAnimal(
+            @PathVariable Integer idAdotante,
+            @PathVariable Integer idAnimal
+    ) {
+        PerfilAnimalDTO animal = processoAdocaoRepository.findByAnimalIdAndAdotanteIdAndFavoritadoTrue(idAnimal, idAdotante);
+
+        if (animal != null) {
+            return ResponseEntity.status(200).body(animal);
+        }
+
+        return getAnimal(idAnimal);
     }
 }
