@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.dto.ContatoOngDTO;
 import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
@@ -95,6 +96,21 @@ public class OngController {
         }
 
         return ResponseEntity.status(200).body(ongs);
+    }
+
+    @GetMapping("/{id}/contato-ong")
+    public ResponseEntity getOngsMapa(@PathVariable Integer id) {
+        Ong ong = animalRepository.findById(id).get().getOng();
+        ContatoOngDTO cardOng = new ContatoOngDTO(
+                ong.getIdOng(),
+                ong.getRazaoSocial(),
+                ong.getDataFundacao(),
+                ong.getEndereco().getCidade(),
+                ong.getUrlImagem()
+        );
+
+        return ResponseEntity.status(200).body(cardOng);
+
     }
 
 }
