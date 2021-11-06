@@ -14,6 +14,8 @@ public interface OngMapaDTO {
 
     String getCep();
 
+    String getCidade();
+
     Double getLatitude();
 
     Double getLongitude();

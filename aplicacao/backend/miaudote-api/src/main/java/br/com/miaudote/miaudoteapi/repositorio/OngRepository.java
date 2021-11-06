@@ -13,7 +13,7 @@ public interface OngRepository extends JpaRepository<Ong, Integer> {
 
     Ong findByCnpj(String cnpj);
 
-    @Query(value = "SELECT razao_social as razaoSocial, telefone, url_imagem as urlImagem, logradouro, numero, cep, latitude, longitude " +
+    @Query(value = "SELECT razao_social as razaoSocial, telefone, url_imagem as urlImagem, logradouro, numero, cep, latitude, longitude, cidade " +
             "FROM Ong INNER JOIN Endereco " +
             "ON fk_endereco = id_endereco", nativeQuery = true)
     List<OngMapaDTO> encontrarTodasAsOngs();
