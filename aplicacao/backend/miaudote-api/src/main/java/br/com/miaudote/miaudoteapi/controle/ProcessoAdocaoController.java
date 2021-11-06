@@ -93,7 +93,7 @@ public class ProcessoAdocaoController {
     }
 
     @PatchMapping("/finaliza-adocao/{id}")
-    public ResponseEntity patchProcessoAdocao(@PathVariable Integer id) {
+    public ResponseEntity finalizaProcessoAdocao(@PathVariable Integer id) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
         processoAdocao.setDataAdocao(DataHora.retornaDataHoraAtual());
 
