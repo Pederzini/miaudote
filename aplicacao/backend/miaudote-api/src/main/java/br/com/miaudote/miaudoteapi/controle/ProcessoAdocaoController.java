@@ -1,9 +1,11 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
 import br.com.miaudote.miaudoteapi.dto.*;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
+import br.com.miaudote.miaudoteapi.utilitarios.DataHora;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -89,4 +91,15 @@ public class ProcessoAdocaoController {
 
         return ResponseEntity.status(200).body(adotante);
     }
+
+    @PatchMapping("/finaliza-adocao/{id}")
+    public ResponseEntity patchProcessoAdocao(@PathVariable Integer id) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
+        processoAdocao.setDataAdocao(DataHora.retornaDataHoraAtual());
+
+        processoAdocaoRepository.save(processoAdocao);
+
+        return ResponseEntity.status(200).build();
+    }
+
 }
