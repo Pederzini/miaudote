@@ -102,4 +102,14 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(200).build();
     }
 
+    @PatchMapping("/cancela-adocao/{id}")
+    public ResponseEntity cancelaProcessoAdocao(@PathVariable Integer id) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
+        processoAdocao.setDataInicioProcesso(null);
+
+        processoAdocaoRepository.save(processoAdocao);
+
+        return ResponseEntity.status(200).build();
+    }
+
 }
