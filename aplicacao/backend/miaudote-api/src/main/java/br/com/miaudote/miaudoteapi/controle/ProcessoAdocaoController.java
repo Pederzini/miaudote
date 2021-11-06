@@ -146,7 +146,7 @@ public class ProcessoAdocaoController {
             @PathVariable Integer idAnimal,
             @PathVariable String modoContato
     ) {
-        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAnimalIdAndAdotanteId(idAnimal, idAdotante);
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAdotanteIdAndAnimalId(idAdotante, idAnimal);
 
         if (processoAdocao != null) {
             processoAdocao.setModoContato(modoContato);
