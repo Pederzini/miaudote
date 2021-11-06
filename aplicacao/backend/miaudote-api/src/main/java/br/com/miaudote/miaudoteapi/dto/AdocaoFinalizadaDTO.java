@@ -47,7 +47,7 @@ public interface AdocaoFinalizadaDTO {
     }
 
     interface Endereco {
-        String getBairro();
+        String getCidade();
     }
 
 }

@@ -33,15 +33,19 @@ public class Endereco {
 
     private Double longitude;
 
+    @Column(length = 45, nullable = false)
+    private String cidade;
+
     public Endereco() {
     }
 
-    public Endereco(String logradouro, Integer numero, String complemento, String bairro, String cep) {
+    public Endereco(String logradouro, Integer numero, String complemento, String bairro, String cep, String cidade) {
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cep = cep;
+        this.cidade = cidade;
     }
 
     public Integer getId() {
@@ -106,6 +110,14 @@ public class Endereco {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getEnderecoFormatado (){

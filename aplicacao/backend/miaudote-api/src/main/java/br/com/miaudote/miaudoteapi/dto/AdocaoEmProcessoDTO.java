@@ -43,7 +43,7 @@ public interface AdocaoEmProcessoDTO {
     }
 
     interface Endereco {
-        String getBairro();
+        String getCidade();
     }
 
 }

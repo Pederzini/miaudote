@@ -16,7 +16,7 @@ public interface AdotanteDTO {
     Endereco getEndereco();
 
     interface Endereco {
-        String getBairro();
+        String getCidade();
     }
 
 }

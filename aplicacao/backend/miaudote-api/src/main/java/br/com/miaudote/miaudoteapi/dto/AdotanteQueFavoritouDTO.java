@@ -27,7 +27,7 @@ public interface AdotanteQueFavoritouDTO {
     }
 
     interface Endereco {
-        String getBairro();
+        String getCidade();
     }
 
 }
