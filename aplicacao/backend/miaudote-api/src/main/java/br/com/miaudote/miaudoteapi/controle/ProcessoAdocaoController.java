@@ -106,6 +106,9 @@ public class ProcessoAdocaoController {
     public ResponseEntity cancelaProcessoAdocao(@PathVariable Integer id) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
         processoAdocao.setDataInicioProcesso(null);
+        processoAdocao.setModoContato(null);
+        processoAdocao.setFeedback(null);
+        processoAdocao.setAvaliacaoSite(null);
 
         processoAdocaoRepository.save(processoAdocao);
 
