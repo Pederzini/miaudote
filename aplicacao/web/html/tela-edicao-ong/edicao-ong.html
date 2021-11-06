@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script src="edicao-ong.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>MiauDote</title>
+</head>
+
+<body>
+    <main>
+        <header id="topo">
+            <div class="menu">
+                <div class="logo-header">
+                    <img src="../../imagens/geral/logo-header.svg" alt="">
+
+                </div>
+                <div class="text-menu">
+                    <a href="../tela-home-ong/home-ong.html">HOME</p>
+                        <a href="cards-ong.html">MEU PETS</a>
+                        <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
+
+                </div>
+                <div class="container-btn">
+                    <button class="btn-login">
+                        <img src="../../imagens/geral/icon-menu.svg" alt="">
+                        <p id="nome"></p>
+                    </button>
+                </div>
+                <div class="container-sair">
+                    <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
+
+                </div>
+
+            </div>
+
+            <svg width="1366" height="156" viewBox="0 0 1366 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M171.699 146.864C296.915 156.814 747.979 89.3772 1176.28 146.864C1239.52 155.956 1366 165.746 1366 132.178V0H1290.11H910.667H455.333H75.8889H0V108.26C0 108.26 46.4819 136.914 171.699 146.864Z"
+                    fill="#FFA8A1" fill-opacity="0.75" />
+                <path
+                    d="M171.699 137.132C296.915 146.423 747.979 83.4546 1176.28 137.132C1239.52 145.621 1366 154.763 1366 123.419V0H1290.11H910.667H455.333H75.8888H0V101.086C0 101.086 46.4819 127.841 171.699 137.132Z"
+                    fill="#FFA8A1" />
+            </svg>
+
+
+        </header>
+        <div class="container-header">
+
+        </div>
+
+        <div class="container-text">
+            <p>MEU PERFIL</p>
+
+        </div>
+
+        <div class="container-image">
+            <div class="uploader" onclick="$('#filePhoto').click()">
+                <p>ARRASTE E SOLTE A FOTO AQUI</p>
+                <img src="" />
+                <input type="file" name="userprofile_picture" id="filePhoto" />
+            </div>
+        </div>
+
+        <div class="container-input">
+            <div class="inputs">
+                <span class="titulos-campos">Nome do Responsável</span>
+                <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp"
+                    required>
+
+                <span class="titulos-campos">E-mail</span>
+                <input class="campos" placeholder="email@mail.com" id="campo_email" type="text" required>
+
+                <span class="titulos-campos">Senha</span>
+                <div class="container-senha">
+                    <input placeholder="*****" class="campos" id="campo_senha" type="password" maxlength="16" required>
+                    <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility
+                    </span>           
+                    <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility_off
+                    </span>   
+                </div>
+
+                <span class="titulos-campos">Confirmar Senha</span>
+                <div style="display: flex; margin-left: -10px;">
+                    <input placeholder="*****" class="campos" id="campo_confirmar_senha" type="password" maxlength="16" required>
+                    <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility
+                    </span>           
+                    <span onclick="exibeConfirmaSenha()" id="eye-icon-off2" class="material-icons" style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility_off
+                    </span> 
+
+            </div>
+            </div>
+            <div class="inputs">
+                <span class="titulos-campos">Razão Social</span>
+                <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" required>
+
+                <span class="titulos-campos">CNPJ</span>
+                <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj" onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" required>
+
+                <span class="titulos-campos">Data da Fundação</span>
+                <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off" required>
+
+
+                <span class="titulos-campos">Telefone</span>
+                <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone" type="text"
+                    name="cmp_tel" maxlength="15" required>
+
+            </div>
+            <div class="inputs">
+                <span class="titulos-campos">CEP</span>
+                <input class="campos" type="text" size="10" id="campo_cep" maxlength="9"
+                    onblur="pesquisacep(this,this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')" required>
+
+                <span class="titulos-campos">Logradouro</span>
+                <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled="" required>
+
+                <span class="titulos-campos">Bairro</span>
+                <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
+
+                <div class="container-endereco">
+                    <span class="titulos-campos">Número</span>
+                <input class="campos-numero" placeholder="123" type="text" id="campo_numero" maxlength="6" required>
+
+                <span class="titulos-campos">Complemento</span>
+                <input class="campos-complemento" placeholder="Casa 01" type="text" id="campo_complemento" required>
+
+                </div>
+                
+            </div>
+        </div>
+
+
+    </main>
+</body>
+
+</html>
+<script>
+    var imageLoader = document.getElementById('filePhoto');
+    imageLoader.addEventListener('change', handleImage, false);
+
+    function handleImage(e) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+
+            $('.uploader img').attr('src', event.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
+</script>
