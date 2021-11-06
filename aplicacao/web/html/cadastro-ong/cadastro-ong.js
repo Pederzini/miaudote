@@ -309,7 +309,7 @@ function postCadastroOng() {
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.post('http://localhost:8080/miaudote/ong', {
+        axios.post('http://localhost:8080/miaudote/ongs', {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
             "razaoSocial": razao,
             "cnpj": cnpj,

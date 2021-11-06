@@ -308,7 +308,7 @@ function postCadastroAdotante() {
         var email = document.getElementById("campo-email").value;
         var senha = document.getElementById("campo-senha").value;
 
-        axios.post('http://localhost:8080/miaudote/adotante', {
+        axios.post('http://localhost:8080/miaudote/adotantes', {
             headers: {"Access-Control-Allow-Origin": "*", "crossorigin": true},
             "nome": nome,
             "dataNascimento": nascimento,

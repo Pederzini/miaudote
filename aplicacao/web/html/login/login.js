@@ -64,7 +64,7 @@ function postLogin() {
       var email = document.getElementById("campo_email").value;
       var senha = document.getElementById("campo_senha").value;
 
-      var usuario = document.getElementById("radio_ong").checked == true ? "ong" : "adotante"
+      var usuario = document.getElementById("radio_ong").checked == true ? "ongs" : "adotantes"
 
       axios.post(`http://localhost:8080/miaudote/${usuario}/login`, {
           headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },

@@ -78,7 +78,7 @@ function postCadastroPet() {
 
 function putOng(idAnimal) {
 
-  axios.put(`http://localhost:8080/miaudote/animal/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
+  axios.put(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
     headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
   }).then(response => {
     Swal.fire({
