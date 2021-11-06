@@ -6,6 +6,7 @@ import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.DataHora;
+import br.com.miaudote.miaudoteapi.utilitarios.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -112,6 +113,21 @@ public class ProcessoAdocaoController {
         processoAdocao.setModoContato(null);
         processoAdocao.setFeedback(null);
         processoAdocao.setAvaliacaoSite(null);
+
+        processoAdocaoRepository.save(processoAdocao);
+
+        return ResponseEntity.status(200).build();
+    }
+
+    @PatchMapping("/registra-feedback/{idAdotante}/{idAnimal}")
+    public ResponseEntity registraFeedback(
+            @PathVariable Integer idAdotante,
+            @PathVariable Integer idAnimal,
+            @RequestBody Feedback feedback
+    ) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAdotanteIdAndAnimalId(idAdotante, idAnimal);
+        processoAdocao.setFeedback(feedback.getFeedback());
+        processoAdocao.setAvaliacaoSite(feedback.getAvaliacaoSite());
 
         processoAdocaoRepository.save(processoAdocao);
 
