@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/App.css';
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import api from "./api";
 
 // import imagens
 import background from './imagens/Geral/forma-header.svg';
@@ -30,6 +31,8 @@ import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
 import Card from './components/Card';
 import Modal from './components/Modal';
+import Rotas from './rotas';
+
 
 function App() {
 
@@ -60,6 +63,18 @@ function App() {
 
     ref.current.scrollIntoView();
   }
+
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    async function buscarAnimais() {
+      const resposta = await api.get("")
+      setCards(resposta.data)
+      console.log("Olha o que veio da API", resposta.data)
+    }
+
+    buscarAnimais();
+  }, []); 
 
   function linkTela(tela) {
     switch (tela) {
@@ -138,10 +153,18 @@ function App() {
           <img src={imgBtnEsquerda} />
 
           {/* CARDS ADOCAO */}
-          <div className="cards-adocao">
+          <div className="cards-adocao"> {
+            cards.map((card) => (
+              <Card 
+                nome={card.nome}
+                descricao={card.descricao}
+                idade={card.idadeAnimal}
+              />
+            ))
+          }
+            {/* <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
             <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
+            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} /> */}
           </div> {/* fim cards-adocao */}
 
           <img src={imgBtnDireita} />

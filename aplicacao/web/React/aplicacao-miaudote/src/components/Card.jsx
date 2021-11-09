@@ -19,15 +19,15 @@ export default props =>
     <div className="descricao-card">
         <div className="descricao-esquerda">
             <p className="nome-pet">
-                thor
+                {props.nome}
             </p>
             <p className="sobre-pet">
-                Descrição sobre o animal
+                {props.descricao}
             </p>
         </div>
         <div className="descricao-direita">
             <p className="idade-pet">
-                3 anos
+                {props.idade}
             </p>
             <div className="distancia-pet">
                 <img src={props.imgLocalizacao} />
