@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "localhost:8080/miaudote/animal/vitrine"
+  baseURL: "http://localhost:8080/miaudote/animais/vitrine"
 });
 
 export default api;
