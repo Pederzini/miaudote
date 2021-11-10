@@ -27,12 +27,8 @@ export default props =>
         </div>
         <div className="descricao-direita">
             <p className="idade-pet">
-                {props.idade}
+                {props.idade} anos
             </p>
-            <div className="distancia-pet">
-                <img src={props.imgLocalizacao} />
-                <p>3km</p>
-            </div>
         </div>
     </div> {/* fim descrica-card */}
 </div>/* fim card */ 
