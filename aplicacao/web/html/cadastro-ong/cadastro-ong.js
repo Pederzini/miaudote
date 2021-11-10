@@ -324,6 +324,7 @@ function postCadastroOng() {
                 "bairro": bairro,
                 "numero": numero,
                 "complemento": complemento,
+                "cidade": "São Paulo",
             },
         }).then(response => {
             Swal.fire({
