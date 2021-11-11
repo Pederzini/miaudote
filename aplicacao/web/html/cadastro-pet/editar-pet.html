@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="cadastro-pet.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script defer src="../script.js"></script>
-  <script defer src="cadastro-pet.js"></script>
+  <script defer src="editar-pet.js"></script>
 
-  <title>Cadastro Pet</title>
+  <title>Editar Pet</title>
 </head>
 
 <!-- <body onload="validarSessao()"> -->
-  <body>
+  <body onload="organizaImagem()">
 
   <div class="container-page-1">
     <header id="topo">
@@ -151,26 +151,35 @@
           <p class="texto-sugestao margem-texto">Arraste a foto do animal nos quadrados abaixo:</p>
 
           <div class="grid-imagem1">
-            <div class="borda-placeholder ">
-              <img id="foto1" class="placeholder-img" src={foto1} alt="">
+            <div id="image_drop_area" value="0">
             </div>
-  
-            <div class="borda-placeholder ">
+
+            <div id="image_drop_area" value="1">
+            </div>
+            
+            <!-- <div class="borda-placeholder ">
               <img id="foto2" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
-            </div>
+            </div> -->
           </div>
 
           <div class="grid-imagem2">
-            <div class="borda-placeholder ">
+            <div id="image_drop_area" value="2">
+            </div>
+
+            <div id="image_drop_area" value="3">
+            </div>
+            <!-- <div class="borda-placeholder ">
               <img id="foto3" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
             </div>
   
             <div class="borda-placeholder ">
               <img id="foto4" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
-            </div>
+            </div> -->
           </div>
 
           <div class="div-arquivo-upload"> 
+            <p id="file_name"></p><br>
+
             <div class="div-botao-cadastro">
               <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
             </div>
@@ -180,30 +189,6 @@
           </div>
 
           <p class="texto-sugestao margem-texto">*Caso não complete as fotos, a imagem exibida será a imagem do cachorro exibido acima</p>
-         
-          
-          <!-- <div class="botoes-imagem">
-            <div class="div-arquivo">
-              <div class="arquivo-selecionar">
-                <label class="titulos-campos" for="nome">Arquivo</label>
-                <input class="campo-selecao" type="text" id="campo_nome" placeholder="Selecione no botão a foto" required="required" name="nome" />
-              </div>
-  
-              <div class="div-botao-cadastro">
-                <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
-              </div>
-            </div>
-  
-            <div class="div-arquivo-upload">
-              <div class="div-botao-cadastro-upload">
-                <button class="botao-cadastro-selecao" onclick="selecionar()">UPLOAD</button>
-              </div>
-              <div class="div-botao-cadastro-limpar">
-                <button class="botao-cadastro-selecao" onclick="selecionar()">LIMPAR IMAGEM</button>
-              </div>
-            </div>
-          </div> -->
-
         </div>
 
         <label class="titulo-desc" for="nome">Descrição</label>

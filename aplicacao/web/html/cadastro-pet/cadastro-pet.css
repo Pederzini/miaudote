@@ -383,6 +383,44 @@ h3 {
   padding: 20px;
 }
 
+#image_drop_area{
+  border: 2px dashed #8F7FAC;
+  /* background-color: aqua; */
+  margin-top: 5%;
+  border-radius: 10px;
+  width: 40%;
+  background-image: url(../../imagens/geral/placeholder-imagem-pet.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  outline: none;
+  /* border: 2px dashed #8F7FAC;
+  margin-top: 5%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  outline: none;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  padding: 20px; */
+}
+
+
+.borda-placeholder {
+  border: 2px dashed #8F7FAC;
+  margin-top: 5%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  outline: none;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  padding: 20px;
+}
+
 .grid-imagem1 {
   display: flex;
   justify-content: space-around;
@@ -394,8 +432,6 @@ h3 {
 }
 
 .placeholder-img {
-  /* display: flex;  */
-  /* height: 50%; */
   width: 210px;
   height: 225px;
 }
