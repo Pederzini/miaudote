@@ -309,7 +309,7 @@ function postCadastroOng() {
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.post('http://localhost:8080/miaudote/ongs', {
+        axios.post('http://localhost:8080/miaudote/ong', {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
             "razaoSocial": razao,
             "cnpj": cnpj,
@@ -324,7 +324,6 @@ function postCadastroOng() {
                 "bairro": bairro,
                 "numero": numero,
                 "complemento": complemento,
-                "cidade": "São Paulo",
             },
         }).then(response => {
             Swal.fire({

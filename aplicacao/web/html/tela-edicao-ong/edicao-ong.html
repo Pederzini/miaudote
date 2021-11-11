@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="edicao-ong.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>MiauDote</title>
-    <script defer src="card-adocoes.js"></script>
-    <script defer src="script.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body>
     <main>
         <header id="topo">
             <div class="menu">
@@ -22,9 +20,9 @@
 
                 </div>
                 <div class="text-menu">
-                    <a href="../tela-home-ong/home-ong.html">HOME<a>
-                    <a href="cards-ong.html">MEU PETS</a>
-                    <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
+                    <a href="../tela-home-ong/home-ong.html">HOME</p>
+                        <a href="cards-ong.html">MEU PETS</a>
+                        <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
 
                 </div>
                 <div class="container-btn">
@@ -55,422 +53,119 @@
 
         </div>
 
-        <div class="titulo">
-            <p>
-                MEUS PETS
-            </p>
+        <div class="container-text">
+            <p>MEU PERFIL</p>
 
         </div>
-        <div class="sub-titulo">
-            <p>AJUDE AS PESSOAS A ENCONTRAREM SEU PET IDEAL</p>
-        </div>
 
-        <div class="container">
-            <div class="filtros">
-                <div class="titulo-filtro">
-                    <p>FILTROS</p>
-                </div>
-                <div class="favoritos">
-                    <p>Favoritos</p>
-                    <img src="../../imagens/adote/coracao-filtro.svg" alt="">
-
-
-                </div>
-                <div class="container-select">
-                    <div class="select">
-                        <p>Idade</p>
-                        <select name="idade" required>
-                            <option value="" disabled selected>Qualquer</option>
-                            <option value="volvo">Qualque um</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Porte</p>
-                        <select name="porte" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Cor</p>
-                        <select name="cor" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Tipo Pelagem</p>
-                        <select name="pelagem" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="select">
-                        <p>Comportamento</p>
-                        <select name="comportamento" required>
-                            <option value="" disabled selected>Qualquer</option>
-                        </select>
-
-                    </div>
-                    <div class="localizacao">
-                        <p>Distância</p>
-                        <div class="container-localizacao">
-                            <div class="distancia">
-                                <p>0Km</p>
-
-                            </div>
-                            <div class="range-wrap">
-                                <div class="range-value" id="rangeV">
-                                    <span>
-                                        0
-                                    </span>
-                                </div>
-                                <input id="range" type="range" min="200" max="800" value="200" step="1">
-                            </div>
-                            <div class="distancia">
-                                <p>100Km</p>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="container-btn-filtro">
-                        <button class="btn-filtrar">FILTRAR</button>
-                        <div class="container-text-btn">
-                            <u>TEM UM NOVO PET PARA CADASTRAR?</u>
-                            <button class="btn-filtros" onclick=redirecionarCadastro()>CADASTRAR</button>
-
-                        </div>
-                        <div class="container-text-btn">
-                            <u>GERAR RELATÓRIO DOS PETS?</u>
-                            <button class="btn-filtros" onclick=gerarRelatorio() download>GERAR</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-            <div class="linha">
-
-            </div>
-            <div class="cards">
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-                            </div>
-
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/labrador.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                            <div class="img-pet">
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="nome-pet">
-                                    <h1>THOR</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-
-                                </div>
-                                <div class="informacoes-adicionais">
-                                    <div class="idade">
-                                        <p>3 ANOS</p>
-
-                                    </div>
-                                    <div class="local">
-                                        <img src="../../imagens/adote/local.svg" alt="">
-                                        <p>20KM</p>
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-        <div class="container-pagination">
-            <div class="pagination">
-                <a href="#"><img src="../../imagens/adote/icon-seta-esquerda-adote.svg" alt=""></a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#"><img src="../../imagens/adote/icon-seta-direita-adote.svg" alt=""></a>
+        <div class="container-image">
+            <div class="uploader" onclick="$('#filePhoto').click()">
+                <p>ARRASTE E SOLTE A FOTO AQUI</p>
+                <img id="imagePerfil" src="" />
+                <input type="file" name="userprofile_picture" id="filePhoto" />
             </div>
         </div>
+        <div class="editar" onclick="$('#filePhoto').click()">
+            <img src="../../imagens/geral/edição.svg" alt="">
+
+        </div>
+
+        <div class="container-input">
+            <div class="inputs">
+                <span class="titulos-campos">Nome do Responsável</span>
+                <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp"
+                    required>
+
+                <span class="titulos-campos">E-mail</span>
+                <input class="campos" placeholder="email@mail.com" id="campo_email" type="text" required>
+
+                <span class="titulos-campos">Senha</span>
+                <div class="container-senha">
+                    <input placeholder="*****" class="campos" id="campo_senha" type="password" maxlength="16" required>
+                    <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons"
+                        style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility
+                    </span>
+                    <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons"
+                        style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility_off
+                    </span>
+                </div>
+
+                <span class="titulos-campos">Confirmar Senha</span>
+                <div style="display: flex; margin-left: -10px;">
+                    <input placeholder="*****" class="campos" id="campo_confirmar_senha" type="password" maxlength="16"
+                        required>
+                    <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons"
+                        style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility
+                    </span>
+                    <span onclick="exibeConfirmaSenha()" id="eye-icon-off2" class="material-icons"
+                        style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                        visibility_off
+                    </span>
+
+                </div>
+            </div>
+            <div class="inputs">
+                <span class="titulos-campos">Razão Social</span>
+                <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" required>
+
+                <span class="titulos-campos">CNPJ</span>
+                <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj"
+                    onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" required>
+
+                <span class="titulos-campos">Data da Fundação</span>
+                <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off" required>
+
+
+                <span class="titulos-campos">Telefone</span>
+                <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone"
+                    type="text" name="cmp_tel" maxlength="15" required>
+
+            </div>
+            <div class="inputs">
+                <span class="titulos-campos">CEP</span>
+                <input class="campos" type="text" size="10" id="campo_cep" maxlength="9"
+                    onblur="pesquisacep(this,this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')"
+                    required>
+
+                <span class="titulos-campos">Logradouro</span>
+                <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled=""
+                    required>
+
+                <span class="titulos-campos">Bairro</span>
+                <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
+
+                <div class="container-endereco">
+
+                    <div class="container-numero">
+                        <span class="titulos-campos-endereco">Número</span>
+                        <input class="campos-numero" placeholder="123" type="text" id="campo_numero" maxlength="6"
+                            required>
+
+                    </div>
+
+                    <div class="container-complemento">
+                        <span class="titulos-campos-endereco">Complemento</span>
+                        <input class="campos-complemento" placeholder="Casa 01" type="text" id="campo_complemento"
+                            required>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="btn-edicao">
+            <button>SALVAR ALTERAÇÕES</button>
+        </div>
+
         <a href="#topo" style="cursor: pointer;">
             <div class="container-gato">
                 <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
@@ -578,8 +273,16 @@
             </svg>
 
         </footer>
+
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 </body>
+
+</html>
+<script>
+    filePhoto.onchange = evt => {
+        const [file] = filePhoto.files
+        if (file) {
+            imagePerfil.src = URL.createObjectURL(file)
+        }
+    }
+</script>

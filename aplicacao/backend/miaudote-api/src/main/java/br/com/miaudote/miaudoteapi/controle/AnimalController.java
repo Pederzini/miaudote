@@ -4,6 +4,7 @@ import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.AnimalCardsFavoritadoDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimalDTO;
+import br.com.miaudote.miaudoteapi.dto.AnimalVitrineDTO;
 import br.com.miaudote.miaudoteapi.dto.PerfilAnimalDTO;
 import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
 import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
@@ -140,7 +141,7 @@ public class AnimalController {
 
     @GetMapping("/vitrine")
     public ResponseEntity getAnimaisVitrine() {
-        List<Animal> animais = animalRepository.findRandomTop6();
+        List<AnimalVitrineDTO> animais = animalRepository.findRandomTop3();
 
         if (animais.isEmpty()) {
             return ResponseEntity.status(204).build();
