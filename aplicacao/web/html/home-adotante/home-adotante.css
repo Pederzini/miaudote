@@ -485,18 +485,77 @@ header{
 }
 
 
-
-
-
 .container-feedbacks{
     height: 500px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-auto-rows: 100px;
-    width: 100%;
-    z-index: 0;    
+    flex-direction: row;
+   
 }
+
+.feedback{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.feedback img {
+  position: relative;
+  width: 25%;
+  border-radius: 100%;
+  left: 10%;
+  top: -14%;
+}
+
+
+.container-descricao {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.container-descricao h2 {
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #434343;
+
+}
+
+
+.container-nome {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+ 
+}
+
+.container-nome h1 {
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #434343;
+  margin-right: 3%;
+
+}
+
+
+
 
 .container-branco{
     background-color: white;
