@@ -1,32 +1,13 @@
-package br.com.miaudote.miaudoteapi.controle;
+package br.com.miaudote.miaudoteapi.utilitarios;
 
-import br.com.miaudote.miaudoteapi.dominio.Endereco;
 import br.com.miaudote.miaudoteapi.dominio.Usuario;
-import br.com.miaudote.miaudoteapi.repositorio.EnderecoRepository;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.json.JSONArray;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.json.JSONObject;
 
-@CrossOrigin
-@RestController
-@RequestMapping("/miaudote/enderecos")
+
 public class GoogleAdapter {
-
-    @Autowired
-    private EnderecoRepository enderecoRepository;
-
-
-    @PostMapping
-    public ResponseEntity cadastrarEndereco(@RequestBody Endereco endereco) {
-        enderecoRepository.save(endereco);
-        return ResponseEntity.status(201).build();
-    }
-
     public Usuario registrarLatAndLong(Usuario usuario){
 
         RestTemplate restTemplate = new RestTemplate();

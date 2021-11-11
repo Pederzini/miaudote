@@ -6,6 +6,7 @@ import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
+import br.com.miaudote.miaudoteapi.utilitarios.GoogleAdapter;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

@@ -34,6 +34,15 @@ public class ProcessoAdocaoController {
     @Autowired
     private ProcessoAdocaoRepository processoAdocaoRepository;
 
+    @GetMapping
+    public ResponseEntity getProcessosAdocao() {
+        List<ProcessoAdocao> processos = processoAdocaoRepository.findAll();
+        if (processos.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(processos);
+    }
+
     @GetMapping("/feedbacks")
     public ResponseEntity getFeedbacksAdotantes() {
         List<FeedbackDTO> feedbacks = processoAdocaoRepository.findByFeedbackNotNullAndDataAdocaoNotNull();
@@ -219,4 +228,78 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(404).build();
     }
 
+    @GetMapping("/{id}/favoritados")
+    public ResponseEntity getFavoritosAdotante(@PathVariable Integer id) {
+        List<PerfilAnimalDTO> animaisFavoritados = processoAdocaoRepository.findByFavoritadoIsTrueAndAdotante_Id(id);
+        if (animaisFavoritados.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(animaisFavoritados);
+    }
+
+    @GetMapping("/{id}/adotados")
+    public ResponseEntity getAdotadosAdotante(@PathVariable Integer id) {
+        List<AnimaisAdotadosDTO> adocaoFinalizada = processoAdocaoRepository.findByAdotante_IdAndDataAdocaoNotNull(id);
+        if (adocaoFinalizada.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(adocaoFinalizada);
+    }
+
+    @PatchMapping("/{idAdotante}/favoritar/{idAnimal}")
+    public ResponseEntity favoritarAnimal(@PathVariable Integer idAdotante,
+                                          @PathVariable Integer idAnimal) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAdotanteIdAndAnimalId(idAdotante, idAnimal);
+        if (processoAdocao != null) {
+            processoAdocao.setFavoritado(true);
+            processoAdocaoRepository.save(processoAdocao);
+            return ResponseEntity.status(201).build();
+        }
+        Animal animal = animalRepository.findById(idAnimal).get();
+        Adotante adotante = adotanteRepository.findById(idAdotante).get();
+
+        ProcessoAdocao processoAdocaoFav = new ProcessoAdocao(
+                null,
+                null,
+                true,
+                null,
+                null,
+                null,
+                adotante,
+                animal
+        );
+        processoAdocaoRepository.save(processoAdocaoFav);
+
+        return ResponseEntity.status(201).build();
+    }
+
+    @PatchMapping("/{idAdotante}/desfavoritar/{idAnimal}")
+    public ResponseEntity desfavoritarAnimal(@PathVariable Integer idAdotante,
+                                             @PathVariable Integer idAnimal) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findByAdotanteIdAndAnimalId(idAdotante, idAnimal);
+        if (processoAdocao == null) {
+            return ResponseEntity.status(204).build();
+        } else if (processoAdocao.getDataInicioProcesso() != null) {
+            System.out.println(processoAdocao.getFavoritado());
+            processoAdocao.setFavoritado(false);
+            System.out.println(processoAdocao.getFavoritado());
+            processoAdocaoRepository.save(processoAdocao);
+            return ResponseEntity.status(200).build();
+        }
+        return deletarProcessoAdocao(processoAdocao.getIdAdocao());
+    }
+
+
+
+    @DeleteMapping("/{idAdotante}/{idAnimal}")
+    public ResponseEntity deletarProcessoAdocao(@PathVariable Integer idAdocao) {
+        ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(idAdocao).get();
+        if (processoAdocao != null) {
+            processoAdocao.setAdotante(null);
+            processoAdocao.setAnimal(null);
+            processoAdocaoRepository.delete(processoAdocao);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(204).build();
+    }
 }

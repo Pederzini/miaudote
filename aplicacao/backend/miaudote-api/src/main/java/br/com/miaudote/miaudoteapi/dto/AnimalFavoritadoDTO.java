@@ -16,4 +16,6 @@ public interface AnimalFavoritadoDTO {
 
     Integer getNumFavoritado();
 
+    String getEspecie();
+
 }

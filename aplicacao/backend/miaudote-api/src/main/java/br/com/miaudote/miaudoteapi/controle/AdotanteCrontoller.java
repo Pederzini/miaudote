@@ -1,9 +1,9 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
-import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
+import br.com.miaudote.miaudoteapi.utilitarios.GoogleAdapter;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

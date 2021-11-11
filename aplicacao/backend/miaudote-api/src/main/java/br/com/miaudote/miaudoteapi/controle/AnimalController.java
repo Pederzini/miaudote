@@ -2,6 +2,8 @@ package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.dto.AnimalCardsFavoritadoDTO;
+import br.com.miaudote.miaudoteapi.dto.AnimalDTO;
 import br.com.miaudote.miaudoteapi.dto.PerfilAnimalDTO;
 import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
 import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
@@ -32,7 +34,26 @@ public class AnimalController {
 
     @GetMapping("/{id}")
     public ResponseEntity getAnimal(@PathVariable Integer id) {
-        return ResponseEntity.of(animalRepository.findById(id));
+        if (animalRepository.findById(id).isPresent()){
+            Animal animal = animalRepository.findById(id).get();
+            AnimalDTO animalRetorno = new AnimalDTO(animal.getNome(),
+                    animal.getDescricao(),
+                    animal.getDataNascimento(),
+                    animal.getGenero(),
+                    animal.getDataChegada(),
+                    animal.getCorPelagem(),
+                    animal.getCastrado(),
+                    animal.getPorte(),
+                    animal.getTipoPelagem(),
+                    animal.getVacinado(),
+                    animal.getComportamento(),
+                    animal.getAdotado(),
+                    animal.getNecessidadeEspeciais(),
+                    animal.getUrlImagem(),
+                    animal.getEspecie());
+            return ResponseEntity.status(200).body(animalRetorno);
+        }
+        return ResponseEntity.status(204).build();
     }
 
     @GetMapping
@@ -44,6 +65,19 @@ public class AnimalController {
         }
 
         return ResponseEntity.status(200).body(animal);
+    }
+
+    @GetMapping("/animais-ong/{cnpj}")
+    public ResponseEntity getAnimalOng(@PathVariable String cnpj){
+        Ong ong = ongRepository.findByCnpj(cnpj);
+
+        List<Animal> animais = animalRepository.findByOng(ong);
+
+        if (!animais.isEmpty()){
+            return ResponseEntity.status(200).body(animais);
+        } else {
+            return ResponseEntity.status(204).build();
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -135,4 +169,23 @@ public class AnimalController {
 
         return getAnimal(idAnimal);
     }
+
+    @GetMapping("/nao-adotados")
+    public ResponseEntity getNaoAdotados(){
+        List<AnimalCardsFavoritadoDTO> animais = processoAdocaoRepository.findByAnimal_AdotadoIsFalse();
+        if (animais.isEmpty()){
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(animais);
+    }
+
+    @GetMapping("/{idAdotante}/favoritado-nao-adotado")
+    public ResponseEntity getFavNaoAdotado(@PathVariable Integer idAdotante){
+        List<AnimalCardsFavoritadoDTO> animais = processoAdocaoRepository.findByFavoritadoIsTrueAndAnimal_AdotadoIsFalseAndAdotante_Id(idAdotante);
+        if (animais.isEmpty()){
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(animais);
+    }
+
 }

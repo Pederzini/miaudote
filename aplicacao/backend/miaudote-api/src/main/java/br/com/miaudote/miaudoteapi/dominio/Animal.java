@@ -57,6 +57,9 @@ public class Animal {
     @Column(length = 2083, nullable = false)
     private String urlImagem;
 
+    @Column(length = 8, nullable = false)
+    private String especie;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_ong", referencedColumnName = "id_ong")
     private Ong ong;
@@ -68,7 +71,7 @@ public class Animal {
     public Animal(String nome, String descricao, Date dataNascimento, String genero,
                   Date dataChegada, String corPelagem, Boolean castrado, String porte,
                   String tipoPelagem, Boolean vacinado, String comportamento,
-                  Boolean adotado, String necessidadeEspeciais, String urlImagem) {
+                  Boolean adotado, String necessidadeEspeciais, String urlImagem, String especie) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataNascimento = dataNascimento;
@@ -83,12 +86,13 @@ public class Animal {
         this.adotado = adotado;
         this.necessidadeEspeciais = necessidadeEspeciais;
         this.urlImagem = urlImagem;
+        this.especie = especie;
     }
 
     public Animal(String nome, String descricao, Date dataNascimento, String genero, Date dataChegada,
                   String corPelagem, Boolean castrado, String porte, String tipoPelagem,
                   Boolean vacinado, String comportamento, Boolean adotado, String necessidadeEspeciais,
-                  String urlImagem, Ong ong) {
+                  String urlImagem, String especie, Ong ong) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataNascimento = dataNascimento;
@@ -103,7 +107,16 @@ public class Animal {
         this.adotado = adotado;
         this.necessidadeEspeciais = necessidadeEspeciais;
         this.urlImagem = urlImagem;
+        this.especie = especie;
         this.ong = ong;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
     public Integer getIdAnimal() {

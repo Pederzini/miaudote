@@ -51,6 +51,11 @@ public class ProcessoAdocao {
         this.animal = animal;
     }
 
+    public ProcessoAdocao(Date dataInicioProcesso, Adotante adotante, Animal animal) {
+        this.adotante = adotante;
+        this.animal = animal;
+    }
+
     public Integer getIdAdocao() {
         return id;
     }
