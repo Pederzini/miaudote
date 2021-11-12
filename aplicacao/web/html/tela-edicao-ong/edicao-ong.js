@@ -10,6 +10,10 @@ window.onload = function () {
     });
 }
 
+function topo() {
+    window.scrollTo(0, 0)
+}
+
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('campo_logradouro').value = ("");
@@ -152,7 +156,7 @@ function validarCNPJ(elemento, cnpj) {
             icon: 'error',
             confirmButtonText: 'Ok'
         })
-    } 
+    }
 
     if (cnpj.length != 14) {
         Swal.fire({
@@ -277,6 +281,49 @@ function validaSenhas() {
     }
 }
 
+var urlImagem = "";
+
+function postImagem(arquivo) {
+    const formdata = new FormData()
+    formdata.append("image", arquivo)
+    fetch("https://api.imgur.com/3/image/", {
+        method: "post",
+        headers: {
+            Authorization: "Client-ID 6dae79a908f004d"
+        },
+        body: formdata
+    }).then(data => data.json()).then(data => {
+        urlImagem = data.data.link
+    })
+}
+
+function getInfosOng() {
+    axios.get(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+        document.getElementById("campo_razao").value = response.data.razaoSocial;
+        document.getElementById("campo_cnpj").value = response.data.cnpj;
+        // document.getElementById("campo_fundacao").value = response.data.dataFundacao.split('-').reverse().join('/');
+        document.getElementById("campo_resp").value = response.data.nomeResponsavel;
+        document.getElementById("campo_telefone").value = response.data.telefone;
+        document.getElementById("campo_cep").value = response.data.cep;
+        // document.getElementById("campo_logradouro").value = response.data.;
+        // document.getElementById("campo_bairro").value = response.data.;
+        document.getElementById("campo_numero").value = response.data.numero;
+        document.getElementById("campo_complemento").value = response.data.complemento;
+        document.getElementById("campo_email").value = response.data.email;
+        document.getElementById("campo_senha").value = response.data.senha;
+        // window.location.href = '../tela-home-ong/home-ong.html'
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao carregar as informações da ONG',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
 function postCadastroOng() {
     var camposVazios = verificaCamposVazios()
     senhas = validaSenhas()
@@ -309,7 +356,7 @@ function postCadastroOng() {
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.post('http://localhost:8080/miaudote/ong', {
+        axios.put(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
             "razaoSocial": razao,
             "cnpj": cnpj,
@@ -318,22 +365,24 @@ function postCadastroOng() {
             "telefone": telefone,
             "email": email,
             "senha": senha,
+            "urlImagem": urlImagem,
             "endereco": {
                 "cep": cep,
                 "logradouro": logradouro,
                 "bairro": bairro,
                 "numero": numero,
                 "complemento": complemento,
+                "cidade": "São Paulo",
             },
         }).then(response => {
             Swal.fire({
-                title: 'Cadastro concluído!',
-                text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
+                title: 'Cadastro atualizado com sucesso!',
+                text: 'Clique em ok para voltar para a home!',
                 icon: 'success',
                 confirmButtonText: 'Ok'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = '../login/login.html'
+                    window.location.href = '../tela-home-ong/home-ong.html'
                 }
             })
         }).catch(function (error) {
