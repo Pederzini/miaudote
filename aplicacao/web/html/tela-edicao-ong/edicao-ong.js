@@ -127,23 +127,44 @@ function mascara(i, t) {
 
     if (t == "cnpj") {
         i.setAttribute("maxlength", "18");
-        if (v.length == 2 || v.length == 6) i.value += ".";
-        if (v.length == 10) i.value += "/";
-        if (v.length == 15) i.value += "-";
+        i.value = formataCnpj(v);
     }
 
     if (t == "cep") {
         i.setAttribute("maxlength", "9");
-        if (v.length == 5) i.value += "-";
+        i.value = formataCep(v);
     }
 
     if (t == "tel") {
-        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
-        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
-        i.value = v;
+        i.value = formataTelefone(v);
     }
-};
+}
+
+function formataData(data) {
+    const date = new Date();
+    const offset = date.getTimezoneOffset();
+    if(offset == 180) {
+        return data.substring(6, 10) + "-" + data.substring(3, 5) + "-" + data.substring(0, 2);
+    }
+
+    return data.substring(3, 5) + "/" + data.substring(0, 2) + "/" + data.substring(6, 10);
+}
+
+function formataCep(cep) {
+    return cep.replace(/^([\d]{2})\.?([\d]{3})\-?([\d]{3})/, "$1$2-$3");
+}
+
+function formataTelefone(telefone) {
+    telefone = telefone.replace(/\D/g, ""); //Remove tudo o que não é dígito
+    telefone = telefone.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    telefone = telefone.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+
+    return telefone
+}
+
+function formataCnpj(cnpj) {
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+}
 
 function validarCNPJ(elemento, cnpj) {
     trocaCorBorda(elemento);
@@ -302,18 +323,18 @@ function getInfosOng() {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         document.getElementById("campo_razao").value = response.data.razaoSocial;
-        document.getElementById("campo_cnpj").value = response.data.cnpj;
-        // document.getElementById("campo_fundacao").value = response.data.dataFundacao.split('-').reverse().join('/');
+        document.getElementById("campo_cnpj").value = formataCnpj(response.data.cnpj);
+        document.getElementById("campo_fundacao").value = formataData(response.data.dataFundacao);
         document.getElementById("campo_resp").value = response.data.nomeResponsavel;
-        document.getElementById("campo_telefone").value = response.data.telefone;
-        document.getElementById("campo_cep").value = response.data.cep;
-        // document.getElementById("campo_logradouro").value = response.data.;
-        // document.getElementById("campo_bairro").value = response.data.;
-        document.getElementById("campo_numero").value = response.data.numero;
-        document.getElementById("campo_complemento").value = response.data.complemento;
+        document.getElementById("campo_telefone").value = formataTelefone(response.data.telefone);
+        document.getElementById("campo_cep").value = formataCep((response.data.endereco.cep).trim());
+        document.getElementById("campo_logradouro").value = response.data.endereco.logradouro;
+        document.getElementById("campo_bairro").value = response.data.endereco.bairro;
+        document.getElementById("campo_numero").value = (response.data.endereco.numero);
+        document.getElementById("campo_complemento").value = response.data.endereco.complemento;
         document.getElementById("campo_email").value = response.data.email;
         document.getElementById("campo_senha").value = response.data.senha;
-        // window.location.href = '../tela-home-ong/home-ong.html'
+        document.getElementById("imagePerfil").src = response.data.urlImagem;
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
