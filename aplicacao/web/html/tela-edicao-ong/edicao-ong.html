@@ -7,35 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <script src="edicao-ong.js"></script>
+    <script defer src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="style.css">
     <title>MiauDote</title>
 </head>
 
-<body>
+<body onload="iniciar()">
     <main>
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
                     <img src="../../imagens/geral/logo-header.svg" alt="">
-
                 </div>
+
                 <div class="text-menu">
                     <a href="../tela-home-ong/home-ong.html">HOME</p>
-                        <a href="cards-ong.html">MEU PETS</a>
-                        <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
-
+                    <a href="cards-ong.html">MEU PETS</a>
+                    <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
                 </div>
+
                 <div class="container-btn">
                     <button class="btn-login">
                         <img src="../../imagens/geral/icon-menu.svg" alt="">
                         <p id="nome"></p>
                     </button>
                 </div>
+
                 <div class="container-sair">
                     <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
-
                 </div>
-
             </div>
 
             <svg width="1366" height="156" viewBox="0 0 1366 156" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,28 +47,25 @@
                     d="M171.699 137.132C296.915 146.423 747.979 83.4546 1176.28 137.132C1239.52 145.621 1366 154.763 1366 123.419V0H1290.11H910.667H455.333H75.8888H0V101.086C0 101.086 46.4819 127.841 171.699 137.132Z"
                     fill="#FFA8A1" />
             </svg>
-
-
         </header>
-        <div class="container-header">
 
+        <div class="container-header">
         </div>
 
         <div class="container-text">
             <p>MEU PERFIL</p>
-
         </div>
 
         <div class="container-image">
-            <div class="uploader" onclick="$('#filePhoto').click()">
+            <div class="uploader">
                 <p>ARRASTE E SOLTE A FOTO AQUI</p>
                 <img id="imagePerfil" src="" />
                 <input type="file" name="userprofile_picture" id="filePhoto" />
             </div>
         </div>
-        <div class="editar" onclick="$('#filePhoto').click()">
-            <img src="../../imagens/geral/edição.svg" alt="">
 
+        <div class="editar">
+            <img src="../../imagens/geral/edição.svg" alt="">
         </div>
 
         <div class="container-input">
@@ -162,12 +160,13 @@
 
             </div>
         </div>
+
         <div class="btn-edicao">
-            <button>SALVAR ALTERAÇÕES</button>
+            <button onclick="postCadastroOng()">SALVAR ALTERAÇÕES</button>
         </div>
 
-        <a href="#topo" style="cursor: pointer;">
-            <div class="container-gato">
+        <a>
+            <div class="container-gato" onclick="topo()" style="cursor: pointer;">
                 <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1949:4093)">
@@ -223,20 +222,21 @@
                     <div class="text-footer">
                         <P>Copyright© 2021</P>
                     </div>
-
                 </div>
+
                 <div class="coluna-2">
                     <div class="container-rede-sociais">
                         <img src="../../imagens/geral/icon-facebook.svg" alt="">
                         <img src="../../imagens/geral/icon-instagram.svg" alt="">
                         <img src="../../imagens/geral/icon-github.svg" alt="">
-
                     </div>
                     <p>Desenvolvido por alunos BandTec </p>
                 </div>
+
                 <div class="coluna-3">
                     <div class="alinhamento-contato">
                         <h1 class="text-titulo-contato">Contato</h1>
+
                         <div class="container-contato">
                             <p>email@email</p>
                             <div class="container-btn-contato">
@@ -244,8 +244,8 @@
                                     <img src="../../imagens/geral/carta.svg" alt="">
                                 </button>
                             </div>
-
                         </div>
+
                         <div class="container-contato">
                             <p>(11)4002-8922</p>
                             <div class="container-btn-contato">
@@ -253,10 +253,8 @@
                                     <img src="../../imagens/geral/wpp.svg" alt="">
                                 </button>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <svg id="svg1" width="100%" height="274" viewBox="0 0 1366 274" fill="none" preserveAspectRatio="none"
@@ -271,10 +269,10 @@
                     d="M0 291.308V41.9035C179.861 76.5166 515.445 60.8697 585.023 48.5416C1036 -17.8399 1293.58 -1.87673 1366 14.4025V291.308H0Z"
                     fill="#FF7D73" />
             </svg>
-
         </footer>
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
@@ -283,6 +281,12 @@
         const [file] = filePhoto.files
         if (file) {
             imagePerfil.src = URL.createObjectURL(file)
+            postImagem(file)
         }
+    }
+
+    function iniciar() {
+        validarSessao()
+        getInfosOng()
     }
 </script>
