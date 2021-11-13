@@ -62,7 +62,7 @@
 
         <div class="container-image">
             <div class="uploader">
-                <p>ARRASTE E SOLTE<br>A FOTO AQUI</p>
+                <p id="textoUploader">ARRASTE E SOLTE<br>A FOTO AQUI</p>
                 <img id="imagePerfil" src="" />
                 <input type="file" name="userprofile_picture" id="filePhoto" />
             </div>
@@ -120,6 +120,8 @@
                 <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj"
                     onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" disabled="" required>
 
+                <input type="hidden" id="campo_cnpj_escondido">
+
                 <span class="titulos-campos">Telefone</span>
                 <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone"
                     type="text" name="cmp_tel" maxlength="15" required>
@@ -160,7 +162,7 @@
         </div>
 
         <div class="btn-edicao">
-            <button onclick="postCadastroOng()">SALVAR ALTERAÇÕES</button>
+            <button onclick="putCadastroOng()">SALVAR ALTERAÇÕES</button>
         </div>
 
         <a>
@@ -277,6 +279,7 @@
     filePhoto.onchange = evt => {
         const [file] = filePhoto.files
         if (file) {
+            document.getElementById("textoUploader").innerHTML = ""
             imagePerfil.src = URL.createObjectURL(file)
             postImagem(file)
         }
@@ -292,10 +295,6 @@
             showButtonPanel: true,
             currentText: "Hoje",
             closeText: "Ok",
-            // showOn: "focus",
-            // showOn: "button",
-            // buttonImage: "../../imagens/geral/icon-calendario.svg",
-            // buttonImageOnly: true,
             dateFormat: "dd/mm/yy",
             maxDate: '0',
             dayNames: ["Domingo", "Segunda", "Terça", "Quarte", "Quinta", "Sexta", "Sábado"],

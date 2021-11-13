@@ -141,7 +141,7 @@ function mascara(i, t) {
 }
 
 function formataData(data) {
-    return data.substring(3, 5) + "/" + data.substring(0, 2) + "/" + data.substring(6, 10);
+    return data.substring(0, 2) + "/" + data.substring(3, 5) + "/" + data.substring(6, 10);
 }
 
 function formataCep(cep) {
@@ -156,8 +156,12 @@ function formataTelefone(telefone) {
     return telefone
 }
 
-function formataCnpj(cnpj) {
+function formataCnpjAsterisco(cnpj) {
     return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.***.***/****-$5");
+}
+
+function formataCnpj(cnpj) {
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
 }
 
 function validarCNPJ(elemento, cnpj) {
@@ -317,19 +321,23 @@ function getInfosOng() {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         document.getElementById("campo_razao").value = response.data.razaoSocial;
-        document.getElementById("campo_cnpj").value = formataCnpj(response.data.cnpj);
+        document.getElementById("campo_cnpj_escondido").value = formataCnpj(response.data.cnpj);
+        document.getElementById("campo_cnpj").value = formataCnpjAsterisco(response.data.cnpj);
         document.getElementById("campo_fundacao").value = formataData(response.data.dataFundacao);
         document.getElementById("campo_resp").value = response.data.nomeResponsavel;
         document.getElementById("campo_telefone").value = formataTelefone(response.data.telefone);
         document.getElementById("campo_cep").value = formataCep((response.data.endereco.cep).trim());
         document.getElementById("campo_logradouro").value = response.data.endereco.logradouro;
         document.getElementById("campo_bairro").value = response.data.endereco.bairro;
-        document.getElementById("campo_numero").value = (response.data.endereco.numero);
+        document.getElementById("campo_numero").value = response.data.endereco.numero;
         document.getElementById("campo_complemento").value = response.data.endereco.complemento;
         document.getElementById("campo_email").value = response.data.email;
         document.getElementById("campo_senha").value = response.data.senha;
         document.getElementById("campo_confirmar_senha").value = response.data.senha;
-        document.getElementById("imagePerfil").src = response.data.urlImagem;
+        if(response.data.urlImagem.length != 0) {
+            document.getElementById("imagePerfil").src = response.data.urlImagem;
+            document.getElementById("textoUploader").innerHTML = "";
+        }
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
@@ -340,7 +348,7 @@ function getInfosOng() {
     })
 }
 
-function postCadastroOng() {
+function putCadastroOng() {
     var camposVazios = verificaCamposVazios()
     senhas = validaSenhas()
 
@@ -360,8 +368,8 @@ function postCadastroOng() {
         })
     } else {
         var razao = document.getElementById("campo_razao").value;
-        var cnpj = (document.getElementById("campo_cnpj").value).replace(".", "").replace(".", "").replace("/", "").replace("-", "");
-        var dataFundacao = (document.getElementById("campo_fundacao").value).split('-').reverse().join('/');
+        var cnpj = (document.getElementById("campo_cnpj_escondido").value).replace(".", "").replace(".", "").replace("/", "").replace("-", "");
+        var dataFundacao = document.getElementById("campo_fundacao").value;
         var nomeResponsavel = document.getElementById("campo_resp").value;
         var telefone = (document.getElementById("campo_telefone").value).replace("(", "").replace(")", "").replace(" ", "").replace("-", "");
         var cep = (document.getElementById("campo_cep").value).replace("-", "");
@@ -393,12 +401,13 @@ function postCadastroOng() {
         }).then(response => {
             Swal.fire({
                 title: 'Cadastro atualizado com sucesso!',
-                text: 'Clique em ok para voltar para a home!',
+                text: 'Clique em ok para atualizar a página',
                 icon: 'success',
                 confirmButtonText: 'Ok'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = '../tela-home-ong/home-ong.html'
+                    topo();
+                    window.location.reload;
                 }
             })
         }).catch(function (error) {
