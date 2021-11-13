@@ -141,12 +141,6 @@ function mascara(i, t) {
 }
 
 function formataData(data) {
-    const date = new Date();
-    const offset = date.getTimezoneOffset();
-    if(offset == 180) {
-        return data.substring(6, 10) + "-" + data.substring(3, 5) + "-" + data.substring(0, 2);
-    }
-
     return data.substring(3, 5) + "/" + data.substring(0, 2) + "/" + data.substring(6, 10);
 }
 
@@ -163,7 +157,7 @@ function formataTelefone(telefone) {
 }
 
 function formataCnpj(cnpj) {
-    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.***.***/****-$5");
 }
 
 function validarCNPJ(elemento, cnpj) {
@@ -334,6 +328,7 @@ function getInfosOng() {
         document.getElementById("campo_complemento").value = response.data.endereco.complemento;
         document.getElementById("campo_email").value = response.data.email;
         document.getElementById("campo_senha").value = response.data.senha;
+        document.getElementById("campo_confirmar_senha").value = response.data.senha;
         document.getElementById("imagePerfil").src = response.data.urlImagem;
     }).catch(function (error) {
         Swal.fire({

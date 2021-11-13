@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 body{
     overflow-x: hidden;
@@ -146,18 +145,13 @@ header {
     justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
-
 }
   
-
-
-
 
 .btn-login img {
     width: 37%;
     margin-right: 7%;
 }
-
 
 .btn-login p{
     font-family: Nunito;
@@ -167,10 +161,7 @@ header {
     line-height: 28px;  
     letter-spacing: 0.01em;
     color: #434343;
-
-
 }
-
 
 
 header img {
@@ -241,7 +232,6 @@ header img {
 }
 
 .uploader p {
-    font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -260,7 +250,6 @@ header img {
     z-index:2;
     opacity:0;
     cursor:pointer;
-   
 }
 
 
@@ -327,14 +316,14 @@ header img {
     font-size: 20px;
     text-align: start;
     color: #6250D1;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     line-height: 23px;
 }
 
 .campos {
-    width: 335px;
+    width: 100%;
+    max-width: 335px;
     height: 59px;
     padding-left: 12px;
     border: 1px solid #949494;
@@ -356,9 +345,24 @@ header img {
     justify-content: center;
 }
 
+#campo_razao {
+    background-image: url(../../imagens/geral/icon-cadeado.svg) ;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-position-x: calc(100% - 12px);
+}
+
+#campo_cnpj {
+    background-image: url(../../imagens/geral/icon-cadeado.svg) ;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-position-x: calc(100% - 12px);
+}
+
 .container-senha {
     display: flex;
-    margin-left: -10px;
 }
 
 .field-icon {
@@ -372,31 +376,27 @@ header img {
 
 .container-endereco {
     width: 100%;
+    max-width: 335px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-   
     margin-top: 12%;
     height: 15%;
 }
 
 .container-numero {
     height: 100%;
-    width: 40%;
+    width: 120px;
     display: flex;
     flex-direction: column;
-
-   
 }
 
 .container-complemento {
     height: 100%;
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-  
+    margin-left: 20px;
 }
 
 .titulos-campos-endereco {
@@ -404,7 +404,6 @@ header img {
     font-size: 20px;
     text-align: start;
     color: #6250D1;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     line-height: 23px;
@@ -412,8 +411,8 @@ header img {
 } 
 
 .campos-numero {
-    width: 70%;
-    height: 90%;
+    width: 100%;
+    height: 59px;
     padding-left: 12px;
     border: 1px solid #949494;
     border-radius: 4px;
@@ -422,11 +421,9 @@ header img {
     font-size: 18px;
 }
 
-
-
 .campos-complemento{
-    width: 95%;
-    height: 90%;
+    height: 59px;
+    width: 100%;
     padding-left: 12px;
     border: 1px solid #949494;
     border-radius: 4px;
