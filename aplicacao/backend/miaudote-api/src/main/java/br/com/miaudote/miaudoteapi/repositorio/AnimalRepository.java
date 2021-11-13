@@ -14,7 +14,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<Animal> findByOng(Ong ongForeignKey);
 
     @Query(value = "SELECT TOP 3 animal.nome, FLOOR((CAST (GetDate() AS DECIMAL) - CAST(animal.data_nascimento AS DECIMAL)) / 365.25) as idadeAnimal, " +
-            "animal.url_imagem AS url, animal.descricao AS descricao " +
+            "animal.url_imagem AS url, animal.descricao, animal.id_animal AS id, animal.especie " +
             "FROM Animal ORDER BY NEWID()", nativeQuery = true)
     List<AnimalVitrineDTO> findRandomTop3();
 

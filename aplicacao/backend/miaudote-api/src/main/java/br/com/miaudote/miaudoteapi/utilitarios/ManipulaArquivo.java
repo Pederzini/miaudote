@@ -6,6 +6,7 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -105,7 +106,7 @@ public class ManipulaArquivo {
                     a.setNome (registro.substring(2,53).trim());
                     a.setDescricao (registro.substring(53,333).trim());
                     a.setGenero (registro.substring(333,334));
-                    Date dataChegada = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(334,344);
+                    Date dataChegada = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(334,344));
                     a.setDataChegada(dataChegada);
                     a.setCorPelagem (registro.substring(344,354));
                     a.setTipoPelagem (registro.substring(354,361));
@@ -114,7 +115,7 @@ public class ManipulaArquivo {
                     a.setPorte(registro.substring(371,378));
                     a.setComportamento(registro.substring(378,423));
                     a.setNecessidadeEspeciais(registro.substring(423,703));
-                    Date dataNascimento = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(423,703);
+                    Date dataNascimento = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(423,703));
                     a.setDataNascimento(dataNascimento);
 
 
@@ -126,12 +127,12 @@ public class ManipulaArquivo {
             }
             entrada.close();
         }
-        catch (IOException e){
+        catch (IOException | ParseException e){
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
         }
         System.out.println("\nConteúdo lido do arquivo:");
-        for (Aluno a : listaLida){
-            System.out.println(a);
-        }
+//        for (Aluno a : listaLida){
+//            System.out.println(a);
+//        }
     }
 }
