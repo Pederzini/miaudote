@@ -9,6 +9,10 @@
     <script src="edicao-ong.js"></script>
     <script defer src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <link rel="stylesheet" href="style.css">
     <title>MiauDote</title>
 </head>
@@ -23,8 +27,8 @@
 
                 <div class="text-menu">
                     <a href="../tela-home-ong/home-ong.html">HOME</p>
-                    <a href="cards-ong.html">MEU PETS</a>
-                    <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
+                        <a href="cards-ong.html">MEU PETS</a>
+                        <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
                 </div>
 
                 <div class="container-btn">
@@ -58,7 +62,7 @@
 
         <div class="container-image">
             <div class="uploader">
-                <p>ARRASTE E SOLTE A FOTO AQUI</p>
+                <p>ARRASTE E SOLTE<br>A FOTO AQUI</p>
                 <img id="imagePerfil" src="" />
                 <input type="file" name="userprofile_picture" id="filePhoto" />
             </div>
@@ -91,7 +95,7 @@
                 </div>
 
                 <span class="titulos-campos">Confirmar Senha</span>
-                <div style="display: flex; margin-left: -10px;">
+                <div style="display: flex">
                     <input placeholder="*****" class="campos" id="campo_confirmar_senha" type="password" maxlength="16"
                         required>
                     <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons"
@@ -107,14 +111,14 @@
 
             <div class="inputs">
                 <span class="titulos-campos">Razão Social</span>
-                <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" required>
+                <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" disabled="" required>
+
+                <span class="titulos-campos">Data da Fundação</span>
+                <input class="campos" id="campo_fundacao" type="text" name="cmp_fund" autocomplete="off" required>
 
                 <span class="titulos-campos">CNPJ</span>
                 <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj"
-                    onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" required>
-
-                <span class="titulos-campos">Data da Fundação</span>
-                <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off" required>
+                    onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" disabled="" required>
 
                 <span class="titulos-campos">Telefone</span>
                 <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone"
@@ -160,9 +164,9 @@
         </div>
 
         <a>
-            <div class="container-gato" onclick="topo()" style="cursor: pointer;">
-                <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+            <div class="container-gato">
+                <svg class="svg-gato" onclick="topo()" style="cursor: pointer;" width="180" height="177"
+                    viewBox="0 0 180 177" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1949:4093)">
                         <circle cx="54" cy="120" r="50" fill="white" />
                     </g>
@@ -281,5 +285,28 @@
     function iniciar() {
         validarSessao()
         getInfosOng()
+    }
+
+    $(document).ready(function () {
+        $("#campo_fundacao").datepicker({
+            showButtonPanel: true,
+            currentText: "Hoje",
+            closeText: "Ok",
+            // showOn: "focus",
+            // showOn: "button",
+            // buttonImage: "../../imagens/geral/icon-calendario.svg",
+            // buttonImageOnly: true,
+            dateFormat: "dd/mm/yy",
+            maxDate: '0',
+            dayNames: ["Domingo", "Segunda", "Terça", "Quarte", "Quinta", "Sexta", "Sábado"],
+            dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+        });
+    });
+
+    var old_goToToday = $.datepicker._gotoToday
+    $.datepicker._gotoToday = function (id) {
+        old_goToToday.call(this, id)
+        this._selectDate(id)
     }
 </script>
