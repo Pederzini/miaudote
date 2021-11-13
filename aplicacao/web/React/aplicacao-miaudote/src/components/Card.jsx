@@ -3,32 +3,62 @@
 import React from 'react';
 import '../css/Card.css';
 
-export default props =>
-<div className="card">
-    <div className="botao-card">
-        <button>
-            ADOTAR
-        </button>
-    </div>
-    <div className="imagem-card">
-        <div className="favoritar">
-            <img src={props.imgFavoritar} />
-        </div>
-    </div> {/* fim imagem-card */}
+import iconBolo from '../imagens/Geral/icon-bolo.png';
+import iconDog from '../imagens/Geral/especie-cachorro.png';
+import iconCat from '../imagens/Geral/especie-gato.png';
+import iconInfo from '../imagens/Geral/icon-info.png';
 
-    <div className="descricao-card">
-        <div className="descricao-esquerda">
-            <p className="nome-pet">
-                {props.nome}
-            </p>
-            <p className="sobre-pet">
-                {props.descricao}
-            </p>
-        </div>
-        <div className="descricao-direita">
-            <p className="idade-pet">
-                {props.idade} anos
-            </p>
-        </div>
-    </div> {/* fim descrica-card */}
-</div>/* fim card */ 
+
+function Card(props) {
+
+    function linkTela() {
+        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/login.html')
+    }
+
+    return (
+
+        <div className="card" >
+            <div className="botao-card">
+                <button onClick={() => linkTela()}>
+                    ADOTAR
+                </button>
+            </div>
+            <div className="imagem-card">
+                <div className="favoritar">
+                    <img src={props.imgFavoritar} />
+                </div>
+            </div> {/* fim imagem-card */}
+
+            <div className="descricao-card">
+                <div className="dados-pet">
+                    <div className="icon-descricao">
+                        <img src={props.especie === "Cachorro" ? iconDog : iconCat} alt="" />
+                    </div>
+                    <div className="texto-pet-nome">
+                        {props.nome}
+                    </div>
+                </div>
+
+                <div className="dados-pet">
+                    <div className="icon-descricao">
+                        <img src={iconBolo} alt="" />
+                    </div>
+                    <div className="texto-pet">
+                        {props.idade} ANOS
+                    </div>
+                </div>
+
+                <div className="dados-pet">
+                    <div className="icon-descricao">
+                        <img src={iconInfo} alt="" />
+                    </div>
+                    <div className="texto-pet">
+                        {props.descricao}
+                    </div>
+                </div>
+            </div> {/* fim descrica-card */}
+        </div >/* fim card */
+    )
+}
+
+export default Card;

@@ -12,11 +12,6 @@ import imgOsso from './imagens/Geral/icon-osso.svg';
 import imgHLD from './imagens/Home/HLD.svg';
 import imgHldAdocao from './imagens/Home/caminho-HLD-adocao.svg';
 import imgAdocaoCadastro from './imagens/Home/caminho-adocao-cadastro.svg';
-import imgBtnEsquerda from './imagens/Geral/icon-seta-esquerda.svg';
-import imgBtnDireita from './imagens/Geral/icon-seta-direita.svg';
-import imgFavoritarBranco from './imagens/Geral/icon-coracao-branco.svg';
-import imgFavoritarVermelho from './imagens/Geral/icon-coracao-vermelho.svg';
-import imgLocalizacao from './imagens/Geral/icon-localizacao.svg';
 import imgMulherCadastro from './imagens/Home/mulher-caixa-cachorro.svg';
 import imgHomemCadastro from './imagens/Home/homem-cachorro.svg';
 import imgQuemSomos from './imagens/Home/quem-somos.svg';
@@ -31,8 +26,6 @@ import BotaoCadastro from './components/BotaoCadastro';
 import Titulo from './components/Titulo';
 import Card from './components/Card';
 import Modal from './components/Modal';
-import Rotas from './rotas';
-
 
 function App() {
 
@@ -74,7 +67,7 @@ function App() {
     }
 
     buscarAnimais();
-  }, []); 
+  }, []);
 
   function linkTela(tela) {
     switch (tela) {
@@ -150,24 +143,18 @@ function App() {
 
         {/* CONTEUDO ADOCAO */}
         <div className="conteudo-adocao">
-          <img src={imgBtnEsquerda} />
-
           {/* CARDS ADOCAO */}
           <div className="cards-adocao"> {
             cards.map((card) => (
-              <Card 
+              <Card
                 nome={card.nome}
                 descricao={card.descricao}
                 idade={card.idadeAnimal}
+                especie={card.especie}
               />
             ))
           }
-            {/* <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} /> */}
           </div> {/* fim cards-adocao */}
-
-          <img src={imgBtnDireita} />
         </div> {/* fim conteudo-adocao */}
       </div> {/* fim container-adocao */}
 
