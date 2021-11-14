@@ -1,6 +1,7 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
+import br.com.miaudote.miaudoteapi.dto.AdotanteSemEnderecoDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.GoogleAdapter;
@@ -71,6 +72,25 @@ public class AdotanteCrontoller {
 
 
         return ResponseEntity.status(404).build();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity patchAdotante(
+            @PathVariable Integer id,
+            @RequestBody AdotanteSemEnderecoDTO adotanteNovo
+    ) {
+        adotanteRepository.updateAdotante(
+                id,
+                adotanteNovo.getNome(),
+                adotanteNovo.getDataNascimento(),
+                adotanteNovo.getCpf(),
+                adotanteNovo.getTelefone(),
+                adotanteNovo.getEmail(),
+                adotanteNovo.getSenha(),
+                adotanteNovo.getUrlImagem()
+        );
+
+        return ResponseEntity.status(200).build();
     }
 
 }
