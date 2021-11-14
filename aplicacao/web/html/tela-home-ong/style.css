@@ -312,14 +312,13 @@ header img {
 
 }
 
-.texto-adocoes p::before {
+.texto-adocoes p {
     color: #6250D1;
-    content: "32 ";
 }
   
 .texto-adocoes p::after {
     color: #434343;
-    content: "animais já encontraram um lar";
+    content: " animais já encontraram um lar";
 
   }
   

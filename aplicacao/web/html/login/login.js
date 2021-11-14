@@ -73,7 +73,7 @@ function postLogin() {
       }).then(response => {
         // localStorage.setItem('login_usuario', JSON.stringify(response.data));
         sessionStorage.login_usuario = JSON.stringify(response.data)
-        if (usuario == "ong") {
+        if (usuario == "ongs") {
           window.location.href= "../tela-home-ong/home-ong.html"
         } else {
           window.location.href= "../home-adotante/home-adotante.html"

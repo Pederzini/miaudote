@@ -9,10 +9,12 @@
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
 
     <script defer src="../script.js"></script>
+    <script defer src="home-ong.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>MiauDote - Home</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), getQtdAnimais()">
     <div class="container-page-1">
         <header id="topo">
             <div class="menu">
@@ -195,11 +197,10 @@
         <div class="container-adocoes">
             <img src="../../imagens/home-ong/gato-cachorro-coracao.svg" alt="">
             <div class="contador-adocoes">
-                <p>32</p>
+                <p id="qtdAnimais"></p>
             </div>
             <div class="texto-adocoes">
-                <p></p>
-
+                <p id="qtdAnimais"></p>
             </div>
         </div>
     </div>
@@ -302,11 +303,3 @@
 </body>
 
 </html>
-
-<script>
-
-function referenciaMeuPets() {
-    window.location.href = "../tela-card-adocoes-ong/cards-ong.html"
-}
-
-</script>
