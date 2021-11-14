@@ -9,6 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
   <link rel="stylesheet" href="cadastro-pet.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script defer src="../script.js"></script>
   <script defer src="editar-pet.js"></script>
 
@@ -16,7 +17,7 @@
 </head>
 
 <!-- <body onload="validarSessao()"> -->
-  <body onload="organizaImagem()">
+  <body onload="imgPlaceholder()">
 
   <div class="container-page-1">
     <header id="topo">
@@ -151,23 +152,44 @@
           <p class="texto-sugestao margem-texto">Arraste a foto do animal nos quadrados abaixo:</p>
 
           <div class="grid-imagem1">
-            <div id="image_drop_area" value="0">
+            <!-- <section class="droparea">
+              <i class="far fa-images"></i>
+              <p>Drop your .png or .jpg files here!</p>
+              <p><small>Up to 20 images, No max file size.</small></p>
+          </section> -->
+            <div class="">
+              <div class="uploader" onclick="$('#filePhoto').click()">
+                  <img id="imagePerfil" src="" style="object-fit: contain;"/>
+                  <input type="file" name="userprofile_picture" id="filePhoto" />
+              </div>
             </div>
 
-            <div id="image_drop_area" value="1">
+            <div class="">
+              <div class="uploader2" onclick="('#filePhoto2').click()">
+                  <img id="imagePerfil2" src="" />
+                  <input type="file"  id="filePhoto2" />
+              </div>
             </div>
-            
-            <!-- <div class="borda-placeholder ">
-              <img id="foto2" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
+
+            <!-- <div class="">
+              <div class="uploader" onclick="$('#filePhoto2').click()">
+                  <img id="imagePerfil" src="" />
+                  <input type="file" name="userprofile_picture" id="filePhoto" />
+              </div>
             </div> -->
+          <!-- <div class="editar" onclick="$('#filePhoto').click()">
+              <img src="../../imagens/geral/edição.svg" alt="">
+  
+          </div> -->
+
           </div>
 
           <div class="grid-imagem2">
-            <div id="image_drop_area" value="2">
+            <!-- <div id="image_drop_area" value="2">
             </div>
 
             <div id="image_drop_area" value="3">
-            </div>
+            </div> -->
             <!-- <div class="borda-placeholder ">
               <img id="foto3" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
             </div>

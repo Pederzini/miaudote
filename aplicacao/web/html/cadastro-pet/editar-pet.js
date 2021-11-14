@@ -1,47 +1,62 @@
-var foto1 = "../../imagens/geral/placeholder-imagem-pet.svg";
 
-function trocaImagem() {
+function imgPlaceholder() {
+  var placeholder = "../../imagens/geral/placeholder-imagem-pet.svg"
+  imagePerfil.src = placeholder; 
+  // imagePerfil2.src = placeholder; 
+  // imagePerfil3.src = placeholder; 
+  // imagePerfil4.src = placeholder; 
 
-  if (fotoBanco == null) {
-    return foto = "../../imagens/geral/placeholder-imagem-pet.svg";
+}
+
+// const initApp = () => {
+//   const droparea = document.querySelector('.droparea');
+
+//   const active = () => droparea.classList.add("green-border");
+
+//   const inactive = () => droparea.classList.remove("green-border");
+
+//   const prevents = (e) => e.preventDefault();
+
+//   ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evtName => {
+//       droparea.addEventListener(evtName, prevents);
+//   });
+
+//   ['dragenter', 'dragover'].forEach(evtName => {
+//       droparea.addEventListener(evtName, active);
+//   });
+
+//   ['dragleave', 'drop'].forEach(evtName => {
+//       droparea.addEventListener(evtName, inactive);
+//   });
+
+//   droparea.addEventListener("drop", handleDrop);
+
+// }
+
+// document.addEventListener("DOMContentLoaded", initApp);
+
+// const handleDrop = (e) => {
+//   const dt = e.dataTransfer;
+//   const files = dt.files;
+//   const fileArray = [...files];
+//   console.log(files); // FileList
+//   console.log(fileArray);
+// }
+
+filePhoto.onchange = evt => {
+  const [file] = filePhoto.files
+  // const [file3] = filePhoto3.files
+  // const [file4] = filePhoto4.files
+  if (file) {
+      imagePerfil.src = URL.createObjectURL(file)
   }
+ 
 }
 
-const image_drop_area = document.querySelector("#image_drop_area");
-var uploaded_image;
-
-image_drop_area.addEventListener('dragover', (event) => {
-  event.stopPropagation();
-  event.preventDefault();
-  event.dataTransfer.dropEffect = 'copy';
-});
-
-image_drop_area.addEventListener('drop', (event) => {
-  event.stopPropagation();
-  event.preventDefault();
-  const fileList = event.dataTransfer.files;
-  document.querySelector("#file_name").textContent =    fileList[0].name;
-  readImage(fileList[0]);
-});
-
-readImage = (file) => {
-   const reader = new FileReader();
-   reader.addEventListener('load', (event) => {
-   uploaded_image = event.target.result;
-   document.querySelector("#image_drop_area").style.backgroundImage     = `url(${uploaded_image})`;
-   });
-   reader.readAsDataURL(file);
-}
-
-function organizaImagem() {
-  var img = document.querySelector("#image_drop_area")
-  var valorInput = getComputedStyle(img)
-  console.log(valorInput.style.backgroundImage)
-
-  // valorInput.forEach(element => {
-  //   if (element.style.backgroundImage == "") {
-  //     console.log(element.style.backgroundImage)
-  //   } 
-  // });
+filePhoto2.onchange = evt => {
+  const [file2] = filePhoto2.files
+  if (file2) {
+    imagePerfil2.src = URL.createObjectURL(file2)
+  }
 }
 
