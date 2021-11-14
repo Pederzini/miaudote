@@ -390,17 +390,15 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
 }
 
-.uploader {
+.uploader, .uploader2, .uploader3, .uploader4 {
   position:relative; 
   overflow:hidden; 
   width: 210px;
   height: 280px; 
   border: 2px dashed #8F7FAC;
-  margin-top: 5%;
+  margin-top: 15%;
   border-radius: 10px;
   box-sizing: border-box;
   display: flex;
@@ -408,21 +406,7 @@ h3 {
   justify-content: center;  
 }
 
-.uploader2 {
-  position:relative; 
-  overflow:hidden; 
-  width: 210px;
-  height: 280px; 
-  border: 2px dashed #8F7FAC;
-  margin-top: 5%;
-  border-radius: 10px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-}
-
-#filePhoto{
+#filePhoto, #filePhoto2, #filePhoto3, #filePhoto4{
   position:absolute;
   width:100%;
   height:100%;
@@ -431,20 +415,17 @@ h3 {
   z-index:2;
   opacity:0;
   cursor:pointer; 
+  margin-top: 25%;
 }
 
-
-#imagePerfil {
-  /* width: 100%; */
+#imagePerfil, #imagePerfil2 , #imagePerfil3, #imagePerfil4 {
   height: 100%;
   overflow: hidden;
   border-radius: 10px;
   z-index: 0;  
 }
 
-
-
-.uploader img{
+.uploader img, .uploader2 img, .uploader3 img, .uploader4 img{
   position:absolute;
   width:100%;
   height:100%;
@@ -454,7 +435,7 @@ h3 {
   border:none;
 
 }
-/* .uploader2 img{
+.uploader2 img{
   position:absolute;
   width:100%;
   height:100%;
@@ -462,10 +443,7 @@ h3 {
   left:-1px;
   z-index:1;
   border:none;
-
-} */
-
-
+}
 
 .editar {
   width: 3%;
@@ -484,29 +462,7 @@ h3 {
 .editar img {
   width: 50%;
 }
-/* 
-.droparea {
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 384px;
-  max-width: 100%;
-  height: 160px;
-  border: 4px dashed grey;
-  border-radius: 15px;
-}
 
-.droparea i {
-  font-size: 3rem;
-  flex-grow: 1;
-  padding-top: 1rem;
-}
-
-.green-border {
-  border-color: green;
-} */
 /*teste*/
 
 

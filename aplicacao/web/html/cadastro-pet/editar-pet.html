@@ -149,14 +149,10 @@
       
       <div class="container-imagem">
         <div class="borda-container">
-          <p class="texto-sugestao margem-texto">Arraste a foto do animal nos quadrados abaixo:</p>
+          <p class="texto-sugestao margem-texto">Arraste a foto do animal nos quadrados abaixo OU <br/>
+            Clique nos quadrados para enviar a foto:</p>
 
           <div class="grid-imagem1">
-            <!-- <section class="droparea">
-              <i class="far fa-images"></i>
-              <p>Drop your .png or .jpg files here!</p>
-              <p><small>Up to 20 images, No max file size.</small></p>
-          </section> -->
             <div class="">
               <div class="uploader" onclick="$('#filePhoto').click()">
                   <img id="imagePerfil" src="" style="object-fit: contain;"/>
@@ -165,41 +161,31 @@
             </div>
 
             <div class="">
-              <div class="uploader2" onclick="('#filePhoto2').click()">
-                  <img id="imagePerfil2" src="" />
+              <div class="uploader" onclick="('#filePhoto2').click()">
+                  <img id="imagePerfil2" src="" style="object-fit: contain;"/>
                   <input type="file"  id="filePhoto2" />
               </div>
             </div>
 
-            <!-- <div class="">
-              <div class="uploader" onclick="$('#filePhoto2').click()">
-                  <img id="imagePerfil" src="" />
-                  <input type="file" name="userprofile_picture" id="filePhoto" />
-              </div>
-            </div> -->
-          <!-- <div class="editar" onclick="$('#filePhoto').click()">
-              <img src="../../imagens/geral/edição.svg" alt="">
-  
-          </div> -->
-
           </div>
 
           <div class="grid-imagem2">
-            <!-- <div id="image_drop_area" value="2">
+            <div class="">
+              <div class="uploader" onclick="('#filePhoto3').click()">
+                  <img id="imagePerfil3" src="" style="object-fit: contain;"/>
+                  <input type="file"  id="filePhoto3" />
+              </div>
             </div>
 
-            <div id="image_drop_area" value="3">
-            </div> -->
-            <!-- <div class="borda-placeholder ">
-              <img id="foto3" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
+            <div class="">
+              <div class="uploader" onclick="('#filePhoto4').click()">
+                  <img id="imagePerfil4" src="" style="object-fit: contain;"/>
+                  <input type="file"  id="filePhoto4" />
+              </div>
             </div>
-  
-            <div class="borda-placeholder ">
-              <img id="foto4" class="placeholder-img" src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
-            </div> -->
           </div>
 
-          <div class="div-arquivo-upload"> 
+          <!-- <div class="div-arquivo-upload"> 
             <p id="file_name"></p><br>
 
             <div class="div-botao-cadastro">
@@ -208,7 +194,7 @@
             <div class="div-botao-cadastro-upload">
               <button class="botao-cadastro-selecao" onclick="selecionar()">ENVIAR IMAGEM</button>
             </div>
-          </div>
+          </div> -->
 
           <p class="texto-sugestao margem-texto">*Caso não complete as fotos, a imagem exibida será a imagem do cachorro exibido acima</p>
         </div>
