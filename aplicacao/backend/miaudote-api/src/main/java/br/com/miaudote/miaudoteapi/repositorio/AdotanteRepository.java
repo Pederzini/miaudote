@@ -26,7 +26,7 @@ public interface AdotanteRepository extends JpaRepository<Adotante, Integer> {
             "a.email = ?6, " +
             "a.senha = ?7, " +
             "a.urlImagem = ?8 " +
-            "WHERE a.id = ?9")
+            "WHERE a.id = ?1")
     void updateAdotante(
             Integer id,
             String nome,
