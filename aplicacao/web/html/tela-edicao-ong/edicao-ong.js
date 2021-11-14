@@ -334,7 +334,7 @@ function getInfosOng() {
         document.getElementById("campo_email").value = response.data.email;
         document.getElementById("campo_senha").value = response.data.senha;
         document.getElementById("campo_confirmar_senha").value = response.data.senha;
-        if(response.data.urlImagem.length != 0) {
+        if (response.data.urlImagem.length != 0) {
             document.getElementById("imagePerfil").src = response.data.urlImagem;
             document.getElementById("textoUploader").innerHTML = "";
         }
@@ -348,7 +348,7 @@ function getInfosOng() {
     })
 }
 
-function putCadastroOng() {
+function patchCadastroOng() {
     var camposVazios = verificaCamposVazios()
     senhas = validaSenhas()
 
@@ -372,15 +372,10 @@ function putCadastroOng() {
         var dataFundacao = document.getElementById("campo_fundacao").value;
         var nomeResponsavel = document.getElementById("campo_resp").value;
         var telefone = (document.getElementById("campo_telefone").value).replace("(", "").replace(")", "").replace(" ", "").replace("-", "");
-        var cep = (document.getElementById("campo_cep").value).replace("-", "");
-        var logradouro = document.getElementById("campo_logradouro").value;
-        var bairro = document.getElementById("campo_bairro").value;
-        var numero = document.getElementById("campo_numero").value;
-        var complemento = document.getElementById("campo_complemento").value;
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.put(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
+        axios.patch(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
             "razaoSocial": razao,
             "cnpj": cnpj,
@@ -389,27 +384,9 @@ function putCadastroOng() {
             "telefone": telefone,
             "email": email,
             "senha": senha,
-            "urlImagem": urlImagem,
-            "endereco": {
-                "cep": cep,
-                "logradouro": logradouro,
-                "bairro": bairro,
-                "numero": numero,
-                "complemento": complemento,
-                "cidade": "São Paulo",
-            },
+            "urlImagem": urlImagem == "" ? document.getElementById("imagePerfil").src : urlImagem,
         }).then(response => {
-            Swal.fire({
-                title: 'Cadastro atualizado com sucesso!',
-                text: 'Clique em ok para atualizar a página',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            }).then((result) => {
-                if (result.value) {
-                    topo();
-                    window.location.reload;
-                }
-            })
+            atualizaEndereco()
         }).catch(function (error) {
             Swal.fire({
                 title: error.response.data,
@@ -419,4 +396,41 @@ function putCadastroOng() {
             })
         })
     }
+}
+
+function atualizaEndereco() {
+    var cep = (document.getElementById("campo_cep").value).replace("-", "");
+    var logradouro = document.getElementById("campo_logradouro").value;
+    var bairro = document.getElementById("campo_bairro").value;
+    var numero = document.getElementById("campo_numero").value;
+    var complemento = document.getElementById("campo_complemento").value;
+
+    axios.patch(`http://localhost:8080/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+        "cep": cep,
+        "logradouro": logradouro,
+        "bairro": bairro,
+        "numero": numero,
+        "complemento": complemento,
+        "cidade": "São Paulo",
+    }).then(response => {
+        Swal.fire({
+            title: 'Cadastro atualizado com sucesso!',
+            text: 'Clique em ok para atualizar a página',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+            if (result.value) {
+                topo();
+                window.location.reload;
+            }
+        })
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response.data,
+            text: 'Verifique as informações digitadas',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
 }
