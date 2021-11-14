@@ -3,6 +3,7 @@ package br.com.miaudote.miaudoteapi.controle;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.ContatoOngDTO;
 import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
+import br.com.miaudote.miaudoteapi.dto.OngSemEnderecoDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
@@ -29,8 +30,7 @@ public class OngController {
     @PostMapping
     public ResponseEntity cadastroOng(@RequestBody Ong ongCad) {
         try {
-            GoogleAdapter googleAdapter = new GoogleAdapter();
-            ongCad = (Ong) googleAdapter.registrarLatAndLong(ongCad);
+            ongCad = (Ong) GoogleAdapter.registrarLatAndLong(ongCad);
             ongRepository.save(ongCad);
         } catch (DataIntegrityViolationException erro) {
             return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroOng(erro));
@@ -78,6 +78,26 @@ public class OngController {
         }
 
         return ResponseEntity.status(404).build();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity patchOng(
+            @PathVariable Integer id,
+            @RequestBody OngSemEnderecoDTO ongNova
+    ) {
+        ongRepository.updateOng(
+                id,
+                ongNova.getNomeResponsavel(),
+                ongNova.getRazaoSocial(),
+                ongNova.getDataFundacao(),
+                ongNova.getCnpj(),
+                ongNova.getTelefone(),
+                ongNova.getEmail(),
+                ongNova.getSenha(),
+                ongNova.getUrlImagem()
+        );
+
+        return ResponseEntity.status(200).build();
     }
 
     @GetMapping("/{cnpj}/numero-adotados")

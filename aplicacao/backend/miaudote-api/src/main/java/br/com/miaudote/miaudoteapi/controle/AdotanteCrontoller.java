@@ -23,8 +23,7 @@ public class AdotanteCrontoller {
     @PostMapping
     public ResponseEntity cadastroAdotante(@RequestBody Adotante adotanteCad) {
         try {
-            GoogleAdapter googleAdapter = new GoogleAdapter();
-            adotanteCad = (Adotante) googleAdapter.registrarLatAndLong(adotanteCad);
+            adotanteCad = (Adotante) GoogleAdapter.registrarLatAndLong(adotanteCad);
             adotanteRepository.save(adotanteCad);
         } catch (DataIntegrityViolationException erro) {
             return ResponseEntity.status(409).body(AnalisaException.analisaErroCadastroAdotante(erro));
