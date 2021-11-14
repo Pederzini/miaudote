@@ -1,46 +1,13 @@
-window.onload = function () {
+function carregar() {
   let inputs = document.querySelectorAll('.campos')
   inputs.forEach(element => {
 
       let id = element.getAttribute('id')
-      if (id != "campo_cnpj" && id != "campo_cep") {
+      if (id != "campo_cpf" && id != "campo_cep") {
           element.addEventListener('blur', function () { trocaCorBorda(element) })
       }
 
   });
-}
-
-filePhoto.onchange = evt => {
-  const [file] = filePhoto.files
-  if (file) {
-      document.getElementById("textoUploader").innerHTML = ""
-      imagePerfil.src = URL.createObjectURL(file)
-      postImagem(file)
-  }
-}
-
-function iniciar() {
-  validarSessao()
-  getInfosAdotante()
-}
-
-$(document).ready(function () {
-  $("#campo_fundacao").datepicker({
-      showButtonPanel: true,
-      currentText: "Hoje",
-      closeText: "Ok",
-      dateFormat: "dd/mm/yy",
-      maxDate: '0',
-      dayNames: ["Domingo", "Segunda", "Terça", "Quarte", "Quinta", "Sexta", "Sábado"],
-      dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
-      monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-  });
-});
-
-var old_goToToday = $.datepicker._gotoToday
-$.datepicker._gotoToday = function (id) {
-  old_goToToday.call(this, id)
-  this._selectDate(id)
 }
 
 function topo() {
@@ -299,7 +266,6 @@ function postImagem(arquivo) {
 }
 
 function getInfosAdotante() {
-  /* TODO: ver se ta certo o URL */
   axios.get(`http://localhost:8080/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
       headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
   }).then(response => {
@@ -353,15 +319,10 @@ function patchAdotante() {
       var cpf = (document.getElementById("campo_cpf_escondido").value).replace(".", "").replace(".", "").replace("/", "").replace("-", "");
       var dataNascimento = document.getElementById("campo_nasc").value;
       var telefone = (document.getElementById("campo_telefone").value).replace("(", "").replace(")", "").replace(" ", "").replace("-", "");
-      var cep = (document.getElementById("campo_cep").value).replace("-", "");
-      var logradouro = document.getElementById("campo_logradouro").value;
-      var bairro = document.getElementById("campo_bairro").value;
-      var numero = document.getElementById("campo_numero").value;
-      var complemento = document.getElementById("campo_complemento").value;
       var email = document.getElementById("campo_email").value;
       var senha = document.getElementById("campo_senha").value;
 
-      axios.put(`http://localhost:8080/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
+      axios.patch(`http://localhost:8080/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
           headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
           "nome": nome,
           "cpf": cpf,
@@ -369,27 +330,9 @@ function patchAdotante() {
           "telefone": telefone,
           "email": email,
           "senha": senha,
-          "urlImagem": urlImagem,
-          "endereco": {
-              "cep": cep,
-              "logradouro": logradouro,
-              "bairro": bairro,
-              "numero": numero,
-              "complemento": complemento,
-              "cidade": "São Paulo",
-          },
+          "urlImagem": urlImagem == "" ? document.getElementById("imagePerfil").src : urlImagem
       }).then(response => {
-          Swal.fire({
-              title: 'Cadastro atualizado com sucesso!',
-              text: 'Clique em ok para atualizar a página',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-          }).then((result) => {
-              if (result.value) {
-                  topo();
-                  window.location.reload;
-              }
-          })
+        atualizaEndereco()
       }).catch(function (error) {
           Swal.fire({
               title: error.response.data,
@@ -399,4 +342,42 @@ function patchAdotante() {
           })
       })
   }
+}
+
+
+function atualizaEndereco() {
+    var cep = (document.getElementById("campo_cep").value).replace("-", "");
+    var logradouro = document.getElementById("campo_logradouro").value;
+    var bairro = document.getElementById("campo_bairro").value;
+    var numero = document.getElementById("campo_numero").value;
+    var complemento = document.getElementById("campo_complemento").value;
+
+    axios.patch(`http://localhost:8080/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+        "cep": cep,
+        "logradouro": logradouro,
+        "bairro": bairro,
+        "numero": numero,
+        "complemento": complemento,
+        "cidade": "São Paulo",
+    }).then(response => {
+        Swal.fire({
+            title: 'Cadastro atualizado com sucesso!',
+            text: 'Clique em ok para atualizar a página',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+            if (result.value) {
+                topo();
+                window.location.reload;
+            }
+        })
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response.data,
+            text: 'Verifique as informações digitadas',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
 }
