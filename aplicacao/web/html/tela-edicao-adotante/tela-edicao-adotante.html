@@ -7,9 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <title>MiauDote</title>
   <link rel="stylesheet" href="tela-edicao-adotante.css">
-  <script src="tela-edicao-adotante.js"></script>
   <script defer src="tela-edicao-adotante.js"></script>
   <script defer src="../script.js"></script>
 </head>
@@ -153,40 +156,37 @@
 
       <div class="inputs-centro">
         <span class="titulos-campos">CEP</span>
-                <input class="campos" type="text" size="10" id="campo_cep" maxlength="9"
-                    onblur="pesquisacep(this,this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')"
-                    required>
+        <input class="campos" type="text" size="10" id="campo_cep" maxlength="9" onblur="pesquisacep(this,this.value)"
+          placeholder="01235-000" oninput="mascara(this, 'cep')" required>
 
-                <span class="titulos-campos">Logradouro</span>
-                <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled=""
-                    required>
+        <span class="titulos-campos">Logradouro</span>
+        <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled=""
+          required>
 
-                <span class="titulos-campos">Bairro</span>
-                <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
+        <span class="titulos-campos">Bairro</span>
+        <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
 
-                <div class="container-endereco">
+        <div class="container-endereco">
 
-                    <div class="container-numero">
-                        <span class="titulos-campos-endereco">Número</span>
-                        <input class="campos-numero" placeholder="123" type="text" id="campo_numero" maxlength="6"
-                            required>
+          <div class="container-numero">
+            <span class="titulos-campos-endereco">Número</span>
+            <input class="campos-numero" placeholder="123" type="text" id="campo_numero" maxlength="6" required>
 
-                    </div>
+          </div>
 
-                    <div class="container-complemento">
-                        <span class="titulos-campos-endereco">Complemento</span>
-                        <input class="campos-complemento" placeholder="Casa 01" type="text" id="campo_complemento"
-                            required>
+          <div class="container-complemento">
+            <span class="titulos-campos-endereco">Complemento</span>
+            <input class="campos-complemento" placeholder="Casa 01" type="text" id="campo_complemento" required>
 
-                    </div>
+          </div>
 
-                </div>
+        </div>
       </div>
 
     </div>
 
     <div class="btn-edicao">
-      <button onclick="putCadastroOng()">SALVAR ALTERAÇÕES</button>
+      <button onclick="patchAdotante()">SALVAR ALTERAÇÕES</button>
     </div>
 
 
@@ -297,5 +297,43 @@
 
     </footer>
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+
+<script>
+
+  filePhoto.onchange = evt => {
+    const [file] = filePhoto.files
+    if (file) {
+      document.getElementById("textoUploader").innerHTML = ""
+      imagePerfil.src = URL.createObjectURL(file)
+      postImagem(file)
+    }
+  }
+
+  function iniciar() {
+    validarSessao()
+    getInfosAdotante()
+    carregar()
+  }
+
+  $(document).ready(function () {
+    $("#campo_nasc").datepicker({
+      showButtonPanel: true,
+      currentText: "Hoje",
+      closeText: "Ok",
+      dateFormat: "dd/mm/yy",
+      maxDate: '0',
+      dayNames: ["Domingo", "Segunda", "Terça", "Quarte", "Quinta", "Sexta", "Sábado"],
+      dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+      monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    });
+  });
+
+  var old_goToToday = $.datepicker._gotoToday
+  $.datepicker._gotoToday = function (id) {
+    old_goToToday.call(this, id)
+    this._selectDate(id)
+  }
+
+</script>
