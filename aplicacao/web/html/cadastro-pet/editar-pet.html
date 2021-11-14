@@ -9,10 +9,11 @@
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
   <link rel="stylesheet" href="cadastro-pet.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script defer src="../script.js"></script>
-  <script defer src="cadastro-pet.js"></script>
+  <script defer src="editar-pet.js"></script>
 
-  <title>Cadastro Pet</title>
+  <title>Editar Pet</title>
 </head>
 
 <body onload="validarSessao(), imgPlaceholder()">
@@ -61,8 +62,8 @@
     <div class="titulos">
       <img class="caminho-esquerda" src="../../imagens/cadastro-pet/caminho-esquerda-cadastro-pet.svg" alt="">
       <div class="titulo-center">
-        <label class="titulo">CADASTRO</label>
-        <label class="subtitulo">CADASTRE SEU PET</label>
+        <label class="titulo">EDITAR</label>
+        <label class="subtitulo">EDITAR AS INFORMAÇÕES</label>
       </div>
     </div>
 
@@ -184,6 +185,8 @@
           </div>
 
           <!-- <div class="div-arquivo-upload"> 
+            <p id="file_name"></p><br>
+
             <div class="div-botao-cadastro">
               <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
             </div>
@@ -193,12 +196,11 @@
           </div> -->
 
           <p class="texto-sugestao margem-texto">*Caso não complete as fotos, a imagem exibida será a imagem do cachorro exibido acima</p>
-
         </div>
 
         <label class="titulo-desc" for="nome">Descrição</label>
         <div class="borda-container-desc">         
-          <textarea id="campo_desc" class="campo-desc" placeholder="Escreva uma descrição do animal*" rows="4" cols="50"></textarea>
+          <textarea id="campo_desc" class="campo-desc" placeholder="Escreva uma descrição do animal(máximo de 200 caracteres)*" rows="4" cols="50"></textarea>
         </div>
         
         <p class="texto-sugestao">*Sugestão: Digite o texto como se o animal estivesse falando</p>
@@ -206,7 +208,7 @@
       </div>
     </div>
     <div class="div-botao-center">
-      <button class="botao-cadastro" onclick="postCadastroPet()">CADASTRAR PET</button>
+      <button class="botao-cadastro" onclick="postCadastroPet()">ATUALIZAR PET</button>
     </div>
     
   </div>
