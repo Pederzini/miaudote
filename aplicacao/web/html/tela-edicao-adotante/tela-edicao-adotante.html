@@ -17,7 +17,8 @@
   <script defer src="../script.js"></script>
 </head>
 
-<body onload="validarSessao(), getInfosAdotante()">
+<!-- <body onload="validarSessao(), getInfosAdotante()"> -->
+<body onload="">
   <main>
     <header id="topo">
       <div class="menu">
@@ -196,12 +197,12 @@
       <div class="btn-favoritos">
         <div class="coluna-favorito">
           <span>PETS FAVORITADOS</span>
-          <button id="myBtn">VISUALIZAR</button>
+          <button id="btnF">VISUALIZAR</button>
         </div>
 
-        <div class="">
+        <div class="coluna-favorito">
           <span>PETS ADOTADOS</span>
-          <button onclick="petAdotado()">VISUALIZAR</button>
+          <button id="btnA">VISUALIZAR</button>
         </div>
       </div>
 
@@ -321,7 +322,7 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <span class="closeF">&times;</span>
       <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
       <span class="modal-titulo">VEJA OS PETS QUE FAVORITOU</span>
 
@@ -366,6 +367,40 @@
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal2" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="closeA">&times;</span>
+      <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
+      <span class="modal-titulo">VEJA OS PETS QUE JÁ ADOTOU</span>
+
+      <div class="cards-adocoes">
+        <div class="card-animais-favoritos">
+          <div class="dados-pet">
+            <div class="img-pet">
+              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
+            <div class="texto-pet">
+              <p id="nomePet">THOR</p>
+              <p id="idade">3 ANOS</p>
+              <div class="sexo-pet">
+                <p id="sexoPet">MACHO</p>
+                <img src="../../imagens/adocoes/sexo-masculino.svg">
+              </div>
+            </div>
+          </div>
+          <div class="btn-comentario">
+            <button id="btnA">COMENTÁRIO</button>
+          </div>
+        </div>
+        
       </div>
 
     </div>
