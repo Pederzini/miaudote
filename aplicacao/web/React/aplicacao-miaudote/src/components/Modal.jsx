@@ -210,7 +210,7 @@ const Modal = ({ onClose = () => { }, props }) => {
             </div>
 
             <div className="container-acesso">
-                <span>JÁ tem uma conta?</span>
+                <p>JÁ tem uma conta?</p>
                 <a onClick={() => linkTela("login")}>Acesse aqui</a>
             </div>
 

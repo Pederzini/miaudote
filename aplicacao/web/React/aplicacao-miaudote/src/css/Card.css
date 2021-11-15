@@ -24,7 +24,7 @@
     height: 67%;
     border-radius: 14.2px 14.2px 0 0;
     background-image: url(../imagens/Home/gato-card.png);
-    background-size: contain;
+    background-size: cover;
     box-shadow: 4.74306px 4.74306px 3.79444px -1.89722px rgba(0, 0, 0, 0.25);
 }
 
@@ -33,9 +33,6 @@
 /* DESCRICAO CARD */
 .descricao-card {
     background-color: white;
-    white-space: nowrap;
-    text-overflow: ellipsis; 
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -58,14 +55,28 @@
 }
 
 .dados-pet {
+    width:87%;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 5%;
+    text-transform: lowercase;
 }
 
 .texto-pet {
-    margin-left: 5%;
+    margin-left: 5%; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.texto-pet:first-letter{
+    /* margin-left: 5%;  */
+    text-transform: uppercase;
+}
+
+#descricao {
+    margin-bottom: 5px;
 }
 
 .texto-pet-nome {

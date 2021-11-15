@@ -15,6 +15,10 @@ function Card(props) {
         window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/login.html')
     }
 
+    const imagemCard = {
+        backgroundImage: `url(${props.image})`
+    }
+
     return (
 
         <div className="card" >
@@ -23,7 +27,7 @@ function Card(props) {
                     ADOTAR
                 </button>
             </div>
-            <div className="imagem-card">
+            <div className="imagem-card" style={imagemCard}>
                 <div className="favoritar">
                     <img src={props.imgFavoritar} />
                 </div>
@@ -48,7 +52,7 @@ function Card(props) {
                     </div>
                 </div>
 
-                <div className="dados-pet">
+                <div className="dados-pet" id="descricao">
                     <div className="icon-descricao">
                         <img src={iconInfo} alt="" />
                     </div>

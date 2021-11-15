@@ -147,10 +147,12 @@ function App() {
           <div className="cards-adocao"> {
             cards.map((card) => (
               <Card
+                key={card.id}
                 nome={card.nome}
                 descricao={card.descricao}
                 idade={card.idadeAnimal}
                 especie={card.especie}
+                image={card.url}
               />
             ))
           }
