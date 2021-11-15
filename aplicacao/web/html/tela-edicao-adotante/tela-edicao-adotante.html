@@ -189,7 +189,25 @@
       <button onclick="patchAdotante()">SALVAR ALTERAÇÕES</button>
     </div>
 
+    <div class="btn-pets">
+      <img src="../../imagens/perfil-adotante/caminho-adotante-esquerda.svg" alt="">
+      <img src="../../imagens/geral/icon-coracao-pata.svg" alt="">
 
+      <div class="btn-favoritos">
+        <div class="coluna-favorito">
+          <span>PETS FAVORITADOS</span>
+          <button id="myBtn">VISUALIZAR</button>
+        </div>
+
+        <div class="">
+          <span>PETS ADOTADOS</span>
+          <button onclick="petAdotado()">VISUALIZAR</button>
+        </div>
+      </div>
+
+      <img class="icon-casa" src="../../imagens/geral/icon-casa.svg" alt="">
+      <img src="../../imagens/perfil-adotante/caminho-adotante-direita.svg" alt="">
+    </div>
 
     <a href="#topo" style="cursor: pointer;">
       <div class="container-gato">
@@ -297,6 +315,62 @@
 
     </footer>
   </main>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
+      <span class="modal-titulo">VEJA OS PETS QUE FAVORITOU</span>
+
+      <div class="cards-adocoes">
+        <div class="card-animais-favoritos">
+          <div class="dados-pet">
+            <div class="img-pet">
+              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
+            <div class="texto-pet">
+              <p id="nomePet">THOR</p>
+              <p id="idade">3 ANOS</p>
+              <div class="sexo-pet">
+                <p id="sexoPet">MACHO</p>
+                <img src="../../imagens/adocoes/sexo-masculino.svg">
+              </div>
+            </div>
+          </div>
+          <div class="dados-favoritos">
+            <div class="img-favorito">
+              <div class="container-favorito">
+                <img src="../../imagens/geral/icon-coracao-vermelho.svg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-animais-favoritos">
+          <div class="dados-pet">
+            <div class="img-pet">
+              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
+            <div class="texto-pet">
+              <p id="nomePet">THOR</p>
+              <p id="idade">3 ANOS</p>
+              <div class="sexo-pet">
+                <p id="sexoPet">MACHO</p>
+                <img src="../../imagens/adocoes/sexo-masculino.svg">
+              </div>
+            </div>
+          </div>
+          <div class="dados-favoritos">
+            <div class="img-favorito">
+              <div class="container-favorito">
+                <img src="../../imagens/geral/icon-coracao-vermelho.svg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
