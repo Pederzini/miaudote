@@ -10,12 +10,16 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.DataHora;
 import br.com.miaudote.miaudoteapi.utilitarios.Feedback;
+import br.com.miaudote.miaudoteapi.utilitarios.FilaObj;
+import br.com.miaudote.miaudoteapi.utilitarios.PilhaObj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.geom.PathIterator;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -83,6 +87,15 @@ public class ProcessoAdocaoController {
         List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
 
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+        FilaObj<AdocaoEmProcessoDTO> fila = new FilaObj<>(adocoesEmProcesso.size());
+
+        for (int i = 0; i < adocoesEmProcesso.size()-1 ; i++){
+            fila.insert(adocoesEmProcesso.get(i));
+        }
+        adocoesEmProcesso.clear();
+        while(!fila.isEmpty()){
+            adocoesEmProcesso.add(fila.poll());
+        }
 
         if (adocoesEmProcesso.isEmpty()) {
             return ResponseEntity.status(204).build();
@@ -240,6 +253,16 @@ public class ProcessoAdocaoController {
     @GetMapping("/{id}/adotados")
     public ResponseEntity getAdotadosAdotante(@PathVariable Integer id) {
         List<AnimaisAdotadosDTO> adocaoFinalizada = processoAdocaoRepository.findByAdotante_IdAndDataAdocaoNotNull(id);
+        PilhaObj<AnimaisAdotadosDTO> pilhaObj = new PilhaObj<>(adocaoFinalizada.size());
+
+        for (int i = 0; i < adocaoFinalizada.size() ; i++){
+            pilhaObj.push(adocaoFinalizada.get(i));
+        }
+        adocaoFinalizada.clear();
+        while (!pilhaObj.isEmpty()){
+            adocaoFinalizada.add(pilhaObj.pop());
+        }
+
         if (adocaoFinalizada.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
