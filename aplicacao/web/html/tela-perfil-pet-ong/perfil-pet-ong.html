@@ -136,12 +136,12 @@
             <div class="container-fotos">
 
                 <div class="foto-principal">
-                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro-preto.svg" alt="">
 
                 </div>
                 <div class="foto-opcao">
                     <div class="foto" >
-                        <img class="imagem" value="0" src="../../imagens/pets-teste/tabata.svg" alt="">
+                        <img class="imagem" value="0" src="../../imagens/pets-teste/cachorro.svg" alt="">
                     </div>
                     <div class="foto" >
                         <img class="imagem" value="1" src="https://i.imgur.com/s8t0M4S.png" alt="">
@@ -277,7 +277,7 @@
         if (element.src != "https://i.imgur.com/s8t0M4S.png") {
             element.addEventListener("mouseover", function (event) {
                 
-                divFotos[element.getAttribute('value')].style.borderColor = "#FD8344"
+                divFotos[element.getAttribute('value')].style.borderColor = "#FF7D73"
 
                 console.log(element.src)
                 fotoPrincipal.src = element.src
