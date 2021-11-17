@@ -339,11 +339,12 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
-    margin-right: 4%;
+   
 }
 
 .container-nome img {
     width: 7%;
+    margin-right: 2%;
 }
 
 .container-colunas {
