@@ -11,7 +11,8 @@
 
 </head>
 
-<body onload="validarSessao()">
+<!-- <body onload="validarSessao()"> -->
+<body>
     <main>
         <header id="topo">
             <div class="menu">
@@ -86,7 +87,7 @@
                     <img src="../../imagens/perfil-animal/icon-cachorro.svg" alt="">
                     <img src="../../imagens/geral/coracao.svg" alt="">
                     <p>THOR</p>
-                    
+
 
                 </div>
                 <div class="container-colunas">
@@ -162,28 +163,23 @@
             <div class="container-fotos">
 
                 <div class="foto-principal">
-                    <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro.svg" alt="">
 
                 </div>
                 <div class="foto-opcao">
-                    <div class="foto">
-                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    <div class="foto" value="0">
+                        <img class="imagem" src="../../imagens/pets-teste/tabata.svg" alt="">
                     </div>
-                    <div class="foto">
-                        <img src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
+                    <div class="foto" value="1">
+                        <img class="imagem" src="https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg" alt="">
+ 
+                    </div>
+                    <div class="foto" value="2">
+                        <img class="imagem" src="https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg" alt="">
 
                     </div>
-                    <div class="foto">
-                        <img src="../../imagens/geral/placeholder-imagem-pet.svg" alt="">
-
-                    </div>
-
                 </div>
-
             </div>
-
-
-
         </div>
 
         <div class="container-branco">
@@ -298,3 +294,21 @@
         </footer>
     </main>
 </body>
+
+<script>
+
+    let fotos = document.querySelectorAll('.imagem')
+    fotos.forEach(element => {
+        console.log("Teste: ", element.src)
+        // let valorDiv = element.getAttribute('value') - 1
+        if (element.src != "https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg") {
+            element.addEventListener("mouseover", function (event) {
+                // event.target.src = 
+                console.log(element.src)
+                fotoPrincipal.src = element.src
+
+            }, false);
+        } 
+    });
+
+</script>
