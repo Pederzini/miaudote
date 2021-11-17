@@ -142,34 +142,6 @@ public class OngController {
     }
 
 
-    @GetMapping(value = "/exportacao/{cnpj}", produces = "text/plain")
-    public ResponseEntity geraDocumento(@PathVariable String cnpj) {
-        Ong ong = ongRepository.findByCnpj(cnpj);
-        List<Animal> animais = animalRepository.findByOng(ong);
-        ListaObj<Animal> listaObj = new ListaObj(animais.size());
 
-        for (Animal animal : animais) {
-            listaObj.adiciona(animal);
-        }
-
-        String relatorio = Exportacao.gravaArquivoCsv(listaObj, ong.getRazaoSocial());
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", String.format("attachment; filename = %s.txt", ong.getRazaoSocial()));
-
-        return new ResponseEntity(relatorio, headers, HttpStatus.OK);
-    }
-
-    @PostMapping("/importacao/{cnpj}")
-    public ResponseEntity importaDocumento(@PathVariable String cnpj,
-                                           @RequestParam MultipartFile arquivo) throws IOException {
-        Ong ong = ongRepository.findByCnpj(cnpj);
-        String conteudo = new String(arquivo.getBytes());
-        List<Animal> animais = ManipulaArquivo.leArquivoTxt(conteudo);
-        for (Animal a: animais){
-            animalRepository.save(a);
-        }
-        return ResponseEntity.status(201).body("Animais cadastrados com sucesso");
-    }
 
 }

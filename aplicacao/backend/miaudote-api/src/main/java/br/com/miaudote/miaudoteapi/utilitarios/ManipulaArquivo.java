@@ -2,6 +2,7 @@ package br.com.miaudote.miaudoteapi.utilitarios;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,117 +18,109 @@ public class ManipulaArquivo {
     @Autowired
     private static OngRepository ongRepository;
 
-    public static void gravaRegistro(String registro, String nomeArq){
+    public static void gravaRegistro(String registro, String nomeArq) {
         BufferedWriter saida = null;
 
-        try{
+        try {
             saida = new BufferedWriter(new FileWriter(nomeArq, true));
-        }
-        catch (IOException erro){
+        } catch (IOException erro) {
             System.out.println("Erro ao subir o arquivo: " + erro.getMessage());
         }
 
-        try{
+        try {
             saida.append(registro + "\n");
             saida.close();
-        }
-        catch (IOException erro){
+        } catch (IOException erro) {
             System.out.println("Erro ao gravar no arquivo: " + erro.getMessage());
         }
     }
 
-    public static void gravarArquivoTxt(List<Animal> lista, String nomeArq, Animal animal, String cnpj){
+    public static String gravarArquivoTxt(List<Animal> lista, String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
         Integer contaRegDados = 0;
         String horaAtual = DataHora.retornaDataHoraAtual().toString();
-        String header = String.format("00ANIMAL%-45.45s%-14.14s%8.8s01",ong.getRazaoSocial(),ong.getCnpj(),horaAtual);
-//        Date dataDeHoje = new Date();
-//        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String exportacao = "" ;
+        exportacao += String.format("00ANIMAL%-45.45s%-14.14s%8.8s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
 
-        gravaRegistro(header,nomeArq);
-
-        for (Animal a : lista){
+        for (Animal animal : lista) {
             String corpo = "02";
-            corpo += String.format("%-50.50s", a.getNome());
-            corpo += String.format("%-8.8s", a.getEspecie());
-            corpo += String.format("%-280.280s",a.getDescricao());
-            corpo += String.format("%-1.1s",a.getGenero());
-            corpo += String.format("%-10.10s",a.getDataChegada());
-            corpo += String.format("%-10.10s",a.getCorPelagem());
-            corpo += String.format("%-7.7s",a.getTipoPelagem());
-            corpo += String.format("%-5.5b", (a.getCastrado().equalsIgnoreCase("sim")));
-            corpo += String.format("%-5.5b",(a.getVacinado().equalsIgnoreCase("sim")));
-            corpo += String.format("%-7.7s",a.getPorte());
-            corpo += String.format("%-45.45s",a.getComportamento());
-            corpo += String.format("%-280.280s",a.getNecessidadeEspeciais());
-            corpo += String.format("%-10.10s",a.getDataNascimento());
-            if (animal.getUrlImagem().trim().length() != 0 || animal.getUrlImagem() != null ){
-                corpo+= String.format("03%1000.10000s", a.getUrlImagem());
+            corpo += String.format("%-50.50s", animal.getNome());
+            corpo += String.format("%-8.8s", animal.getEspecie());
+            corpo += String.format("%-280.280s", animal.getDescricao());
+            corpo += String.format("%-1.1s", animal.getGenero());
+            corpo += String.format("%-10.10s", animal.getDataChegada());
+            corpo += String.format("%-10.10s", animal.getCorPelagem());
+            corpo += String.format("%-7.7s", animal.getTipoPelagem());
+            corpo += String.format("%-5.5b", (animal.getCastrado().equalsIgnoreCase("sim")));
+            corpo += String.format("%-5.5b", (animal.getVacinado().equalsIgnoreCase("sim")));
+            corpo += String.format("%-7.7s", animal.getPorte());
+            corpo += String.format("%-45.45s", animal.getComportamento());
+            corpo += String.format("%-280.280s", animal.getNecessidadeEspeciais());
+            corpo += String.format("%-10.10s", animal.getDataNascimento());
+            if (animal.getUrlImagem().trim().length() != 0 || animal.getUrlImagem() != null) {
+                corpo += String.format("03%1000.10000s", animal.getUrlImagem());
             }
-            gravaRegistro(corpo,nomeArq);
+            exportacao += corpo + "\n";
             contaRegDados++;
         }
 
         String trailer = "01";
-        trailer += String.format("%05d",contaRegDados);
-        gravaRegistro(trailer,nomeArq);
+        trailer += String.format("%05d", contaRegDados);
+        exportacao += trailer;
+        return exportacao;
     }
 
-    public static List<Animal> leArquivoTxt(String conteudo){
+    public static List<Animal> leArquivoTxt(String conteudo) {
         BufferedReader entrada = null;
-        String registro, tipoRegistro;
+        String tipoRegistro;
         Animal a = null;
-        Ong ong = null;
         Integer contaRegDados;
         Integer qtdRegistrosGravados;
-
+        String[] conteudoVetorizado = conteudo.split(System.lineSeparator());
         List<Animal> listaLida = new ArrayList<>();
 
-        try{
+        try {
             entrada = new BufferedReader(new FileReader(conteudo));
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("Erro ao abrir o arquivo: " + e.getMessage());
         }
 
-        try{
-            registro = entrada.readLine();
-            while (registro!= null){
-                tipoRegistro = registro.substring(0,2);
-                if (tipoRegistro.equals("01")){
-                    qtdRegistrosGravados = Integer.valueOf(registro.substring(2,12));
-                    if (qtdRegistrosGravados == listaLida.size()){
+        try {
+            for (int i = 0; i < conteudoVetorizado.length; i++) {
+                tipoRegistro = conteudoVetorizado[i].substring(0, 2);
+                if (tipoRegistro.equals("01")) {
+                    qtdRegistrosGravados = Integer.valueOf(conteudoVetorizado[i].substring(2, 12));
+                    if (qtdRegistrosGravados == listaLida.size()) {
                         //?
                     }
-                }else if (tipoRegistro.equals("02")){
-                    a.setNome (registro.substring(2,53).trim());
-                    a.setEspecie(registro.substring(53,61));
-                    a.setDescricao (registro.substring(61,341).trim());
-                    a.setGenero (registro.substring(341,342));
-                    Date dataChegada = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(342,352));
+                } else if (tipoRegistro.equals("02")) {
+                    a.setNome(conteudoVetorizado[i].substring(2, 53).trim());
+                    a.setEspecie(conteudoVetorizado[i].substring(53, 61));
+                    a.setDescricao(conteudoVetorizado[i].substring(61, 341).trim());
+                    a.setGenero(conteudoVetorizado[i].substring(341, 342));
+                    Date dataChegada = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(conteudoVetorizado[i].substring(342, 352));
                     a.setDataChegada(dataChegada);
-                    a.setCorPelagem (registro.substring(352,362));
-                    a.setTipoPelagem (registro.substring(362,369));
-                    a.setCastrado (registro.substring(369,374).trim().equalsIgnoreCase("true"));
-                    a.setVacinado(registro.substring(374,379).trim().equalsIgnoreCase("true"));
-                    a.setPorte(registro.substring(379,386));
-                    a.setComportamento(registro.substring(386,431));
-                    a.setNecessidadeEspeciais(registro.substring(431,711));
-                    Date dataNascimento = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(registro.substring(711,721));
+                    a.setCorPelagem(conteudoVetorizado[i].substring(352, 362));
+                    a.setTipoPelagem(conteudoVetorizado[i].substring(362, 369));
+                    a.setCastrado(conteudoVetorizado[i].substring(369, 374).trim().equalsIgnoreCase("true"));
+                    a.setVacinado(conteudoVetorizado[i].substring(374, 379).trim().equalsIgnoreCase("true"));
+                    a.setPorte(conteudoVetorizado[i].substring(379, 386));
+                    a.setComportamento(conteudoVetorizado[i].substring(386, 431));
+                    a.setNecessidadeEspeciais(conteudoVetorizado[i].substring(431, 711));
+                    Date dataNascimento = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(conteudoVetorizado[i].substring(711, 721));
                     a.setDataNascimento(dataNascimento);
 
-
-                }else if (tipoRegistro.equals("03")){
-                    a.setUrlImagem(registro.substring(03,1003));
+                }
+                if (conteudoVetorizado[i+1].equals("03")) {
+                    a.setUrlImagem(conteudoVetorizado[i].substring(03, 1003));
+                    i++;
                 }
 
-                registro = entrada.readLine();
                 listaLida.add(a);
                 a = null;
+
             }
-            entrada.close();
-        }
-        catch (IOException | ParseException e){
+        } catch (ParseException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
         }
         return listaLida;

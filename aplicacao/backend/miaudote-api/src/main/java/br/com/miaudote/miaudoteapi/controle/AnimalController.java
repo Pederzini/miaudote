@@ -11,6 +11,7 @@ import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
+import br.com.miaudote.miaudoteapi.utilitarios.ManipulaArquivo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -192,4 +193,27 @@ public class AnimalController {
         return ResponseEntity.status(200).body(animais);
     }
 
+    @GetMapping(value = "/exportacao/{cnpj}", produces = "text/plain")
+    public ResponseEntity geraDocumento(@PathVariable String cnpj) {
+        Ong ong = ongRepository.findByCnpj(cnpj);
+        List<Animal> animais = animalRepository.findByOng(ong);
+        String relatorio = ManipulaArquivo.gravarArquivoTxt(animais, cnpj);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", String.format("attachment; filename = %s-miaudote.txt", ong.getRazaoSocial()));
+
+        return new ResponseEntity(relatorio, headers, HttpStatus.OK);
+    }
+
+    @PostMapping("/importacao/{cnpj}")
+    public ResponseEntity importaDocumento(@PathVariable String cnpj,
+                                           @RequestParam MultipartFile arquivo) throws IOException {
+        String conteudo = new String(arquivo.getBytes());
+        List<Animal> animais = ManipulaArquivo.leArquivoTxt(conteudo);
+        for (Animal a: animais){
+            animalRepository.save(a);
+            atribuiOng(cnpj,animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
+        }
+        return ResponseEntity.status(201).body("Animais cadastrados com sucesso");
+    }
 }
