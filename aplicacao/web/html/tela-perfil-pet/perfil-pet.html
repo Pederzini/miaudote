@@ -167,15 +167,15 @@
 
                 </div>
                 <div class="foto-opcao">
-                    <div class="foto" value="0">
-                        <img class="imagem" src="../../imagens/pets-teste/tabata.svg" alt="">
+                    <div class="foto" >
+                        <img class="imagem" value="0" src="../../imagens/pets-teste/tabata.svg" alt="">
                     </div>
-                    <div class="foto" value="1">
-                        <img class="imagem" src="https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg" alt="">
+                    <div class="foto" >
+                        <img class="imagem" value="1" src="https://i.imgur.com/s8t0M4S.png" alt="">
  
                     </div>
-                    <div class="foto" value="2">
-                        <img class="imagem" src="https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg" alt="">
+                    <div class="foto" >
+                        <img class="imagem" value="2" src="https://i.imgur.com/s8t0M4S.png" alt="">
 
                     </div>
                 </div>
@@ -296,16 +296,28 @@
 </body>
 
 <script>
-
+    let imagemPrincipal = fotoPrincipal.src
+    let divFotos = document.querySelectorAll('.foto')
     let fotos = document.querySelectorAll('.imagem')
     fotos.forEach(element => {
-        console.log("Teste: ", element.src)
-        // let valorDiv = element.getAttribute('value') - 1
-        if (element.src != "https://matsudapet.com.br/blog/wp-content/uploads/2021/02/shutterstock_1437575729-min.jpg") {
+        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
             element.addEventListener("mouseover", function (event) {
-                // event.target.src = 
+                
+                divFotos[element.getAttribute('value')].style.borderColor = "#FD8344"
+
                 console.log(element.src)
                 fotoPrincipal.src = element.src
+
+            }, false);
+        }
+        
+        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
+            element.addEventListener("mouseout", function (event) {
+                
+
+                divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
+                console.log(element.src)
+                fotoPrincipal.src = imagemPrincipal
 
             }, false);
         } 

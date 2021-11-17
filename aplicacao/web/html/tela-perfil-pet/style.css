@@ -305,19 +305,20 @@ span {
 
 .foto {
     width: 30%;
-    height: 78%;
+    height: 73%;
     display: flex;
     justify-content: center;
     border: 0.948611px solid #8F7FAC;
     box-sizing: border-box;
     border-radius: 10%;
     cursor: pointer;
+    align-items: center;
  
 }
 
 .foto img {
-    width: 82%;
-    border-radius: 2%;
+    height: 84%;
+    border-radius: 10%;
 }
 
 .container-nome {
