@@ -399,6 +399,7 @@ function petAdotado() {
 function petFavorito() {
 
 }
+
 // Get the modal
 var modalF = document.getElementById("myModal");
 var modalA = document.getElementById("myModal2");
@@ -414,35 +415,38 @@ var spanA = document.getElementsByClassName("closeA")[0];
 // When the user clicks the button, open the modal 
 btnF.onclick = function () {
     // mostrarDivs()
-    modalF.style.display = "block";    
+    modalF.style.display = "block"; 
+    document.querySelector("body").style.overflow = 'hidden';
 }
 
 btnA.onclick = function () {
     // mostrarDivs()
-    modalA.style.display = "block";    
+    modalA.style.display = "block"; 
+    document.querySelector("body").style.overflow = 'hidden';  
 }
 
 // When the user clicks on <span> (x), close the modal
 spanF.onclick = function () {
     modalF.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
 }
 
 spanA.onclick = function () {
     modalA.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modalF) {
         modalF.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+    } else if (event.target == modalA) {
+        modalA.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
     }
 }
 
-window.onclick = function (event) {
-    if (event.target == modalA) {
-        modalA.style.display = "none";
-    }
-}
 
 // Mostrar DIVS
 function mostrarDivs() {
