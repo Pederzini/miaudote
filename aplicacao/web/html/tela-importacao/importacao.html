@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <title>MiauDote</title>
-    <script src="card-adocoes.js"></script>
+    <script defer src="importacao.js"></script>
     <script defer src="../script.js"></script>
 </head>
 
-<body trocaMenu(1)">
+<!-- <body onload="validarSessao()"> -->
+<body>
     <main class="page">
         <header id="topo">
             <div class="menu">
@@ -62,30 +63,31 @@
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
-                  <div class="numbertext">1 / 3</div>
-                  <img src="../../imagens/pets-teste/teste-tutorial.jpeg" style="width:100%">
-                  <div class="text">Caption Text</div>
+                    <div class="numbertext">1 / 3</div>
+                    <img src="../../imagens/pets-teste/teste-tutorial.jpeg" style="width:100%">
+                    <div class="text">Caption Text</div>
                 </div>
-                
+
                 <div class="mySlides fade">
-                  <div class="numbertext">2 / 3</div>
-                  <img src="../../imagens/pets-teste/teste-tutorial.jpeg" style="width:100%">
-                  <div class="text">Caption Two</div>
+                    <div class="numbertext">2 / 3</div>
+                    <img src="../../imagens/pets-teste/teste-tutorial.jpeg" style="width:100%">
+                    <div class="text">Caption Two</div>
                 </div>
-                
+
                 <div class="mySlides fade">
-                  <div class="numbertext">3 / 3</div>
-                  <img src="../../imagens/pets-teste/teste-tutorial.jpeg" ">
-                  <div class="text">Caption Three</div>
+                    <div class="numbertext">3 / 3</div>
+                    <img src="../../imagens/pets-teste/teste-tutorial.jpeg" ">
+                  <div class=" text">Caption Three
                 </div>
-                
-                <a class="prev"  onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                
-                </div>
-                <br>
-                
-          
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+
 
         </div>
         <div class="download">
@@ -119,8 +121,7 @@
         </div>
 
         <div class="btn-cadastro">
-            <button>CADASTRAR PETS</button>
-
+            <button onclick="postCadastroArquivo()">CADASTRAR PETS</button>
         </div>
 
         <a href="#topo" style="cursor: pointer;">
@@ -231,84 +232,37 @@
 
         </footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     </main>
 
 </body>
+
 <script>
-
-    function readfiles(files) {
-        for (var i = 0; i < files.length; i++) {
-            if (files[i].type == "text/plain") {
-                if (files[i].size <= 10000) {
-                    document.getElementById('fileDragName').value = files[i].name
-                } else {
-                    alert("Tamanho do arquivo exede o permitido")
-                }
-            } else {
-                alert("Tipo de arquivo não permitido")
-            }
-
-            reader = new FileReader();
-        }
-    }
-
-    var holder = document.getElementById('holder');
-    holder.ondragover = function () { this.className = 'hover'; return false; };
-    holder.ondragend = function () { this.className = ''; return false; };
-    holder.ondrop = function (e) {
-        this.className = '';
-        e.preventDefault();
-        readfiles(e.dataTransfer.files);
-        console.log
-    }
-
-    var $input = document.getElementById('input-file'),
-        $fileName = document.getElementById('fileDragName');
-
-    $input.addEventListener('change', function () {
-        $fileName.value = this.value;
-    });
-
-
-    var upload = document.getElementById("input-file");
-    upload.addEventListener("change", function (e) {
-        var size = upload.files[0].size;
-        if (size < 1) { //1MB
-            alert('Permitido'); //Abaixo do permitido
-        } else {
-            alert('Não permitido'); //Acima do limite
-            upload.value = ""; //Limpa o campo
-        }
-        e.preventDefault();
-    });
-
     var slideIndex = 1;
-showSlides(slideIndex);
+    showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
-
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
 </script>
