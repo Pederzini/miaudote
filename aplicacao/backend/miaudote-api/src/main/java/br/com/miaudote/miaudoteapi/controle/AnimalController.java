@@ -2,10 +2,7 @@ package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.dto.AnimalCardsFavoritadoDTO;
-import br.com.miaudote.miaudoteapi.dto.AnimalDTO;
-import br.com.miaudote.miaudoteapi.dto.AnimalVitrineDTO;
-import br.com.miaudote.miaudoteapi.dto.PerfilAnimalDTO;
+import br.com.miaudote.miaudoteapi.dto.*;
 import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
 import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
@@ -19,8 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -175,22 +172,42 @@ public class AnimalController {
         return getAnimal(idAnimal);
     }
 
-    @GetMapping("/nao-adotados")
-    public ResponseEntity getNaoAdotados(){
-        List<AnimalCardsFavoritadoDTO> animais = processoAdocaoRepository.findByAnimal_AdotadoIsFalse();
-        if (animais.isEmpty()){
-            return ResponseEntity.status(204).build();
-        }
-        return ResponseEntity.status(200).body(animais);
-    }
+    @GetMapping("/{id}/cards")
+    public ResponseEntity getNaoAdotados(@PathVariable Integer id){
+        List<CardAnimalSemDistanciaDTO> animais = animalRepository.findByAdotadoFalse();
+        List<InfosAdotanteDTO> infosAdotante = processoAdocaoRepository.findByAdotante_IdAndAnimal_AdotadoFalse(id);
+        List<CardAnimalComDistanciaDTO> cards = new ArrayList();
+        List<Integer> idsFavoritados = new ArrayList();
 
-    @GetMapping("/{idAdotante}/favoritado-nao-adotado")
-    public ResponseEntity getFavNaoAdotado(@PathVariable Integer idAdotante){
-        List<AnimalCardsFavoritadoDTO> animais = processoAdocaoRepository.findByFavoritadoIsTrueAndAnimal_AdotadoIsFalseAndAdotante_Id(idAdotante);
-        if (animais.isEmpty()){
+        for(InfosAdotanteDTO info : infosAdotante) {
+            if(info.getFavoritado()) {
+                idsFavoritados.add(info.getAnimal().getId());
+            }
+        }
+
+        for(CardAnimalSemDistanciaDTO animal: animais) {
+            cards.add(
+                    new CardAnimalComDistanciaDTO(
+                            idsFavoritados.contains(animal.getId()),
+                            animal.getId(),
+                            animal.getNome(),
+                            animal.getDataNascimento(),
+                            animal.getUrlImagem(),
+                            animal.getEspecie(),
+                            animal.getDescricao(),
+                            animal.getOng().getEndereco().getLatitude(),
+                            animal.getOng().getEndereco().getLongitude(),
+                            infosAdotante.get(0).getAdotante().getEndereco().getLatitude(),
+                            infosAdotante.get(0).getAdotante().getEndereco().getLongitude()
+                    )
+            );
+        }
+
+        if (cards.isEmpty()){
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(animais);
+
+        return ResponseEntity.status(200).body(cards);
     }
 
     @GetMapping(value = "/exportacao/{cnpj}", produces = "text/plain")

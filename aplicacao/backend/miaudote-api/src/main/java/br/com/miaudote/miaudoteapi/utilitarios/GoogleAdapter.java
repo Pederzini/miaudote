@@ -56,4 +56,24 @@ public class GoogleAdapter {
         return endereco;
     }
 
+    public static double calcularDistancia(Double latitudeOng, Double longitudeOng, Double latitudeAdotante, Double longitudeAdotante) {
+        double theta = longitudeOng - longitudeAdotante;
+        double dist = Math.sin(deg2rad(latitudeOng)) * Math.sin(deg2rad(latitudeAdotante)) + Math.cos(deg2rad(latitudeOng)) * Math.cos(deg2rad(latitudeAdotante)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist *= 60 * 1.1515;
+        dist *= 1.609344;
+        dist *= 100;
+        dist = ((int) dist);
+        return (dist/100);
+    }
+
+    private static Double deg2rad(Double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private static Double rad2deg(Double rad) {
+        return (rad * 180.0 / Math.PI);
+    }
+
 }

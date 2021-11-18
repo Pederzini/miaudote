@@ -2,8 +2,8 @@ package br.com.miaudote.miaudoteapi.repositorio;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.dto.AnimalCardsFavoritadoDTO;
 import br.com.miaudote.miaudoteapi.dto.AnimalVitrineDTO;
+import br.com.miaudote.miaudoteapi.dto.CardAnimalSemDistanciaDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -21,5 +21,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     Integer countByAdotadoTrue();
 
     Integer countByAdotadoTrueAndOngId(Integer idOng);
+
+    List<CardAnimalSemDistanciaDTO> findByAdotadoFalse();
 
 }

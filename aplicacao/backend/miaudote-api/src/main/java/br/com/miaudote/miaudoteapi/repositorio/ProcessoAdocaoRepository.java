@@ -1,13 +1,10 @@
 package br.com.miaudote.miaudoteapi.repositorio;
 
-import br.com.miaudote.miaudoteapi.dominio.Adotante;
-import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.ProcessoAdocao;
 import br.com.miaudote.miaudoteapi.dto.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, Integer> {
@@ -40,7 +37,6 @@ public interface ProcessoAdocaoRepository extends JpaRepository<ProcessoAdocao, 
 
     List<AnimaisAdotadosDTO> findByAdotante_IdAndDataAdocaoNotNull(Integer id);
 
-    List<AnimalCardsFavoritadoDTO> findByFavoritadoIsTrueAndAnimal_AdotadoIsFalseAndAdotante_Id(Integer id);
-    List<AnimalCardsFavoritadoDTO> findByAnimal_AdotadoIsFalse();
+    List<InfosAdotanteDTO> findByAdotante_IdAndAnimal_AdotadoFalse(Integer idAdotante);
 
 }

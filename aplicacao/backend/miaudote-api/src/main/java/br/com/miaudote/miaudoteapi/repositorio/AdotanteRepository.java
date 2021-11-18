@@ -2,6 +2,7 @@ package br.com.miaudote.miaudoteapi.repositorio;
 
 import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dto.AdotanteDTO;
+import br.com.miaudote.miaudoteapi.dto.LatLongAdotanteDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -37,4 +38,8 @@ public interface AdotanteRepository extends JpaRepository<Adotante, Integer> {
             String senha,
             String urlImagem
     );
+
+    @Query("SELECT new br.com.miaudote.miaudoteapi.dto.LatLongAdotanteDTO(endereco.latitude, endereco.longitude) FROM Adotante ad INNER JOIN Endereco endereco ON fk_endereco = id_endereco WHERE id_adotante = ?1")
+    LatLongAdotanteDTO buscaLatLongAdotante(Integer id);
+
 }

@@ -16,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.geom.PathIterator;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -312,8 +310,6 @@ public class ProcessoAdocaoController {
         return deletarProcessoAdocao(processoAdocao.getIdAdocao());
     }
 
-
-
     @DeleteMapping("/{idAdotante}/{idAnimal}")
     public ResponseEntity deletarProcessoAdocao(@PathVariable Integer idAdocao) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(idAdocao).get();
@@ -325,4 +321,5 @@ public class ProcessoAdocaoController {
         }
         return ResponseEntity.status(204).build();
     }
+
 }
