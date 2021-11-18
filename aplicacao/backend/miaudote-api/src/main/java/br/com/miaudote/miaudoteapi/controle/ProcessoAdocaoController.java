@@ -88,7 +88,7 @@ public class ProcessoAdocaoController {
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
         FilaObj<AdocaoEmProcessoDTO> fila = new FilaObj<>(adocoesEmProcesso.size());
 
-        for (int i = 0; i < adocoesEmProcesso.size() - 1; i++) {
+        for (int i = 0; i < adocoesEmProcesso.size(); i++) {
             fila.insert(adocoesEmProcesso.get(i));
         }
         adocoesEmProcesso.clear();
