@@ -2,8 +2,6 @@ package br.com.miaudote.miaudoteapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.util.Date;
-
 public class AnimalDTO {
     private String nome;
 

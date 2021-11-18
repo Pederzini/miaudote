@@ -42,6 +42,7 @@ public class ProcessoAdocaoController {
         if (processos.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
+
         return ResponseEntity.status(200).body(processos);
     }
 
@@ -87,11 +88,11 @@ public class ProcessoAdocaoController {
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
         FilaObj<AdocaoEmProcessoDTO> fila = new FilaObj<>(adocoesEmProcesso.size());
 
-        for (int i = 0; i < adocoesEmProcesso.size()-1 ; i++){
+        for (int i = 0; i < adocoesEmProcesso.size() - 1; i++) {
             fila.insert(adocoesEmProcesso.get(i));
         }
         adocoesEmProcesso.clear();
-        while(!fila.isEmpty()){
+        while (!fila.isEmpty()) {
             adocoesEmProcesso.add(fila.poll());
         }
 
@@ -245,6 +246,7 @@ public class ProcessoAdocaoController {
         if (animaisFavoritados.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
+
         return ResponseEntity.status(200).body(animaisFavoritados);
     }
 
@@ -253,11 +255,11 @@ public class ProcessoAdocaoController {
         List<AnimaisAdotadosDTO> adocaoFinalizada = processoAdocaoRepository.findByAdotante_IdAndDataAdocaoNotNull(id);
         PilhaObj<AnimaisAdotadosDTO> pilhaObj = new PilhaObj<>(adocaoFinalizada.size());
 
-        for (int i = 0; i < adocaoFinalizada.size() ; i++){
+        for (int i = 0; i < adocaoFinalizada.size(); i++) {
             pilhaObj.push(adocaoFinalizada.get(i));
         }
         adocaoFinalizada.clear();
-        while (!pilhaObj.isEmpty()){
+        while (!pilhaObj.isEmpty()) {
             adocaoFinalizada.add(pilhaObj.pop());
         }
 
@@ -307,6 +309,7 @@ public class ProcessoAdocaoController {
             processoAdocaoRepository.save(processoAdocao);
             return ResponseEntity.status(200).build();
         }
+
         return deletarProcessoAdocao(processoAdocao.getIdAdocao());
     }
 
@@ -319,6 +322,7 @@ public class ProcessoAdocaoController {
             processoAdocaoRepository.delete(processoAdocao);
             return ResponseEntity.status(200).build();
         }
+
         return ResponseEntity.status(204).build();
     }
 

@@ -36,7 +36,7 @@ public class AnimalController {
 
     @GetMapping("/{id}")
     public ResponseEntity getAnimal(@PathVariable Integer id) {
-        if (animalRepository.findById(id).isPresent()){
+        if (animalRepository.findById(id).isPresent()) {
             Animal animal = animalRepository.findById(id).get();
             AnimalDTO animalRetorno = new AnimalDTO(animal.getNome(),
                     animal.getDescricao(),
@@ -70,12 +70,12 @@ public class AnimalController {
     }
 
     @GetMapping("/animais-ong/{cnpj}")
-    public ResponseEntity getAnimalOng(@PathVariable String cnpj){
+    public ResponseEntity getAnimalOng(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
 
         List<Animal> animais = animalRepository.findByOng(ong);
 
-        if (!animais.isEmpty()){
+        if (!animais.isEmpty()) {
             return ResponseEntity.status(200).body(animais);
         } else {
             return ResponseEntity.status(204).build();
@@ -173,19 +173,19 @@ public class AnimalController {
     }
 
     @GetMapping("/{id}/cards")
-    public ResponseEntity getNaoAdotados(@PathVariable Integer id){
+    public ResponseEntity getNaoAdotados(@PathVariable Integer id) {
         List<CardAnimalSemDistanciaDTO> animais = animalRepository.findByAdotadoFalse();
         List<InfosAdotanteDTO> infosAdotante = processoAdocaoRepository.findByAdotante_IdAndAnimal_AdotadoFalse(id);
         List<CardAnimalComDistanciaDTO> cards = new ArrayList();
         List<Integer> idsFavoritados = new ArrayList();
 
-        for(InfosAdotanteDTO info : infosAdotante) {
-            if(info.getFavoritado()) {
+        for (InfosAdotanteDTO info : infosAdotante) {
+            if (info.getFavoritado()) {
                 idsFavoritados.add(info.getAnimal().getId());
             }
         }
 
-        for(CardAnimalSemDistanciaDTO animal: animais) {
+        for (CardAnimalSemDistanciaDTO animal : animais) {
             cards.add(
                     new CardAnimalComDistanciaDTO(
                             idsFavoritados.contains(animal.getId()),
@@ -203,7 +203,7 @@ public class AnimalController {
             );
         }
 
-        if (cards.isEmpty()){
+        if (cards.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
@@ -227,10 +227,11 @@ public class AnimalController {
                                            @RequestParam MultipartFile arquivo) throws IOException {
         String conteudo = new String(arquivo.getBytes());
         List<Animal> animais = ManipulaArquivo.leArquivoTxt(conteudo);
-        for (Animal a: animais){
+        for (Animal a : animais) {
             animalRepository.save(a);
-            atribuiOng(cnpj,animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
+            atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
         }
+
         return ResponseEntity.status(201).body("Animais cadastrados com sucesso");
     }
 }

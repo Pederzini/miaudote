@@ -7,7 +7,7 @@ public class PilhaObj<T> {
 
     public PilhaObj(int capacidade) {
         topo = -1;
-        pilha =  (T[]) new Object[capacidade];
+        pilha = (T[]) new Object[capacidade];
     }
 
     public boolean isEmpty() {
@@ -18,7 +18,7 @@ public class PilhaObj<T> {
     }
 
     public boolean isFull() {
-        if (topo == pilha.length -1) {
+        if (topo == pilha.length - 1) {
             return true;
         }
         return false;

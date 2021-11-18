@@ -17,11 +17,9 @@ public interface InfosAdotanteDTO {
     }
 
     interface Endereco {
-
         Double getLatitude();
 
         Double getLongitude();
-
     }
 
 }

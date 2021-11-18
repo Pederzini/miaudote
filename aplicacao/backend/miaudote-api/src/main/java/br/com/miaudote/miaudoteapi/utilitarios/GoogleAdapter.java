@@ -3,9 +3,9 @@ package br.com.miaudote.miaudoteapi.utilitarios;
 import br.com.miaudote.miaudoteapi.dominio.Endereco;
 import br.com.miaudote.miaudoteapi.dominio.Usuario;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.client.RestTemplate;
-import org.json.JSONObject;
 
 public class GoogleAdapter {
 
@@ -65,7 +65,8 @@ public class GoogleAdapter {
         dist *= 1.609344;
         dist *= 100;
         dist = ((int) dist);
-        return (dist/100);
+
+        return (dist / 100);
     }
 
     private static Double deg2rad(Double deg) {

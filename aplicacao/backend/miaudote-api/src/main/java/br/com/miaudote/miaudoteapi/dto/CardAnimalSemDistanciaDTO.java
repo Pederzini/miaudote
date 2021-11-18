@@ -23,11 +23,9 @@ public interface CardAnimalSemDistanciaDTO {
     }
 
     interface Endereco {
-
         Double getLatitude();
 
         Double getLongitude();
-
     }
 
 }

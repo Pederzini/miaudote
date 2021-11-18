@@ -2,7 +2,6 @@ package br.com.miaudote.miaudoteapi.utilitarios;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,7 +38,7 @@ public class ManipulaArquivo {
         Ong ong = ongRepository.findByCnpj(cnpj);
         Integer contaRegDados = 0;
         String horaAtual = DataHora.retornaDataHoraAtual().toString();
-        String exportacao = "" ;
+        String exportacao = "";
         exportacao += String.format("00ANIMAL%-45.45s%-14.14s%8.8s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
 
         for (Animal animal : lista) {
@@ -67,6 +66,7 @@ public class ManipulaArquivo {
         String trailer = "01";
         trailer += String.format("%05d", contaRegDados);
         exportacao += trailer;
+
         return exportacao;
     }
 
@@ -111,7 +111,7 @@ public class ManipulaArquivo {
                     a.setDataNascimento(dataNascimento);
 
                 }
-                if (conteudoVetorizado[i+1].equals("03")) {
+                if (conteudoVetorizado[i + 1].equals("03")) {
                     a.setUrlImagem(conteudoVetorizado[i].substring(03, 1003));
                     i++;
                 }
@@ -123,6 +123,7 @@ public class ManipulaArquivo {
         } catch (ParseException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
         }
+
         return listaLida;
     }
 }

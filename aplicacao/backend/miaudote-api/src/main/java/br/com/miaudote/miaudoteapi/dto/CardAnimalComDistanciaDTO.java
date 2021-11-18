@@ -32,7 +32,7 @@ public class CardAnimalComDistanciaDTO {
         DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         int d1 = Integer.parseInt(formatter.format(birthday));
         int d2 = Integer.parseInt(formatter.format(date));
-        int age = (d2-d1)/10000;
+        int age = (d2 - d1) / 10000;
         return age;
     }
 

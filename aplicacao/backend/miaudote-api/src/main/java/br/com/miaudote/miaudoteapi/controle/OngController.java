@@ -1,27 +1,19 @@
 package br.com.miaudote.miaudoteapi.controle;
 
-import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.ContatoOngDTO;
 import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
 import br.com.miaudote.miaudoteapi.dto.OngSemEnderecoDTO;
-import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
-import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
 import br.com.miaudote.miaudoteapi.utilitarios.GoogleAdapter;
 import br.com.miaudote.miaudoteapi.utilitarios.Login;
-import br.com.miaudote.miaudoteapi.utilitarios.ManipulaArquivo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @CrossOrigin
@@ -140,8 +132,5 @@ public class OngController {
 
         return ResponseEntity.status(200).body(cardOng);
     }
-
-
-
 
 }

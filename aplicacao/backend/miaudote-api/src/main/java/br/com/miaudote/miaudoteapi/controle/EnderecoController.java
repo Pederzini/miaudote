@@ -29,6 +29,7 @@ public class EnderecoController {
         endereco.setLogradouro(novoEndereco.getLogradouro());
 
         enderecoRepository.save(GoogleAdapter.buscarLatAndLong(endereco));
+
         return ResponseEntity.status(200).build();
     }
 

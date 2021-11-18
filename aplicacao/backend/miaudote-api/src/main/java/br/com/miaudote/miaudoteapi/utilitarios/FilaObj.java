@@ -1,6 +1,6 @@
 package br.com.miaudote.miaudoteapi.utilitarios;
 
-public class FilaObj<T>{
+public class FilaObj<T> {
 
     private int tamanho;
     private T[] fila;

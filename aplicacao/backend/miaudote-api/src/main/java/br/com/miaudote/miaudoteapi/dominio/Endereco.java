@@ -120,7 +120,7 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public String getEnderecoFormatado (){
-        return String.format("%s %d %s",getLogradouro(),getNumero(),getCep());
+    public String getEnderecoFormatado() {
+        return String.format("%s %d %s", getLogradouro(), getNumero(), getCep());
     }
 }
