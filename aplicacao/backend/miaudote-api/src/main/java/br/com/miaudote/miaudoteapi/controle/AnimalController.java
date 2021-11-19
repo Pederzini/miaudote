@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -222,16 +223,24 @@ public class AnimalController {
         return new ResponseEntity(relatorio, headers, HttpStatus.OK);
     }
 
-    @PostMapping("/importacao/{cnpj}")
+    @GetMapping("/importacao/{cnpj}")
     public ResponseEntity importaDocumento(@PathVariable String cnpj,
                                            @RequestParam MultipartFile arquivo) throws IOException {
         String conteudo = new String(arquivo.getBytes());
-        List<Animal> animais = ManipulaArquivo.leArquivoTxt(conteudo);
-        for (Animal a : animais) {
-            animalRepository.save(a);
-            atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
+        List<Animal> animais = null;
+        try {
+            animais = ManipulaArquivo.leArquivo(conteudo);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        for (Animal a : animais) {
+//            animalRepository.save(a);
+//            atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
+//        }
+        if(animais == null) {
+            return ResponseEntity.status(204).build();
         }
 
-        return ResponseEntity.status(201).body("Animais cadastrados com sucesso");
+        return ResponseEntity.status(201).body(animais);
     }
 }
