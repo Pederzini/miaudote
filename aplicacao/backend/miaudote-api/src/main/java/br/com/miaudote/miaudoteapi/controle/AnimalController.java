@@ -8,6 +8,7 @@ import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
+import br.com.miaudote.miaudoteapi.utilitarios.FilaObj;
 import br.com.miaudote.miaudoteapi.utilitarios.ManipulaArquivo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -73,13 +74,20 @@ public class AnimalController {
     public ResponseEntity getAnimalOng(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
 
-        List<Animal> animais = animalRepository.findByOng(ong);
-
-        if (!animais.isEmpty()) {
-            return ResponseEntity.status(200).body(animais);
-        } else {
+        List<AnimalVitrineDTO> animais = animalRepository.findByOngId(ong.getIdOng());
+        if (animais.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
+        FilaObj<AnimalVitrineDTO> filaAnimal = new FilaObj<>(animais.size());
+        for (AnimalVitrineDTO animal: animais){
+            filaAnimal.insert(animal);
+        }
+        animais.clear();
+        while(!filaAnimal.isEmpty()){
+            animais.add(filaAnimal.poll());
+        }
+        return ResponseEntity.status(200).body(animais);
+
     }
 
     @DeleteMapping("/{id}")

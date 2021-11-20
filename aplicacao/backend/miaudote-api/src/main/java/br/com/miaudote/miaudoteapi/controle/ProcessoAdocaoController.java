@@ -86,14 +86,14 @@ public class ProcessoAdocaoController {
         List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
 
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
-        FilaObj<AdocaoEmProcessoDTO> fila = new FilaObj<>(adocoesEmProcesso.size());
+        PilhaObj<AdocaoEmProcessoDTO> pilha = new PilhaObj<>(adocoesEmProcesso.size());
 
         for (int i = 0; i < adocoesEmProcesso.size(); i++) {
-            fila.insert(adocoesEmProcesso.get(i));
+            pilha.push(adocoesEmProcesso.get(i));
         }
         adocoesEmProcesso.clear();
-        while (!fila.isEmpty()) {
-            adocoesEmProcesso.add(fila.poll());
+        while (!pilha.isEmpty()) {
+            adocoesEmProcesso.add(pilha.pop());
         }
 
         if (adocoesEmProcesso.isEmpty()) {
