@@ -972,7 +972,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   .btn-texto-bot {
     margin-top: 5%;
     display: flex;
-    width: 55%;
+    width: 50%;
     text-align: center;
     align-self: center;
   }

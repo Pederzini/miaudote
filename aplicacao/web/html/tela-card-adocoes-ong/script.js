@@ -35,10 +35,6 @@ var fechar = document.getElementsByClassName("close")[0];
 function redirecionarCadastro() {
     modal.style.display = "block"; 
     document.querySelector("body").style.overflow = 'hidden';
-    // Abrir MODAL
-    //modal -> 1 pra escolher o importação
-    // -> outro pra cadastro animal link embaixo
-    // window.location.href= "../cadastro-pet/cadastro-pet.html"
 }
 
 function cadastroForm() {
