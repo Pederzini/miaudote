@@ -229,15 +229,36 @@ align-items: center;
 
 .cards-adocoes {
     width: 66%;
-    height: 86%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     overflow-x: auto;
-    /* justify-content: space-evenly; */
-    margin-top: 1%;
+
 }
+
+.cards-adocoes::-webkit-scrollbar  {
+    width: 10px;
+  }
+  
+  /* Track */
+  .cards-adocoes::-webkit-scrollbar-track {
+    background-color: #b8b0c7;
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .cards-adocoes::-webkit-scrollbar-thumb {
+    background: #8675A5; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .cards-adocoes::-webkit-scrollbar-thumb:hover {
+    background: #61498f; 
+  }
+ 
+
 
 .cards-adocoes p {
     text-transform: uppercase;
@@ -253,7 +274,7 @@ align-items: center;
 }
 
 .opcoes-adocoes:hover {
-    background-color: #ffe9e9 !important;
+    background-color: #f3ecff !important;
 }
 
 
@@ -304,6 +325,7 @@ align-items: center;
     box-sizing: border-box;
     border-radius: 9px;
     margin-bottom: 2%;
+    padding: 1%;
 } 
 
 
@@ -316,15 +338,14 @@ align-items: center;
 }
 
 .img-pet {
-    width: 27%;
-    height: 100%;
+    width: 122px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .img-pet img {
-    width: 64%;
+    width: 70%;
     border-radius: 100%;
 }
 
@@ -334,13 +355,13 @@ align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* padding-top: 1%; */
+
 }
 
 .texto-pet p {
     color: #434343;
     font-family: Nunito;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 19px;
@@ -391,7 +412,7 @@ align-items: center;
     height: 56%;
     position: relative;
     left: 29px;
-    top: -1px;
+    top: -3px;
 }
 
 .contador p {
@@ -455,13 +476,14 @@ align-items: center;
 
 .card-processo-adocao {
     width: 90%;
-    height: 19vh;
+    height: 110px;
     display: flex;
     flex-direction: row;
     border: 1px solid #8675A5;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 9px;
     margin: 1%;
+    padding: 1%;
 }
 
 
@@ -489,11 +511,10 @@ align-items: center;
 
 .texto-adotante p {
     color: #434343;
-    font-size: 15px;
+    font-size: 14px;
     font-family: Nunito;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px;
     letter-spacing: 0.01em;
    
 
@@ -501,19 +522,15 @@ align-items: center;
 
 .img-adotante {
     height: 100%;
-    width: 40%;
+    width: 38%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-
-
 }
 
 .img-adotante img {
     border-radius: 100%;
-    width: 80%;
-
+    width: 88%;
 }
 
 .tipo-contato {
@@ -523,6 +540,7 @@ align-items: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 
 
 }
@@ -531,12 +549,13 @@ align-items: center;
     width: 100%;
     height: 0.1%;
     background-color: #8675A5;
+    position: absolute;
 
 }
 
 .img-contato {
     z-index: 1;
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -552,13 +571,9 @@ align-items: center;
 }
 
 .img-pet-processo {
-    height: 100%;
-    width: 40%;
+    width: 42%;
     display: flex;
-    align-items: center;
     justify-content: center;
-
-
 }
 
 .img-pet-processo img {
@@ -579,11 +594,10 @@ align-items: center;
 }
 .texto-pet-processo p {
     color: #434343;
-    font-size: 15px;
+    font-size: 14px;
     font-family: Nunito;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px;
     letter-spacing: 0.01em;
 
 
@@ -626,8 +640,8 @@ align-items: center;
 }
 
 #btn-adotou {
-    width: 80%;
-    height: 25%;
+    width: 89%;
+    height: 38%;
     border: none;
     border-radius: 63.8298px;
     background-color: #8675A5;
@@ -639,9 +653,8 @@ align-items: center;
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 2%;
-
 }
 
 .texto-adotou P{
@@ -653,7 +666,7 @@ align-items: center;
     line-height: 22px;
     letter-spacing: 0.01em;
     text-align: center;
-
+    margin-left: 4%;
 }
 
 .img-btn {
@@ -671,13 +684,13 @@ align-items: center;
 }
 
 #btn-nao-adotou {
-    width: 80%;
-    height: 25%;
+    width: 87%;
+    height: 38%;
     border-radius: 63.8298px;
     background-color:white;
     border: 1px solid #FF5C5C;
     cursor: pointer;
-
+    margin-top: 7%;
 }
 
 .texto-nao-adotou{
@@ -685,9 +698,8 @@ align-items: center;
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 2%;
-
 }
 
 .texto-nao-adotou P{
@@ -699,6 +711,7 @@ align-items: center;
     line-height: 22px;
     letter-spacing: 0.01em;
     text-align: center;
+    margin-left: 3%;
 }
 
 /* Inicio da tela de adoções, opção de processo de animais adotados*/
@@ -712,7 +725,7 @@ align-items: center;
     box-sizing: border-box;
     border-radius: 9px;
     margin: 1%;
-    
+    padding: 1%;
 }
 
 .informacoes-adotante{
@@ -726,35 +739,32 @@ align-items: center;
 
 .text-adotante{
     height: 100%;
-    width: 60%;
+    width: 63%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-end;
-   
 }
 
 .text-adotante p {
     font-family: Nunito;
-    font-size: 18px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px;
+    /* line-height: 30px; */
     letter-spacing: 0.01em;
-
 }
 
 .imagem-adotante{
     height: 100%;
-    width: 40%;
+    width: 53%;
     display: flex;
     justify-content: center;
     align-items: center;
- 
 }
 
 .imagem-adotante img {
-    width: 70%;
+    width: 75%;
     border-radius: 100%;
 }
 
@@ -765,24 +775,22 @@ align-items: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+    position: relative;
 }
 
 .linha-casa{
     width: 100%;
     height: 0.1%;
     background-color: #8675A5;
-
+    position: absolute;
 }
 
 .img-casa-adocao  {
-    z-index: 1;
-    position: absolute;
+    /* z-index: 1; */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .img-casa-adocao  img {

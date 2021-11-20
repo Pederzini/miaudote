@@ -15,7 +15,7 @@ function trocaMenu(valor) {
             let valorDiv = element.getAttribute('value') - 1
             if (valor == element.getAttribute('value')) {
                 getEndpoint(valor)
-                element.style.backgroundColor = '#FFD8D5';
+                element.style.backgroundColor = '#dfd4f5';
             } else {
                 let div = divs[valorDiv]
                 bloquearDivs(div)
