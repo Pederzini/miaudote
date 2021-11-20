@@ -53,7 +53,26 @@ header {
 
 .container-header {
     width: 100%;
-    height: 22%;
+    height: 28%;
+}
+
+.titulo {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.titulo p {
+    font-family: Nunito;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: #434343;
 }
 
 .menu {
@@ -187,15 +206,120 @@ height: 657px;
 .container-svg {
     width: 100%;
     height: 51%;
-    background-color: #fc7b72;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
 }
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 34%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 100%;
+    user-select: none;
+    left: 100%;
+
+  }
+  
+  .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 34%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 100%;
+    user-select: none;
+    left: -15%;
+
+  }
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 100%;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bab1cc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #8675A5;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
 
 .download {
     width: 35%;
-    height: 10%;
+    height: 26%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     padding-left: 2%;
+    margin-top: 7%;
 }
 
 .download u {
@@ -207,7 +331,21 @@ height: 657px;
     letter-spacing: 0.01em;
     text-align: left;
     color: #6250D1;
+    cursor: pointer;
+    padding-top: 5%;
+    margin-left: 1%;
+}
 
+
+.documentos {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.documentos img {
+    width: 11%;
 }
 
 .text-upload {
@@ -260,7 +398,7 @@ height: 657px;
 }
 
 #holder.hover { 
-    border: 3px dashed #6250D1 !important; 
+    border: 3px dashed #FF7D73 !important; 
 }
 
 
@@ -295,14 +433,14 @@ input[type='file'] {
   }
   
   .input-wrapper label:hover {
-    background-color: #6250D1;
-    border: #6250D1;
+    background-color: #8F7FAC;
+    border: #8F7FAC;
     color: white;
   }
 
   .container-name {
       width: 100%;
-      height: 20%;
+      height: 32%;
       display: flex;
       align-items: center;
       flex-direction: row;
@@ -330,7 +468,7 @@ input[type='file'] {
 
   .btn-cadastro {
       width: 100%;
-      height: 25%;
+      height: 40%;
       display: flex;
       align-items: center;
       justify-content: center;
