@@ -215,7 +215,7 @@ public class AnimalController {
     public ResponseEntity geraDocumento(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
         List<Animal> animais = animalRepository.findByOng(ong);
-        String relatorio = ManipulaArquivo.gravarArquivoTxt(animais, cnpj);
+        String relatorio = ManipulaArquivo.gravarArquivoTxt(animais, ong);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", String.format("attachment; filename = %s-miaudote.txt", ong.getRazaoSocial()));
@@ -223,7 +223,7 @@ public class AnimalController {
         return new ResponseEntity(relatorio, headers, HttpStatus.OK);
     }
 
-    @GetMapping("/importacao/{cnpj}")
+    @PostMapping("/importacao/{cnpj}")
     public ResponseEntity importaDocumento(@PathVariable String cnpj,
                                            @RequestParam MultipartFile arquivo) throws IOException {
         String conteudo = new String(arquivo.getBytes());
@@ -233,13 +233,14 @@ public class AnimalController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-//        for (Animal a : animais) {
-//            animalRepository.save(a);
-//            atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
-//        }
         if(animais == null) {
             return ResponseEntity.status(204).build();
         }
+        for (Animal a : animais) {
+            animalRepository.save(a);
+            atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
+        }
+
 
         return ResponseEntity.status(201).body(animais);
     }

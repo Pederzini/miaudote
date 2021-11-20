@@ -6,12 +6,10 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ManipulaArquivo {
 
@@ -35,12 +33,12 @@ public class ManipulaArquivo {
         }
     }
 
-    public static String gravarArquivoTxt(List<Animal> lista, String cnpj) {
-        Ong ong = ongRepository.findByCnpj(cnpj);
+    public static String gravarArquivoTxt(List<Animal> lista, Ong ong) {
         Integer contaRegDados = 0;
-        String horaAtual = DataHora.retornaDataHoraAtual().toString();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.GERMANY);
+        String horaAtual = df.format(DataHora.retornaDataHoraAtual());
         String exportacao = "";
-        exportacao += String.format("00ANIMAL%-45.45s%-14.14s%8.8s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
+        exportacao += String.format("00ANIMAL%-45.45s%-14.14s%19.19s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
 
         for (Animal animal : lista) {
             String corpo = "02";
