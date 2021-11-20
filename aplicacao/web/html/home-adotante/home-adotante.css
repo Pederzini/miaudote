@@ -12,6 +12,7 @@
 html{
   /*PARA O ONLY PAGE*/
      scroll-behavior: smooth; 
+     overflow-x: hidden;
  }
 
 
@@ -488,14 +489,123 @@ header{
 
 
 .container-feedbacks{
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-auto-rows: 100px;
-    width: 100%;
-    z-index: 0;    
+  width: 100%;
+  height: 657px;
+  display: flex;
+  flex-direction: row;
+  
 }
+
+.feedback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -7%;
+}
+
+.image-feedback {
+  width: 185px;
+  height: 30%;
+  position: relative;
+  left: 72px;
+  top: -59px;
+}
+
+.image-feedback img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.container-text {
+  width: 30%;
+  height: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: -305px;
+  top: 101px;
+}
+
+.nome {
+  width: 100%;
+  height: 17%;
+  display: flex;
+  flex-direction: column;
+  align-content: baseline;
+  margin-bottom: 9%;
+}
+
+.nome p {
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #434343;
+  /* padding-top: 5%; */
+  margin-right: 7%;
+}
+
+.estrelas img {
+  width: 15%;
+}
+
+.estrelas {
+  width: 100%;
+  height: 47%;
+  flex-direction: row;
+  margin-top: 3%;
+}
+
+.comentario {
+  width: 100%;
+  height: 79%;
+  /* margin-bottom: 3%; */
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bab1cc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #8675A5;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
 
 .container-branco{
     background-color: white;
