@@ -54,7 +54,7 @@ public class Animal {
 
     private String necessidadeEspeciais;
 
-    @Column(length = 2083, nullable = false)
+    @Column(length = 2083)
     private String urlImagem;
 
     @Column(length = 8, nullable = false)
