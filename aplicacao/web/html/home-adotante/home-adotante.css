@@ -428,7 +428,7 @@ header{
   
 .texto-adocoes p::after {
     color: #434343;
-    content: " animais já encontraram um lar";
+    content: " animais jÃ¡ encontraram um lar";
 
   }
   
@@ -490,10 +490,9 @@ header{
 
 .container-feedbacks{
   width: 100%;
-  height: 657px;
+  height: 459px;
   display: flex;
   flex-direction: row;
-  
 }
 
 .feedback {
@@ -524,8 +523,8 @@ header{
   position: relative;
   display: flex;
   flex-direction: column;
-  left: -305px;
-  top: 101px;
+  left: -294px;
+  top: 47px;
 }
 
 .nome {
@@ -556,15 +555,17 @@ header{
 
 .estrelas {
   width: 100%;
-  height: 47%;
+  height: 75%;
   flex-direction: row;
-  margin-top: 3%;
+  margin-top: 2%;
+  /* margin-bottom: 14px; */
 }
 
 .comentario {
   width: 100%;
-  height: 79%;
+  height: 80%;
   /* margin-bottom: 3%; */
+  margin-top: 9%;
 }
 
 /* The dots/bullets/indicators */
