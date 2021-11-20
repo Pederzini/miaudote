@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <title>MiauDote</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script defer src="importacao.js"></script>
     <script defer src="../script.js"></script>
 </head>
 
-<!-- <body onload="validarSessao()"> -->
-
-<body>
+<body onload="validarSessao()">
+<!-- <body> -->
     <main class="page">
         <header id="topo">
             <div class="menu">
@@ -123,7 +123,7 @@
             </div>
 
             <div class="container-upload">
-                <form method="post" action="">
+                <form id="uploadForm" action='upload_file' role="form" method="post" enctype=multipart/form-data>
                     <div id="holder">
                         <p>ARRASTE E SOLTE UM ARQUIVO AQUI</p>
                         <p>OU</p>

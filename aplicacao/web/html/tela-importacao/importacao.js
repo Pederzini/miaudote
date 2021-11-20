@@ -54,23 +54,19 @@ function postCadastroArquivo() {
     if (arquivo === undefined) {
         alert("Coloca um arquivo amiguinho :D")
     } else {
-        axios.post(`http://localhost:8080/miaudote/animais/importacao/${JSON.parse(sessionStorage.login_usuario).cnpj}`, arquivo, {
-            headers: { 
-                "Access-Control-Allow-Origin": "*", 
-                "crossorigin": true, 
-                "Content-type": arquivo.type
-            },
-    
+        var formData = new FormData();
+        formData.append("arquivo", arquivo);
+
+        axios.post(`http://localhost:8080/miaudote/animais/importacao/${JSON.parse(sessionStorage.login_usuario).cnpj}`, formData, {
+            headers: {
+                "Content-Type": 'multipart/form-data'
+            }
         }).then(response => {
             Swal.fire({
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
                 confirmButtonText: 'Ok'
-            }).then((result) => {
-                if (result.value) {
-                    window.location.href = '../login/login.html'
-                }
             })
         }).catch(function (error) {
             Swal.fire({
