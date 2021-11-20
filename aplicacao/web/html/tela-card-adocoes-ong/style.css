@@ -662,9 +662,25 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 }
 
+.edicao-card {
+    justify-content: center;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    left: 174px;
+}
+
+#img-editar-card {
+    width: 25px;
+    cursor: pointer;
+}
+
 .img-pet {
     width: 100%;
     height: 66%;
+    position: relative;
     border-radius: 25px 25px 0px 0px;
 
 }
