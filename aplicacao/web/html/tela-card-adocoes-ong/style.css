@@ -712,7 +712,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     display: flex;
     flex-direction: column;
     padding-left: 6%;
-    margin-top: 2%;
+    margin-top: 17%;
 }
 
 .container-dados{
