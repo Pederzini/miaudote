@@ -26,8 +26,40 @@ function logoff() {
     redirecionar_login();
 }
 
+// MODAL
+// Get the modal
+var modal = document.getElementById("modalCadastro");
+// Get the <span> element that closes the modal
+var fechar = document.getElementsByClassName("close")[0];
+
 function redirecionarCadastro() {
+    modal.style.display = "block"; 
+    document.querySelector("body").style.overflow = 'hidden';
+    // Abrir MODAL
+    //modal -> 1 pra escolher o importação
+    // -> outro pra cadastro animal link embaixo
+    // window.location.href= "../cadastro-pet/cadastro-pet.html"
+}
+
+function cadastroForm() {
     window.location.href= "../cadastro-pet/cadastro-pet.html"
+}
+
+function cadastroArq() {
+    window.location.href= "../tela-importacao/importacao.html"
+}
+// When the user clicks on <div> (x), close the modal
+fechar.onclick = function () {
+    modal.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+    }
 }
 
 function gerarRelatorio() {
