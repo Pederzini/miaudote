@@ -27,23 +27,27 @@ html{
     width: 17.9px;
   }
   
+  ::-webkit-scrollbar {
+    width: 17.9px;
+  }
+  
   /* Track */
   ::-webkit-scrollbar-track {
-    background-color: #ffdbc8;
+    background-color: #FFD8D5;
     border-radius: 10px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #f8c2a6; 
+    background: #fdbbb6; 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background:#fc8245; 
+    background:#fc7b72; 
   }
-
+  
 :root {
     --nunito: 'Nunito', sans-serif;
     --nunito-sans: 'Nunito Sans', sans-serif;
