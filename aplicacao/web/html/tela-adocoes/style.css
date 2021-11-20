@@ -340,7 +340,6 @@ align-items: center;
 .img-pet {
     width: 122px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
