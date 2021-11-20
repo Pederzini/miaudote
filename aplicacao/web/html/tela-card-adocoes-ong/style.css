@@ -620,7 +620,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     margin-left: 5%;
 }
 .linha {
-    height: 98%;
+    height: 100%;
     width: 0.01%;
     background-color: #8675A5;
 }
