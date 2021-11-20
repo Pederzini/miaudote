@@ -6,11 +6,10 @@ import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class ManipulaArquivo {
 
@@ -34,12 +33,12 @@ public class ManipulaArquivo {
         }
     }
 
-    public static String gravarArquivoTxt(List<Animal> lista, String cnpj) {
-        Ong ong = ongRepository.findByCnpj(cnpj);
+    public static String gravarArquivoTxt(List<Animal> lista, Ong ong) {
         Integer contaRegDados = 0;
-        String horaAtual = DataHora.retornaDataHoraAtual().toString();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.GERMANY);
+        String horaAtual = df.format(DataHora.retornaDataHoraAtual());
         String exportacao = "";
-        exportacao += String.format("00ANIMAL%-45.45s%-14.14s%8.8s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
+        exportacao += String.format("00ANIMAL%-45.45s%-14.14s%19.19s01\n", ong.getRazaoSocial(), ong.getCnpj(), horaAtual);
 
         for (Animal animal : lista) {
             String corpo = "02";
@@ -68,6 +67,85 @@ public class ManipulaArquivo {
         exportacao += trailer;
 
         return exportacao;
+    }
+
+    public static List<Animal> leArquivo(String conteudo) throws ParseException {
+        List<Animal> animais = new ArrayList<>();
+        String nome;
+        String especie;
+        String descricao;
+        String genero;
+        Date dataChegada;
+        String corPelagem;
+        String tipoPelagem;
+        Boolean castrado;
+        Boolean vacinado;
+        String porte;
+        String comportamento;
+        String necessidades;
+        Date dataNasc;
+        String url;
+
+        Scanner scanner = new Scanner(conteudo);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            Animal animal = new Animal();
+            Integer contador = 0;
+            if(line.substring(0, 2).equals("00")) {
+                System.out.println("\nsou um header");
+            } else if (line.substring(0, 2).equals("02")) {
+                contador = 1;
+                animal = new Animal();
+                nome = line.substring(2, 52).trim();
+                especie = line.substring(52, 60).trim();
+                descricao = line.substring(60, 340).trim();
+                genero = line.substring(340, 341);
+                dataChegada = new SimpleDateFormat("dd/MM/yyyy").parse(line.substring(341, 351));
+                corPelagem = line.substring(351, 361).trim();
+                tipoPelagem = line.substring(361, 368).trim();
+                castrado = line.substring(368, 373).trim().equalsIgnoreCase("true");
+                vacinado = line.substring(373, 378).trim().equalsIgnoreCase("true");
+                porte = line.substring(378, 385).trim();
+                comportamento = line.substring(385, 430).trim();
+                necessidades = line.substring(430, 710).trim().length() == 0 ? null : line.substring(430, 710).trim();
+                dataNasc = new SimpleDateFormat("dd/MM/yyyy").parse(line.substring(710, 720));
+
+                line = scanner.nextLine();
+
+                if (line.substring(0, 2).equals("03")) {
+                    url = line.substring(2, 1002).trim();
+                    animal.setUrlImagem(url);
+                }
+
+                animal.setNome(nome);
+                animal.setEspecie(especie);
+                animal.setDescricao(descricao);
+                animal.setGenero(genero);
+                animal.setDataChegada(dataChegada);
+                animal.setCorPelagem(corPelagem);
+                animal.setTipoPelagem(tipoPelagem);
+                animal.setCastrado(castrado);
+                animal.setVacinado(vacinado);
+                animal.setPorte(porte);
+                animal.setComportamento(comportamento);
+                animal.setNecessidadeEspeciais(necessidades);
+                animal.setDataNascimento(dataNasc);
+                animal.setAdotado(false);
+
+             } else if (line.substring(0, 2).equals("01")) {
+                System.out.println("\nsou trailer");
+            } else {
+                System.out.println("\ntipo de registro inválido");
+            }
+
+            if(contador > 0) {
+                animais.add(animal);
+            }
+
+        }
+        scanner.close();
+
+        return animais;
     }
 
     public static List<Animal> leArquivoTxt(String conteudo) {
