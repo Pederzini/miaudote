@@ -659,6 +659,7 @@ span {
   width: 60%;
   height: 50%;
   overflow-y: auto;
+  border-radius: 10px;
 }
 
 .modal-caminho {
@@ -668,11 +669,20 @@ span {
 .modal-titulo {
   display: flex;
   justify-content: center;
-  font-weight: 400;
-  font-size: 28px;
-  /* position: absolute;
-  top: 28%;
-  left: 35%; */
+  font-weight: 600;
+  font-size: 24px;
+
+  margin-top: -24px;
+}
+
+.modal-titulo-feed {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 9%;
+  margin-left: 3%;
 }
 
 .cards-adocoes {
@@ -704,7 +714,7 @@ span {
   box-sizing: border-box;
   border-radius: 9px;
   margin: 1%;
-} 
+}
 
 .img-pet {
   width: 40%;
@@ -719,7 +729,7 @@ span {
   border-radius: 100%;
 }
 
-.texto-pet{
+.texto-pet {
   width: 60%;
   height: 100%;
   display: flex;
@@ -781,20 +791,56 @@ span {
 
 .img-favorito img {
   width: 66%;
+}
 
+/*modal feedbakc*/
+.bola-um {
+  position: absolute;
+  height: 20%;
+}
+
+.bola-dois {
+  position: absolute;
+    height: 41%;
+    right: 21.2%;
+    top: 24%;
+}
+
+.borda-feedback {
+  display: flex;
+  flex-direction: column;
+  margin: 6%;
+  border: 1px solid rgba(134, 117, 165, 0.4);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 9px;
+  background: #fff;
+  height: 84%;
+  position: sticky;
+}
+
+.borda-input {
+  background: #FFFFFF;
+  border: 1px solid #8675A5;
+  box-sizing: border-box;
+  border-radius: 9px;
+  margin: 20px;
+  /* height: 28%; */
+  padding: 16px;
+}
+
+.feedback-span {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-self: center;
 }
 
 
 /* The Close Button */
-.closeA {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding: 20px;
-}
-
-.closeF {
+.closeA,
+.closeF,
+.closeFb {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -816,6 +862,13 @@ span {
   cursor: pointer;
 }
 
+.closeFb:hover,
+.closeFb:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .btn-comentario button {
   width: 245px;
   height: 45px;
@@ -832,6 +885,56 @@ span {
   cursor: pointer;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
+
+.modal-estrelas {
+  display: flex;
+  align-self: center;
+}
+/* ESTRELAS*/
+.rating label {
+  float: right;
+  cursor: pointer;
+}
+.rating label:not(:first-of-type) {
+  padding-right: 2px;
+}
+.rating label:before {
+  content: "★";
+  font-size: 60px;
+  color: #CCCCCC;
+  line-height: 1;
+}
+.rating input {
+  display: none;
+}
+.rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {
+  color: #F9DF4A;
+}
+/* FIM ESTRELAS*/
+
+.btn-feed {
+  display: flex;
+  place-self: center;
+  position: relative;
+  top: 6%;
+}
+
+.btn-feed button {
+  width: 245px;
+  height: 50px;
+  /* margin-top: 45px; */
+  border: none;
+  border-radius: 94px;
+  padding: 11px;
+  background-color: #8F7FAC;
+  font-family: 'Nunito';
+  font-size: 19px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
 /* MODAL FIM */
 
 /*FOOTER*/
