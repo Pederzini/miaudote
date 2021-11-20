@@ -332,8 +332,20 @@ height: 657px;
     text-align: left;
     color: #6250D1;
     cursor: pointer;
-    margin-bottom: 5%;
+    padding-top: 5%;
+    margin-left: 1%;
+}
 
+
+.documentos {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.documentos img {
+    width: 11%;
 }
 
 .text-upload {
