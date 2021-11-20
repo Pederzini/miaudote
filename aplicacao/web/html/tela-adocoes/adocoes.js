@@ -32,14 +32,23 @@ function trocaMenu(valor) {
 
 }
 
-function calcIdade(data) {
+function calcIdade(data, type) {
+
+    dataParaCalcular = data
+
+    if (type == "adotante") {
+        while (dataParaCalcular.length > 10) dataParaCalcular = dataParaCalcular.slice(0, -1);
+        dataParaCalcular = dataParaCalcular.replaceAll('-', '/')
+    } else {
+        let split = data.split('/')
+        dataParaCalcular = split[1] + "/" + split[0] + "/" + split[2]
+    }
+
     var d = new Date,
         ano_atual = d.getFullYear(),
         mes_atual = d.getMonth() + 1,
         dia_atual = d.getDate(),
-        // split = data.split('/'),
-        // novadata = split[1] + "/" +split[0]+"/"+split[2],
-        data_americana = new Date(data),
+        data_americana = new Date(dataParaCalcular),
         vAno = data_americana.getFullYear(),
         vMes = data_americana.getMonth() + 1,
         vDia = data_americana.getDate(),
@@ -83,7 +92,7 @@ function getInfosFavoritos() {
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações de favoritos',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -101,7 +110,7 @@ function getInfosEmProcesso() {
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações dos em processo',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -119,7 +128,37 @@ function getInfosAdotados() {
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações dos adotados',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function patchAdotou(idAdocao) {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/finaliza-adocao/${idAdocao}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+        console.log("Uhul deu certo")
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao atualizar o adotou',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function patchNaoAdotou(idAdocao) {
+    axios.get(`http://localhost:8080/miaudote/adocoes/cancela-adocao/${idAdocao}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+        console.log("Uhul deu certo")
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao atualizar o nao adotou',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -195,6 +234,15 @@ function mostrarDivs(valor) {
             if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
             else containerFavorito.className += " container-favorito";
 
+            let divContador = document.createElement('div')
+            containerFavorito.appendChild(divContador)
+            if (divContador.classList) divContador.classList.add("contador");
+            else divContador.className += " contador";
+
+            let pContador = document.createElement('p')
+            pContador.innerHTML = element.numFavoritado
+            divContador.appendChild(pContador)
+
             let imgCoracaoVermelho = document.createElement('img')
             imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
             containerFavorito.appendChild(imgCoracaoVermelho)
@@ -251,7 +299,8 @@ function mostrarDivs(valor) {
             divTextoAdotante.appendChild(pNomeAdotante)
 
             let pIdadeAdotante = document.createElement('p')
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento)//"20 ANOS" // element.adotante.idade 
+
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
             divTextoAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -310,7 +359,7 @@ function mostrarDivs(valor) {
             divTextoPetProcesso.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento)
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
             divTextoPetProcesso.appendChild(pIdadePet)
 
             let divSexoPetProcesso = document.createElement('div')
@@ -335,7 +384,7 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnAdoutou)
             btnAdoutou.id = "btn-adotou"
             btnAdoutou.addEventListener('click', () => {
-                // Ação de marcar como adotado
+                patchAdotou(element.id)
             })
 
             let divContainerDentroBtn = document.createElement('div')
@@ -365,7 +414,7 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnNaoAdoutou)
             btnNaoAdoutou.id = "btn-nao-adotou"
             btnNaoAdoutou.addEventListener('click', function () {
-                // Ação de apagar
+                patchNaoAdotou(element.id)
             })
 
             let divContainerDentroBtn2 = document.createElement('div')
@@ -416,7 +465,7 @@ function mostrarDivs(valor) {
             divTextAdotante.appendChild(pNomeAdotante)
 
             let pIdadeAdotante = document.createElement('p')
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento)
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
             divTextAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -475,7 +524,7 @@ function mostrarDivs(valor) {
             divTextoPet.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento)
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
             divTextoPet.appendChild(pIdadePet)
 
             let divSexoPet = document.createElement('div')
