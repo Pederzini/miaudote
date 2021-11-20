@@ -392,25 +392,20 @@ function atualizaEndereco() {
     })
 }
 
-function petAdotado() {
-
-}
-
-function petFavorito() {
-
-}
-
 // Get the modal
 var modalF = document.getElementById("myModal");
 var modalA = document.getElementById("myModal2");
+var modalFb = document.getElementById("myModalFeed");
 
 // Get the button that opens the modal
 var btnF = document.getElementById("btnF");
 var btnA = document.getElementById("btnA");
+var btnFb = document.getElementById("btnFb");
 
 // Get the <span> element that closes the modal
 var spanF = document.getElementsByClassName("closeF")[0];
 var spanA = document.getElementsByClassName("closeA")[0];
+var spanFb = document.getElementsByClassName("closeFb")[0];
 
 // When the user clicks the button, open the modal 
 btnF.onclick = function () {
@@ -425,6 +420,12 @@ btnA.onclick = function () {
     document.querySelector("body").style.overflow = 'hidden';  
 }
 
+btnFb.onclick = function () {
+    // mostrarDivs()
+    modalFb.style.display = "block"; 
+    document.querySelector("body").style.overflow = 'hidden';  
+}
+
 // When the user clicks on <span> (x), close the modal
 spanF.onclick = function () {
     modalF.style.display = "none";
@@ -436,6 +437,11 @@ spanA.onclick = function () {
     document.querySelector("body").style.overflow = 'visible';
 }
 
+spanFb.onclick = function () {
+    modalFb.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modalF) {
@@ -444,9 +450,20 @@ window.onclick = function (event) {
     } else if (event.target == modalA) {
         modalA.style.display = "none";
         document.querySelector("body").style.overflow = 'visible';
+    } else if (event.target == modalFb) {
+        modalFb.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
     }
 }
 
+// btn de abrir modalFEEDBACK
+// SE o adotante ja fez o feedback, não mostrar o botão 
+// DESABILITAR o botão
+function modalFeedback() {
+    var modal = document.getElementById("myModalFeed");
+    modal.style.display = "block"; 
+    document.querySelector("body").style.overflow = 'hidden';
+}
 
 // Mostrar DIVS
 function mostrarDivs() {
@@ -519,4 +536,35 @@ function mostrarDivs() {
     containerFavorito.appendChild(imgCoracaoVermelho)
 
     
+}
+
+// Enviar o feedback
+function feedback() {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/registra-feedback/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
+    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    "nome": nome,
+    "descricao": descricao,
+    "dataNascimento": nascimento,
+    "genero": sexo,
+    "dataChegada": chegada,
+    "corPelagem": cor,
+    "castrado": castrado,
+    "porte": porte,
+    "tipoPelagem": pelagem,
+    "vacinado": vacinado,
+    "comportamento": comportamento,
+    "adotado": false,
+    "necessidadeEspeciais": necessidadesEspeciais,
+    "urlImagem": "urlImagem",
+    "ong": null,
+  }).then(response => {
+    putOng(response.data.idAnimal)
+  }).catch(function (error) {
+    Swal.fire({
+      title: error.response.data,
+      text: 'Verifique as informações digitadas',
+      icon: 'warning',
+      confirmButtonText: 'Ok'
+    })
+  })
 }
