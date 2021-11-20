@@ -1,6 +1,6 @@
-const dadosFavoritados = []
-const dadosProcesso = []
-const dadosAdotados = []
+let dadosFavoritados = []
+let dadosProcesso = []
+let dadosAdotados = []
 
 function trocaMenu(valor) {
 
@@ -15,7 +15,7 @@ function trocaMenu(valor) {
             let valorDiv = element.getAttribute('value') - 1
             if (valor == element.getAttribute('value')) {
                 getEndpoint(valor)
-                element.style.backgroundColor = '#FFD8D5';
+                element.style.backgroundColor = '#dfd4f5';
             } else {
                 let div = divs[valorDiv]
                 bloquearDivs(div)
@@ -29,17 +29,32 @@ function trocaMenu(valor) {
             element.parentNode.removeChild(element);
         });
     }
-
 }
 
-function calcIdade(data) {
+function apagarDivs() {
+    let div = document.querySelectorAll('.card-processo-adocao')
+    div.forEach(element => {
+        element.parentNode.removeChild(element);
+    });
+}
+
+function calcIdade(data, type) {
+
+    dataParaCalcular = data
+
+    if (type == "adotante") {
+        while (dataParaCalcular.length > 10) dataParaCalcular = dataParaCalcular.slice(0, -1);
+        dataParaCalcular = dataParaCalcular.replaceAll('-', '/')
+    } else {
+        let split = data.split('/')
+        dataParaCalcular = split[1] + "/" + split[0] + "/" + split[2]
+    }
+
     var d = new Date,
         ano_atual = d.getFullYear(),
         mes_atual = d.getMonth() + 1,
         dia_atual = d.getDate(),
-        // split = data.split('/'),
-        // novadata = split[1] + "/" +split[0]+"/"+split[2],
-        data_americana = new Date(data),
+        data_americana = new Date(dataParaCalcular),
         vAno = data_americana.getFullYear(),
         vMes = data_americana.getMonth() + 1,
         vDia = data_americana.getDate(),
@@ -76,14 +91,16 @@ function getInfosFavoritos() {
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/animais-favoritados`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
+        dadosFavoritados = []
         for (let index = 0; index < response.data.length; index++) {
             dadosFavoritados[index] = response.data[index];
         }
+        console.log("Favoritos: ", dadosFavoritados)
         mostrarDivs(1)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações de favoritos',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -94,14 +111,16 @@ function getInfosEmProcesso() {
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-em-processo`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
+        dadosProcesso = []
         for (let index = 0; index < response.data.length; index++) {
             dadosProcesso[index] = response.data[index];
         }
+        console.log("Em processo: ", dadosProcesso)
         mostrarDivs(2)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações dos em processo',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -112,14 +131,50 @@ function getInfosAdotados() {
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-concluidas`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
+        dadosAdotados = []
         for (let index = 0; index < response.data.length; index++) {
             dadosAdotados[index] = response.data[index];
         }
+        console.log("Em Adotados: ", dadosAdotados)
         mostrarDivs(3)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações da ONG',
+            text: 'Erro ao carregar as informações dos adotados',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function patchAdotou(idAdocao) {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/finaliza-adocao/${idAdocao}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+        apagarDivs()
+        getInfosEmProcesso()
+        console.log("Uhul deu certo")
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao atualizar o adotou',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function patchNaoAdotou(idAdocao) {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/cancela-adocao/${idAdocao}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+        apagarDivs()
+        getInfosEmProcesso()
+        console.log("Uhul deu certo")
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao atualizar o nao adotou',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -149,8 +204,19 @@ function mostrarDivs(valor) {
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
 
+            let imagemAnimal;
+
+            if (element.url === null) {
+                imagemAnimal = "https://i.imgur.com/s8t0M4S.png" 
+            } else if (element.url.includes(',')) {
+                let imagem = element.url.split(',')
+                imagemAnimal = imagem[0]
+            } else {
+                imagemAnimal = element.url
+            }
+
             let imgPet = document.createElement('img')
-            imgPet.src = element.url
+            imgPet.src = imagemAnimal
             divImgPet.appendChild(imgPet)
 
             let divTextoPet = document.createElement('div')
@@ -194,6 +260,15 @@ function mostrarDivs(valor) {
             divImgFavorito.appendChild(containerFavorito)
             if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
             else containerFavorito.className += " container-favorito";
+
+            let divContador = document.createElement('div')
+            containerFavorito.appendChild(divContador)
+            if (divContador.classList) divContador.classList.add("contador");
+            else divContador.className += " contador";
+
+            let pContador = document.createElement('p')
+            pContador.innerHTML = element.numFavoritado
+            divContador.appendChild(pContador)
 
             let imgCoracaoVermelho = document.createElement('img')
             imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
@@ -251,7 +326,8 @@ function mostrarDivs(valor) {
             divTextoAdotante.appendChild(pNomeAdotante)
 
             let pIdadeAdotante = document.createElement('p')
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento)//"20 ANOS" // element.adotante.idade 
+
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
             divTextoAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -263,8 +339,16 @@ function mostrarDivs(valor) {
             if (divImgAdotante.classList) divImgAdotante.classList.add("img-adotante");
             else divImgAdotante.className += " img-adotante";
 
+            let imagemAdotante;
+
+            if (element.adotante.urlImagem === null) {
+                imagemAdotante = "https://i.imgur.com/s8t0M4S.png" 
+            } else {
+                imagemAdotante = element.adotante.urlImagem
+            }
+
             let imgAdotante = document.createElement('img')
-            imgAdotante.src = element.adotante.urlImagem
+            imgAdotante.src = imagemAdotante
             divImgAdotante.appendChild(imgAdotante)
 
             let divTipoContatoAdotante = document.createElement('div')
@@ -296,8 +380,18 @@ function mostrarDivs(valor) {
             if (divImgPetProcesso.classList) divImgPetProcesso.classList.add("img-pet-processo");
             else divImgPetProcesso.className += " img-pet-processo";
 
+            let imagemAnimal;
+            if (element.animal.urlImagem === null) {
+                imagemAnimal = "https://i.imgur.com/s8t0M4S.png" 
+            } else if (element.animal.urlImagem.includes(',')) {
+                let imagem = element.animal.urlImagem.split(',')
+                imagemAnimal = imagem[0]
+            } else {
+                imagemAnimal = element.animal.urlImagem
+            }
+
             let imgPetProcesso = document.createElement('img')
-            imgPetProcesso.src = element.animal.urlImagem
+            imgPetProcesso.src = imagemAnimal
             divImgPetProcesso.appendChild(imgPetProcesso)
 
             let divTextoPetProcesso = document.createElement('div')
@@ -310,7 +404,7 @@ function mostrarDivs(valor) {
             divTextoPetProcesso.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento)
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
             divTextoPetProcesso.appendChild(pIdadePet)
 
             let divSexoPetProcesso = document.createElement('div')
@@ -335,7 +429,7 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnAdoutou)
             btnAdoutou.id = "btn-adotou"
             btnAdoutou.addEventListener('click', () => {
-                // Ação de marcar como adotado
+                patchAdotou(element.id)
             })
 
             let divContainerDentroBtn = document.createElement('div')
@@ -365,7 +459,7 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnNaoAdoutou)
             btnNaoAdoutou.id = "btn-nao-adotou"
             btnNaoAdoutou.addEventListener('click', function () {
-                // Ação de apagar
+                patchNaoAdotou(element.id)
             })
 
             let divContainerDentroBtn2 = document.createElement('div')
@@ -416,7 +510,7 @@ function mostrarDivs(valor) {
             divTextAdotante.appendChild(pNomeAdotante)
 
             let pIdadeAdotante = document.createElement('p')
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento)
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
             divTextAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -428,8 +522,16 @@ function mostrarDivs(valor) {
             if (divImagemAdotante.classList) divImagemAdotante.classList.add("imagem-adotante");
             else divImagemAdotante.className += " imagem-adotante";
 
+            let imagemAdotante;
+
+            if (element.adotante.urlImagem === null) {
+                imagemAdotante = "https://i.imgur.com/s8t0M4S.png" 
+            } else {
+                imagemAdotante = element.adotante.urlImagem
+            }
+
             let imgAdotante = document.createElement('img')
-            imgAdotante.src = element.adotante.urlImagem
+            imgAdotante.src = imagemAdotante
             divImagemAdotante.appendChild(imgAdotante)
 
             let divContainerCasa = document.createElement('div')
@@ -461,8 +563,18 @@ function mostrarDivs(valor) {
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
 
+            let imagemAnimal;
+            if (element.animal.urlImagem === null) {
+                imagemAnimal = "https://i.imgur.com/s8t0M4S.png" 
+            } else if (element.animal.urlImagem.includes(',')) {
+                let imagem = element.animal.urlImagem.split(',')
+                imagemAnimal = imagem[0]
+            } else {
+                imagemAnimal = element.animal.urlImagem
+            }
+
             let imgPet = document.createElement('img')
-            imgPet.src = element.animal.urlImagem
+            imgPet.src = imagemAnimal
             divImgPet.appendChild(imgPet)
 
             let divTextoPet = document.createElement('div')
@@ -475,7 +587,7 @@ function mostrarDivs(valor) {
             divTextoPet.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento)
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
             divTextoPet.appendChild(pIdadePet)
 
             let divSexoPet = document.createElement('div')
@@ -494,4 +606,3 @@ function mostrarDivs(valor) {
         });
     }
 }
-
