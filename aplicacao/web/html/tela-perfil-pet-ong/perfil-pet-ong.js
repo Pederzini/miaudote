@@ -1,5 +1,31 @@
 let fotosPet;
 
+function redirecionarTela() {
+    sessionStorage.trocaMenu = 2
+    window.location.href = ".././tela-adocoes/adocoes.html"
+}
+
+function organizaFotos() {
+    let imagemPrincipal = fotoPrincipal.src
+    let divFotos = document.querySelectorAll('.foto')
+    let fotos = document.querySelectorAll('.imagem')
+    fotos.forEach(element => {
+        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
+            element.addEventListener("mouseover", function (event) {
+                divFotos[element.getAttribute('value')].style.borderColor = "#FF7D73"
+                fotoPrincipal.src = element.src
+            }, false);
+        }
+        
+        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
+            element.addEventListener("mouseout", function (event) {
+                divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
+                fotoPrincipal.src = imagemPrincipal
+            }, false);
+        } 
+    });
+}
+
 function calcIdade(data) {
 
     let split = data.split('/')
@@ -29,7 +55,6 @@ function getInfosPet() {
     axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
-        console.log(response.data)
         let idade = calcIdade(response.data.dataNascimento)
         let sexo = response.data.genero
 
@@ -44,11 +69,18 @@ function getInfosPet() {
         campo_vacinacao.innerHTML = response.data.vacinado
         campo_necessidades.innerHTML = response.data.necessidadeEspeciais
         campo_descricao.innerHTML = response.data.descricao
-        img_pet.src = response.data.especie != "Gato" ? "../../imagens/perfil-animal/icon-cachorro.svg" : "../../imagens/perfil-animal/icon-gato.svg"
+        img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/perfil-animal/cat-rosa.svg"
 
         fotosPet = response.data.urlImagem.split(',')
         fotoPrincipal.src = fotosPet[0].length > 0 ? fotosPet[0] : "https://i.imgur.com/s8t0M4S.png"
-        console.log("Fotos pet: ", fotosPet)
+        let fotos = document.querySelectorAll('.imagem')
+        for (let index = 0; index < fotosPet.length; index++) {
+            if (index + 1 != fotosPet.length) {
+                fotos[index].src = fotosPet[index + 1]
+            }
+        }
+        organizaFotos()
+
     }).catch(function (error) {
         Swal.fire({
             title: error.response,

@@ -3,7 +3,8 @@ let dadosProcesso = []
 let dadosAdotados = []
 
 function trocaMenu(valor) {
-
+    
+    sessionStorage.trocaMenu = 1
     let todasDivs = document.querySelectorAll('.opcoes-adocoes');
 
     const divs = [document.querySelectorAll('.card-animais-favoritos'),
