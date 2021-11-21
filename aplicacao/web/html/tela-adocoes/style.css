@@ -318,13 +318,13 @@ align-items: center;
 
 .card-animais-favoritos {
     width: 90%;
-    height: 55%;
+    height: 110px;
     display: flex;
     flex-direction: row;
     border: 1px solid #8675A5;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 9px;
-    margin-bottom: 2%;
+    margin: 1%;
     padding: 1%;
 } 
 
@@ -338,9 +338,10 @@ align-items: center;
 }
 
 .img-pet {
-    width: 122px;
+    width: 126 px;
     display: flex;
     justify-content: center;
+    height: 87px;
 }
 
 .img-pet img {
