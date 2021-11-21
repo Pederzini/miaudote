@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/App.css';
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import api from "./api";
 
 // import imagens
 import background from './imagens/Geral/forma-header.svg';
@@ -11,11 +12,6 @@ import imgOsso from './imagens/Geral/icon-osso.svg';
 import imgHLD from './imagens/Home/HLD.svg';
 import imgHldAdocao from './imagens/Home/caminho-HLD-adocao.svg';
 import imgAdocaoCadastro from './imagens/Home/caminho-adocao-cadastro.svg';
-import imgBtnEsquerda from './imagens/Geral/icon-seta-esquerda.svg';
-import imgBtnDireita from './imagens/Geral/icon-seta-direita.svg';
-import imgFavoritarBranco from './imagens/Geral/icon-coracao-branco.svg';
-import imgFavoritarVermelho from './imagens/Geral/icon-coracao-vermelho.svg';
-import imgLocalizacao from './imagens/Geral/icon-localizacao.svg';
 import imgMulherCadastro from './imagens/Home/mulher-caixa-cachorro.svg';
 import imgHomemCadastro from './imagens/Home/homem-cachorro.svg';
 import imgQuemSomos from './imagens/Home/quem-somos.svg';
@@ -60,6 +56,18 @@ function App() {
 
     ref.current.scrollIntoView();
   }
+
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    async function buscarAnimais() {
+      const resposta = await api.get("")
+      setCards(resposta.data)
+      console.log("Olha o que veio da API", resposta.data)
+    }
+
+    buscarAnimais();
+  }, []);
 
   function linkTela(tela) {
     switch (tela) {
@@ -135,16 +143,20 @@ function App() {
 
         {/* CONTEUDO ADOCAO */}
         <div className="conteudo-adocao">
-          <img src={imgBtnEsquerda} />
-
           {/* CARDS ADOCAO */}
-          <div className="cards-adocao">
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
-            <Card imgFavoritar={imgFavoritarVermelho} imgLocalizacao={imgLocalizacao} />
+          <div className="cards-adocao"> {
+            cards.map((card) => (
+              <Card
+                key={card.id}
+                nome={card.nome}
+                descricao={card.descricao}
+                idade={card.idadeAnimal}
+                especie={card.especie}
+                image={card.url}
+              />
+            ))
+          }
           </div> {/* fim cards-adocao */}
-
-          <img src={imgBtnDireita} />
         </div> {/* fim conteudo-adocao */}
       </div> {/* fim container-adocao */}
 
