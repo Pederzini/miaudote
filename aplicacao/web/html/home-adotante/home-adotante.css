@@ -769,3 +769,9 @@ header{
   cursor: pointer;
   margin-left: 6%;
 }
+
+.map {
+  width: 60%;
+  height: 550px;
+  border: 5px double #fc8245
+}
