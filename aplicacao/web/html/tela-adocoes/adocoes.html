@@ -19,7 +19,7 @@
             <div class="menu">
                 <div class="logo-header">
                     <img src="../../imagens/geral/logo-header.svg" alt="">
-    
+
                 </div>
                 <div class="text-menu">
                     <a href="../tela-home-ong/home-ong.html">HOME</a>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="container-sair">
                     <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
-    
+
                 </div>
 
             </div>
@@ -105,6 +105,79 @@
 
 
         </div>
+        <!-- The Modal Favoritos-->
+        <div id="modalFav" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="closeFav" onclick="fecharModal()">&times;</span>
+                <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
+                <div class="modal-conteudo">
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal CARD ADOTANTE-->
+        <div id="modalAdo" class="modal">
+
+            <div class="modal-content2">
+                <span class="closeAdo" onclick="fecharModalAdo()">&times;</span>
+                <img class="bola-um" src="../../imagens/modal/modal_caminho_card.svg" alt="">
+                <img class="bola-dois" src="../../imagens/modal/direita_bola.svg" alt="">
+
+                <!-- <span class="modal-titulo">ENTRE EM CONTATO PARA ADOTAR</span> -->
+                <div class="modal-container">
+                    <div class="modal-logo">
+                        <img id="card-foto-adotante" class="card-adotante" src="" alt="">
+                    </div>
+                    <div class="modal-btns">
+                        <div class="modal-info-box">
+                            <div class="modal-adotante-info">
+                                <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                                <span id="adotante-nome" style="margin-left: 2%;"></span>
+
+                                <div class="info-ong">
+                                    <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                                    <span id="adotante-idade" style="margin-left: 2%;"></span>
+                                </div>
+
+                                <div class="info-ong">
+                                    <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                                    <span id="adotante-endereco" style="margin-left: 2%;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="modal-contato">
+
+                </div>
+                <div class="modal-info">
+                    <div class="modal-info-box">
+                        <div>
+                            CONTATO
+                        </div>
+
+                        <div class="info-ong">
+                            <div class="modal-circulo">
+                                <img class="icon-style-modal" src="../../imagens/geral/icon-email-branco.svg" alt="">
+                            </div>
+                            <span id="modal-mail-adotante" class="contato-modal"> MAIL@MAIL.COM</span>                            
+                        </div>
+
+                        <div class="info-ong">
+                            <div class="modal-circulo">
+                                <img class="icon-style-modal"  class="contato-modal" src="../../imagens/geral/icon-whats-branco.svg" alt="">
+                            </div>
+                            <span id="modal-tel-adotante">(11)99999-9999</span> 
+                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </main>
     <a href="#topo" style="cursor: pointer;">
         <div class="container-gato">
@@ -218,3 +291,51 @@
 </body>
 
 </html>
+
+<script>
+    var modalFav = document.getElementById("modalFav");
+    var modalAdo = document.getElementById("modalAdo");
+    var fecharFav = document.getElementsByClassName("closeFav")[0];
+    var fecharAdo = document.getElementsByClassName("closeAdo")[0];
+
+    function abrirModal() {
+        modalFav.style.display = "block";
+        document.querySelector("body").style.overflow = 'hidden';
+    }
+
+    function abrirModalAdo() {
+        modalAdo.style.display = "block";
+        document.querySelector("body").style.overflow = 'hidden';
+    }
+
+    function fecharModal() {
+        document.querySelector(".clique-favorito").style = "pointer-events: all;"
+        modalFav.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+        limparModal();
+    }
+
+    function fecharModalAdo() {
+        modalAdo.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modalFav) {
+            document.querySelector(".clique-favorito").style = "pointer-events: all;"
+            modalFav.style.display = "none";
+            document.querySelector("body").style.overflow = 'visible';
+            limparModal();
+        } else if (event.target == modalAdo) {
+            modalAdo.style.display = "none";
+            document.querySelector("body").style.overflow = 'visible';
+        }
+    }
+
+    function limparModal() {
+        var node = document.querySelector(".modal-conteudo");
+        if (node.parentNode) {
+            node.innerHTML = "";
+        }
+    }
+</script>

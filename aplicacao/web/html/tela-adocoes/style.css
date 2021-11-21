@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
 
@@ -6,32 +5,32 @@
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  font-family: Nunito Sans;
+    margin: 0;
+    padding: 0;
+    font-family: Nunito Sans;
 }
 
 /* width */
 ::-webkit-scrollbar {
     width: 17.9px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background-color: #FFD8D5;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #fdbbb6; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fdbbb6;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:#fc7b72; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fc7b72;
+}
 
 :root {
     --nunito: 'Nunito', sans-serif;
@@ -39,13 +38,13 @@
     --roxo: #8675A5;
     --branco: #fff;
     --cinza: #434343;
-  }
+}
 
 
 /* Inicio da tela de adoções, opção de favorito*/
 
 header {
-  
+
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -63,7 +62,7 @@ header {
     flex-direction: row;
     position: absolute;
     z-index: 1;
-    
+
 }
 
 .logo-header {
@@ -72,7 +71,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -80,17 +79,16 @@ header {
     width: 80%;
 }
 
-.text-menu{
+.text-menu {
     height: 100%;
     width: 60%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-  
 }
 
-.text-menu a{
+.text-menu a {
     font-family: Nunito;
     font-size: 23px;
     font-style: normal;
@@ -109,7 +107,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .container-sair {
@@ -124,7 +122,7 @@ header {
     width: 30%;
 }
 
-.btn-login{
+.btn-login {
     height: 33%;
     width: 72%;
     border: 0.637931px solid #434343;
@@ -138,19 +136,19 @@ header {
     cursor: pointer;
 
 }
-  
+
 .btn-login img {
     width: 37%;
     margin-right: 7%;
 }
 
 
-.btn-login p{
+.btn-login p {
     font-family: Nunito;
     font-size: 17px;
     font-style: normal;
     font-weight: 800;
-    line-height: 28px;  
+    line-height: 28px;
     letter-spacing: 0.01em;
     color: #434343;
 
@@ -164,7 +162,7 @@ header img {
     object-fit: cover;
 }
 
-.img-menu{
+.img-menu {
     height: 100%;
     width: 32%;
     position: absolute;
@@ -175,36 +173,36 @@ header img {
 
 .img-menu img {
     width: 100%;
- 
+
 
 }
 
 .page {
 
-height: 657px;
+    height: 657px;
 }
 
 
 .svg-menu-menor {
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 
 
 }
 
 .container-adocoes {
-width: 100%;
-height: 80%;
-display: flex;
-flex-direction: row;
-align-items: center;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
 }
 
 
 
 
-.menu-lateral-adocoes{
+.menu-lateral-adocoes {
     width: 24%;
     height: 80%;
     display: flex;
@@ -237,27 +235,27 @@ align-items: center;
 
 }
 
-.cards-adocoes::-webkit-scrollbar  {
+.cards-adocoes::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  .cards-adocoes::-webkit-scrollbar-track {
+}
+
+/* Track */
+.cards-adocoes::-webkit-scrollbar-track {
     background-color: #b8b0c7;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  .cards-adocoes::-webkit-scrollbar-thumb {
-    background: #8675A5; 
+}
+
+/* Handle */
+.cards-adocoes::-webkit-scrollbar-thumb {
+    background: #8675A5;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  .cards-adocoes::-webkit-scrollbar-thumb:hover {
-    background: #61498f; 
-  }
- 
+}
+
+/* Handle on hover */
+.cards-adocoes::-webkit-scrollbar-thumb:hover {
+    background: #61498f;
+}
+
 
 
 .cards-adocoes p {
@@ -285,7 +283,7 @@ align-items: center;
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
 
 .img-opcoes img {
@@ -297,8 +295,8 @@ align-items: center;
     height: 100%;
     display: flex;
     align-items: center;
-  
-    
+
+
 }
 
 .texto-opcoes p {
@@ -318,15 +316,15 @@ align-items: center;
 
 .card-animais-favoritos {
     width: 90%;
-    height: 55%;
+    height: 110px;
     display: flex;
     flex-direction: row;
     border: 1px solid #8675A5;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 9px;
-    margin-bottom: 2%;
+    margin: 1%;
     padding: 1%;
-} 
+}
 
 
 .dados-pet {
@@ -338,9 +336,10 @@ align-items: center;
 }
 
 .img-pet {
-    width: 122px;
+    width: 126 px;
     display: flex;
     justify-content: center;
+    height: 87px;
 }
 
 .img-pet img {
@@ -348,7 +347,7 @@ align-items: center;
     border-radius: 100%;
 }
 
-.texto-pet{
+.texto-pet {
     width: 55%;
     height: 100%;
     display: flex;
@@ -387,7 +386,7 @@ align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-  
+
 
 }
 
@@ -436,8 +435,6 @@ align-items: center;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
-    
 }
 
 .container-clique {
@@ -446,7 +443,7 @@ align-items: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .container-alinhamento {
@@ -492,7 +489,7 @@ align-items: center;
     width: 30%;
     display: flex;
     flex-direction: row;
- 
+
 
 
 }
@@ -504,7 +501,7 @@ align-items: center;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    
+
 
 }
 
@@ -515,7 +512,7 @@ align-items: center;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0.01em;
-   
+
 
 }
 
@@ -544,7 +541,7 @@ align-items: center;
 
 }
 
-.linha-contato{
+.linha-contato {
     width: 100%;
     height: 0.1%;
     background-color: #8675A5;
@@ -581,16 +578,17 @@ align-items: center;
 
 }
 
-.texto-pet-processo{
+.texto-pet-processo {
     width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-content: center;
-  
+
 
 }
+
 .texto-pet-processo p {
     color: #434343;
     font-size: 14px;
@@ -600,14 +598,15 @@ align-items: center;
     letter-spacing: 0.01em;
 
 
-   
+
 
 }
+
 .sexo-pet-processo {
     width: 100%;
     height: 20%;
     display: flex;
-   
+
     align-items: center;
     flex-direction: row;
 }
@@ -618,14 +617,14 @@ align-items: center;
     margin-bottom: 1%;
 }
 
-.container-bnt{
+.container-bnt {
     height: 100%;
     width: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    
+
 
 }
 
@@ -635,7 +634,7 @@ align-items: center;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 }
 
 #btn-adotou {
@@ -656,7 +655,7 @@ align-items: center;
     margin-top: 2%;
 }
 
-.texto-adotou P{
+.texto-adotou P {
     color: white;
     font-family: Nunito;
     font-size: 13px;
@@ -686,13 +685,13 @@ align-items: center;
     width: 87%;
     height: 38%;
     border-radius: 63.8298px;
-    background-color:white;
+    background-color: white;
     border: 1px solid #FF5C5C;
     cursor: pointer;
     margin-top: 7%;
 }
 
-.texto-nao-adotou{
+.texto-nao-adotou {
     height: 100%;
     width: 80%;
     display: flex;
@@ -701,7 +700,7 @@ align-items: center;
     margin-top: 2%;
 }
 
-.texto-nao-adotou P{
+.texto-nao-adotou P {
     color: #FF5C5C;
     font-family: Nunito;
     font-size: 13px;
@@ -727,16 +726,16 @@ align-items: center;
     padding: 1%;
 }
 
-.informacoes-adotante{
+.informacoes-adotante {
     height: 100%;
     width: 40%;
     display: flex;
     margin-left: 10%;
-  
+
 
 }
 
-.text-adotante{
+.text-adotante {
     height: 100%;
     width: 63%;
     display: flex;
@@ -754,7 +753,7 @@ align-items: center;
     letter-spacing: 0.01em;
 }
 
-.imagem-adotante{
+.imagem-adotante {
     height: 100%;
     width: 53%;
     display: flex;
@@ -777,14 +776,14 @@ align-items: center;
     position: relative;
 }
 
-.linha-casa{
+.linha-casa {
     width: 100%;
     height: 0.1%;
     background-color: #8675A5;
     position: absolute;
 }
 
-.img-casa-adocao  {
+.img-casa-adocao {
     /* z-index: 1; */
     position: relative;
     display: flex;
@@ -792,17 +791,241 @@ align-items: center;
     justify-content: center;
 }
 
-.img-casa-adocao  img {
+.img-casa-adocao img {
     width: 75%;
     margin-bottom: 11%;
 }
 
+/* MODAL */
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    padding-top: 190px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding-bottom: 4%;
+    border: 1px solid #888;
+    width: 60%;
+    height: 50%;
+    overflow-y: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-content2{
+    background-color: #fefefe;
+    margin: auto;
+    padding-bottom: 4%;
+    border: 1px solid #888;
+    width: 50%;
+    height: 50%;
+    overflow-y: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-caminho {
+    height: 28%;
+}
+
+.modal-titulo {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.modal-conteudo {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: -25px;    
+    margin-left: 6%;
+}
+
+.modal-card {
+    width: 90%;
+    height: 19vh;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    box-sizing: border-box;
+    border-radius: 9px;
+    margin: 1%;
+    padding: 1%;
+    margin-top: 4%;
+}
+
+.modal-card-conteudo, .modal-card-conteudo2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-card-img {
+    border-radius: 100%;
+    margin-left: 15%;
+}
+
+.modal-card-texto {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-card-texto p {
+    color: #434343;
+    font-family: Nunito;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+}
+
+
+/* The Close Button */
+.closeFav, .closeAdo {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.closeFav:hover,
+.closeFav:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeAdo:hover,
+.closeAdo:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*modal adotante card*/
+
+.modal-container {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content: space-evenly;
+    z-index: 1;
+    position: relative;
+    margin-top: 3%;
+}
+
+.bola-um {
+    position: absolute;
+    height: 17%;
+}
+
+.bola-dois {
+    border-radius: 0 0 10px 0;
+    position: absolute;
+    height: 33%;
+    right: 25%;
+    top: 34.4%;
+}
+
+.modal-logo {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 80%;
+    align-items: center;
+}
+
+.card-adotante {
+    border-radius: 100px;
+    height: 9rem;
+}
+
+.modal-btns {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.modal-adotante-info {
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-size: 24px;
+    margin-top: -20px;
+}
+
+.modal-contato {
+    display: flex;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-top: 2%;
+    width: 35%;
+}
+
+.modal-info-box {
+    font-family: Nunito;
+    font-weight: 600;
+}
+
+.contato-modal{
+    font-size: 18px;
+}
+
+.info-ong {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.modal-circulo {
+    border-radius: 100px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--roxo);
+    display: flex;
+    place-content: center;
+    align-self: center;
+    margin-right: 4%;
+}
+
+.icon-style-modal {
+    display: flex;
+    width: 25px;
+}
+
+/*FOOTER*/
 footer {
     position: relative;
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: 292px; 
+    height: 292px;
     margin-top: 150px;
 }
 
@@ -812,7 +1035,7 @@ footer {
     z-index: 1;
 }
 
-.container-footer{
+.container-footer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -864,7 +1087,7 @@ footer {
     width: 40%;
 }
 
-.text-footer P{
+.text-footer P {
     font-family: Nunito Sans;
     font-size: 15px;
     font-style: normal;
@@ -883,7 +1106,7 @@ footer {
     align-items: flex-end;
 }
 
-.coluna-2{
+.coluna-2 {
     width: 33%;
     height: 80%;
     display: flex;
@@ -892,7 +1115,7 @@ footer {
     justify-content: center;
 }
 
-.container-rede-sociais{
+.container-rede-sociais {
     width: 100%;
     height: 30%;
     display: flex;
@@ -918,7 +1141,7 @@ footer {
 
 }
 
-.coluna-3{
+.coluna-3 {
     width: 33%;
     height: 89%;
     display: flex;
@@ -945,8 +1168,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-   justify-content: center;
-   
+    justify-content: center;
+
 }
 
 .container-contato {
@@ -969,10 +1192,10 @@ footer {
 
 }
 
-.container-btn-contato{
+.container-btn-contato {
     height: 100%;
     width: 10%;
-    
+
 }
 
 
