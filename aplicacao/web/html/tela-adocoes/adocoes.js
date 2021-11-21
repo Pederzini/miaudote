@@ -229,7 +229,7 @@ function mostrarDivs(valor) {
             divTextoPet.appendChild(pThor)
 
             let pAnos = document.createElement('p')
-            pAnos.innerHTML = element.idadeAnimal
+            pAnos.innerHTML = element.idadeAnimal + (element.idadeAnimal == 1 ? " ano" : " anos")
             divTextoPet.appendChild(pAnos)
 
             let divSexoPet = document.createElement('div')
@@ -242,7 +242,7 @@ function mostrarDivs(valor) {
             divSexoPet.appendChild(pSexo)
 
             let imgSexo = document.createElement('img')
-            imgSexo.src = "../../imagens/adocoes/sexo-masculino.svg"//element.genero === "m" ?  "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexo.src = element.genero === "m" ?  "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
             divSexoPet.appendChild(imgSexo)
 
             // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
@@ -327,7 +327,7 @@ function mostrarDivs(valor) {
 
             let pIdadeAdotante = document.createElement('p')
 
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante") + (calcIdade(element.animal.dataNascimento, "animal") == 1 ? " ano" : " anos")
             divTextoAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -367,7 +367,7 @@ function mostrarDivs(valor) {
             else divImgContato.className += " img-contato";
 
             let imgContato = document.createElement('img')
-            imgContato.src = element.modoContato === "whatsapp" ? "../../imagens/adocoes/icon-whatsapp.svg" : "../../imagens/adocoes/icon-whatsapp.svg"
+            imgContato.src = element.modoContato === "whatsapp" ? "../../imagens/adocoes/icon-whatsapp.svg" : "../../imagens/adocoes/icon-gmail.svg"
             divImgContato.appendChild(imgContato)
 
             let divDadosPetProcesso = document.createElement('div')
@@ -404,7 +404,7 @@ function mostrarDivs(valor) {
             divTextoPetProcesso.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal") + (calcIdade(element.animal.dataNascimento, "animal") == 1 ? " ano" : " anos")
             divTextoPetProcesso.appendChild(pIdadePet)
 
             let divSexoPetProcesso = document.createElement('div')
@@ -417,7 +417,7 @@ function mostrarDivs(valor) {
             divSexoPetProcesso.appendChild(pSexoPet)
 
             let imgSexoPetProcesso = document.createElement('img')
-            imgSexoPetProcesso.src = "../../imagens/adocoes/sexo-masculino.svg" //element.genero === "m" ?  "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexoPetProcesso.src = element.genero === "m" ?  "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
             divSexoPetProcesso.appendChild(imgSexoPetProcesso)
 
             let divContainerBtn = document.createElement('div')
@@ -510,7 +510,7 @@ function mostrarDivs(valor) {
             divTextAdotante.appendChild(pNomeAdotante)
 
             let pIdadeAdotante = document.createElement('p')
-            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante")
+            pIdadeAdotante.innerHTML = calcIdade(element.adotante.dataNascimento, "adotante") + (calcIdade(element.animal.dataNascimento, "animal") == 1 ? " ano" : " anos")
             divTextAdotante.appendChild(pIdadeAdotante)
 
             let pCidadeAdotante = document.createElement('p')
@@ -587,7 +587,7 @@ function mostrarDivs(valor) {
             divTextoPet.appendChild(pNomePet)
 
             let pIdadePet = document.createElement('p')
-            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal")
+            pIdadePet.innerHTML = calcIdade(element.animal.dataNascimento, "animal") + (calcIdade(element.animal.dataNascimento, "animal") == 1 ? " ano" : " anos")
             divTextoPet.appendChild(pIdadePet)
 
             let divSexoPet = document.createElement('div')
@@ -600,8 +600,7 @@ function mostrarDivs(valor) {
             divSexoPet.appendChild(pSexoPet)
 
             let imgSexoPet = document.createElement('img')
-            imgSexoPet.src = imgSexoPet.src = "../../imagens/adocoes/sexo-masculino.svg"
-            //element.animal.genero === "Femea" ? "../../imagens/adocoes/sexo-feminino.svg" : "../../imagens/adocoes/sexo-masculino.svg"
+            imgSexoPet.src = imgSexoPet.src = element.animal.genero === "Femea" ? "../../imagens/adocoes/sexo-feminino.svg" : "../../imagens/adocoes/sexo-masculino.svg"
             divSexoPet.appendChild(imgSexoPet)
         });
     }

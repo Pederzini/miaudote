@@ -27,8 +27,7 @@ html{
     width: 17.9px;
   }
   
-/* width */
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 17.9px;
   }
   
@@ -48,7 +47,14 @@ html{
   ::-webkit-scrollbar-thumb:hover {
     background:#fc7b72; 
   }
-
+  
+:root {
+    --nunito: 'Nunito', sans-serif;
+    --nunito-sans: 'Nunito Sans', sans-serif;
+    --roxo: #8675A5;
+    --branco: #fff;
+    --cinza: #434343;
+  }
 
 main {
     min-width: 1366px;
@@ -614,7 +620,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     margin-left: 5%;
 }
 .linha {
-    height: 98%;
+    height: 100%;
     width: 0.01%;
     background-color: #8675A5;
 }
@@ -645,29 +651,44 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     
 }
 
-.card-dentro{
-    height: 86%;
+.card-dentro {
+    height: 83%;
     width: 30%;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
     box-shadow: 5px 5px 4px -2px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
-    
+
+}
+
+.edicao-card {
+    justify-content: center;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    left: 174px;
+}
+
+#img-editar-card {
+    width: 25px;
+    cursor: pointer;
 }
 
 .img-pet {
     width: 100%;
-    height: 70%;
+    height: 66%;
+    position: relative;
     border-radius: 25px 25px 0px 0px;
-    
+
 }
 
-.img-pet img{
+.img-pet img {
     width: 100%;
     border-radius: 25px 25px 0px 0px;
 }
-
 
 .btn-card {
     width: 100%;
@@ -703,105 +724,52 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .informacoes-pet {
     width: 100%;
-    height: 30%;
+    height: 21%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 6%;
+    margin-top: 17%;
+}
+
+.container-dados{
+    width: 100%;
+    height: 20%;
     display: flex;
     flex-direction: row;
-    border-radius: 0px 0px 25px 25px;
-   
+    align-items: center;
+    margin-bottom: 3%;
 }
 
-.nome-pet {
-    height: 100%;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 6%;
-    border-radius: 0px 0px 0px 25px;
-    
+.container-dados img {
+    width: 6%;
+    margin-right: 4%;
 }
 
-.nome-pet h1 {
+.container-dados p {
     font-family: Nunito Sans;
-    font-size: 20px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #434343;
+    text-transform: uppercase;
+    margin-top: 1%;
+
+}
+
+.container-dados h1 {
+    font-family: Nunito Sans;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 27px;
+    line-height: 25px;
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
+    margin-top: 1%;
 
-}
-
-.nome-pet p {
-    font-family: Nunito Sans;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    text-align: left;
-    color: #434343;
-}
-
-.informacoes-adicionais {
-    height: 100%;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border-radius: 0px 0px 25px 0px;
-    
-}
-
-.idade {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.idade p {
-    font-family: Nunito Sans;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    text-align: left;
-    color: #434343;
-    margin-top: 30%;
-
-}
-
-.local {
-    width: 100%;
-    height: 57%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0px 0px 25px 0px;
-}
-
-.local img {
-    width: 20%;
-    margin-bottom: 4%;
-    margin-top: 2%;
-}
-
-
-
-.local p {
-    font-family: Nunito Sans;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    text-align: left;
-    color: #434343;
 
 }
 
@@ -845,7 +813,129 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     z-index: 1;
 }
 
-.container-footer{
+/* Modal Content */
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    padding-top: 8%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding-bottom: 4%;
+    border: 1px solid #888;
+    width: 60%;
+    height: 60%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.modal-caminho {
+    height: 28%;
+}
+
+.modal-titulo {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    z-index: 1;
+    position: relative;
+    height: 18%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0px 20px 0px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bola-um {
+    position: absolute;
+    height: 35%;
+    z-index: 0;
+}
+
+.bola-dois {
+    position: absolute;
+    height: 33%;
+    right: 20%;
+    top: 38.7%;
+}
+
+.modal-container {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content: space-evenly;
+    z-index: 1;
+    position: relative;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-arq {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-botao-center {
+    display: flex;
+    font-size: 17px;
+    font-weight: bold;
+    justify-content: center;
+  }
+  
+  .botao-cadastro {
+    width: 300px;
+    height: 50px;
+    margin-top: 42px;
+    border: none;
+    border-radius: 94px;
+    padding: 11px;
+    background-color: #8F7FAC;
+    font-family: 'Nunito';
+    font-size: 19px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .btn-texto-bot {
+    margin-top: 5%;
+    display: flex;
+    width: 50%;
+    text-align: center;
+    align-self: center;
+  }
+
+/* FOOTER */
+.container-footer {
     width: 100%;
     display: flex;
     align-items: center;

@@ -136,6 +136,13 @@ public class ProcessoAdocaoController {
     @PatchMapping("/cancela-adocao/{id}")
     public ResponseEntity cancelaProcessoAdocao(@PathVariable Integer id) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
+
+        if (!processoAdocao.getFavoritado()) {
+            deletarProcessoAdocao(processoAdocao.getIdAdocao());
+
+            return ResponseEntity.status(200).build();
+        }
+
         processoAdocao.setDataInicioProcesso(null);
         processoAdocao.setModoContato(null);
         processoAdocao.setFeedback(null);
@@ -313,9 +320,10 @@ public class ProcessoAdocaoController {
         return deletarProcessoAdocao(processoAdocao.getIdAdocao());
     }
 
-    @DeleteMapping("/{idAdotante}/{idAnimal}")
+    @DeleteMapping("/{idAdocao}")
     public ResponseEntity deletarProcessoAdocao(@PathVariable Integer idAdocao) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(idAdocao).get();
+
         if (processoAdocao != null) {
             processoAdocao.setAdotante(null);
             processoAdocao.setAnimal(null);

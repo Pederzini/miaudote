@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <title>MiauDote</title>
+    <script defer src="perfil-pet.js"></script>
+    <script defer src="../script.js"></script>
 
 </head>
 
@@ -156,8 +158,8 @@
                 </div>
                 
                 <div class="container-btn-coluna">
-                    <button class="btn-adotar">QUERO ADOTAR</button>
-                    <button class="btn-ajuda">QUERO AJUDAR</button>
+                    <button class="btn-adotar" onclick="queroAdotar()">QUERO ADOTAR</button>
+                    <button class="btn-ajuda" onclick="queroAjudar()">QUERO AJUDAR</button>
 
                 </div>
 
@@ -297,6 +299,114 @@
 
         </footer>
     </main>
+
+    <!-- The Modal ADOTAR -->
+    <div id="modalCartao" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="close">&times;</div>
+            <img class="bola-dois" src="../../imagens/perfil-animal/caminho-modal-adotar.svg" alt="">
+            <span class="modal-titulo">ENTRE EM CONTATO PARA ADOTAR</span>
+
+            <div class="modal-container">
+                <div class="modal-logo">
+                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                </div>
+                <div class="modal-btns">
+                    <div class="container-text-btn">                        
+                        <button class="btn-filtros" onclick=metodoContato(whatsapp)>
+                            <img src="../../imagens/modal/whatsapp_roxo.svg" alt="" style="margin-left: 5%;">
+                            <div class="modal-card-text">WHATSAPP</div>                            
+                        </button>
+                    </div>
+
+                    <div class="container-text-btn">                        
+                        <button class="btn-filtros" onclick=metodoContato(whatsapp)>
+                            <img src="../../imagens/modal/email_roxo.svg" alt="" style="margin-left: 5%;">
+                            <div class="modal-card-text">EMAIL</div>                            
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-info">
+                <div class="modal-info-box">
+                    
+                    <div > 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        Nome da Organização
+                    </div>
+
+                    <div class="info-ong"> 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        desde ano xxxx
+                    </div>
+
+                    <div class="info-ong"> 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        região, região - rs
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <!-- The Modal AJUDAR -->
+    <div id="modalAjuda" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="closeA">&times;</div>
+            <img class="bola-dois" src="../../imagens/perfil-animal/caminho-modal-adotar.svg" alt="">
+            <span class="modal-titulo">ENTRE EM CONTATO PARA AJUDAR</span>
+
+            <div class="modal-container">
+                <div class="modal-logo">
+                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                </div>
+                <div class="modal-btns">
+                    <div class="container-text-btn">                        
+                        <button class="btn-filtros" onclick=apiWhats()>
+                            <img src="../../imagens/modal/whatsapp_roxo.svg" alt="" style="margin-left: 5%;">
+                            <div class="modal-card-text">WHATSAPP</div>                            
+                        </button>
+                    </div>
+
+                    <div class="container-text-btn">                        
+                        <button class="btn-filtros" onclick=apiEmail()>
+                            <img src="../../imagens/modal/email_roxo.svg" alt="" style="margin-left: 5%;">
+                            <div class="modal-card-text">EMAIL</div>                            
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-info">
+                <div class="modal-info-box">
+                    
+                    <div > 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        Nome da Organização
+                    </div>
+
+                    <div class="info-ong"> 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        desde ano xxxx
+                    </div>
+
+                    <div class="info-ong"> 
+                        <img src="../../imagens/modal/patinha_roxa.svg" alt="">
+                        região, região - rs
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+
+        
+        
 </body>
 
 <script>
@@ -326,5 +436,7 @@
             }, false);
         } 
     });
+
+    
 
 </script>
