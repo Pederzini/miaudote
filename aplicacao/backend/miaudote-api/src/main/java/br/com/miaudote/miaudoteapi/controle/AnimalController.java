@@ -130,25 +130,7 @@ public class AnimalController {
 
         return ResponseEntity.status(404).build();
     }
-
-    @GetMapping(value = "/relatorio/{cnpj}", produces = "text/csv")
-    public ResponseEntity geraRelatorio(@PathVariable String cnpj) {
-        Ong ong = ongRepository.findByCnpj(cnpj);
-        List<Animal> animais = animalRepository.findByOng(ong);
-        ListaObj<Animal> listaObj = new ListaObj(animais.size());
-
-        for (Animal animal : animais) {
-            listaObj.adiciona(animal);
-        }
-
-        String relatorio = Exportacao.gravaArquivoCsv(listaObj, ong.getRazaoSocial());
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", String.format("attachment; filename = %s.csv", ong.getRazaoSocial()));
-
-        return new ResponseEntity(relatorio, headers, HttpStatus.OK);
-    }
-
+    
     @GetMapping("/vitrine")
     public ResponseEntity getAnimaisVitrine() {
         List<AnimalVitrineDTO> animais = animalRepository.findRandomTop3();
