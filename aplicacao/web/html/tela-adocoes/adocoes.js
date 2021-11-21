@@ -8,7 +8,8 @@ let dadosAdoInteressado = []
 
 
 function trocaMenu(valor) {
-
+    
+    sessionStorage.trocaMenu = 1
     let todasDivs = document.querySelectorAll('.opcoes-adocoes');
 
     const divs = [document.querySelectorAll('.card-animais-favoritos'),
@@ -694,6 +695,11 @@ function mostrarDivs(valor) {
             let imgAdotante = document.createElement('img')
             imgAdotante.src = imagemAdotante
             divImagemAdotante.appendChild(imgAdotante)
+
+            divImagemAdotante.addEventListener('click', () => {
+                getQuemInteressouFav(element.adotante.idAdotante)
+                abrirModalAdo()
+            })
 
             let divContainerCasa = document.createElement('div')
             divCardAnimaisAdotados.appendChild(divContainerCasa)

@@ -13,7 +13,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: Nunito Sans;
-
 }
 
 html {
@@ -57,7 +56,6 @@ main {
 }
 
 header {
-
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -66,7 +64,6 @@ header {
 .container-header {
     width: 100%;
     height: 30%;
-
 }
 
 .menu {
@@ -76,7 +73,6 @@ header {
     flex-direction: row;
     position: absolute;
     z-index: 1;
-
 }
 
 .logo-header {
@@ -85,8 +81,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .logo-header img {
@@ -124,7 +118,6 @@ header {
     color: #434343;
     margin: 3%;
     cursor: pointer;
-
 }
 
 .container-btn {
@@ -133,7 +126,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .container-sair {
@@ -141,7 +133,6 @@ header {
     width: 10%;
     display: flex;
     align-items: center;
-
 }
 
 .container-sair img {
@@ -160,7 +151,6 @@ header {
     justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
-
 }
 
 .btn-login img {
@@ -237,7 +227,6 @@ span {
     flex-direction: row;
     margin-bottom: 5%;
     margin-top: 7%;
-
 }
 
 .text-dropdown img {
@@ -253,8 +242,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     margin-left: 6%;
-
-
 }
 
 .container-informacao {
@@ -265,9 +252,8 @@ span {
 }
 
 .container-descricao {
-    height: 100%;
+    height: 80%;
     width: 50%;
-   
 }
 
 .container-fotos{
@@ -276,11 +262,10 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .foto-principal {
-    width: 100%;
+    width: 464.44px;
     height: 77%;
     display: flex;
     align-items: center;
@@ -288,7 +273,8 @@ span {
 }
 
 .foto-principal img {
-    width: 68%;
+    width: 100%;
+    min-height: 100%;
     filter: drop-shadow(11.3833px 11.3833px 11.3833px rgba(0, 0, 0, 0.25));
     border-radius: 4%;
 }
@@ -299,7 +285,6 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-   
     align-items: flex-end;
 }
 
@@ -313,11 +298,12 @@ span {
     border-radius: 10%;
     cursor: pointer;
     align-items: center;
- 
+    padding: 2%;
 }
 
 .foto img {
-    height: 84%;
+    height: 100%;
+    max-width: 100%;
     border-radius: 10%;
 }
 
@@ -327,8 +313,6 @@ span {
     display: flex;
     flex-direction: row;
     padding-left: 10%;
-    
-
 }
 
 .container-nome p {
@@ -340,7 +324,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
-   
 }
 
 .container-nome img {
@@ -353,7 +336,6 @@ span {
     height: 70%;
     display: flex;
     flex-direction: row;
-
 }
 
 .coluna {
@@ -370,7 +352,6 @@ span {
     height: 15%;
     display: flex;
     flex-direction: column;
-    
 }
 
 .informacao-coluna h1 {
@@ -382,7 +363,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #7386AE;
-
 }
 
 .informacao-coluna p {
@@ -394,7 +374,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
-
 }
 
 .container-texto {
@@ -415,7 +394,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #7386AE;
-
 }
 
 .container-texto p {
@@ -427,8 +405,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
-    text-transform: uppercase;
-
 }
 
 .container-btn-coluna {
@@ -449,8 +425,6 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     color: #434343;
-
-
 }
 
 .btn-adotar {
@@ -473,8 +447,6 @@ span {
     align-items: center;
     cursor: pointer;
     margin-top: 2%;
-
-
 }
 
 .btn-ajuda {
@@ -503,7 +475,6 @@ span {
 .container-branco {
     width: 100%;
     height: 20%;
-
 }
 
 
