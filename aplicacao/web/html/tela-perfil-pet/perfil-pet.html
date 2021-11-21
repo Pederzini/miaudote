@@ -7,14 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <title>MiauDote</title>
     <script defer src="perfil-pet.js"></script>
     <script defer src="../script.js"></script>
 
 </head>
 
-<!-- <body onload="validarSessao()"> -->
-<body>
+<body onload="validarSessao()">
+<!-- <body> -->
     <main>
         <header id="topo">
             <div class="menu">
@@ -311,7 +316,7 @@
 
             <div class="modal-container">
                 <div class="modal-logo">
-                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                    <img id="modal-card-logo" src="../../imagens/geral/gato-subir-tela.svg" alt="">
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
@@ -335,17 +340,17 @@
                     
                     <div > 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        Nome da Organização
+                        <div id="modal-nome-ong"></div> 
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        desde ano xxxx
+                         <div id="modal-ano-ong"></div>
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        região, região - rs
+                        <div id="modal-endereco-ong"></div>
                     </div>
                 </div>
             </div>            
@@ -363,7 +368,7 @@
 
             <div class="modal-container">
                 <div class="modal-logo">
-                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                    <img id="modal-card-logo" src="../../imagens/geral/gato-subir-tela.svg" alt="">
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
@@ -387,28 +392,30 @@
                     
                     <div > 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        Nome da Organização
+                        <div id="modal-nome-ong"></div> 
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        desde ano xxxx
+                         <div id="modal-ano-ong"></div>
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        região, região - rs
+                        <div id="modal-endereco-ong"></div>
                     </div>
                 </div>
             </div>            
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 <script>
     let imagemPrincipal = fotoPrincipal.src
     let divFotos = document.querySelectorAll('.foto')
     let fotos = document.querySelectorAll('.imagem')
+
     fotos.forEach(element => {
         if (element.src != "https://i.imgur.com/s8t0M4S.png") {
             element.addEventListener("mouseover", function (event) {

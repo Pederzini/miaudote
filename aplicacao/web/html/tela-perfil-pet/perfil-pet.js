@@ -27,15 +27,38 @@ window.onclick = function (event) {
       document.querySelector("body").style.overflow = 'visible';
   }
 }
+var idAnimal = 1;
 
 function queroAdotar() {
+  getOngAnimal(idAnimal)
   modal.style.display = "block"; 
   document.querySelector("body").style.overflow = 'hidden';
 }
 
 function queroAjudar() {
+  getOngAnimal(idAnimal)
   modalA.style.display = "block"; 
   document.querySelector("body").style.overflow = 'hidden';
+}
+
+function getOngAnimal(idAnimal) {
+  axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}`, {
+        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    }).then(response => {
+      console.log(response)
+      document.getElementById("modal-card-logo").src = response.data.urlImagem;
+      document.getElementById("modal-nome-ong").innerHTML = response.data.razaoSocial;
+      document.getElementById("modal-ano-ong").innerHTML = response.data.dataFundacao;
+      document.getElementById("modal-endereco-ong").innerHTML = response.data.cidade;
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao abrir a ONG escolhida',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+  
 }
 
 //var idAnimal = sessionStorage.getItem(idAnimal) -> ARRUMAR
@@ -44,11 +67,12 @@ function patchMetodoContato(contato) {
   axios.patch(`http://localhost:8080/miaudote/adocoes/inicia-processo-adocao/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}/${contato}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
-      console.log(response) // só pra ver o q pode por
+      console.log(response)
+      
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao escolher o método de contato',
+            text: 'Erro ao abrir a ONG escolhida',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
