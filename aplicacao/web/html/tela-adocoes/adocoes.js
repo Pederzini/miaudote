@@ -696,6 +696,11 @@ function mostrarDivs(valor) {
             imgAdotante.src = imagemAdotante
             divImagemAdotante.appendChild(imgAdotante)
 
+            divImagemAdotante.addEventListener('click', () => {
+                getQuemInteressouFav(element.adotante.idAdotante)
+                abrirModalAdo()
+            })
+
             let divContainerCasa = document.createElement('div')
             divCardAnimaisAdotados.appendChild(divContainerCasa)
             if (divContainerCasa.classList) divContainerCasa.classList.add("container-casa");
