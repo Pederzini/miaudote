@@ -70,7 +70,6 @@ header {
 .container-header {
     width: 100%;
     height: 25%;
-    
 }
 
 .menu {
@@ -79,8 +78,7 @@ header {
     display: flex;
     flex-direction: row;
     position: absolute;
-    z-index: 1;
-    
+    z-index: 1;    
 }
 
 .logo-header {
@@ -89,8 +87,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-
 }
 
 .logo-header img {
@@ -103,8 +99,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-  
+    justify-content: flex-end;  
 }
 
 .text-menu a{
@@ -117,7 +112,6 @@ header {
     color: #434343;
     margin: 3%;
     text-decoration: none;
-
 }
 
 .container-btn {
@@ -125,8 +119,7 @@ header {
     width: 13%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .container-sair {
@@ -134,7 +127,6 @@ header {
     width: 10%;
     display: flex;
     align-items: center;
-
 }
 
 .container-sair img {
@@ -153,13 +145,8 @@ header {
     justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
-
 }
   
-
-
-
-
 .btn-login img {
     width: 37%;
     margin-right: 7%;
@@ -174,11 +161,7 @@ header {
     line-height: 28px;  
     letter-spacing: 0.01em;
     color: #434343;
-
-
 }
-
-
 
 header img {
     width: 100%;
@@ -195,16 +178,12 @@ header img {
 
 .img-menu img {
     width: 100%;
- 
-
 }
 
-.dropdown {
- 
+.dropdown { 
     position: relative;
-    display: inline-block;
-    
-  }
+    display: inline-block;    
+}
 
 span {
     height: 100%;
@@ -227,10 +206,8 @@ span {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
-    right: 1%;
- 
-    
-  }
+    right: 1%;    
+}
   
 .dropdown:hover .dropdown-content {
     display: block;
@@ -430,7 +407,6 @@ option{
 }
 
 .localizacao p {
-    /* width: 285px; */
     font-family: Inter;
     font-size: 19px;
     font-style: normal;
@@ -530,7 +506,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .container-btn-filtro {
-    /* width: 100%; */
     height: 25%;
     display: flex;
     text-align: center;
@@ -552,10 +527,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    /* margin-left: 10px; */
-    /* line-height: 21px; */
-    /* letter-spacing: 0.01em; */
-    /* text-align: center; */
     color: #434343;
 }
 
@@ -620,12 +591,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .cards {
     width: 70%;
-    height: 0px !important;
     display: flex;
     margin-top: 1%;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    /* padding-left: 1%; */
     flex-wrap: wrap;
 }
 
@@ -646,10 +613,10 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .card-dentro {
-    /* margin: 1.5%; */
     margin-left: 3%;
     width: 30%;
     max-height: 380px;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
@@ -660,12 +627,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .edicao-card {
     justify-content: center;
-    width: 30%;
-    height: 30%;
+    height: 15%;
     position: absolute;
     display: flex;
-    /* align-content: center; */
     right: 1px;
+    margin: 10px;
 }
 
 #img-editar-card {
@@ -675,14 +641,23 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .img-pet {
     width: 100%;
-    height: 66%;
+    height: 65%;
     position: relative;
     border-radius: 25px 25px 0px 0px;
-
 }
 
 .img-pet img {
     width: 100%;
+    min-height: 100%;
+    border-radius: 25px 25px 0px 0px;
+    cursor: pointer;
+}
+
+.img-perfil-animal {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 25px 25px 0px 0px;
 }
 
@@ -719,21 +694,21 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .informacoes-pet {
-    width: 94%;
-    height: 21%;
+    width: 100%;
+    height: 25%;
     display: flex;
     flex-direction: column;
-    padding-left: 6%;
-    margin-top: 17%;
+    margin-top: 10%;
 }
 
 .container-dados{
-    width: 100%;
+    width: 95%;
     height: 20%;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 3%;
+    padding-left: 5%;
 }
 
 .container-dados img {
@@ -742,8 +717,9 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .container-dados p {
+    width: 80%;
     font-family: Nunito Sans;
-    font-size: 11px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
@@ -752,7 +728,9 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     color: #434343;
     text-transform: lowercase;
     margin-top: 1%;
-
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container-dados p::first-letter {
@@ -761,7 +739,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .container-dados h1 {
     font-family: Nunito Sans;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 25px;
@@ -769,8 +747,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     text-align: left;
     color: #434343;
     margin-top: 1%;
-
-
 }
 
 
@@ -794,6 +770,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     padding: 8px 16px;
     text-decoration: none;
     color: #434343;
+    margin-left: 10px;
   }
   
   .pagination a.active {
