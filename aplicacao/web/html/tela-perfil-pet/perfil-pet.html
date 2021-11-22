@@ -18,8 +18,8 @@
 
 </head>
 
-<body onload="validarSessao()">
-<!-- <body> -->
+<!-- <body onload="validarSessao()"> -->
+<body onload="getInfosPet()">
     <main>
         <header id="topo">
             <div class="menu">
@@ -139,7 +139,7 @@
                     </div>
 
                 </div>
-                <div class="container-texto">
+                <div id="necessidade" class="container-texto">
                     <h1>NECESSIDADES ESPECIAIS</h1>
                     <p id="campo_necessidadesEspeciais">Idade já avançada e com baixa visão no olho direito</p>
                 </div>
@@ -157,11 +157,11 @@
             </div>
             <div class="container-fotos">
                 <div class="foto-principal">
-                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    <img id="fotoPrincipal" src="https://i.imgur.com/s8t0M4S.png" alt="">
                 </div>
                 <div class="foto-opcao">
                     <div class="foto" >
-                        <img class="imagem" value="0" src="../../imagens/pets-teste/tabata.svg" alt="">
+                        <img class="imagem" value="0" src="https://i.imgur.com/s8t0M4S.png" alt="">
                     </div>
                     <div class="foto" >
                         <img class="imagem" value="1" src="https://i.imgur.com/s8t0M4S.png" alt="">
@@ -390,36 +390,3 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
-
-<!-- <script>
-    let imagemPrincipal = fotoPrincipal.src
-    let divFotos = document.querySelectorAll('.foto')
-    let fotos = document.querySelectorAll('.imagem')
-
-    fotos.forEach(element => {
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseover", function (event) {
-                
-                divFotos[element.getAttribute('value')].style.borderColor = "#FD8344"
-
-                console.log(element.src)
-                fotoPrincipal.src = element.src
-
-            }, false);
-        }
-        
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseout", function (event) {
-                
-
-                divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
-                console.log(element.src)
-                fotoPrincipal.src = imagemPrincipal
-
-            }, false);
-        } 
-    });
-
-    
-
-</script> -->

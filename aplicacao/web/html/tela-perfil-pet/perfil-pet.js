@@ -133,18 +133,18 @@ function calcIdade(data) {
   return quantos_anos < 0 ? 0 : quantos_anos;
 }
 
-
 // primeiro caso: idAdotante 1 idAnimal 26
 // segundo caso: idAdotante: 1 idAnimal 17
 // terceiro caso: idAdotante: 1 idAnimal 6
 
 let idAdotante = 1
-let idAnimal = 26
+let idAnimalTeste = 26
 
 function getInfosPet() {
-  axios.get(`http://localhost:8080/miaudote/perfil-animal/${idAdotante}/${idAnimal}`, {
+  axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${idAnimalTeste}/${idAdotante}`, {
       headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
   }).then(response => {
+    console.log(response.data)
       let idade = calcIdade(response.data.animal.dataNascimento)
       let sexo = response.data.animal.genero
 
@@ -157,10 +157,10 @@ function getInfosPet() {
       campo_pelagem.innerHTML = response.data.animal.tipoPelagem
       campo_comportamento.innerHTML = response.data.animal.comportamento
       campo_vacinacao.innerHTML = response.data.animal.vacinado
-      campo_necessidades.innerHTML = response.data.animal.necessidadeEspeciais
+      response.data.animal.necessidadeEspeciais  == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.animal.necessidadeEspeciais
       campo_descricao.innerHTML = response.data.animal.descricao
       img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/perfil-animal/cat-rosa.svg"
-      img_favorito.src = response.data.favorito ? "../../imagens/geral/coracao.svg" : "../../imagens/geral/coracao-cinza.svg"
+      img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
 
       fotosPet = response.data.animal.urlImagem.split(',')
       fotoPrincipal.src = fotosPet[0].length > 0 ? fotosPet[0] : "https://i.imgur.com/s8t0M4S.png"
