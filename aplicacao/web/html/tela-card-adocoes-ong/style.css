@@ -329,16 +329,21 @@ span {
 
 .select p{
 
-    font-family: Inter;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #8675A5;
+/* font-family: Inter; */
 
+font-size: 20px;
 
+font-style: normal;
+
+font-weight: 600;
+
+line-height: 23px;
+
+letter-spacing: 0px;
+
+text-align: left;
+
+color: #8675A5;
 }
 
 .container-select {
@@ -359,11 +364,13 @@ span {
 select {
     width: 285px;
     height: 50%;
+    font-size: 18px;
     background: #FFFFFF;
     border: 0.948611px solid #949494;
     box-sizing: border-box;
     border-radius: 3.79444px;
     margin-top: 2%;
+    padding-left: 10px;
     cursor: pointer;
 }
 select:focus {

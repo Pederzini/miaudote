@@ -35,7 +35,7 @@ window.onclick = function (event) {
 
 function gerarRelatorio() {
     let cnpj = JSON.parse(login_usuario).cnpj
-    window.location.href= `http://localhost:8080/miaudote/animais/relatorio/${cnpj}`
+    window.location.href= `http://localhost:8080/miaudote/animais/exportacao/${cnpj}`
 }
 
 function getInfosCards() {
