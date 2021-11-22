@@ -10,10 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
     <script defer src="card-adocoes.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="../script.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), getInfosCards()">
     <main>
         <header id="topo">
             <div class="menu">
@@ -70,12 +70,6 @@
                 <div class="titulo-filtro">
                     <p>FILTROS</p>
                 </div>
-                <div class="favoritos">
-                    <p>Edição</p>
-                    <img src="../../imagens/geral/icon-edicao.svg" alt="">
-
-
-                </div>
                 <div class="container-select">
 
                     <div class="select">
@@ -122,29 +116,7 @@
                         </select>
 
                     </div>
-                    <div class="localizacao">
-                        <p>Distância</p>
-                        <div class="container-localizacao">
-                            <div class="distancia">
-                                <p>0Km</p>
-
-                            </div>
-                            <div class="range-wrap">
-                                <div class="range-value" id="rangeV">
-                                    <span>
-                                        0
-                                    </span>
-                                </div>
-                                <input id="range" type="range" min="200" max="800" value="200" step="1">
-                            </div>
-                            <div class="distancia">
-                                <p>100Km</p>
-
-                            </div>
-                        </div>
-
-
-                    </div>
+                    
                     <div class="container-btn-filtro">
                         <button class="btn-filtrar">FILTRAR</button>
                         <div class="container-text-btn">
@@ -167,401 +139,286 @@
 
             </div>
             <div class="cards">
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-
-                            <div class="img-pet">
-                                <div class="edicao-card">
-                                 <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
- 
-                             </div>
-
-                             <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                         </div>
-                          
-
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                              
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                                <div class="img-pet">
-                                <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                          
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                            
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                       
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                              
-
-                            </div>
-
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
                         </div>
 
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
                     </div>
 
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                       
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                              
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                        
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                           
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                           
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                               
-
-                            </div>
-
-
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
                         </div>
 
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
                     </div>
 
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                              
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                             
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                           
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                              
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                                 <div class="img-pet">
-                                   <div class="edicao-card">
-                                    <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                                
-                          
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/dog-rosa.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                   <img src="../../imagens/geral/cake-rosa.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao-rosa.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                              
-
-                            </div>
-
-
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
                         </div>
 
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
                     </div>
 
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
                 </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
 
 
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
+
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
+
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
+
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
+
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-dentro">
+                    <div class="img-pet">
+                        <div class="edicao-card">
+                            <img id="img-editar-card" src="../../imagens/geral/editar-pet.svg" alt="">
+                        </div>
+
+                        <img src="../../imagens/pets-teste/cachorro.svg" alt="">
+                    </div>
+
+
+                    <div class="informacoes-pet">
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/dog-rosa.svg" alt="">
+                            <h1>
+                                THOR
+                            </h1>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/cake-rosa.svg">
+                            <p>
+                                3 ANOS
+                            </p>
+                        </div>
+                        <div class="container-dados">
+                            <img src="../../imagens/geral/informacao-rosa.svg" alt="">
+                            <p>
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
         <div class="container-pagination">
             <div class="pagination">
