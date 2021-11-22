@@ -138,10 +138,31 @@ function mostrarDivs() {
         contador++;
 
         element.forEach(elementoDoVetorDaPagina => {
+
+            
             let divCardDentro = document.createElement('div')
             div.appendChild(divCardDentro)
             if (divCardDentro.classList) divCardDentro.classList.add("card-dentro");
             else divCardDentro.className += " card-dentro";
+
+            // aqui vai ser if (elementoDoVetorDaPagina.adotado)
+            if(elementoDoVetorDaPagina.idadeAnimal > 9999) {
+                let divFiltro = document.createElement('div')
+                divCardDentro.appendChild(divFiltro)
+                if (divFiltro.classList) divFiltro.classList.add("card-filtro");
+                else divFiltro.className += " card-filtro";
+                divFiltro.style.display = "flex";
+                divFiltro.style.alignItems = "center";
+                divFiltro.style.justifyContent = "center";
+
+                divCardDentro.style.position = "relative";
+
+                let hAdotado = document.createElement('h1')
+                hAdotado.innerHTML = "ADOTADO";
+                hAdotado.style.fontSize = "40px";
+                hAdotado.style.color = "white";
+                divFiltro.appendChild(hAdotado);
+            }
 
             let divImgPet = document.createElement('div')
             divCardDentro.appendChild(divImgPet)
