@@ -5,8 +5,6 @@ let dadosAdotados = []
 let dadosFavoritosModal = []
 let dadosAdoInteressado = []
 
-
-
 function trocaMenu(valor) {
     
     sessionStorage.trocaMenu = 1

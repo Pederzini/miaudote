@@ -316,7 +316,7 @@
     </footer>
   </main>
 
-  <!-- The Modal -->
+  <!-- The Modal FAV-->
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
@@ -326,53 +326,13 @@
       <span class="modal-titulo">VEJA OS PETS QUE FAVORITOU</span>
 
       <div class="cards-adocoes">
-        <div class="card-animais-favoritos">
-          <div class="dados-pet">
-            <div class="img-pet">
-              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
-            <div class="texto-pet">
-              <p id="nomePet">THOR</p>
-              <p id="idade">3 ANOS</p>
-              <div class="sexo-pet">
-                <p id="sexoPet">MACHO</p>
-                <img src="../../imagens/adocoes/sexo-masculino.svg">
-              </div>
-            </div>
-          </div>
-          <div class="dados-favoritos">
-            <div class="img-favorito">
-              <div class="container-favorito">
-                <img src="../../imagens/geral/icon-coracao-vermelho.svg"></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-animais-favoritos">
-          <div class="dados-pet">
-            <div class="img-pet">
-              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
-            <div class="texto-pet">
-              <p id="nomePet">THOR</p>
-              <p id="idade">3 ANOS</p>
-              <div class="sexo-pet">
-                <p id="sexoPet">MACHO</p>
-                <img src="../../imagens/adocoes/sexo-masculino.svg">
-              </div>
-            </div>
-          </div>
-          <div class="dados-favoritos">
-            <div class="img-favorito">
-              <div class="container-favorito">
-                <img src="../../imagens/geral/icon-coracao-vermelho.svg"></div>
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
 
   </div>
 
-  <!-- The Modal -->
+  <!-- The Modal Adotado -->
   <div id="myModal2" class="modal">
 
     <!-- Modal content -->
@@ -381,30 +341,43 @@
       <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
       <span class="modal-titulo">VEJA OS PETS QUE JÁ ADOTOU</span>
 
-      <div class="cards-adocoes">
-        <div class="card-animais-favoritos">
-          <div class="dados-pet">
-            <div class="img-pet">
-              <img id="fotoPet" src="../../imagens/pets-teste/cachorro.svg"></div>
-            <div class="texto-pet">
-              <p id="nomePet">THOR</p>
-              <p id="idade">3 ANOS</p>
-              <div class="sexo-pet">
-                <p id="sexoPet">MACHO</p>
-                <img src="../../imagens/adocoes/sexo-masculino.svg">
-              </div>
-            </div>
-          </div>
-          <div class="btn-comentario">
-            <button id="btnA">COMENTÁRIO</button>
-          </div>
-        </div>
-        
+      <div class="cards-adocoes-adotante">        
       </div>
-
     </div>
 
   </div>
+
+  <!-- The Modal FEEDBACK -->
+  <div id="myModalFeed" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content-feed">
+      <span class="closeFb">&times;</span>   
+      <img class="bola-um" src="../../imagens/modal/feedback-bola-esquerda.svg" alt="">  
+      <img class="bola-dois" src="../../imagens/modal/feedback-bola-direita.svg" alt="">      
+      <span class="modal-titulo-feed">COMO FOI A SUA ADOÇÃO? </br>
+        CONTE UM POUCO PARA A GENTE
+      </span>
+
+      <div class="borda-feedback">
+        <textarea id="feedback-text" placeholder="DIGITE SUA EXPERIÊNCIA (MÁXIMO DE 180 CARACTERES)" class="borda-input" maxlength="180"  rows="4" cols="50" required></textarea>
+
+        <span class="feedback-span">COMO FOI SUA EXPERIÊNCIA COM A GENTE?</span>
+        <div class="modal-estrelas">
+          <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" checked/><label for="star5"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+          </div>
+        </div>
+        
+        <div class="btn-feed">
+          <button id="enviar-feedback" onclick="patchFeedback()">Enviar</button>
+        </div>
+      </div>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
@@ -443,5 +416,92 @@
     old_goToToday.call(this, id)
     this._selectDate(id)
   }
+
+  
+// Get the modal
+var modalF = document.getElementById("myModal");
+var modalA = document.getElementById("myModal2");
+var modalFb = document.getElementById("myModalFeed");
+
+// Get the button that opens the modal
+var btnF = document.getElementById("btnF");
+var btnA = document.getElementById("btnA");
+var btnFb = document.getElementById("btnFb");
+
+// Get the <span> element that closes the modal
+var spanF = document.getElementsByClassName("closeF")[0];
+var spanA = document.getElementsByClassName("closeA")[0];
+var spanFb = document.getElementsByClassName("closeFb")[0];
+
+// When the user clicks the button, open the modal 
+btnF.onclick = function () {
+    getAnimaisFavoritos()
+    modalF.style.display = "block";
+    document.querySelector("body").style.overflow = 'hidden';
+}
+
+btnA.onclick = function () {
+    getAnimaisAdotados() 
+    modalA.style.display = "block";
+    document.querySelector("body").style.overflow = 'hidden';
+}
+
+function abrirModalFeed() {
+    modalFb.style.display = "block";
+    document.querySelector("body").style.overflow = 'hidden';
+}
+
+// When the user clicks on <span> (x), close the modal
+spanF.onclick = function () {
+    modalF.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
+    limparModal()
+}
+
+spanA.onclick = function () {
+    modalA.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
+    limparModal2()
+}
+
+spanFb.onclick = function () {
+    modalFb.style.display = "none";
+    document.querySelector("body").style.overflow = 'visible';
+    idAnimalFeed = "";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modalF) {
+        modalF.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+        limparModal()
+    } else if (event.target == modalA) {
+        modalA.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+        limparModal2()
+    } else if (event.target == modalFb) {
+        modalFb.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+        cnpjOngFeed = "";
+        idAnimalFeed = "";
+    }
+}
+
+function limparModal() {
+    var node = document.querySelector(".cards-adocoes");
+    var nodeAdotante = document.querySelector(".cards-adocoes-adotante");
+    if (node.parentNode) {
+        node.innerHTML = "";
+    } 
+}
+
+function limparModal2() {
+    var node = document.querySelector(".cards-adocoes-adotante");
+    if (node.parentNode) {
+        node.innerHTML = "";
+    } 
+}
+
 
 </script>
