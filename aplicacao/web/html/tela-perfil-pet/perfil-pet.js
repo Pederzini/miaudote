@@ -159,7 +159,7 @@ function getInfosPet() {
       campo_vacinacao.innerHTML = response.data.animal.vacinado
       response.data.animal.necessidadeEspeciais  == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.animal.necessidadeEspeciais
       campo_descricao.innerHTML = response.data.animal.descricao
-      img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/perfil-animal/cat-rosa.svg"
+      img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
 
       fotosPet = response.data.animal.urlImagem.split(',')
