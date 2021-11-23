@@ -8,16 +8,16 @@ var modal = document.getElementById("modalCadastro");
 var fechar = document.getElementsByClassName("close")[0];
 
 function redirecionarCadastro() {
-    modal.style.display = "block"; 
+    modal.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
 }
 
 function cadastroForm() {
-    window.location.href= "../cadastro-pet/cadastro-pet.html"
+    window.location.href = "../cadastro-pet/cadastro-pet.html"
 }
 
 function cadastroArq() {
-    window.location.href= "../tela-importacao/importacao.html"
+    window.location.href = "../tela-importacao/importacao.html"
 }
 // When the user clicks on <div> (x), close the modal
 fechar.onclick = function () {
@@ -35,7 +35,7 @@ window.onclick = function (event) {
 
 function gerarRelatorio() {
     let cnpj = JSON.parse(login_usuario).cnpj
-    window.location.href= `http://localhost:8080/miaudote/animais/exportacao/${cnpj}`
+    window.location.href = `http://localhost:8080/miaudote/animais/exportacao/${cnpj}`
 }
 
 function getInfosCards() {
@@ -69,8 +69,8 @@ let contador = 1;
 function mostrarPagina(numero) {
     let elementos = document.getElementsByTagName("div")
 
-    for(i=0; i < elementos.length; i++) {
-        if(elementos[i].classList.contains("cards")) {
+    for (i = 0; i < elementos.length; i++) {
+        if (elementos[i].classList.contains("cards")) {
             elementos[i].style.display = "none";
         }
     }
@@ -114,14 +114,14 @@ function mostrarDivs() {
         var idSemLetra = idComLetra.replace(/\D/g, "");
         mostrarPagina(idSemLetra);
     })
-    
+
     vetorComVetores.forEach(element => {
         let div = document.createElement('div')
         divContainer.appendChild(div)
         if (div.classList) div.classList.add("cards");
         else div.className += " cards";
         div.id = `card${contador}`
-        if(contador > 1) {
+        if (contador > 1) {
             div.style.display = 'none';
             let aPaginaExtra = document.createElement('a')
             aPaginaExtra.href = "#";
@@ -139,14 +139,13 @@ function mostrarDivs() {
 
         element.forEach(elementoDoVetorDaPagina => {
 
-            
+
             let divCardDentro = document.createElement('div')
             div.appendChild(divCardDentro)
             if (divCardDentro.classList) divCardDentro.classList.add("card-dentro");
             else divCardDentro.className += " card-dentro";
 
-            // aqui vai ser if (elementoDoVetorDaPagina.adotado)
-            if(elementoDoVetorDaPagina.idadeAnimal > 9999) {
+            if (elementoDoVetorDaPagina.adotado == 1) {
                 let divFiltro = document.createElement('div')
                 divCardDentro.appendChild(divFiltro)
                 if (divFiltro.classList) divFiltro.classList.add("card-filtro");
@@ -211,7 +210,7 @@ function mostrarDivs() {
             let especie = elementoDoVetorDaPagina.especie;
             especie == "gato" || especie == "Gato" ? imgIconeEspecie.src = "../../imagens/geral/cat-rosa.svg" : imgIconeEspecie.src = "../../imagens/geral/dog-rosa.svg";
             divContainerDadosNome.appendChild(imgIconeEspecie)
-            
+
             let hNomePet = document.createElement('h1')
             hNomePet.innerHTML = elementoDoVetorDaPagina.nome;
             divContainerDadosNome.appendChild(hNomePet);
@@ -254,7 +253,7 @@ function mostrarDivs() {
 }
 
 function preencherVetorPrincipalComVetores() {
-    for(let i = 0, j = 0, numero = 1; i < dadosCards.length; i = i + 9, j++, numero++) {
+    for (let i = 0, j = 0, numero = 1; i < dadosCards.length; i = i + 9, j++, numero++) {
         vetorComVetores[j] = window[`card${numero}`]
     }
 }
@@ -263,9 +262,9 @@ function criarVetores() {
     let i = 1;
     let numero = 0;
 
-    for(let index = 0, indexAux = 0; index < dadosCards.length; index++, indexAux++) {
-        if(i == 1 || i == 10) {
-            if(i == 10) {
+    for (let index = 0, indexAux = 0; index < dadosCards.length; index++, indexAux++) {
+        if (i == 1 || i == 10) {
+            if (i == 10) {
                 window[`card${++numero}`] = new Array()
                 indexAux = 0;
                 i = 1;
@@ -281,9 +280,9 @@ function criarVetores() {
         } else {
             i = 1;
             eval(`card${numero}`)[indexAux] = dadosCards[index];
-        }        
+        }
     }
-   
+
     // for(let j = 1; j <= 50; j++) {
     //     try {
     //         if (typeof window[`card${j}`] === 'object') {
