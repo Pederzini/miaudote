@@ -2,6 +2,7 @@
 // Get the modal
 let dadosCards = []
 let vetorComVetores = []
+let vetorFiltrados = []
 
 var modal = document.getElementById("modalCadastro");
 // Get the <span> element that closes the modal
@@ -51,7 +52,7 @@ function getInfosCards() {
             dadosCards[index] = response.data[index];
         }
 
-        criarVetores()
+        criarVetoresDeCards()
         preencherVetorPrincipalComVetores()
         mostrarDivs()
     }).catch(function (error) {
@@ -258,7 +259,7 @@ function preencherVetorPrincipalComVetores() {
     }
 }
 
-function criarVetores() {
+function criarVetoresDeCards() {
     let i = 1;
     let numero = 0;
 
@@ -283,17 +284,127 @@ function criarVetores() {
         }
     }
 
-    // for(let j = 1; j <= 50; j++) {
-    //     try {
-    //         if (typeof window[`card${j}`] === 'object') {
-    //             delete window[`card${j}`]
-    //         } else {
-    //             break;
-    //         }
-    //     }
-    //     catch(err) {
-    //         console.log("luan")
-    //     }
-    // }
+}
 
+function filtrar() {
+    vetorFiltrados = []
+    vetorComVetores = []
+    limparVetores();
+    contador = 1;
+
+    let sEspecie = document.getElementById('selectEspecie').options[document.getElementById('selectEspecie').selectedIndex].text.toUpperCase();
+    let sIdade = document.getElementById('selectIdade').options[document.getElementById('selectIdade').selectedIndex].text;
+    let sPorte = document.getElementById('selectPorte').options[document.getElementById('selectPorte').selectedIndex].text.toUpperCase();
+    let sCor = document.getElementById('selectCor').options[document.getElementById('selectCor').selectedIndex].text;
+    let sPelagem = document.getElementById('selectPelagem').options[document.getElementById('selectPelagem').selectedIndex].text.toUpperCase();
+    let sComportamento = document.getElementById('selectComportamento').options[document.getElementById('selectComportamento').selectedIndex].text.toUpperCase();
+
+    vetorFiltrados = dadosCards.filter(function (elemento) {
+        console.log("entrei aqui")
+        return elemento.especie.toUpperCase() == sEspecie &&
+               elemento.idadeAnimal >= 1 &&
+               elemento.idadeAnimal <= 3 &&
+               elemento.porte.toUpperCase() == sPorte &&
+               elemento.tipoPelagem.toUpperCase() == sPelagem;
+    });
+
+    let i = 1;
+    let numero = 0;
+
+    for (let index = 0, indexAux = 0; index < vetorFiltrados.length; index++, indexAux++) {
+        if (i == 1 || i == 10) {
+            if (i == 10) {
+                window[`card${++numero}`] = new Array()
+                indexAux = 0;
+                i = 1;
+            } else {
+                window[`card${++numero}`] = new Array()
+                indexAux = 0;
+            }
+        }
+
+        if (i < 10) {
+            eval(`card${numero}`)[indexAux] = vetorFiltrados[index];
+            i++;
+        } else {
+            i = 1;
+            eval(`card${numero}`)[indexAux] = vetorFiltrados[index];
+        }
+    }
+
+    for (let i = 0, j = 0, numero = 1; i < vetorFiltrados.length; i = i + 9, j++, numero++) {
+        vetorComVetores[j] = window[`card${numero}`]
+    }
+
+    let divsDeCards = document.querySelectorAll(".cards");
+    divsDeCards.forEach(element => { element.remove() });
+    document.querySelector(".pagination").remove();
+
+    if(vetorFiltrados.length > 0) {
+        mostrarDivs();
+    } else {
+        let divContainer = document.querySelector(".container");
+        let divContainerPagination = document.querySelector(".container-pagination");
+
+        let divPagination = document.createElement('div')
+        divContainerPagination.appendChild(divPagination)
+        if (divPagination.classList) divPagination.classList.add("pagination");
+        else divPagination.className += " pagination";
+    
+        let aSetaEsquerda = document.createElement('a')
+        aSetaEsquerda.href = "#";
+        divPagination.appendChild(aSetaEsquerda);
+    
+        let imgSetaEsquerda = document.createElement('img')
+        aSetaEsquerda.appendChild(imgSetaEsquerda)
+        imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
+    
+        let aPagina1 = document.createElement('a')
+        aPagina1.href = "#";
+        aPagina1.innerHTML = "1";
+        aPagina1.id = "pagina1"
+        divPagination.appendChild(aPagina1);
+        if (aPagina1.classList) aPagina1.classList.add("active");
+        else aPagina1.className += " active";
+
+        let aSetaDireita = document.createElement('a')
+        aSetaDireita.href = "#";
+        divPagination.appendChild(aSetaDireita);
+    
+        let imgSetaDireita = document.createElement('img')
+        aSetaDireita.appendChild(imgSetaDireita)
+        imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
+
+        let div = document.createElement('div')
+        divContainer.appendChild(div)
+        if (div.classList) div.classList.add("cards");
+        else div.className += " cards";
+        div.id = `card${contador}`;
+        div.style.alignItems = "flex-start";
+        div.style.justifyContent = "center";
+
+        let imgNaoEncontrado = document.createElement('img')
+        imgNaoEncontrado.src = "../../imagens/geral/nao-encontrado.svg"
+        div.appendChild(imgNaoEncontrado);
+    }
+
+}
+
+// function equalsIgnoringCase(text, other) {
+//     return text.localeCompare(other, undefined, { sensitivity: 'base' }) === 0;
+// }
+
+function limparVetores() {
+    for(let j = 1; j <= 50; j++) {
+        try {
+            if (typeof window[`card${j}`] === 'object') {
+                delete window[`card${j}`]
+            } else {
+                break;
+            }
+        }
+        catch(err) {
+            console.log("erro")
+        }
+    }
 }

@@ -74,60 +74,65 @@
 
                     <div class="select">
                         <p>Espécie</p>
-                        <select name="idade" required>
-                            <option value="1">Gato</option>
-                            <option value="2">Cachorro</option>
+                        <select name="idade" id="selectEspecie" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Gato</option>
+                            <option value="3">Cachorro</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Idade</p>
-                        <select name="idade" required>
-                            <option value="1">1 a 3 anos</option>
-                            <option value="2">4 a 7 anos</option>
-                            <option value="3">8 a 10 anos</option>
-                            <option value="4">11 anos ou mais</option>
+                        <select name="idade" id="selectIdade" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">1 a 3 anos</option>
+                            <option value="3">4 a 7 anos</option>
+                            <option value="4">8 a 10 anos</option>
+                            <option value="5">11 anos ou mais</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Porte</p>
-                        <select name="porte" required>
-                            <option value="1">Pequeno</option>
-                            <option value="2">Médio</option>
-                            <option value="3">Grande</option>
+                        <select name="porte" id="selectPorte" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Pequeno</option>
+                            <option value="3">Médio</option>
+                            <option value="4">Grande</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Cor</p>
-                        <select name="cor" required>
+                        <select name="cor" id="selectCor" required>
                             <option value="" disabled selected>Qualquer</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Tipo Pelagem</p>
-                        <select name="pelagem" required>
-                            <option value="1">Curto</option>
-                            <option value="2">Longo</option>
+                        <select name="pelagem" id="selectPelagem" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Curto</option>
+                            <option value="3">Longo</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Comportamento</p>
-                        <select name="comportamento" required>
-                            <option value="1">Agitado</option>
-                            <option value="2">Brincalhão</option>
-                            <option value="3">Animado</option>
-                            <option value="4">Ansioso</option>
-                            <option value="5">Calmo</option>
+                        <select name="comportamento" id="selectComportamento" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Agitado</option>
+                            <option value="3">Brincalhão</option>
+                            <option value="4">Animado</option>
+                            <option value="5">Ansioso</option>
+                            <option value="6">Calmo</option>
                         </select>
 
                     </div>
                     
                     <div class="container-btn-filtro">
-                        <button class="btn-filtrar">FILTRAR</button>
+                        <button class="btn-filtrar" onclick=filtrar()>FILTRAR</button>
                         <div class="container-text-btn">
                             <u>TEM UM NOVO PET PARA CADASTRAR?</u>
                             <button class="btn-filtros" onclick=redirecionarCadastro()>CADASTRAR</button>
