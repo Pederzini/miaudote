@@ -16,6 +16,22 @@ public interface CardAnimalSemDistanciaDTO {
 
     String getEspecie();
 
+    Date getDataChegada();
+
+    Boolean getCastrado();
+
+    String getPorte();
+
+    String getTipoPelagem();
+
+    Boolean getVacinado();
+
+    String getComportamento();
+
+    Boolean getAdotado();
+
+    String getNecessidadesEspeciais();
+
     Ong getOng();
 
     interface Ong {

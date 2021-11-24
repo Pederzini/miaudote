@@ -127,7 +127,9 @@ public class OngController {
                 ong.getRazaoSocial(),
                 ong.getDataFundacao(),
                 ong.getEndereco().getCidade(),
-                ong.getUrlImagem()
+                ong.getUrlImagem(),
+                ong.getEmail(),
+                ong.getTelefone()
         );
 
         return ResponseEntity.status(200).body(cardOng);

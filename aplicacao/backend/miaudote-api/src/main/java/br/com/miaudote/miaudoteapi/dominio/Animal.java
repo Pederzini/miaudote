@@ -15,41 +15,41 @@ public class Animal {
     @Column(name = "id_animal")
     private Integer id;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String nome;
 
     private String descricao;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(nullable = false)
+    @Column
     private Date dataNascimento;
 
-    @Column(length = 1, nullable = false)
+    @Column(length = 1)
     private String genero;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(nullable = false)
+    @Column
     private Date dataChegada;
 
     @Column(length = 20)
     private String corPelagem;
 
-    @Column(nullable = false)
+    @Column
     private Boolean castrado;
 
-    @Column(length = 7, nullable = false)
+    @Column(length = 7)
     private String porte;
 
-    @Column(length = 7, nullable = false)
+    @Column(length = 7)
     private String tipoPelagem;
 
-    @Column(nullable = false)
+    @Column
     private Boolean vacinado;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String comportamento;
 
-    @Column(nullable = false)
+    @Column
     private Boolean adotado;
 
     private String necessidadeEspeciais;
@@ -57,7 +57,7 @@ public class Animal {
     @Column(length = 2083)
     private String urlImagem;
 
-    @Column(length = 8, nullable = false)
+    @Column(length = 8)
     private String especie;
 
     @ManyToOne(cascade = CascadeType.ALL)

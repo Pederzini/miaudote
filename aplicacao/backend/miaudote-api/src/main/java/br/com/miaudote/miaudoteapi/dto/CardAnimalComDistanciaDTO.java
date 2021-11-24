@@ -16,6 +16,14 @@ public class CardAnimalComDistanciaDTO {
     private String especie;
     private String descricao;
     private Double distancia;
+    private Date dataChegada;
+    private Boolean castrado;
+    private String porte;
+    private String tipoPelagem;
+    private Boolean vacinado;
+    private String comportamento;
+    private Boolean adotado;
+    private String necessidadesEspeciais;
 
     public CardAnimalComDistanciaDTO(Boolean favoritado, int idAnimal, String nome, Date dataNascimento, String urlImagem, String especie, String descricao, double latitudeOng, double longitudeOng, double latitudeAdotante, double longitudeAdotante) {
         this.favoritado = favoritado;
@@ -26,6 +34,43 @@ public class CardAnimalComDistanciaDTO {
         this.especie = especie;
         this.descricao = descricao;
         this.distancia = GoogleAdapter.calcularDistancia(latitudeOng, longitudeOng, latitudeAdotante, longitudeAdotante);
+    }
+
+    public CardAnimalComDistanciaDTO(Boolean favoritado,
+                                     int idAnimal,
+                                     String nome,
+                                     Date dataNascimento,
+                                     String urlImagem,
+                                     String especie,
+                                     String descricao,
+                                     double latitudeOng,
+                                     double longitudeOng,
+                                     double latitudeAdotante,
+                                     double longitudeAdotante,
+                                     Date dataChegada,
+                                     Boolean castrado,
+                                     String porte,
+                                     String tipoPelagem,
+                                     Boolean vacinado,
+                                     String comportamento,
+                                     Boolean adotado,
+                                     String necessidadesEspeciais){
+        this.favoritado = favoritado;
+        this.idAnimal = idAnimal;
+        this.nome = nome;
+        this.idade = calculaIdade(dataNascimento, new Date());
+        this.urlImagem = urlImagem;
+        this.especie = especie;
+        this.descricao = descricao;
+        this.distancia = GoogleAdapter.calcularDistancia(latitudeOng, longitudeOng, latitudeAdotante, longitudeAdotante);
+        this.dataChegada = dataChegada;
+        this.castrado = castrado;
+        this.porte = porte;
+        this.tipoPelagem = tipoPelagem;
+        this.vacinado = vacinado;
+        this.comportamento = comportamento;
+        this.adotado = adotado;
+        this.necessidadesEspeciais = necessidadesEspeciais;
     }
 
     public static int calculaIdade(Date birthday, Date date) {

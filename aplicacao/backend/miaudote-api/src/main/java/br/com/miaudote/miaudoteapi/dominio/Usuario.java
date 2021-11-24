@@ -5,16 +5,16 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class Usuario {
 
-    @Column(length = 11, nullable = false)
+    @Column(length = 11)
     private String telefone;
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 255)
     private String email;
 
-    @Column(length = 16, nullable = false)
+    @Column(length = 16)
     private String senha;
 
-    @Column(length = 2083, nullable = true)
+    @Column(length = 2083)
     private String urlImagem;
 
     @OneToOne(cascade = CascadeType.ALL)

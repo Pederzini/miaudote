@@ -9,13 +9,39 @@ public class ContatoOngDTO {
     private Date dataFundacao;
     private String cidade;
     private String urlImagem;
+    private String email;
+    private String telefone;
 
-    public ContatoOngDTO(Integer id, String razaoSocial, Date dataFundacao, String cidade, String urlImagem) {
+    public ContatoOngDTO(Integer id,
+                         String razaoSocial,
+                         Date dataFundacao,
+                         String cidade,
+                         String urlImagem,
+                         String email,
+                         String telefone) {
         this.id = id;
         this.razaoSocial = razaoSocial;
         this.dataFundacao = dataFundacao;
         this.cidade = cidade;
         this.urlImagem = urlImagem;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public Integer getId() {

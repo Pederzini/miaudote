@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -61,7 +62,7 @@ public class AnimalController {
     }
 
     @GetMapping
-    public ResponseEntity getAnimal() {
+    public ResponseEntity getAnimais() {
         List<Animal> animal = animalRepository.findAll();
 
         if (animal.isEmpty()) {
@@ -189,7 +190,15 @@ public class AnimalController {
                             animal.getOng().getEndereco().getLatitude(),
                             animal.getOng().getEndereco().getLongitude(),
                             infosAdotante.get(0).getAdotante().getEndereco().getLatitude(),
-                            infosAdotante.get(0).getAdotante().getEndereco().getLongitude()
+                            infosAdotante.get(0).getAdotante().getEndereco().getLongitude(),
+                            animal.getDataChegada(),
+                            animal.getCastrado(),
+                            animal.getPorte(),
+                            animal.getTipoPelagem(),
+                            animal.getVacinado(),
+                            animal.getComportamento(),
+                            animal.getAdotado(),
+                            animal.getNecessidadesEspeciais()
                     )
             );
         }

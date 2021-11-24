@@ -14,14 +14,14 @@ public class Adotante extends Usuario {
     @Column(name = "id_adotante")
     private Integer id;
 
-    @Column(length = 60, nullable = false)
+    @Column(length = 60)
     private String nome;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(nullable = false)
+    @Column()
     private Date dataNascimento;
 
-    @Column(length = 14, nullable = false)
+    @Column(length = 14)
     private String cpf;
 
     public Adotante() {

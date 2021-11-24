@@ -14,26 +14,26 @@ public class Endereco {
     @Column(name = "id_endereco")
     private Integer id;
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 255)
     private String logradouro;
 
-    @Column(nullable = false)
+    @Column
     private Integer numero;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String complemento;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String bairro;
 
-    @Column(length = 9, nullable = false)
+    @Column(length = 9)
     private String cep;
 
     private Double latitude;
 
     private Double longitude;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45)
     private String cidade;
 
     public Endereco() {
