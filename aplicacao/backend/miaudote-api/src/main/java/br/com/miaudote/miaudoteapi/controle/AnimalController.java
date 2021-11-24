@@ -198,7 +198,7 @@ public class AnimalController {
                             animal.getVacinado(),
                             animal.getComportamento(),
                             animal.getAdotado(),
-                            animal.getNecessidadesEspeciais()
+                            animal.getNecessidadeEspeciais()
                     )
             );
         }

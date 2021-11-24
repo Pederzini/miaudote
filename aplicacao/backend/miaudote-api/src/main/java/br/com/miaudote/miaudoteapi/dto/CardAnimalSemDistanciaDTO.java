@@ -30,7 +30,7 @@ public interface CardAnimalSemDistanciaDTO {
 
     Boolean getAdotado();
 
-    String getNecessidadesEspeciais();
+    String getNecessidadeEspeciais();
 
     Ong getOng();
 

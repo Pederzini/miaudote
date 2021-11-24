@@ -23,7 +23,7 @@ public class CardAnimalComDistanciaDTO {
     private Boolean vacinado;
     private String comportamento;
     private Boolean adotado;
-    private String necessidadesEspeciais;
+    private String necessidadeEspeciais;
 
     public CardAnimalComDistanciaDTO(Boolean favoritado, int idAnimal, String nome, Date dataNascimento, String urlImagem, String especie, String descricao, double latitudeOng, double longitudeOng, double latitudeAdotante, double longitudeAdotante) {
         this.favoritado = favoritado;
@@ -54,7 +54,7 @@ public class CardAnimalComDistanciaDTO {
                                      Boolean vacinado,
                                      String comportamento,
                                      Boolean adotado,
-                                     String necessidadesEspeciais){
+                                     String necessidadeEspeciais){
         this.favoritado = favoritado;
         this.idAnimal = idAnimal;
         this.nome = nome;
@@ -70,7 +70,7 @@ public class CardAnimalComDistanciaDTO {
         this.vacinado = vacinado;
         this.comportamento = comportamento;
         this.adotado = adotado;
-        this.necessidadesEspeciais = necessidadesEspeciais;
+        this.necessidadeEspeciais = necessidadeEspeciais;
     }
 
     public static int calculaIdade(Date birthday, Date date) {
