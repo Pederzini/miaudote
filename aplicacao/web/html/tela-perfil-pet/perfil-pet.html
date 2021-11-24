@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <title>MiauDote</title>
     <script defer src="perfil-pet.js"></script>
     <script defer src="../script.js"></script>
@@ -14,7 +19,7 @@
 </head>
 
 <!-- <body onload="validarSessao()"> -->
-<body>
+<body onload="apiEmail()">
     <main>
         <header id="topo">
             <div class="menu">
@@ -66,7 +71,6 @@
 
                 <div class="container-sair">
                     <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
-
                 </div>
             </div>
 
@@ -86,99 +90,83 @@
         <div class="container-informacao">
             <div class="container-descricao">
                 <div class="container-nome">
-                    <img src="../../imagens/perfil-animal/icon-cachorro.svg" alt="">
-                    <img src="../../imagens/geral/coracao.svg" alt="">
-                    <p>THOR</p>
-
-
+                    <img id="img_pet" src="" alt="">
+                    <img id="img_favorito" src="../../imagens/geral/coracao-cinza.svg" alt="">
+                    <p id="campo_nome">THOR</p>
                 </div>
                 <div class="container-colunas">
                     <div class="coluna">
                         <div class="informacao-coluna">
                             <h1>IDADE</h1>
-                            <p>5 ANOS</p>
-
+                            <p id="campo_idade">-</p>
                         </div>
+
                         <div class="informacao-coluna">
                             <h1>PORTE</h1>
-                            <p>MÉDIO</p>
-
+                            <p id="campo_porte">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>CHEGADA NA ONG</h1>
-                            <p>09/03/2020</p>
-
+                            <p id="campo_chegada">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>CASTRAÇÃO</h1>
-                            <p>SIM</p>
-
+                            <p id="campo_castrado">-</p>
                         </div>
-
-
                     </div>
                     <div class="coluna">
                         <div class="informacao-coluna">
                             <h1>SEXO</h1>
-                            <p>MACHO</p>
-
+                            <p id="campo_sexo">-</p>
                         </div>
+
                         <div class="informacao-coluna">
                             <h1>PELAGEM</h1>
-                            <p>CURTO</p>
-
+                            <p id="campo_pelagem">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>COMPORTAMENTO</h1>
-                            <p>AGITADO</p>
-
+                            <p id="campo_comportamento">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>VACINAÇÃO</h1>
-                            <p>SIM</p>
-
+                            <p id="campo_vacinacao">-</p>
                         </div>
-
-
                     </div>
 
+                </div>
+                <div id="necessidade" class="container-texto">
+                    <h1>NECESSIDADES ESPECIAIS</h1>
+                    <p id="campo_necessidadesEspeciais">-</p>
                 </div>
                 <div class="container-texto">
                     <h1>DESCRIÇÃO</h1>
-                    <p>Sou empolgado, as vezes atrapalhado e adoro brincar! Posso ser agitado mas vou deixar o seu dia
-                        bem mais animado.</p>
+                    <p id="campo_descricao">-</p>
                 </div>
-
+                
                 <div class="container-btn-coluna">
-                    <button class="btn-adotar" onclick="queroAdotar()">QUERO ADOTAR</button>
+                    <button class="btn-adotar" onclick="getAdotar()">QUERO ADOTAR</button>
                     <button class="btn-ajuda" onclick="queroAjudar()">QUERO AJUDAR</button>
-
                 </div>
-
-
 
             </div>
             <div class="container-fotos">
-
                 <div class="foto-principal">
-                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro.svg" alt="">
-
+                    <img id="fotoPrincipal" src="https://i.imgur.com/s8t0M4S.png" alt="">
                 </div>
                 <div class="foto-opcao">
                     <div class="foto" >
-                        <img class="imagem" value="0" src="../../imagens/pets-teste/tabata.svg" alt="">
+                        <img class="imagem" value="0" src="https://i.imgur.com/s8t0M4S.png" alt="">
                     </div>
                     <div class="foto" >
                         <img class="imagem" value="1" src="https://i.imgur.com/s8t0M4S.png" alt="">
- 
                     </div>
                     <div class="foto" >
                         <img class="imagem" value="2" src="https://i.imgur.com/s8t0M4S.png" alt="">
-
                     </div>
                 </div>
             </div>
@@ -307,7 +295,7 @@
 
             <div class="modal-container">
                 <div class="modal-logo">
-                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                    <img id="modal-card-logo" src="../../imagens/geral/gato-subir-tela.svg" alt="">
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
@@ -331,17 +319,17 @@
                     
                     <div > 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        Nome da Organização
+                        <div id="modal-nome-ong"></div> 
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        desde ano xxxx
+                         <div id="modal-ano-ong"></div>
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        região, região - rs
+                        <div id="modal-endereco-ong"></div>
                     </div>
                 </div>
             </div>            
@@ -359,7 +347,7 @@
 
             <div class="modal-container">
                 <div class="modal-logo">
-                    <img src="../../imagens/geral/gato-subir-tela.svg" alt="">
+                    <img id="modal-card-logo" src="../../imagens/geral/gato-subir-tela.svg" alt="">
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
@@ -383,56 +371,21 @@
                     
                     <div > 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        Nome da Organização
+                        <div id="modal-nome-ong"></div> 
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        desde ano xxxx
+                         <div id="modal-ano-ong"></div>
                     </div>
 
                     <div class="info-ong"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
-                        região, região - rs
+                        <div id="modal-endereco-ong"></div>
                     </div>
                 </div>
             </div>            
         </div>
     </div>
-
-
-        
-        
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
-
-<script>
-    let imagemPrincipal = fotoPrincipal.src
-    let divFotos = document.querySelectorAll('.foto')
-    let fotos = document.querySelectorAll('.imagem')
-    fotos.forEach(element => {
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseover", function (event) {
-                
-                divFotos[element.getAttribute('value')].style.borderColor = "#FD8344"
-
-                console.log(element.src)
-                fotoPrincipal.src = element.src
-
-            }, false);
-        }
-        
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseout", function (event) {
-                
-
-                divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
-                console.log(element.src)
-                fotoPrincipal.src = imagemPrincipal
-
-            }, false);
-        } 
-    });
-
-    
-
-</script>

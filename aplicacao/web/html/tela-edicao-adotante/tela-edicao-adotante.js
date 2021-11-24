@@ -1,3 +1,9 @@
+let dadosFavoritosModal = [];
+let dadosAdotadoModal = [];
+
+let cnpjFeedOng;
+let idAnimalFeed;
+
 function carregar() {
     let inputs = document.querySelectorAll('.campos')
     inputs.forEach(element => {
@@ -351,7 +357,6 @@ function patchAdotante() {
     }
 }
 
-
 function atualizaEndereco() {
     var cep = (document.getElementById("campo_cep").value).replace("-", "");
     var logradouro = document.getElementById("campo_logradouro").value;
@@ -392,179 +397,299 @@ function atualizaEndereco() {
     })
 }
 
-// Get the modal
-var modalF = document.getElementById("myModal");
-var modalA = document.getElementById("myModal2");
-var modalFb = document.getElementById("myModalFeed");
-
-// Get the button that opens the modal
-var btnF = document.getElementById("btnF");
-var btnA = document.getElementById("btnA");
-var btnFb = document.getElementById("btnFb");
-
-// Get the <span> element that closes the modal
-var spanF = document.getElementsByClassName("closeF")[0];
-var spanA = document.getElementsByClassName("closeA")[0];
-var spanFb = document.getElementsByClassName("closeFb")[0];
-
-// When the user clicks the button, open the modal 
-btnF.onclick = function () {
-    // mostrarDivs()
-    modalF.style.display = "block"; 
-    document.querySelector("body").style.overflow = 'hidden';
-}
-
-btnA.onclick = function () {
-    // mostrarDivs()
-    modalA.style.display = "block"; 
-    document.querySelector("body").style.overflow = 'hidden';  
-}
-
-btnFb.onclick = function () {
-    // mostrarDivs()
-    modalFb.style.display = "block"; 
-    document.querySelector("body").style.overflow = 'hidden';  
-}
-
-// When the user clicks on <span> (x), close the modal
-spanF.onclick = function () {
-    modalF.style.display = "none";
-    document.querySelector("body").style.overflow = 'visible';
-}
-
-spanA.onclick = function () {
-    modalA.style.display = "none";
-    document.querySelector("body").style.overflow = 'visible';
-}
-
-spanFb.onclick = function () {
-    modalFb.style.display = "none";
-    document.querySelector("body").style.overflow = 'visible';
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modalF) {
-        modalF.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-    } else if (event.target == modalA) {
-        modalA.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-    } else if (event.target == modalFb) {
-        modalFb.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-    }
-}
-
 // btn de abrir modalFEEDBACK
 // SE o adotante ja fez o feedback, não mostrar o botão 
 // DESABILITAR o botão
 function modalFeedback() {
     var modal = document.getElementById("myModalFeed");
-    modal.style.display = "block"; 
+    modal.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
 }
 
 // Mostrar DIVS
-function mostrarDivs() {
-    let div = document.querySelector(".cards-adocoes")
+function mostrarDivFav() {
+    let div = document.querySelector(".cards-adocoes");
 
-    let divAnimaisFavoritos = document.createElement('div')
-    div.appendChild(divAnimaisFavoritos)
-    if (divAnimaisFavoritos.classList) divAnimaisFavoritos.classList.add("card-animais-favoritos");
-    else divAnimaisFavoritos.className += " card-animais-favoritos";
+    dadosFavoritosModal.forEach(element => {
+        let divAnimaisFavoritos = document.createElement('div')
+        div.appendChild(divAnimaisFavoritos)
+        if (divAnimaisFavoritos.classList) divAnimaisFavoritos.classList.add("card-animais-favoritos");
+        else divAnimaisFavoritos.className += " card-animais-favoritos";
 
-    // DIV DADOS PET E OQ ESTÁ DENTRO DELA
-    let divDadosPet = document.createElement('div')
-    divAnimaisFavoritos.appendChild(divDadosPet)
-    if (divDadosPet.classList) divDadosPet.classList.add("dados-pet");
-    else divDadosPet.className += " dados-pet";
+        // DIV DADOS PET E OQ ESTÁ DENTRO DELA
+        let divDadosPet = document.createElement('div')
+        divAnimaisFavoritos.appendChild(divDadosPet)
+        if (divDadosPet.classList) divDadosPet.classList.add("dados-pet")
+        else divDadosPet.className += " dados-pet"
 
-    let divImgPet = document.createElement('div')
-    divDadosPet.appendChild(divImgPet)
-    if (divImgPet.classList) divImgPet.classList.add("img-pet");
-    else divImgPet.className += " img-pet";
+        let divImgPet = document.createElement('div')
+        divDadosPet.appendChild(divImgPet)
+        if (divImgPet.classList) divImgPet.classList.add("img-pet")
+        else divImgPet.className += " img-pet"
 
-    let imgPet = document.createElement('img')
-    imgPet.src = "../../imagens/pets-teste/cachorro.svg"
-    divImgPet.appendChild(imgPet)
+        let imagemAnimal;
 
-    let divTextoPet = document.createElement('div')
-    divDadosPet.appendChild(divTextoPet)
-    if (divTextoPet.classList) divTextoPet.classList.add("texto-pet");
-    else divTextoPet.className += " texto-pet";
+        if (element.animal.urlImagem === null) {
+            imagemAnimal = "https://i.imgur.com/s8t0M4S.png"
+        } else if (element.animal.urlImagem.includes(',')) {
+            let imagem = element.animal.urlImagem.split(',')
+            imagemAnimal = imagem[0]
+        } else {
+            imagemAnimal = element.animal.urlImagem
+        }
 
-    let pThor = document.createElement('p')
-    pThor.innerHTML = "THOR"
-    divTextoPet.appendChild(pThor)
+        let imgPet = document.createElement('img')
+        imgPet.src = imagemAnimal
+        divImgPet.appendChild(imgPet)
 
-    let pAnos = document.createElement('p')
-    pAnos.innerHTML = "3 ANOS"
-    divTextoPet.appendChild(pAnos)
+        let divTextoPet = document.createElement('div')
+        divDadosPet.appendChild(divTextoPet)
+        if (divTextoPet.classList) divTextoPet.classList.add("texto-pet");
+        else divTextoPet.className += " texto-pet";
 
-    let divSexoPet = document.createElement('div')
-    divTextoPet.appendChild(divSexoPet)
-    if (divSexoPet.classList) divSexoPet.classList.add("sexo-pet");
-    else divSexoPet.className += " sexo-pet";
+        let pThor = document.createElement('p')
+        pThor.innerHTML = element.animal.nome
+        divTextoPet.appendChild(pThor)
 
-    let pSexo = document.createElement('p')
-    pSexo.innerHTML = "MACHO"
-    divSexoPet.appendChild(pSexo)
+        let pAnos = document.createElement('p')
+        pAnos.innerHTML = calcIdade(element.animal.dataNascimento, "animal") + " ANOS"
+        divTextoPet.appendChild(pAnos)
 
-    let imgSexo = document.createElement('img')
-    imgSexo.src = "../../imagens/adocoes/sexo-masculino.svg"
-    divSexoPet.appendChild(imgSexo)
+        let divSexoPet = document.createElement('div')
+        divTextoPet.appendChild(divSexoPet)
+        if (divSexoPet.classList) divSexoPet.classList.add("sexo-pet");
+        else divSexoPet.className += " sexo-pet";
 
-    // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
-    let divDadosAdotante = document.createElement('div')
-    divAnimaisFavoritos.appendChild(divDadosAdotante)
-    if (divDadosAdotante.classList) divDadosAdotante.classList.add("dados-favoritos");
-    else divDadosAdotante.className += " dados-favoritos";
+        let pSexo = document.createElement('p')
+        pSexo.innerHTML = element.animal.genero === "Femea" ? "Fêmea" : "Macho"
+        divSexoPet.appendChild(pSexo)
 
-    let divImgFavorito = document.createElement('div')
-    divDadosAdotante.appendChild(divImgFavorito)
-    if (divImgFavorito.classList) divImgFavorito.classList.add("img-favorito");
-    else divImgFavorito.className += " img-favorito";
+        let imgSexo = document.createElement('img')
+        imgSexo.src = element.animal.genero === "Macho" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+        divSexoPet.appendChild(imgSexo)
 
-    let containerFavorito = document.createElement('div')
-    divImgFavorito.appendChild(containerFavorito)
-    if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
-    else containerFavorito.className += " container-favorito";
+        // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
+        let divDadosAdotante = document.createElement('div')
+        divAnimaisFavoritos.appendChild(divDadosAdotante)
+        if (divDadosAdotante.classList) divDadosAdotante.classList.add("dados-favoritos");
+        else divDadosAdotante.className += " dados-favoritos";
 
-    let imgCoracaoVermelho = document.createElement('img')
-    imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
-    containerFavorito.appendChild(imgCoracaoVermelho)
+        let divImgFavorito = document.createElement('div')
+        divDadosAdotante.appendChild(divImgFavorito)
+        if (divImgFavorito.classList) divImgFavorito.classList.add("img-favorito");
+        else divImgFavorito.className += " img-favorito";
 
-    
+        let containerFavorito = document.createElement('div')
+        divImgFavorito.appendChild(containerFavorito)
+        if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
+        else containerFavorito.className += " container-favorito";
+
+        let imgCoracaoVermelho = document.createElement('img')
+        imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
+        containerFavorito.appendChild(imgCoracaoVermelho)
+    })
+}
+
+function mostrarDivAdotados() {
+    let div = document.querySelector(".cards-adocoes-adotante");
+
+    dadosAdotadoModal.forEach(element => {
+        let divAnimaisFavoritos = document.createElement('div')
+        div.appendChild(divAnimaisFavoritos)
+        if (divAnimaisFavoritos.classList) divAnimaisFavoritos.classList.add("card-animais-favoritos");
+        else divAnimaisFavoritos.className += " card-animais-favoritos";
+
+        // DIV DADOS PET E OQ ESTÁ DENTRO DELA
+        let divDadosPet = document.createElement('div')
+        divAnimaisFavoritos.appendChild(divDadosPet)
+        if (divDadosPet.classList) divDadosPet.classList.add("dados-pet")
+        else divDadosPet.className += " dados-pet"
+
+        let divImgPet = document.createElement('div')
+        divDadosPet.appendChild(divImgPet)
+        if (divImgPet.classList) divImgPet.classList.add("img-pet")
+        else divImgPet.className += " img-pet"
+
+        let imagemAnimal;
+
+        if (element.animal.urlImagem === null) {
+            imagemAnimal = "https://i.imgur.com/s8t0M4S.png"
+        } else if (element.animal.urlImagem.includes(',')) {
+            let img = element.animal.urlImagem.split(',')
+            imagemAnimal = img[0]
+        } else {
+            imagemAnimal = element.animal.urlImagem
+        }
+
+        let imgPet = document.createElement('img')
+        imgPet.src = imagemAnimal
+        divImgPet.appendChild(imgPet)
+
+        let divTextoPet = document.createElement('div')
+        divDadosPet.appendChild(divTextoPet)
+        if (divTextoPet.classList) divTextoPet.classList.add("texto-pet");
+        else divTextoPet.className += " texto-pet";
+
+        let pThor = document.createElement('p')
+        pThor.innerHTML = element.animal.nome
+        divTextoPet.appendChild(pThor)
+
+        let pAnos = document.createElement('p')
+        pAnos.innerHTML = calcIdade(element.animal.dataNascimento, "animal") + " ANOS"
+        divTextoPet.appendChild(pAnos)
+
+        let divSexoPet = document.createElement('div')
+        divTextoPet.appendChild(divSexoPet)
+        if (divSexoPet.classList) divSexoPet.classList.add("sexo-pet");
+        else divSexoPet.className += " sexo-pet";
+
+        let pSexo = document.createElement('p')
+        pSexo.innerHTML = element.animal.genero === "Femea" ? "Fêmea" : "Macho"
+        divSexoPet.appendChild(pSexo)
+
+        let imgSexo = document.createElement('img')
+        imgSexo.src = element.animal.genero === "Macho" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+        divSexoPet.appendChild(imgSexo)
+
+        let divBtnComentario = document.createElement('div')
+        divAnimaisFavoritos.appendChild(divBtnComentario)
+        if (divBtnComentario.classList) divBtnComentario.classList.add("btn-comentario")
+        else divBtnComentario.className += " btn-comentario"
+
+        let btnComentario = document.createElement('button')
+        btnComentario.innerHTML = "COMENTÁRIO"
+        divBtnComentario.appendChild(btnComentario)
+
+        if (element.feedback != null) {
+            btnComentario.style = "pointer-events: none; background-color: #a3a3a3"
+            btnComentario.innerHTML = "ENVIADO"
+        }
+
+        btnComentario.addEventListener('click', () => {
+            idAnimalFeed = element.animal.idAnimal;
+            abrirModalFeed()
+        })
+    })
+}
+
+function getAnimaisFavoritos() {
+    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritados`, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true
+        },
+    }).then(response => {
+        dadosFavoritosModal = []
+        for (let index = 0; index < response.data.length; index++) {
+            dadosFavoritosModal[index] = response.data[index];
+        }
+        console.log(JSON.stringify(dadosFavoritosModal))
+        mostrarDivFav();
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao carregar as informações do favoritos',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function getAnimaisAdotados() {
+    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/adotados`, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true
+        },
+    }).then(response => {
+        dadosAdotadoModal = []
+        for (let index = 0; index < response.data.length; index++) {
+            dadosAdotadoModal[index] = response.data[index];
+        }
+        // console.log(JSON.stringify(dadosAdotadoModal))
+        mostrarDivAdotados();
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao carregar as informações dos adotados',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
 }
 
 // Enviar o feedback
-function feedback() {
-    axios.patch(`http://localhost:8080/miaudote/adocoes/registra-feedback/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
-    "nome": nome,
-    "descricao": descricao,
-    "dataNascimento": nascimento,
-    "genero": sexo,
-    "dataChegada": chegada,
-    "corPelagem": cor,
-    "castrado": castrado,
-    "porte": porte,
-    "tipoPelagem": pelagem,
-    "vacinado": vacinado,
-    "comportamento": comportamento,
-    "adotado": false,
-    "necessidadeEspeciais": necessidadesEspeciais,
-    "urlImagem": "urlImagem",
-    "ong": null,
-  }).then(response => {
-    putOng(response.data.idAnimal)
-  }).catch(function (error) {
-    Swal.fire({
-      title: error.response.data,
-      text: 'Verifique as informações digitadas',
-      icon: 'warning',
-      confirmButtonText: 'Ok'
+function patchFeedback() {
+    var feedback = document.getElementById("feedback-text").value;
+    var avaliacao;
+
+    if (document.getElementById("star5").checked) {
+        avaliacao = 5
+    } else if (document.getElementById("star4").checked) {
+        avaliacao = 4
+    } else if (document.getElementById("star3").checked) {
+        avaliacao = 3
+    } else if (document.getElementById("star2").checked) {
+        avaliacao = 2
+    } else if (document.getElementById("star1").checked) {
+        avaliacao = 1
+    }
+
+    if (!document.getElementById("star1").checked && !document.getElementById("star2").checked && !document.getElementById("star3").checked && !document.getElementById("star4").checked && !document.getElementById("star5").checked) {
+        Swal.fire({
+            title: 'Avaliação necessária',
+            text: 'Escolha a sua quantidade de estrelas',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+            })
+    }
+    
+    axios.patch(`http://localhost:8080/miaudote/adocoes/registra-feedback/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimalFeed}`, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true
+        },
+        "feedback": feedback,
+        "avaliacaoSite": avaliacao
+    }).then(response => {
+        Swal.fire({
+            title: 'Feedback enviado!',
+            text: 'Agradecemos pela sua avaliação!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        })
+        modalFb.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+    }).catch(function (error) {        
     })
-  })
+}
+
+function calcIdade(data, type) {
+
+    dataParaCalcular = data
+
+    if (type == "adotante") {
+        while (dataParaCalcular.length > 10) dataParaCalcular = dataParaCalcular.slice(0, -1);
+        dataParaCalcular = dataParaCalcular.replaceAll('-', '/')
+    } else {
+        let split = data.split('/')
+        dataParaCalcular = split[1] + "/" + split[0] + "/" + split[2]
+    }
+
+    var d = new Date,
+        ano_atual = d.getFullYear(),
+        mes_atual = d.getMonth() + 1,
+        dia_atual = d.getDate(),
+        data_americana = new Date(dataParaCalcular),
+        vAno = data_americana.getFullYear(),
+        vMes = data_americana.getMonth() + 1,
+        vDia = data_americana.getDate(),
+        ano_aniversario = +vAno,
+        mes_aniversario = +vMes,
+        dia_aniversario = +vDia,
+        quantos_anos = ano_atual - ano_aniversario;
+    if (mes_atual < mes_aniversario || mes_atual == mes_aniversario && dia_atual < dia_aniversario) {
+        quantos_anos--;
+    }
+    return quantos_anos < 0 ? 0 : quantos_anos;
 }

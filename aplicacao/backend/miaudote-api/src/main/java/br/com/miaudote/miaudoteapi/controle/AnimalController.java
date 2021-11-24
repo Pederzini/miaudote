@@ -240,7 +240,6 @@ public class AnimalController {
             atribuiOng(cnpj, animalRepository.findById(a.getIdAnimal()).get().getIdAnimal());
         }
 
-
         return ResponseEntity.status(201).body(animais);
     }
 }

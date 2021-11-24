@@ -239,10 +239,6 @@
   margin-top: 5vh;
 }
 
-.conteudo-adocao img { 
-  cursor: pointer;
-}
-
 .cards-adocao {
   display: flex;
   flex-direction: row;

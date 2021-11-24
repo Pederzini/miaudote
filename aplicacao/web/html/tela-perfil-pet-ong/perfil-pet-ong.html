@@ -7,24 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="perfil-pet-ong.js"></script>
+    <script src="../script.js"></script>
     <title>MiauDote</title>
 
 </head>
 
-<!-- <body onload="validarSessao()"> -->
-<body>
+<body onload="validarSessao(), getInfosPet()">
     <main>
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
                     <img src="../../imagens/geral/logo-header.svg" alt="">
-
                 </div>
                 <div class="text-menu">
                     <a href="../tela-home-ong/home-ong.html">HOME<a>
                     <a href="cards-ong.html">MEU PETS</a>
                     <a href="../tela-adocoes/adocoes.html">ADOÇÕES</a>
-
                 </div>
                 <div class="container-btn">
                     <button class="btn-login">
@@ -34,9 +35,7 @@
                 </div>
                 <div class="container-sair">
                     <img onclick="logoff()" src="../../imagens/geral/sair.svg" style="cursor:  pointer;">
-
                 </div>
-
             </div>
 
             <svg width="1366" height="156" viewBox="0 0 1366 156" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +47,6 @@
                     fill="#FFA8A1" />
             </svg>
 
-
         </header>
         <div class="container-header">
 
@@ -56,92 +54,76 @@
         <div class="container-informacao">
             <div class="container-descricao">
                 <div class="container-nome">
-                    <img src="../../imagens/perfil-animal/icon-cachorro.svg" alt="">
-                    <img src="../../imagens/geral/coracao.svg" alt="">
-                    <p>THOR</p>
-
-
+                    <img id="img_pet" src="" alt="">
+                    <img src="../../imagens/geral/icon-editar.svg" alt="">
+                    <p id="campo_nome">-</p>
                 </div>
                 <div class="container-colunas">
                     <div class="coluna">
                         <div class="informacao-coluna">
                             <h1>IDADE</h1>
-                            <p>5 ANOS</p>
-
+                            <p id="campo_idade">-</p>
                         </div>
                         <div class="informacao-coluna">
                             <h1>PORTE</h1>
-                            <p>MÉDIO</p>
-
+                            <p id="campo_porte">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>CHEGADA NA ONG</h1>
-                            <p>09/03/2020</p>
-
+                            <p id="campo_chegada">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>CASTRAÇÃO</h1>
-                            <p>SIM</p>
-
+                            <p id="campo_castrado">-</p>
                         </div>
-
-
                     </div>
+
                     <div class="coluna">
                         <div class="informacao-coluna">
                             <h1>SEXO</h1>
-                            <p>MACHO</p>
-
+                            <p id="campo_sexo">-</p>
                         </div>
                         <div class="informacao-coluna">
                             <h1>PELAGEM</h1>
-                            <p>CURTO</p>
-
+                            <p id="campo_pelagem">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>COMPORTAMENTO</h1>
-                            <p>AGITADO</p>
-
+                            <p id="campo_comportamento">-</p>
                         </div>
 
                         <div class="informacao-coluna">
                             <h1>VACINAÇÃO</h1>
-                            <p>SIM</p>
-
+                            <p id="campo_vacinacao">-</p>
                         </div>
-
-
                     </div>
 
                 </div>
                 <div class="container-texto">
+                    <h1>NECESSIDADES ESPECIAIS</h1>
+                    <p id="campo_necessidades">-</p>
+                </div>
+                <div class="container-texto">
                     <h1>DESCRIÇÃO</h1>
-                    <p>Sou empolgado, as vezes atrapalhado e adoro brincar! Posso ser agitado mas vou deixar o seu dia
-                        bem mais animado.</p>
+                    <p id="campo_descricao">-</p>
                 </div>
 
                 <div class="container-btn-coluna">
                     <u>ESSE PET JÁ FOI ADOTADO?</u>
-                    <button class="btn-adotar">CLIQUE AQUI</button>
-                    
-
+                    <button class="btn-adotar" onclick=redirecionarTela()>CLIQUE AQUI</button>
                 </div>
-
-
-
             </div>
             <div class="container-fotos">
 
                 <div class="foto-principal">
-                    <img id="fotoPrincipal" src="../../imagens/pets-teste/cachorro-preto.svg" alt="">
-
+                    <img id="fotoPrincipal" src="https://i.imgur.com/s8t0M4S.png" alt="">
                 </div>
                 <div class="foto-opcao">
                     <div class="foto" >
-                        <img class="imagem" value="0" src="../../imagens/pets-teste/cachorro.svg" alt="">
+                        <img class="imagem" value="0" src="https://i.imgur.com/s8t0M4S.png" alt="">
                     </div>
                     <div class="foto" >
                         <img class="imagem" value="1" src="https://i.imgur.com/s8t0M4S.png" alt="">
@@ -246,10 +228,8 @@
                                     <img src="../../imagens/geral/wpp.svg" alt="">
                                 </button>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <svg id="svg1" width="100%" height="274" viewBox="0 0 1366 274" fill="none" preserveAspectRatio="none"
@@ -268,33 +248,3 @@
         </footer>
     </main>
 </body>
-
-<script>
-    let imagemPrincipal = fotoPrincipal.src
-    let divFotos = document.querySelectorAll('.foto')
-    let fotos = document.querySelectorAll('.imagem')
-    fotos.forEach(element => {
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseover", function (event) {
-                
-                divFotos[element.getAttribute('value')].style.borderColor = "#FF7D73"
-
-                console.log(element.src)
-                fotoPrincipal.src = element.src
-
-            }, false);
-        }
-        
-        if (element.src != "https://i.imgur.com/s8t0M4S.png") {
-            element.addEventListener("mouseout", function (event) {
-                
-
-                divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
-                console.log(element.src)
-                fotoPrincipal.src = imagemPrincipal
-
-            }, false);
-        } 
-    });
-
-</script>

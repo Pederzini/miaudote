@@ -71,8 +71,8 @@ function postLogin() {
           "email": email,
           "senha": senha,
       }).then(response => {
-        // localStorage.setItem('login_usuario', JSON.stringify(response.data));
         sessionStorage.login_usuario = JSON.stringify(response.data)
+        sessionStorage.trocaMenu = 1
         if (usuario == "ongs") {
           window.location.href= "../tela-home-ong/home-ong.html"
         } else {

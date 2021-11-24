@@ -34,6 +34,8 @@ public interface PerfilAnimalDTO {
         String getDescricao();
 
         String getNecessidadeEspeciais();
+
+        String getEspecie();
     }
 
 }
