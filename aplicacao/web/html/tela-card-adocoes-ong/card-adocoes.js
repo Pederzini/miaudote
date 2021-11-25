@@ -3,6 +3,7 @@
 let dadosCards = []
 let vetorComVetores = []
 let vetorFiltrados = []
+let contador = 1;
 
 var modal = document.getElementById("modalCadastro");
 // Get the <span> element that closes the modal
@@ -68,8 +69,6 @@ function getInfosCards() {
         })
     })
 }
-
-let contador = 1;
 
 function mostrarPagina(numero) {
     let elementos = document.getElementsByTagName("div")
@@ -172,10 +171,12 @@ function mostrarDivs() {
             divCardDentro.appendChild(divImgPet)
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
+            divImgPet.id = `divImgPet${elementoDoVetorDaPagina.id}`
             if(elementoDoVetorDaPagina.adotado != 1) {
                 divImgPet.style.cursor = "pointer";
                 divImgPet.addEventListener('click', () => {
-                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                    sessionStorage[`cardAnimal`] = divImgPet.id.replace(/\D/g,'');
+                    window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
                 })
             }
 
@@ -217,10 +218,12 @@ function mostrarDivs() {
             divCardDentro.appendChild(divInformacoesPet)
             if (divInformacoesPet.classList) divInformacoesPet.classList.add("informacoes-pet");
             else divInformacoesPet.className += " informacoes-pet";
+            divInformacoesPet.id = `divInformacoesPet${elementoDoVetorDaPagina.id}`
             if (elementoDoVetorDaPagina.adotado != 1) {
                 divInformacoesPet.style.cursor = "pointer";
                 divInformacoesPet.addEventListener('click', () => {
-                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                    sessionStorage[`cardAnimal`] = divInformacoesPet.id.replace(/\D/g,'');
+                    window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
                 })
             }
 
@@ -304,6 +307,93 @@ function criarVetoresDeCards() {
             i = 1;
             eval(`card${numero}`)[indexAux] = dadosCards[index];
         }
+    }
+
+}
+
+function limparFiltros() {
+    topo()
+    vetorFiltrados = []
+    vetorComVetores = []
+    contador = 1;
+    let i = 1;
+    let numero = 0;
+
+    for (let index = 0, indexAux = 0; index < dadosCards.length; index++, indexAux++) {
+        if (i == 1 || i == 10) {
+            if (i == 10) {
+                window[`card${++numero}`] = new Array()
+                indexAux = 0;
+                i = 1;
+            } else {
+                window[`card${++numero}`] = new Array()
+                indexAux = 0;
+            }
+        }
+
+        if (i < 10) {
+            eval(`card${numero}`)[indexAux] = dadosCards[index];
+            i++;
+        } else {
+            i = 1;
+            eval(`card${numero}`)[indexAux] = dadosCards[index];
+        }
+    }
+
+    for (let i = 0, j = 0, numero = 1; i < dadosCards.length; i = i + 9, j++, numero++) {
+        vetorComVetores[j] = window[`card${numero}`]
+    }
+
+    let divsDeCards = document.querySelectorAll(".cards");
+    divsDeCards.forEach(element => { element.remove() });
+    document.querySelector(".pagination").remove();
+
+    if (dadosCards.length > 0) {
+        getInfosCards();
+    } else {
+        let divContainer = document.querySelector(".container");
+        let divContainerPagination = document.querySelector(".container-pagination");
+
+        let divPagination = document.createElement('div')
+        divContainerPagination.appendChild(divPagination)
+        if (divPagination.classList) divPagination.classList.add("pagination");
+        else divPagination.className += " pagination";
+
+        let aSetaEsquerda = document.createElement('a')
+        aSetaEsquerda.href = "#";
+        divPagination.appendChild(aSetaEsquerda);
+
+        let imgSetaEsquerda = document.createElement('img')
+        aSetaEsquerda.appendChild(imgSetaEsquerda)
+        imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
+
+        let aPagina1 = document.createElement('a')
+        aPagina1.href = "#";
+        aPagina1.innerHTML = "1";
+        aPagina1.id = "pagina1"
+        divPagination.appendChild(aPagina1);
+        if (aPagina1.classList) aPagina1.classList.add("active");
+        else aPagina1.className += " active";
+
+        let aSetaDireita = document.createElement('a')
+        aSetaDireita.href = "#";
+        divPagination.appendChild(aSetaDireita);
+
+        let imgSetaDireita = document.createElement('img')
+        aSetaDireita.appendChild(imgSetaDireita)
+        imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
+
+        let div = document.createElement('div')
+        divContainer.appendChild(div)
+        if (div.classList) div.classList.add("cards");
+        else div.className += " cards";
+        div.id = `card${contador}`;
+        div.style.alignItems = "flex-start";
+        div.style.justifyContent = "center";
+
+        let imgNaoEncontrado = document.createElement('img')
+        imgNaoEncontrado.src = "../../imagens/geral/nao-encontrado.svg"
+        div.appendChild(imgNaoEncontrado);
     }
 
 }

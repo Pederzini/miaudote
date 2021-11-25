@@ -534,6 +534,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     font-style: normal;
     font-weight: 400;
     color: #434343;
+    margin-bottom: 10px;
 }
 
 .btn-limpar-filtros {
@@ -555,6 +556,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .btn-filtros {
@@ -597,7 +599,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
+    :;
 }
 
 .favoritos img {
@@ -787,10 +789,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 
 .container-pagination {
-    width: 100%;
+    width: 70%;
     height: 10%;
     display: flex;
     justify-content: center;
+    margin-left: 27%;
 }
 
 .pagination {

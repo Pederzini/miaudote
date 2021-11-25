@@ -270,6 +270,9 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4%;
 }
 
 .foto-principal img {
