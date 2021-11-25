@@ -63,7 +63,7 @@ function getInfosCards() {
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
-            text: 'Erro ao carregar as informações de favoritos',
+            text: 'Erro ao carregar os cards. Tente novamente!',
             icon: 'warning',
             confirmButtonText: 'Ok'
         })
@@ -184,9 +184,11 @@ function mostrarDivs() {
             divCardDentro.appendChild(divEdicaoCard)
             if (divEdicaoCard.classList) divEdicaoCard.classList.add("edicao-card");
             else divEdicaoCard.className += " edicao-card";
+            divEdicaoCard.id = `divEdicaoCard${elementoDoVetorDaPagina.id}`
             if(elementoDoVetorDaPagina.adotado != 1) {
                 divEdicaoCard.style.cursor = "pointer";
                 divEdicaoCard.addEventListener('click', () => {
+                    sessionStorage[`idEdicao`] = divEdicaoCard.id.replace(/\D/g,'');
                     window.location.href = "../cadastro-pet/editar-pet.html"
                 })
             }
