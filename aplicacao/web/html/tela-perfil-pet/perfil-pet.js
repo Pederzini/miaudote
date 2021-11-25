@@ -1,3 +1,8 @@
+var telOng;
+var emailOng;
+var nomePet;
+var fotoPet;
+
 // MODAL
 // Get the modal
 var modal = document.getElementById("modalCartao");
@@ -29,14 +34,14 @@ window.onclick = function (event) {
 }
 // var idAnimal = 1;
 
-function queroAdotar(idAnimal) {
-  getOngAnimal(idAnimal)
+function queroAdotar(idAnimalTeste) {
+  getOngAnimal(idAnimalTeste)
   modal.style.display = "block";
   document.querySelector("body").style.overflow = 'hidden';
 }
 
 function queroAjudar() {
-  getOngAnimal(idAnimal)
+  getOngAnimal(idAnimalTeste)
   modalA.style.display = "block";
   document.querySelector("body").style.overflow = 'hidden';
 }
@@ -44,13 +49,23 @@ function queroAjudar() {
 function getOngAnimal(idAnimal) {
   // localhost:8080/miaudote/ongs/10/contato-ong
   axios.get(`http://localhost:8080/miaudote/ongs/${idAnimal}/contato-ong`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true
+    },
   }).then(response => {
     console.log(response)
-    document.getElementById("modal-card-logo").src = response.data.urlImagem;
-    document.getElementById("modal-nome-ong").innerHTML = response.data.razaoSocial;
-    document.getElementById("modal-ano-ong").innerHTML = response.data.dataFundacao;
-    document.getElementById("modal-endereco-ong").innerHTML = response.data.cidade;
+    document.querySelectorAll("#modal-card-logo")[0].src = response.data.urlImagem;
+    document.querySelectorAll("#modal-nome-ong")[0].innerHTML = response.data.razaoSocial;
+    document.querySelectorAll("#modal-ano-ong")[0].innerHTML = response.data.dataFundacao;
+    document.querySelectorAll("#modal-endereco-ong")[0].innerHTML = response.data.cidade;
+
+    document.querySelectorAll("#modal-card-logo")[1].src = response.data.urlImagem;
+    document.querySelectorAll("#modal-nome-ong")[1].innerHTML = response.data.razaoSocial;
+    document.querySelectorAll("#modal-ano-ong")[1].innerHTML = response.data.dataFundacao;
+    document.querySelectorAll("#modal-endereco-ong")[1].innerHTML = response.data.cidade;
+    telOng = response.data.telefone;
+    emailOng = response.data.email;
   }).catch(function (error) {
     Swal.fire({
       title: error.response,
@@ -66,7 +81,10 @@ function getOngAnimal(idAnimal) {
 function patchMetodoContato(contato) {
   // ver como pegar o idAnimal 
   axios.patch(`http://localhost:8080/miaudote/adocoes/inicia-processo-adocao/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}/${contato}`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true
+    },
   }).then(response => {
     console.log(response)
 
@@ -79,18 +97,31 @@ function patchMetodoContato(contato) {
     })
   })
 }
+var seunumerodetelefone = "11998381032"
 
-function apiWhats() {
-  window.open(`https://api.whatsapp.com/send?phone=${seunumerodetelefone}&text=sua%20mensagem`, '_blank');
+function apiWhats(botaoModal) {
+  var msg = "";
+  if (botaoModal == "adotar") {
+    msg = `Olá! Gostaria de adotar o pet ${nomePet} ${fotoPet}`;
+  } else {
+    msg = `Olá! Gostaria de apoiar a ONG! Como posso ajudar?`
+  }
+  window.open(`https://api.whatsapp.com/send?phone=55${seunumerodetelefone}&text=${msg}`, '_blank');
   //TODO - meotdo de api pra qndo clicar, abre o whats com MSG 
 }
 
-function apiEmail() {
-  window.open(`mailto:shoyo55@hotmail.com?subject=Quero adotar&body=Olá teste`);
-  //TODO - meotdo de api pra qndo clicar, abre o email com MSG 
+function apiEmail(botaoModal) {
+  var assuntoEmail = "";
+  var msg = "";
+  if (botaoModal == "adotar") {
+    assuntoEmail = "Quero adotar um pet!"
+    msg = `Olá! Gostaria de adotar o pet ${nomePet} ${fotoPet}`;
+  } else {
+    assuntoEmail = "Quero ajudar a ONG!"
+    msg = `Olá! Gostaria de apoiar a ONG! Como posso ajudar?`
+  }
+  window.open(`mailto:${emailOng}?subject=${assuntoEmail}&body=${msg}`);
 }
-
-
 
 function organizaFotos() {
   let imagemPrincipal = fotoPrincipal.src
@@ -141,31 +172,57 @@ function calcIdade(data) {
 // terceiro caso: idAdotante: 1 idAnimal 6
 
 let idAdotante = 1
-let idAnimalTeste = 26
+let idAnimalTeste = 6
 
 function getInfosPet() {
   axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${idAnimalTeste}/${idAdotante}`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true
+    },
   }).then(response => {
-    console.log(response.data)
-    let idade = calcIdade(response.data.animal.dataNascimento)
-    let sexo = response.data.animal.genero
+    if (response.data.animal == undefined) {
+      let idade = calcIdade(response.data.dataNascimento)
+      let sexo = response.data.genero
 
-    campo_nome.innerHTML = response.data.animal.nome.toUpperCase()
-    campo_idade.innerHTML = idade == 1 ? `${idade} ano` : `${idade} anos`
-    campo_porte.innerHTML = response.data.animal.porte
-    campo_chegada.innerHTML = response.data.animal.dataChegada
-    campo_castrado.innerHTML = response.data.animal.castrado
-    campo_sexo.innerHTML = sexo == "Femea" ? "Fêmea" : "Macho"
-    campo_pelagem.innerHTML = response.data.animal.tipoPelagem
-    campo_comportamento.innerHTML = response.data.animal.comportamento
-    campo_vacinacao.innerHTML = response.data.animal.vacinado
-    response.data.animal.necessidadeEspeciais == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.animal.necessidadeEspeciais
-    campo_descricao.innerHTML = response.data.animal.descricao
-    img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
-    img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
+      campo_nome.innerHTML = response.data.nome.toUpperCase()
+      campo_idade.innerHTML = idade == 1 ? `${idade} ano` : `${idade} anos`
+      campo_porte.innerHTML = response.data.porte
+      campo_chegada.innerHTML = response.data.dataChegada
+      campo_castrado.innerHTML = response.data.castrado
+      campo_sexo.innerHTML = sexo == "Femea" ? "Fêmea" : "Macho"
+      campo_pelagem.innerHTML = response.data.tipoPelagem
+      campo_comportamento.innerHTML = response.data.comportamento
+      campo_vacinacao.innerHTML = response.data.vacinado
+      response.data.necessidadeEspeciais == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.necessidadeEspeciais
+      campo_descricao.innerHTML = response.data.descricao
+      img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
+      img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
 
-    fotosPet = response.data.animal.urlImagem.split(',')
+      fotosPet = response.data.urlImagem.split(',')
+      nomePet = response.data.nome.toUpperCase();
+    } else {
+      console.log(response.data)
+      let idade = calcIdade(response.data.animal.dataNascimento)
+      let sexo = response.data.animal.genero
+
+      campo_nome.innerHTML = response.data.animal.nome.toUpperCase()
+      campo_idade.innerHTML = idade == 1 ? `${idade} ano` : `${idade} anos`
+      campo_porte.innerHTML = response.data.animal.porte
+      campo_chegada.innerHTML = response.data.animal.dataChegada
+      campo_castrado.innerHTML = response.data.animal.castrado
+      campo_sexo.innerHTML = sexo == "Femea" ? "Fêmea" : "Macho"
+      campo_pelagem.innerHTML = response.data.animal.tipoPelagem
+      campo_comportamento.innerHTML = response.data.animal.comportamento
+      campo_vacinacao.innerHTML = response.data.animal.vacinado
+      response.data.animal.necessidadeEspeciais == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.animal.necessidadeEspeciais
+      campo_descricao.innerHTML = response.data.animal.descricao
+      img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
+      img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
+
+      fotosPet = response.data.animal.urlImagem.split(',')
+      nomePet = response.data.animal.nome.toUpperCase()
+    }
     fotoPrincipal.src = fotosPet[0].length > 0 ? fotosPet[0] : "https://i.imgur.com/s8t0M4S.png"
     let fotos = document.querySelectorAll('.imagem')
     for (let index = 0; index < fotosPet.length; index++) {
@@ -175,7 +232,13 @@ function getInfosPet() {
     }
     organizaFotos()
 
+    //envia nome e foto do animal
+    
+    fotoPet = fotosPet[0].length > 0 ? fotosPet[0] : ""
+    // apiWhats()
+    // apiEmail()
   }).catch(function (error) {
+    console.log(error)
     Swal.fire({
       title: error.response,
       text: 'Erro ao carregar as informações da ONG',
@@ -187,7 +250,10 @@ function getInfosPet() {
 
 function getAdotar() {
   axios.get(`http://localhost:8080/miaudote/adocoes/verifica-existencia-processo/${idAdotante}/${idAnimalTeste}`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true
+    },
   }).then(response => {
     console.log(response.data)
 
@@ -198,9 +264,9 @@ function getAdotar() {
       confirmButtonText: 'Ok'
     })
 
-  }).catch(function (error) {
+  }).catch(error => {
 
-    if (response.status == 404) {
+    if (error.response.status == 404) {
       queroAdotar(idAnimalTeste)
     } else {
       Swal.fire({
