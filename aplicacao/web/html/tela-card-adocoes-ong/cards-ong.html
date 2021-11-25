@@ -105,9 +105,14 @@
                     <div class="select">
                         <p>Cor</p>
                         <select name="cor" id="selectCor" required>
-                            <option value="" disabled selected>Qualquer</option>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Bege</option>
+                            <option value="3">Branco</option>
+                            <option value="4">Caramelo</option>
+                            <option value="5">Cinza</option>
+                            <option value="6">Malhado</option>
+                            <option value="7">Preto</option>
                         </select>
-
                     </div>
                     <div class="select">
                         <p>Tipo Pelagem</p>
@@ -132,6 +137,9 @@
                     </div>
                     
                     <div class="container-btn-filtro">
+                        <div class="container-text-btn">
+                            <button class="btn-limpar-filtros">LIMPAR FILTROS</button>
+                        </div>
                         <button class="btn-filtrar" onclick=filtrar()>FILTRAR</button>
                         <div class="container-text-btn">
                             <u>TEM UM NOVO PET PARA CADASTRAR?</u>
@@ -152,15 +160,13 @@
             <div class="linha">
 
             </div>
-            <!-- <div class="cards">
-            </div> -->
         </div>
         <div class="container-pagination">
             
         </div>
-        <a href="#topo" style="cursor: pointer;">
+        <a style="cursor: pointer;">
             <div class="container-gato">
-                <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
+                <svg class="svg-gato" onclick=topo() width="180" height="177" viewBox="0 0 180 177" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1949:4093)">
                         <circle cx="54" cy="120" r="50" fill="white" />

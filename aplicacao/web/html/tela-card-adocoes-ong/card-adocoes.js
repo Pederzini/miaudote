@@ -8,6 +8,10 @@ var modal = document.getElementById("modalCadastro");
 // Get the <span> element that closes the modal
 var fechar = document.getElementsByClassName("close")[0];
 
+function topo() {
+    window.scrollTo(0, 0)
+}
+
 function redirecionarCadastro() {
     modal.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
@@ -140,11 +144,11 @@ function mostrarDivs() {
 
         element.forEach(elementoDoVetorDaPagina => {
 
-
             let divCardDentro = document.createElement('div')
             div.appendChild(divCardDentro)
             if (divCardDentro.classList) divCardDentro.classList.add("card-dentro");
             else divCardDentro.className += " card-dentro";
+            divCardDentro.id = `cardDentro${elementoDoVetorDaPagina.id}`
 
             if (elementoDoVetorDaPagina.adotado == 1) {
                 let divFiltro = document.createElement('div')
@@ -168,11 +172,23 @@ function mostrarDivs() {
             divCardDentro.appendChild(divImgPet)
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
+            if(elementoDoVetorDaPagina.adotado != 1) {
+                divImgPet.style.cursor = "pointer";
+                divImgPet.addEventListener('click', () => {
+                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                })
+            }
 
             let divEdicaoCard = document.createElement('div')
-            divImgPet.appendChild(divEdicaoCard)
+            divCardDentro.appendChild(divEdicaoCard)
             if (divEdicaoCard.classList) divEdicaoCard.classList.add("edicao-card");
             else divEdicaoCard.className += " edicao-card";
+            if(elementoDoVetorDaPagina.adotado != 1) {
+                divEdicaoCard.style.cursor = "pointer";
+                divEdicaoCard.addEventListener('click', () => {
+                    window.location.href = "../cadastro-pet/editar-pet.html"
+                })
+            }
 
             let imgEditarCard = document.createElement('img')
             divEdicaoCard.appendChild(imgEditarCard)
@@ -201,6 +217,12 @@ function mostrarDivs() {
             divCardDentro.appendChild(divInformacoesPet)
             if (divInformacoesPet.classList) divInformacoesPet.classList.add("informacoes-pet");
             else divInformacoesPet.className += " informacoes-pet";
+            if (elementoDoVetorDaPagina.adotado != 1) {
+                divInformacoesPet.style.cursor = "pointer";
+                divInformacoesPet.addEventListener('click', () => {
+                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                })
+            }
 
             let divContainerDadosNome = document.createElement('div')
             divInformacoesPet.appendChild(divContainerDadosNome)
@@ -287,26 +309,70 @@ function criarVetoresDeCards() {
 }
 
 function filtrar() {
+    topo()
     vetorFiltrados = []
     vetorComVetores = []
     limparVetores();
     contador = 1;
 
     let sEspecie = document.getElementById('selectEspecie').options[document.getElementById('selectEspecie').selectedIndex].text.toUpperCase();
-    let sIdade = document.getElementById('selectIdade').options[document.getElementById('selectIdade').selectedIndex].text;
+    let sIdade = document.getElementById('selectIdade').options[document.getElementById('selectIdade').selectedIndex].value;
     let sPorte = document.getElementById('selectPorte').options[document.getElementById('selectPorte').selectedIndex].text.toUpperCase();
-    let sCor = document.getElementById('selectCor').options[document.getElementById('selectCor').selectedIndex].text;
+    let sCor = document.getElementById('selectCor').options[document.getElementById('selectCor').selectedIndex].text.toUpperCase();
     let sPelagem = document.getElementById('selectPelagem').options[document.getElementById('selectPelagem').selectedIndex].text.toUpperCase();
     let sComportamento = document.getElementById('selectComportamento').options[document.getElementById('selectComportamento').selectedIndex].text.toUpperCase();
 
-    vetorFiltrados = dadosCards.filter(function (elemento) {
-        console.log("entrei aqui")
-        return elemento.especie.toUpperCase() == sEspecie &&
-               elemento.idadeAnimal >= 1 &&
-               elemento.idadeAnimal <= 3 &&
-               elemento.porte.toUpperCase() == sPorte &&
-               elemento.tipoPelagem.toUpperCase() == sPelagem;
-    });
+    vetorFiltrados = dadosCards;
+
+    if (sEspecie != "QUALQUER") {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de espécie")
+            return elemento.especie.toUpperCase() == sEspecie;
+        });
+    }
+
+    if (sIdade != 1) {
+        let min;
+        let max;
+
+        sIdade == 2 ? (min = 1, max = 3) :
+            sIdade == 3 ? (min = 4, max = 7) :
+                sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
+
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de idade")
+            return elemento.idadeAnimal >= min &&
+                elemento.idadeAnimal <= max;
+        });
+    }
+
+    if (sPorte != "QUALQUER") {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de porte")
+            return elemento.porte.toUpperCase() == sPorte;
+        });
+    }
+
+    if (sCor != "QUALQUER") {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de cor")
+            return elemento.corPelagem.toUpperCase().includes(sCor);
+        });
+    }
+
+    if (sPelagem != "QUALQUER") {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de tipo pelagem")
+            return elemento.tipoPelagem.toUpperCase() == sPelagem;
+        });
+    }
+
+    if (sComportamento != "QUALQUER") {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            console.log("entrei no filtro de comportamento")
+            return elemento.comportamento.toUpperCase() == sComportamento;
+        });
+    }
 
     let i = 1;
     let numero = 0;
@@ -340,7 +406,7 @@ function filtrar() {
     divsDeCards.forEach(element => { element.remove() });
     document.querySelector(".pagination").remove();
 
-    if(vetorFiltrados.length > 0) {
+    if (vetorFiltrados.length > 0) {
         mostrarDivs();
     } else {
         let divContainer = document.querySelector(".container");
@@ -350,15 +416,15 @@ function filtrar() {
         divContainerPagination.appendChild(divPagination)
         if (divPagination.classList) divPagination.classList.add("pagination");
         else divPagination.className += " pagination";
-    
+
         let aSetaEsquerda = document.createElement('a')
         aSetaEsquerda.href = "#";
         divPagination.appendChild(aSetaEsquerda);
-    
+
         let imgSetaEsquerda = document.createElement('img')
         aSetaEsquerda.appendChild(imgSetaEsquerda)
         imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
-    
+
         let aPagina1 = document.createElement('a')
         aPagina1.href = "#";
         aPagina1.innerHTML = "1";
@@ -370,7 +436,7 @@ function filtrar() {
         let aSetaDireita = document.createElement('a')
         aSetaDireita.href = "#";
         divPagination.appendChild(aSetaDireita);
-    
+
         let imgSetaDireita = document.createElement('img')
         aSetaDireita.appendChild(imgSetaDireita)
         imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
@@ -390,12 +456,8 @@ function filtrar() {
 
 }
 
-// function equalsIgnoringCase(text, other) {
-//     return text.localeCompare(other, undefined, { sensitivity: 'base' }) === 0;
-// }
-
 function limparVetores() {
-    for(let j = 1; j <= 50; j++) {
+    for (let j = 1; j <= 50; j++) {
         try {
             if (typeof window[`card${j}`] === 'object') {
                 delete window[`card${j}`]
@@ -403,7 +465,7 @@ function limparVetores() {
                 break;
             }
         }
-        catch(err) {
+        catch (err) {
             console.log("erro")
         }
     }

@@ -366,13 +366,15 @@ select {
     height: 50%;
     font-size: 18px;
     background: #FFFFFF;
-    border: 0.948611px solid #949494;
+    border: 1px solid #949494;
     box-sizing: border-box;
     border-radius: 3.79444px;
     margin-top: 2%;
     padding-left: 10px;
     cursor: pointer;
+    outline: none;
 }
+
 select:focus {
     border: none;
     box-sizing: border-box;
@@ -521,11 +523,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .container-text-btn {
-    height: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
 }
 
 .container-text-btn u {
@@ -537,16 +536,33 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     color: #434343;
 }
 
+.btn-limpar-filtros {
+    border: none;
+    height: 44px;
+    width: 285px;
+    border: 1px solid #FF5C5C;
+    border-radius: 95px;
+    background-color: white;
+    color:#FF5C5C;
+    font-family: Nunito;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
 .btn-filtros {
     border: none;
-    height: 44.584720611572266px;
+    height: 44px;
     width: 285px;
-    left: 59.7626953125px;
-    top: 1160.1513671875px;
-    border: 0.948611px solid #8F7FAC;
-    border-radius: 94.86111450195312px;
-    box-sizing: border-box;
+    border: 1px solid #8F7FAC;
+    border-radius: 95px;
     background-color: white;
     color:#8675A5;
     font-family: Nunito;
@@ -565,11 +581,9 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .btn-filtrar {
     border: none;
-    height: 44.584720611572266px;
+    height: 44px;
     width: 285px;
-    left: 59.7626953125px;
-    top: 1160.1513671875px;
-    border-radius: 94.86111450195312px;
+    border-radius: 95px;
     background: #8F7FAC;
     color: white;
     font-family: Nunito;
@@ -645,11 +659,15 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .edicao-card {
     justify-content: center;
-    height: 15%;
+    height: 10%;
     position: absolute;
     display: flex;
     right: 1px;
     margin: 10px;
+}
+
+.edicao-card:hover {
+    height: 12%;
 }
 
 #img-editar-card {
