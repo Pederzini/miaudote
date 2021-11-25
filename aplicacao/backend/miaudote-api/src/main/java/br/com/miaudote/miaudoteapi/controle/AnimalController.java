@@ -3,8 +3,6 @@ package br.com.miaudote.miaudoteapi.controle;
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.*;
-import br.com.miaudote.miaudoteapi.exportacao.Exportacao;
-import br.com.miaudote.miaudoteapi.exportacao.ListaObj;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
@@ -21,7 +19,10 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -76,18 +77,24 @@ public class AnimalController {
     public ResponseEntity getAnimalOng(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
 
-        List<AnimalVitrineDTO> animais = animalRepository.findByOngId(ong.getIdOng());
+        List<CardAnimalOngDTO> animais = animalRepository.findByOngId(ong.getIdOng());
+
         if (animais.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
-        FilaObj<AnimalVitrineDTO> filaAnimal = new FilaObj<>(animais.size());
-        for (AnimalVitrineDTO animal: animais){
+
+        FilaObj<CardAnimalOngDTO> filaAnimal = new FilaObj<>(animais.size());
+
+        for (CardAnimalOngDTO animal : animais) {
             filaAnimal.insert(animal);
         }
+
         animais.clear();
-        while(!filaAnimal.isEmpty()){
+
+        while (!filaAnimal.isEmpty()) {
             animais.add(filaAnimal.poll());
         }
+
         return ResponseEntity.status(200).body(animais);
 
     }
@@ -104,7 +111,7 @@ public class AnimalController {
     }
 
     @PostMapping
-    public ResponseEntity cadastroAnimal(@RequestBody Animal animalCad) {
+    public ResponseEntity<Animal> cadastroAnimal(@RequestBody Animal animalCad) {
         animalRepository.save(animalCad);
         return ResponseEntity.status(201).body(animalCad);
     }
@@ -131,7 +138,7 @@ public class AnimalController {
 
         return ResponseEntity.status(404).build();
     }
-    
+
     @GetMapping("/vitrine")
     public ResponseEntity getAnimaisVitrine() {
         List<AnimalVitrineDTO> animais = animalRepository.findRandomTop3();
@@ -144,7 +151,7 @@ public class AnimalController {
     }
 
     @GetMapping("/numero-adotados")
-    public ResponseEntity getNumeroAnimaisAdotados() {
+    public ResponseEntity<Integer> getNumeroAnimaisAdotados() {
         Integer numeroAdotados = animalRepository.countByAdotadoTrue();
 
         return ResponseEntity.status(200).body(numeroAdotados);
@@ -168,8 +175,8 @@ public class AnimalController {
     public ResponseEntity getNaoAdotados(@PathVariable Integer id) {
         List<CardAnimalSemDistanciaDTO> animais = animalRepository.findByAdotadoFalse();
         List<InfosAdotanteDTO> infosAdotante = processoAdocaoRepository.findByAdotante_IdAndAnimal_AdotadoFalse(id);
-        List<CardAnimalComDistanciaDTO> cards = new ArrayList();
-        List<Integer> idsFavoritados = new ArrayList();
+        List<CardAnimalComDistanciaDTO> cards = new ArrayList<>();
+        List<Integer> idsFavoritados = new ArrayList<>();
 
         for (InfosAdotanteDTO info : infosAdotante) {
             if (info.getFavoritado()) {
@@ -211,7 +218,7 @@ public class AnimalController {
     }
 
     @GetMapping(value = "/exportacao/{cnpj}", produces = "text/plain")
-    public ResponseEntity geraDocumento(@PathVariable String cnpj) {
+    public ResponseEntity<String> geraDocumento(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
         List<Animal> animais = animalRepository.findByOng(ong);
         String relatorio = ManipulaArquivo.gravarArquivoTxt(animais, ong);
@@ -219,7 +226,7 @@ public class AnimalController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", String.format("attachment; filename = %s-miaudote.txt", ong.getRazaoSocial()));
 
-        return new ResponseEntity(relatorio, headers, HttpStatus.OK);
+        return new ResponseEntity<>(relatorio, headers, HttpStatus.OK);
     }
 
     @PostMapping("/importacao/{cnpj}")
@@ -232,7 +239,7 @@ public class AnimalController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if(animais == null) {
+        if (animais == null) {
             return ResponseEntity.status(204).build();
         }
         for (Animal a : animais) {

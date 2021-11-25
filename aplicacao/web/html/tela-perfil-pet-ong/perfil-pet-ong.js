@@ -1,26 +1,31 @@
 let fotosPet;
 
+function topo() {
+    window.scrollTo(0, 0)
+}
+
 function redirecionarTela() {
     sessionStorage.trocaMenu = 2
     window.location.href = ".././tela-adocoes/adocoes.html"
 }
 
 function organizaFotos() {
-    let imagemPrincipal = fotoPrincipal.src
+    let fotoPrincipal = document.getElementById('fotoPrincipal')
+    let imagemPrincipal = fotoPrincipal.style.backgroundImage;
     let divFotos = document.querySelectorAll('.foto')
     let fotos = document.querySelectorAll('.imagem')
     fotos.forEach(element => {
         if (element.src != "https://i.imgur.com/s8t0M4S.png") {
             element.addEventListener("mouseover", function (event) {
                 divFotos[element.getAttribute('value')].style.borderColor = "#FF7D73"
-                fotoPrincipal.src = element.src
+                fotoPrincipal.style.backgroundImage = `url(${element.src})`
             }, false);
         }
         
         if (element.src != "https://i.imgur.com/s8t0M4S.png") {
             element.addEventListener("mouseout", function (event) {
                 divFotos[element.getAttribute('value')].style.borderColor = "#8F7FAC"
-                fotoPrincipal.src = imagemPrincipal
+                fotoPrincipal.style.backgroundImage = imagemPrincipal
             }, false);
         } 
     });
@@ -49,7 +54,7 @@ function calcIdade(data) {
     return quantos_anos < 0 ? 0 : quantos_anos;
 }
 
-let idAnimal = 61
+let idAnimal = sessionStorage.cardAnimal;
 
 function getInfosPet() {
     axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
@@ -69,10 +74,11 @@ function getInfosPet() {
         campo_vacinacao.innerHTML = response.data.vacinado
         campo_necessidades.innerHTML = response.data.necessidadeEspeciais
         campo_descricao.innerHTML = response.data.descricao
-        img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/perfil-animal/cat-rosa.svg"
+        img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
 
         fotosPet = response.data.urlImagem.split(',')
-        fotoPrincipal.src = fotosPet[0].length > 0 ? fotosPet[0] : "https://i.imgur.com/s8t0M4S.png"
+        let divFotoPrincipal = document.getElementById('fotoPrincipal')
+        divFotoPrincipal.style.backgroundImage = fotosPet[0].length > 0 ? `url(${fotosPet[0]})` : `url(https://i.imgur.com/s8t0M4S.png)`
         let fotos = document.querySelectorAll('.imagem')
         for (let index = 0; index < fotosPet.length; index++) {
             if (index + 1 != fotosPet.length) {
