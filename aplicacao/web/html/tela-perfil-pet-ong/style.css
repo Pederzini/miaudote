@@ -634,6 +634,7 @@ span {
     position: absolute;
     z-index: 3;
     margin-right: 100px;
+    cursor: pointer;
 }
 
 .container-gato {

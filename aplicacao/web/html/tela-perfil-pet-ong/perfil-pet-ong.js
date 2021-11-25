@@ -1,5 +1,9 @@
 let fotosPet;
 
+function topo() {
+    window.scrollTo(0, 0)
+}
+
 function redirecionarTela() {
     sessionStorage.trocaMenu = 2
     window.location.href = ".././tela-adocoes/adocoes.html"
