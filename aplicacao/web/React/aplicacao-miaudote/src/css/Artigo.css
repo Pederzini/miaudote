@@ -12,12 +12,12 @@
 .artigo {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100vw;
-    /* height: 100vh; */
 }
 
 header {
-    width: 100%;
+    width: 100vw;
     position: fixed;
     z-index: 2;
 }
@@ -223,31 +223,73 @@ span {
     margin-top: 4%;
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    height: 62vh;
+    width: 90%;
+    height: 90vh;
 }
 
-.imagem {
+.div-esquerda-artigo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 40%;
+    flex-direction: column;
+    width: 50%;
     height: 100%;
 }
 
-.imagem img {
-    height: 70%;
+.div-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.div-imagem img {
+    width: 100%;
+}
+
+.div-artigos {
+    display: flex;
+    margin-top: 5%;
+    width: 95%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.artigos-relacionados {
+    display: flex;
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: #434343;
+}
+
+.artigo-link {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.artigo-link u {
+    display: flex;
+    font-family: 'Nunito';
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #434343;
+    margin-bottom: 0;
+    margin-left: 1%;;
 }
 
 .texto {
     display: flex;
     flex-direction:column;
-    width: 60%;
+    justify-content: flex-start;
+    width: 50%;
     height: 100%;
-    padding-right: 5%;
 }
 
 .texto p {
+    text-align: justify;
     margin-top: 1.5%;
     font-family: Nunito Sans;
     font-weight: 600;

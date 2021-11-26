@@ -9,8 +9,9 @@ import imgPata from './imagens/Adote/icon-pata.svg';
 import imgMenu from './imagens/Geral/icon-menu.svg';
 import imgSair from './imagens/Geral/sair.svg';
 import imgPlaceholder from './imagens/Geral/placeholder-imagem-pet.svg';
-import imgBtnEsquerda from './imagens/Geral/icon-seta-esquerda.svg';
-import imgBtnDireita from './imagens/Geral/icon-seta-direita.svg';
+import imgArtigo1 from './imagens/Artigos/artigo-1.png';
+import imgPataLaranja from './imagens/Artigos/img-pata-laranja.svg';
+
 import imgFacebook from './imagens/Geral/icon-facebook.svg';
 import imgInstagram from './imagens/Geral/icon-instagram.svg';
 import imgGithub from './imagens/Geral/icon-github.svg';
@@ -92,45 +93,46 @@ function Artigo() {
             </div>
 
             <div className="box-titulo">
-                <Titulo className="titulo" titulo="Titulo do artigo :D" />
+                <Titulo className="titulo" titulo="Adotei, e agora?" />
             </div>
 
             <div className="container-artigo">
-                <div className="imagem">
-                    <img src={imgPlaceholder} alt="" />
+                <div className="div-esquerda-artigo">
+                    <div className="div-imagem">
+                        <img src={imgArtigo1} alt="" />
+                    </div>
+                    <div className="div-artigos">
+                        <div className="artigos-relacionados">
+                            ARTIGOS RELACIONADOS
+                        </div>
+                        <div className="artigo-link">
+                            <img src={imgPataLaranja} alt="" />
+                            <u>Adotei, e agora?</u>
+                        </div>
+                        <div className="artigo-link">
+                            <img src={imgPata} alt="" />
+                            <u>conhecendo seu pet</u>
+                        </div>
+                        <div className="artigo-link">
+                            <img src={imgPata} alt="" />
+                            <u>Patinhas que curam</u>
+                        </div>
+                        <div className="artigo-link">
+                            <img src={imgPata} alt="" />
+                            <u>COVID</u>
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div className="texto">
                     <p>
-                        Domestic kittens are commonly sent to new homes at six to eight weeks of age, but it has been suggested that being with their mother and litter-mates from six to twelve weeks is important for a kitten's social and behavioural development.
-                    </p>
-                    <p>
-                        Cats are natural carnivores and require high amounts of protein in the diet. Kittens are undergoing growth and require high amounts of protein to provide essential amino acids that enable the growth of tissues and muscles.
-                    </p>
-                    <p>
-                        Taurine is an essential amino acid found only in animal tissues and cannot be produced in sufficient amounts by the cat.
-                    </p>
-                    <p>
-                        Vitamin A is required in kitten diets because cats cannot convert carotenes to retinol in the intestinal mucosa because they lack the necessary enzyme; this vitamin must be supplemented in the diet.
-                    </p>
-                    <p>
-                        Since kitten diets are very high in calories, ingredients must be implemented to ensure adequate digestion and utilization of these calories. Choline chloride is an ingredient that maintains fat metabolism. These are the main metabolism aids incorporated into kitten diets to ensure nutrient usage is maximized.
+                    Antes de qualquer coisa, se você está lendo isso e adotou um peludo, PARABÉNS! Resgatar um animal abandonado é um lindo ato de compaixão que deve ser reconhecido e parabenizado, então, mais uma vez, parabéns! Se você está nessa situação e chegou até esse post, é porque se importa com seu novo amigo e quer saber quais são os primeiros passos que você deve dar nessa nova jornada, certo? Pra te ajudarmos, vamos dar algumas 4 dicas importantes que nem todo mundo sabe sobre pet resgatados!
                     </p>
                     <p>
                         Fonte do artigo: [Fonte]
                     </p>
-                </div>
-            </div>
-
-            <div className="paginas">
-                <div className="alterar-pagina">
-                    <img src={imgBtnEsquerda} alt="" />
-                    <p>ARTIGO ANTERIOR</p>
-                </div>
-
-                <div className="alterar-pagina">
-                    <p>PRÓXIMO ARTIGO</p>
-                    <img src={imgBtnDireita} alt="" />
                 </div>
             </div>
 
