@@ -36,25 +36,27 @@ public class CardAnimalComDistanciaDTO {
         this.distancia = GoogleAdapter.calcularDistancia(latitudeOng, longitudeOng, latitudeAdotante, longitudeAdotante);
     }
 
-    public CardAnimalComDistanciaDTO(Boolean favoritado,
-                                     int idAnimal,
-                                     String nome,
-                                     Date dataNascimento,
-                                     String urlImagem,
-                                     String especie,
-                                     String descricao,
-                                     double latitudeOng,
-                                     double longitudeOng,
-                                     double latitudeAdotante,
-                                     double longitudeAdotante,
-                                     Date dataChegada,
-                                     Boolean castrado,
-                                     String porte,
-                                     String tipoPelagem,
-                                     Boolean vacinado,
-                                     String comportamento,
-                                     Boolean adotado,
-                                     String necessidadeEspeciais){
+    public CardAnimalComDistanciaDTO(
+            Boolean favoritado,
+            int idAnimal,
+            String nome,
+            Date dataNascimento,
+            String urlImagem,
+            String especie,
+            String descricao,
+            double latitudeOng,
+            double longitudeOng,
+            double latitudeAdotante,
+            double longitudeAdotante,
+            Date dataChegada,
+            Boolean castrado,
+            String porte,
+            String tipoPelagem,
+            Boolean vacinado,
+            String comportamento,
+            Boolean adotado,
+            String necessidadeEspeciais
+    ){
         this.favoritado = favoritado;
         this.idAnimal = idAnimal;
         this.nome = nome;
@@ -77,8 +79,7 @@ public class CardAnimalComDistanciaDTO {
         DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         int d1 = Integer.parseInt(formatter.format(birthday));
         int d2 = Integer.parseInt(formatter.format(date));
-        int age = (d2 - d1) / 10000;
-        return age;
+        return (d2 - d1) / 10000;
     }
 
     public Boolean getFavoritado() {
@@ -145,4 +146,67 @@ public class CardAnimalComDistanciaDTO {
         this.distancia = distancia;
     }
 
+    public Date getDataChegada() {
+        return dataChegada;
+    }
+
+    public void setDataChegada(Date dataChegada) {
+        this.dataChegada = dataChegada;
+    }
+
+    public Boolean getCastrado() {
+        return castrado;
+    }
+
+    public void setCastrado(Boolean castrado) {
+        this.castrado = castrado;
+    }
+
+    public String getPorte() {
+        return porte;
+    }
+
+    public void setPorte(String porte) {
+        this.porte = porte;
+    }
+
+    public String getTipoPelagem() {
+        return tipoPelagem;
+    }
+
+    public void setTipoPelagem(String tipoPelagem) {
+        this.tipoPelagem = tipoPelagem;
+    }
+
+    public Boolean getVacinado() {
+        return vacinado;
+    }
+
+    public void setVacinado(Boolean vacinado) {
+        this.vacinado = vacinado;
+    }
+
+    public String getComportamento() {
+        return comportamento;
+    }
+
+    public void setComportamento(String comportamento) {
+        this.comportamento = comportamento;
+    }
+
+    public Boolean getAdotado() {
+        return adotado;
+    }
+
+    public void setAdotado(Boolean adotado) {
+        this.adotado = adotado;
+    }
+
+    public String getNecessidadeEspeciais() {
+        return necessidadeEspeciais;
+    }
+
+    public void setNecessidadeEspeciais(String necessidadeEspeciais) {
+        this.necessidadeEspeciais = necessidadeEspeciais;
+    }
 }
