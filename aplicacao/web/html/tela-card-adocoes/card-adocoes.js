@@ -1,19 +1,3 @@
-// =========================RANGE
-// const
-// 	range = document.getElementById('range'),
-// 	rangeV = document.getElementById('rangeV'),
-// 	setValue = ()=>{
-// 		const
-// 			newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-// 			newPosition = 10 - (newValue * 0.2);
-// 		rangeV.innerHTML = `<span>${range.value}</span>`;
-// 		rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-// 	};
-// document.addEventListener("DOMContentLoaded", setValue);
-// range.addEventListener('input', setValue);
-// =========================RANGE
-// MODAL
-// Get the modal
 let dadosCards = []
 let vetorComVetores = []
 let vetorFiltrados = []
@@ -23,6 +7,8 @@ function topo() {
     window.scrollTo(0, 0)
 }
 
+let distMin = 200;
+
 function getInfosCards() {
     axios.get(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).idAdotante}/cards`, {
         headers: {
@@ -31,13 +17,19 @@ function getInfosCards() {
         },
     }).then(response => {
         dadosCards = []
-
+        
         for (let index = 0; index < response.data.length; index++) {
             dadosCards[index] = response.data[index];
+            if(dadosCards[index].distancia < distMin) {
+                distMin = dadosCards[index].distancia + 1;
+            }
         }
 
+        configuraRange(distMin)
+        criarDivVazia()
         criarVetoresDeCards()
         preencherVetorPrincipalComVetores()
+        limparDivVazia()
         mostrarDivs()
     }).catch(function (error) {
         Swal.fire({
@@ -47,6 +39,15 @@ function getInfosCards() {
             confirmButtonText: 'Ok'
         })
     })
+}
+
+function configuraRange(distInicial) {
+    document.getElementById('range').value = distInicial
+    newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
+    newPosition = 10 - (newValue * 0.2);
+    let valorDoRange = document.getElementById('rangeV')
+    valorDistancia.innerHTML = range.value
+    valorDoRange.style.left = `calc(${newValue}% + (${newPosition}px))`;
 }
 
 function mostrarPagina(numero) {
@@ -65,6 +66,22 @@ function mostrarPagina(numero) {
     botaoPagina.classList.remove("active")
 
     document.getElementById(`pagina${numero}`).classList.add("active");
+}
+
+function criarDivVazia() {
+    let divContainer = document.querySelector(".container");
+
+    let div = document.createElement('div')
+        divContainer.appendChild(div)
+        if (div.classList) div.classList.add("cards");
+        else div.className += " cards";
+}
+
+function limparDivVazia() {
+    let divCards = document.querySelectorAll(".cards");
+    divCards.forEach(element => {
+        element.remove()
+    })
 }
 
 function mostrarDivs() {
@@ -154,8 +171,8 @@ function mostrarDivs() {
             if(elementoDoVetorDaPagina.adotado != 1) {
                 divImgPet.style.cursor = "pointer";
                 divImgPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimal`] = divImgPet.id.replace(/\D/g,'');
-                    window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
+                    sessionStorage[`cardAnimalAdotante`] = divImgPet.id.replace(/\D/g,'');
+                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
                 })
             }
 
@@ -167,7 +184,7 @@ function mostrarDivs() {
             if(elementoDoVetorDaPagina.adotado != 1) {
                 divFavoritoCard.style.cursor = "pointer";
                 divFavoritoCard.addEventListener('click', () => {
-                    sessionStorage[`idEdicao`] = divFavoritoCard.id.replace(/\D/g,'');
+                    sessionStorage[`idFavorito`] = divFavoritoCard.id.replace(/\D/g,'');
                     // window.location.href = "../cadastro-pet/editar-pet.html"
                 })
             }
@@ -203,8 +220,8 @@ function mostrarDivs() {
             if (elementoDoVetorDaPagina.adotado != 1) {
                 divInformacoesPet.style.cursor = "pointer";
                 divInformacoesPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimal`] = divInformacoesPet.id.replace(/\D/g,'');
-                    window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
+                    sessionStorage[`cardAnimalAdotante`] = divInformacoesPet.id.replace(/\D/g,'');
+                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
                 })
             }
 
@@ -260,7 +277,7 @@ function mostrarDivs() {
 			let distancia = Math.round(elementoDoVetorDaPagina.distancia * 10) / 10;		
 
             let pDistancia = document.createElement('p')
-            pDistancia.innerHTML = distancia == 1 ? `Está a ${distancia} km de você` : `Está a ${distancia} kms de você`;
+            pDistancia.innerHTML = distancia == 1 ? `Está a ${distancia}km de você` : `Está a ${distancia}kms de você`;
             divContainerDadosDistancia.appendChild(pDistancia);
         })
     })
@@ -343,6 +360,7 @@ function limparFiltros() {
     let divsDeCards = document.querySelectorAll(".cards");
     divsDeCards.forEach(element => { element.remove() });
     document.querySelector(".pagination").remove();
+    criarDivVazia();
 
     if (dadosCards.length > 0) {
         getInfosCards();
@@ -392,6 +410,27 @@ function limparFiltros() {
         div.appendChild(imgNaoEncontrado);
     }
 
+    resetaSelects()
+    document.getElementById('filtroDeFavorito').src = "../../imagens/adote/coracao-filtro.svg"
+
+}
+
+function resetaSelects() {
+    let selects = document.querySelectorAll('select')
+    selects.forEach(element => {
+        element.selectedIndex = 0
+    })
+
+    document.getElementById('range').value = distMin
+}
+
+function trocarCoracao() {
+    let imgFiltroFavorito = document.getElementById('filtroDeFavorito')
+    if(imgFiltroFavorito.src.includes('vermelho')) {
+        imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro.svg"
+    } else {
+        imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro-vermelho.svg"
+    }
 }
 
 function filtrar() {
@@ -407,8 +446,16 @@ function filtrar() {
     let sCor = document.getElementById('selectCor').options[document.getElementById('selectCor').selectedIndex].text.toUpperCase();
     let sPelagem = document.getElementById('selectPelagem').options[document.getElementById('selectPelagem').selectedIndex].text.toUpperCase();
     let sComportamento = document.getElementById('selectComportamento').options[document.getElementById('selectComportamento').selectedIndex].text.toUpperCase();
+    let sDistancia = document.getElementById('valorDistancia').innerHTML.replace(/\D/g, "");
+    let sFavorito = document.getElementById('filtroDeFavorito').src
 
     vetorFiltrados = dadosCards;
+
+    if(sFavorito.includes('vermelho')) {
+        vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+            return elemento.favoritado == true;
+        });
+    }
 
     if (sEspecie != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
@@ -427,8 +474,8 @@ function filtrar() {
 
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
             console.log("entrei no filtro de idade")
-            return elemento.idadeAnimal >= min &&
-                elemento.idadeAnimal <= max;
+            return elemento.idade >= min &&
+                elemento.idade <= max;
         });
     }
 
@@ -459,6 +506,10 @@ function filtrar() {
             return elemento.comportamento.toUpperCase() == sComportamento;
         });
     }
+
+    vetorFiltrados = vetorFiltrados.filter(function (elemento) {
+        return elemento.distancia <= sDistancia;
+    });
 
     let i = 1;
     let numero = 0;

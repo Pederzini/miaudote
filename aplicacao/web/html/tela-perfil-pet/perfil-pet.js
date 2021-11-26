@@ -2,6 +2,8 @@ var telOng;
 var emailOng;
 var nomePet;
 var fotoPet;
+let idAnimal = sessionStorage.cardAnimalAdotante
+let idAdotante = JSON.parse(sessionStorage.login_usuario).idAdotante
 
 // MODAL
 // Get the modal
@@ -34,14 +36,18 @@ window.onclick = function (event) {
 }
 // var idAnimal = 1;
 
-function queroAdotar(idAnimalTeste) {
-  getOngAnimal(idAnimalTeste)
+function topo() {
+  window.scrollTo(0, 0)
+}
+
+function queroAdotar(idAnimal) {
+  getOngAnimal(idAnimal)
   modal.style.display = "block";
   document.querySelector("body").style.overflow = 'hidden';
 }
 
 function queroAjudar() {
-  getOngAnimal(idAnimalTeste)
+  getOngAnimal(idAnimal)
   modalA.style.display = "block";
   document.querySelector("body").style.overflow = 'hidden';
 }
@@ -167,15 +173,8 @@ function calcIdade(data) {
   return quantos_anos < 0 ? 0 : quantos_anos;
 }
 
-// primeiro caso: idAdotante 1 idAnimal 26
-// segundo caso: idAdotante: 1 idAnimal 17
-// terceiro caso: idAdotante: 1 idAnimal 6
-
-let idAdotante = 1
-let idAnimalTeste = 6
-
 function getInfosPet() {
-  axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${idAnimalTeste}/${idAdotante}`, {
+  axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${idAnimal}/${idAdotante}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -223,7 +222,7 @@ function getInfosPet() {
       fotosPet = response.data.animal.urlImagem.split(',')
       nomePet = response.data.animal.nome.toUpperCase()
     }
-    fotoPrincipal.src = fotosPet[0].length > 0 ? fotosPet[0] : "https://i.imgur.com/s8t0M4S.png"
+    document.getElementById('fotoPrincipal').style.backgroundImage = fotosPet[0].length > 0 ? `url(${fotosPet[0]})` : "https://i.imgur.com/s8t0M4S.png"
     let fotos = document.querySelectorAll('.imagem')
     for (let index = 0; index < fotosPet.length; index++) {
       if (index + 1 != fotosPet.length) {
@@ -249,7 +248,7 @@ function getInfosPet() {
 }
 
 function getAdotar() {
-  axios.get(`http://localhost:8080/miaudote/adocoes/verifica-existencia-processo/${idAdotante}/${idAnimalTeste}`, {
+  axios.get(`http://localhost:8080/miaudote/adocoes/verifica-existencia-processo/${idAdotante}/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -267,7 +266,7 @@ function getAdotar() {
   }).catch(error => {
 
     if (error.response.status == 404) {
-      queroAdotar(idAnimalTeste)
+      queroAdotar(idAnimal)
     } else {
       Swal.fire({
         title: error.response,

@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
     <script src="card-adocoes.js"></script>
     <script defer src="../script.js"></script>
 </head>
 
-<body onload="validarSessao(), getInfosCards()">
+<body onload="validarSessao(), criarDivVazia(), getInfosCards()">
     <main>
         <header id="topo">
             <div class="menu">
@@ -92,7 +93,7 @@
                 </div>
                 <div class="favoritos">
                     <p>Favoritos</p>
-                    <img src="../../imagens/adote/coracao-filtro.svg" alt="">
+                    <img id="filtroDeFavorito" src="../../imagens/adote/coracao-filtro.svg" alt="" onclick=trocarCoracao()>
                 </div>
                 <div class="container-select">
                     <div class="select">
@@ -162,19 +163,16 @@
                         <p>Distância</p>
                         <div class="container-localizacao">
                             <div class="distancia">
-                                <p>0Km</p>
+                                <p>1km</p>
 
                             </div>
                             <div class="range-wrap">
                                 <div class="range-value" id="rangeV">
-                                    <span>
-                                        0
-                                    </span>
                                 </div>
-                                <input id="range" type="range" min="200" max="800" value="200" step="1">
+                                <input id="range" type="range" min="1" max="200" value=10 step="1">
                             </div>
                             <div class="distancia">
-                                <p>100Km</p>
+                                <p>200km</p>
                             </div>
                         </div>
                     </div>
@@ -187,13 +185,13 @@
                 </div>
             </div>
             <div class="linha"></div>
-            </div>
+        </div>
         </div>
         <div class="container-pagination">
         </div>
-        <a href="#topo" style="cursor: pointer;">
+        <a>
             <div class="container-gato">
-                <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
+                <svg class="svg-gato" onclick=topo() width="180" height="177" viewBox="0 0 180 177" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1949:4093)">
                         <circle cx="54" cy="120" r="50" fill="white" />
@@ -302,3 +300,23 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>
+
+<script>
+    const
+        range = document.getElementById('range'),
+        rangeV = document.getElementById('rangeV'),
+        setValue = () => {
+            const
+                newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
+                newPosition = 10 - (newValue * 0.2);
+            rangeV.innerHTML = `<span id="valorDistancia">${range.value}</span>`;
+            rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+        };
+    document.addEventListener("DOMContentLoaded", setValue);
+    range.addEventListener('input', setValue);
+
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+
+</script>
