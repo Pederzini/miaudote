@@ -24,6 +24,8 @@ public interface CardAnimalSemDistanciaDTO {
 
     String getTipoPelagem();
 
+    String getCorPelagem();
+
     Boolean getVacinado();
 
     String getComportamento();

@@ -20,6 +20,7 @@ public class CardAnimalComDistanciaDTO {
     private Boolean castrado;
     private String porte;
     private String tipoPelagem;
+    private String corPelagem;
     private Boolean vacinado;
     private String comportamento;
     private Boolean adotado;
@@ -52,6 +53,7 @@ public class CardAnimalComDistanciaDTO {
             Boolean castrado,
             String porte,
             String tipoPelagem,
+            String corPelagem,
             Boolean vacinado,
             String comportamento,
             Boolean adotado,
@@ -69,6 +71,7 @@ public class CardAnimalComDistanciaDTO {
         this.castrado = castrado;
         this.porte = porte;
         this.tipoPelagem = tipoPelagem;
+        this.corPelagem = corPelagem;
         this.vacinado = vacinado;
         this.comportamento = comportamento;
         this.adotado = adotado;
@@ -176,6 +179,14 @@ public class CardAnimalComDistanciaDTO {
 
     public void setTipoPelagem(String tipoPelagem) {
         this.tipoPelagem = tipoPelagem;
+    }
+
+    public String getCorPelagem() {
+        return corPelagem;
+    }
+
+    public void setCorPelagem(String corPelagem) {
+        this.corPelagem = corPelagem;
     }
 
     public Boolean getVacinado() {
