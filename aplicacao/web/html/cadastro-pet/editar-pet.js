@@ -110,7 +110,6 @@ function getInfosPet() {
       "crossorigin": true,
     },
   }).then(response => {
-    console.log(response.data)
     campo_nome.value = response.data.nome;
     response.data.especie.toUpperCase() == "GATO" ? cmp_gato.checked = true : cmp_cachorro.checked = true
     campo_nascimento.value = response.data.dataNascimento
@@ -232,7 +231,8 @@ function atualizaInfosPet() {
     "comportamento": comportamento,
     "adotado": false,
     "necessidadeEspeciais": campo_especial.value == "-" ? "" : campo_especial.value,
-    "urlImagem": fotos
+    "urlImagem": fotos,
+    "fkOng": JSON.parse(sessionStorage.login_usuario).idOng
 
   }).then(response => {
     Swal.fire({
