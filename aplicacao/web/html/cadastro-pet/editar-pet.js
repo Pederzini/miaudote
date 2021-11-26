@@ -1,6 +1,5 @@
 let placeholder = "../../imagens/geral/placeholder-imagem-pet.svg"
 let fotosPet = []
-let fotosUpdate = []
 
 function topo() {
   window.scrollTo(0, 0)
@@ -20,7 +19,6 @@ filePhoto.onchange = evt => {
 
   if (file != placeholder && file) {
     imagePerfil2.src = URL.createObjectURL(file)
-    fotosUpdate[0] = URL.createObjectURL(file)
     arrayFoto[0] = file;
     postImagem(file)
   }
@@ -37,7 +35,6 @@ filePhoto2.onchange = evt => {
 
   if (file2 != placeholder && file2) {
     imagePerfil2.src = URL.createObjectURL(file2)
-    fotosUpdate[1] = URL.createObjectURL(fil2)
     arrayFoto[1] = file2;
     postImagem(file2)
   }
@@ -54,7 +51,6 @@ filePhoto3.onchange = evt => {
 
   if (file3 != placeholder && file3) {
     imagePerfil3.src = URL.createObjectURL(file3)
-    fotosUpdate[2] = URL.createObjectURL(fil3)
     arrayFoto[2] = file3;
     postImagem(file3)
   }
@@ -71,7 +67,6 @@ filePhoto4.onchange = evt => {
 
   if (file4 != placeholder && file4) {
     imagePerfil4.src = URL.createObjectURL(file4)
-    fotosUpdate[3] = URL.createObjectURL(fil4)
     arrayFoto[3] = file4;
     postImagem(file4)
   }
@@ -212,8 +207,8 @@ function atualizaInfosPet() {
 
   let fotos = ""
 
-  for (let index = 0; index < fotosUpdate.length; index++) {
-    const element = fotosUpdate[index];
+  for (let index = 0; index < urlImagem.length; index++) {
+    const element = urlImagem[index];
     if (index != arrayFoto.length - 1) {
       fotos += `${element},`
     } else {
