@@ -57,7 +57,7 @@ public class ManipulaArquivo {
             corpo += String.format("%-10.10s", animal.getDataNascimento());
 
             if (animal.getUrlImagem() != null) {
-                if (animal.getUrlImagem().trim().length() != 0 || animal.getUrlImagem() != null) {
+                if (animal.getUrlImagem().trim().length() != 0) {
                     corpo += String.format("%-1000.1000s", animal.getUrlImagem());
                 }
             } else {
