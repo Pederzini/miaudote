@@ -71,11 +71,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
-.logo-header img {
+.logo-header a {
     width: 80%;
 }
 
@@ -1083,7 +1081,7 @@ footer {
     margin-bottom: 1%;
 }
 
-.coluna-1 img {
+.coluna-1 a {
     width: 40%;
 }
 

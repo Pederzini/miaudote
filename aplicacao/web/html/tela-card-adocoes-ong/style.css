@@ -89,7 +89,7 @@ header {
     justify-content: center;
 }
 
-.logo-header img {
+.logo-header a {
     width: 80%;
 }
 
@@ -968,7 +968,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     justify-content: center;
 }
 
-.coluna-1 img {
+.coluna-1 a {
     width: 180px;
 }
 
