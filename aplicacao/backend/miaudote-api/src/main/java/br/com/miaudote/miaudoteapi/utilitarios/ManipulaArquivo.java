@@ -55,9 +55,16 @@ public class ManipulaArquivo {
             corpo += String.format("%-45.45s", animal.getComportamento());
             corpo += String.format("%-280.280s", animal.getNecessidadeEspeciais());
             corpo += String.format("%-10.10s", animal.getDataNascimento());
-            if (animal.getUrlImagem().trim().length() != 0 || animal.getUrlImagem() != null) {
-                corpo += String.format("03%1000.10000s", animal.getUrlImagem());
+
+            if (animal.getUrlImagem() != null) {
+                if (animal.getUrlImagem().trim().length() != 0 || animal.getUrlImagem() != null) {
+                    corpo += String.format("%-1000.1000s", animal.getUrlImagem());
+                }
+            } else {
+                corpo += String.format("%-1000.1000s", "");
             }
+
+
             exportacao += corpo + "\n";
             contaRegDados++;
         }

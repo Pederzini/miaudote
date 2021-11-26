@@ -25,7 +25,9 @@
     <header id="topo">
       <div class="menu">
         <div class="logo-header">
-          <img src="../../imagens/geral/logo-header.svg" alt="">
+          <a href="../tela-home-ong/home-ong.html">
+            <img src="../../imagens/geral/logo-header.svg" alt="">
+          </a>
 
         </div>
         <div class="text-menu">
@@ -126,9 +128,16 @@
             <label class="texto-checkbox" for="longo">Longo</label>
           </div>
 
-          <label class="titulos-campos" for="cor">Cor de Pelagem</label>
-          <input class="campos" type="text" id="corPelagem" required="required" name="cmp_cor"
-            placeholder="Ex: Marrom, bege, manchas brancas..." />
+          <label class="titulos-campos" for="cor">Cor de Pelagem
+            <select class="campos" name="cor" id="corPelagem" name="cmp_cor" required>
+              <option value="1">Bege</option>
+              <option value="2">Branco</option>
+              <option value="3">Caramelo</option>
+              <option value="4">Cinza</option>
+              <option value="5">Malhado</option>
+              <option value="6">Preto</option>
+            </select>
+          </label>
 
           <label class="titulos-campos" for="castrado">Castrado</label>
           <div class="checkbox">
@@ -217,7 +226,7 @@
       </div>
     </div>
     <div class="div-botao-center">
-      <button class="botao-cadastro" onclick="postCadastroPet()">ATUALIZAR PET</button>
+      <button class="botao-cadastro" onclick="atualizaInfosPet()">ATUALIZAR PET</button>
     </div>
 
   </div>

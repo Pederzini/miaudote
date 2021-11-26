@@ -172,10 +172,10 @@ function mostrarDivs() {
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
             divImgPet.id = `divImgPet${elementoDoVetorDaPagina.id}`
-            if(elementoDoVetorDaPagina.adotado != 1) {
+            if (elementoDoVetorDaPagina.adotado != 1) {
                 divImgPet.style.cursor = "pointer";
                 divImgPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimal`] = divImgPet.id.replace(/\D/g,'');
+                    sessionStorage[`cardAnimal`] = divImgPet.id.replace(/\D/g, '');
                     window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
                 })
             }
@@ -185,10 +185,10 @@ function mostrarDivs() {
             if (divEdicaoCard.classList) divEdicaoCard.classList.add("edicao-card");
             else divEdicaoCard.className += " edicao-card";
             divEdicaoCard.id = `divEdicaoCard${elementoDoVetorDaPagina.id}`
-            if(elementoDoVetorDaPagina.adotado != 1) {
+            if (elementoDoVetorDaPagina.adotado != 1) {
                 divEdicaoCard.style.cursor = "pointer";
                 divEdicaoCard.addEventListener('click', () => {
-                    sessionStorage[`idEdicao`] = divEdicaoCard.id.replace(/\D/g,'');
+                    sessionStorage[`idEdicao`] = divEdicaoCard.id.replace(/\D/g, '');
                     window.location.href = "../cadastro-pet/editar-pet.html"
                 })
             }
@@ -224,7 +224,7 @@ function mostrarDivs() {
             if (elementoDoVetorDaPagina.adotado != 1) {
                 divInformacoesPet.style.cursor = "pointer";
                 divInformacoesPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimal`] = divInformacoesPet.id.replace(/\D/g,'');
+                    sessionStorage[`cardAnimal`] = divInformacoesPet.id.replace(/\D/g, '');
                     window.location.href = "../tela-perfil-pet-ong/perfil-pet-ong.html"
                 })
             }
@@ -397,6 +397,12 @@ function limparFiltros() {
         imgNaoEncontrado.src = "../../imagens/geral/nao-encontrado.svg"
         div.appendChild(imgNaoEncontrado);
     }
+
+    let seletores = document.querySelectorAll("select")
+
+    seletores.forEach(element => {
+        element.value = 1
+    });
 
 }
 
