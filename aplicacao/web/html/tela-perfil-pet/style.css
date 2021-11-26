@@ -285,6 +285,9 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4%;
 }
 
 .foto-principal img {
@@ -797,6 +800,7 @@ span {
     position: absolute;
     z-index: 3;
     margin-right: 100px;
+    cursor: pointer;
 }
 
 .container-gato {

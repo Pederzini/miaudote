@@ -202,6 +202,7 @@ public class AnimalController {
                             animal.getCastrado(),
                             animal.getPorte(),
                             animal.getTipoPelagem(),
+                            animal.getCorPelagem(),
                             animal.getVacinado(),
                             animal.getComportamento(),
                             animal.getAdotado(),
