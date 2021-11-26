@@ -57,8 +57,10 @@ function getInfosCards() {
             dadosCards[index] = response.data[index];
         }
 
+        criarDivVazia()
         criarVetoresDeCards()
         preencherVetorPrincipalComVetores()
+        limparDivVazia()
         mostrarDivs()
     }).catch(function (error) {
         Swal.fire({
@@ -86,6 +88,22 @@ function mostrarPagina(numero) {
     botaoPagina.classList.remove("active")
 
     document.getElementById(`pagina${numero}`).classList.add("active");
+}
+
+function criarDivVazia() {
+    let divContainer = document.querySelector(".container");
+
+    let div = document.createElement('div')
+        divContainer.appendChild(div)
+        if (div.classList) div.classList.add("cards");
+        else div.className += " cards";
+}
+
+function limparDivVazia() {
+    let divCards = document.querySelectorAll(".cards");
+    divCards.forEach(element => {
+        element.remove()
+    })
 }
 
 function mostrarDivs() {
@@ -349,6 +367,7 @@ function limparFiltros() {
     let divsDeCards = document.querySelectorAll(".cards");
     divsDeCards.forEach(element => { element.remove() });
     document.querySelector(".pagination").remove();
+    criarDivVazia();
 
     if (dadosCards.length > 0) {
         getInfosCards();

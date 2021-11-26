@@ -616,6 +616,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     display: flex;
     margin-top: 1%;
     flex-wrap: wrap;
+    align-self: flex-start;
 }
 
 .coluna-card {
