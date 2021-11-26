@@ -4,6 +4,8 @@ import React from 'react'
 
 //import imagens
 import imgLogo from './imagens/Geral/logo-header.svg';
+import imgOsso from './imagens/Geral/icon-osso.svg';
+
 import imgDropdown from './imagens/Adote/dropdown.svg';
 import imgPata from './imagens/Adote/icon-pata.svg';
 import imgMenu from './imagens/Geral/icon-menu.svg';
@@ -39,6 +41,7 @@ function Artigo() {
                         <div className="dropdown">
                             <span>
                                 ARTIGOS
+                                <img className="img-osso" src={imgOsso} alt="" />
                                 <img className="img-seta" src={imgDropdown} alt="" />
                             </span>
 
