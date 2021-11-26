@@ -182,7 +182,7 @@ function atualizaInfosPet() {
 
   let pelagem;
 
-  switch (comp.value) {
+  switch (corPelagem.value) {
     case "6":
       pelagem = "Preto"
       break;
