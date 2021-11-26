@@ -19,12 +19,14 @@
 </head>
 
 <!-- <body onload="validarSessao()"> -->
-<body onload="apiEmail()">
+<body onload="getInfosPet(), getOngAnimal(26)">
     <main>
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
-                    <img src="../../imagens/geral/logo-header.svg" alt="">
+                    <a href="../home-adotante/home-adotante.html">
+                        <img src="../../imagens/geral/logo-header.svg" alt="">
+                      </a>
 
                 </div>
                 <div class="text-menu">
@@ -228,7 +230,9 @@
         <footer>
             <div class="container-footer">
                 <div class="coluna-1">
-                    <img src="../../imagens/geral/logo-header.svg" alt="">
+                    <a href="../home-adotante/home-adotante.html">
+                        <img src="../../imagens/geral/logo-header.svg" alt="">
+                      </a>
                     <div class="text-footer">
                         <P>Copyright© 2021</P>
                     </div>
@@ -299,14 +303,14 @@
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
-                        <button class="btn-filtros" onclick=metodoContato(whatsapp)>
+                        <button class="btn-filtros" onclick="apiWhats('adotar')">
                             <img src="../../imagens/modal/whatsapp_roxo.svg" alt="" style="margin-left: 5%;">
                             <div class="modal-card-text">WHATSAPP</div>                            
                         </button>
                     </div>
 
                     <div class="container-text-btn">                        
-                        <button class="btn-filtros" onclick=metodoContato(whatsapp)>
+                        <button class="btn-filtros" onclick="apiEmail('adotar')">
                             <img src="../../imagens/modal/email_roxo.svg" alt="" style="margin-left: 5%;">
                             <div class="modal-card-text">EMAIL</div>                            
                         </button>
@@ -351,14 +355,14 @@
                 </div>
                 <div class="modal-btns">
                     <div class="container-text-btn">                        
-                        <button class="btn-filtros" onclick=apiWhats()>
+                        <button class="btn-filtros" onclick="apiWhats('ajudar')">
                             <img src="../../imagens/modal/whatsapp_roxo.svg" alt="" style="margin-left: 5%;">
                             <div class="modal-card-text">WHATSAPP</div>                            
                         </button>
                     </div>
 
                     <div class="container-text-btn">                        
-                        <button class="btn-filtros" onclick=apiEmail()>
+                        <button class="btn-filtros" onclick="apiEmail('ajudar')">
                             <img src="../../imagens/modal/email_roxo.svg" alt="" style="margin-left: 5%;">
                             <div class="modal-card-text">EMAIL</div>                            
                         </button>
@@ -369,17 +373,17 @@
             <div class="modal-info">
                 <div class="modal-info-box">
                     
-                    <div > 
+                    <div style="display: flex;"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
                         <div id="modal-nome-ong"></div> 
                     </div>
 
-                    <div class="info-ong"> 
+                    <div class="info-ong" style="display: flex;"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
                          <div id="modal-ano-ong"></div>
                     </div>
 
-                    <div class="info-ong"> 
+                    <div class="info-ong" style="display: flex;"> 
                         <img src="../../imagens/modal/patinha_roxa.svg" alt="">
                         <div id="modal-endereco-ong"></div>
                     </div>

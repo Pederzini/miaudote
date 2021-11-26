@@ -12,8 +12,7 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
+  Route
 } from 'react-router-dom'
 
 import Home from './App.jsx'

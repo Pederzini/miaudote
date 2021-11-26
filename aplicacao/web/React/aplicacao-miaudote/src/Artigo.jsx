@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/Artigo.css';
-import React, { useState, useRef } from 'react'
+import React from 'react'
 
 //import imagens
 import imgLogo from './imagens/Geral/logo-header.svg';

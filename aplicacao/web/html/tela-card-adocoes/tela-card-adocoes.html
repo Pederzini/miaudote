@@ -7,57 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
     <script src="card-adocoes.js"></script>
     <script defer src="../script.js"></script>
 </head>
 
-<body onload="validarSessao()">
-
-<body>
-
-
+<body onload="validarSessao(), getInfosCards()">
     <main>
         <header id="topo">
             <div class="menu">
                 <div class="logo-header">
-                    <img src="../../imagens/geral/logo-header.svg" alt="">
+                    <a href="../home-adotante/home-adotante.html">
+                        <img src="../../imagens/geral/logo-header.svg" alt="">
+                      </a>
 
                 </div>
                 <div class="text-menu">
                     <a href="../home-adotante/home-adotante.html">HOME</a>
-                        <a href="tela-card-adocoes.html">ADOTE</a>
-                        <div class="dropdown">
+                    <a href="tela-card-adocoes.html">ADOTE</a>
+                    <div class="dropdown">
+                        <span>
+                            ARTIGOS
+                            <img class="img-seta" src="../../imagens/adote/dropdown.svg" alt="">
+                        </span>
 
-                            <span>
-                                ARTIGOS
-                                <img class="img-seta" src="../../imagens/adote/dropdown.svg" alt="">
-                            </span>
-
-                            <div class="dropdown-content">
-                                <div class="text-dropdown">
-                                    <img src="../../imagens/adote/icon-pata.svg" alt="">
-                                    <p>ADOTEI, E AGORA?</p>
-
-                                </div>
-                                <div class="text-dropdown">
-                                    <img src="../../imagens/adote/icon-pata.svg" alt="">
-                                    <p>CONHECENDO SEU PET</p>
-
-                                </div>
-                                <div class="text-dropdown">
-                                    <img src="../../imagens/adote/icon-pata.svg" alt="">
-                                    <p>PATINHAS QUE CURAM</p>
-
-                                </div>
-                                <div class="text-dropdown">
-                                    <img src="../../imagens/adote/icon-pata.svg" alt="">
-                                    <p>COVID</p>
-
-                                </div>
-
+                        <div class="dropdown-content">
+                            <div class="text-dropdown">
+                                <img src="../../imagens/adote/icon-pata.svg" alt="">
+                                <p>ADOTEI, E AGORA?</p>
+                            </div>
+                            <div class="text-dropdown">
+                                <img src="../../imagens/adote/icon-pata.svg" alt="">
+                                <p>CONHECENDO SEU PET</p>
+                            </div>
+                            <div class="text-dropdown">
+                                <img src="../../imagens/adote/icon-pata.svg" alt="">
+                                <p>PATINHAS QUE CURAM</p>
+                            </div>
+                            <div class="text-dropdown">
+                                <img src="../../imagens/adote/icon-pata.svg" alt="">
+                                <p>COVID</p>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="container-btn">
                     <button class="btn-login">
@@ -83,7 +76,6 @@
 
         </header>
         <div class="container-header">
-
         </div>
 
         <div class="titulo">
@@ -104,53 +96,70 @@
                 <div class="favoritos">
                     <p>Favoritos</p>
                     <img src="../../imagens/adote/coracao-filtro.svg" alt="">
-
-
                 </div>
                 <div class="container-select">
                     <div class="select">
                         <p>Espécie</p>
-                        <select name="idade" required>
-                            <option value="" disabled selected>Qualquer</option>
-                            <option value="volvo">Qualque um</option>
+                        <select name="idade" id="selectEspecie" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Gato</option>
+                            <option value="3">Cachorro</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Idade</p>
-                        <select name="idade" required>
-                            <option value="" disabled selected>Qualquer</option>
-                            <option value="volvo">Qualque um</option>
+                        <select name="idade" id="selectIdade" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">1 a 3 anos</option>
+                            <option value="3">4 a 7 anos</option>
+                            <option value="4">8 a 10 anos</option>
+                            <option value="5">11 anos ou mais</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Porte</p>
-                        <select name="porte" required>
-                            <option value="" disabled selected>Qualquer</option>
+                        <select name="porte" id="selectPorte" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Pequeno</option>
+                            <option value="3">Médio</option>
+                            <option value="4">Grande</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Cor</p>
-                        <select name="cor" required>
-                            <option value="" disabled selected>Qualquer</option>
+                        <select name="cor" id="selectCor" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Bege</option>
+                            <option value="3">Branco</option>
+                            <option value="4">Caramelo</option>
+                            <option value="5">Cinza</option>
+                            <option value="6">Malhado</option>
+                            <option value="7">Preto</option>
                         </select>
-
                     </div>
                     <div class="select">
                         <p>Tipo Pelagem</p>
-                        <select name="pelagem" required>
-                            <option value="" disabled selected>Qualquer</option>
+                        <select name="pelagem" id="selectPelagem" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Curto</option>
+                            <option value="3">Médio</option>
+                            <option value="4">Longo</option>
                         </select>
 
                     </div>
                     <div class="select">
                         <p>Comportamento</p>
-                        <select name="comportamento" required>
-                            <option value="" disabled selected>Qualquer</option>
+                        <select name="comportamento" id="selectComportamento" required>
+                            <option value="1">Qualquer</option>
+                            <option value="2">Agitado</option>
+                            <option value="3">Brincalhão</option>
+                            <option value="4">Animado</option>
+                            <option value="5">Ansioso</option>
+                            <option value="6">Calmo</option>
                         </select>
-
                     </div>
                     <div class="localizacao">
                         <p>Distância</p>
@@ -169,502 +178,21 @@
                             </div>
                             <div class="distancia">
                                 <p>100Km</p>
-
                             </div>
                         </div>
-
-
                     </div>
-                    <button class="btn-filtrar">FILTRAR</button>
-
+                    <div class="container-btn-filtro">
+                        <div class="container-text-btn">
+                            <button class="btn-limpar-filtros" onclick=limparFiltros()>LIMPAR FILTROS</button>
+                        </div>
+                        <button class="btn-filtrar" onclick=filtrar()>FILTRAR</button>
+                    </div>
                 </div>
-
             </div>
-            <div class="linha">
-
+            <div class="linha"></div>
             </div>
-            <div class="cards">
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-
-                           
-                            <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                           <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="coluna-card">
-                    <div class="linha-card">
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="card-dentro">
-                             <div class="img-pet">
-                                <div class="coracao-card">
-                                    <img id="img-coracao-card" src="../../imagens/geral/icon-coracao-vermelho.svg" alt="">
-    
-                                </div>
-
-                                <img src="../../imagens/pets-teste/cachorro.svg" alt="">
-
-
-
-                            </div>
-                            <div class="btn-card">
-                                <button>ADOTAR</button>
-
-                            </div>
-                            <div class="informacoes-pet">
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/icon-dog.svg" alt="">
-                                    <h1>
-                                        THOR
-                                    </h1>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/cake.svg">
-                                    <p>
-                                        3 ANOS
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/informacao.svg" alt="">
-                                    <p>
-                                        Lorem ipsum dolor sit 
-                                    </p>
-
-                                </div>
-                                <div class="container-dados">
-                                    <img src="../../imagens/geral/distancia.svg" alt="">
-                                    <p>
-                                        ESTÁ A 2 KM DE VOCÊ
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
         </div>
         <div class="container-pagination">
-            <div class="pagination">
-                <a href="#"><img src="../../imagens/adote/icon-seta-esquerda-adote.svg" alt=""></a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#"><img src="../../imagens/adote/icon-seta-direita-adote.svg" alt=""></a>
-            </div>
         </div>
         <a href="#topo" style="cursor: pointer;">
             <div class="container-gato">
@@ -718,7 +246,9 @@
         <footer>
             <div class="container-footer">
                 <div class="coluna-1">
-                    <img src="../../imagens/geral/logo-header.svg" alt="">
+                    <a href="../home-adotante/home-adotante.html">
+                        <img src="../../imagens/geral/logo-header.svg" alt="">
+                      </a>
                     <div class="text-footer">
                         <P>Copyright© 2021</P>
                     </div>
@@ -773,5 +303,7 @@
 
         </footer>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>

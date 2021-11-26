@@ -99,9 +99,15 @@
   font-weight: 700;
 }
 
-.container-acesso a {
-  text-decoration: none;
+.container-acesso button {
+  border: none;
   cursor: pointer;
+  background: none;
+  font-size: 14px;
+  font-family: 'Nunito';
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #8f7fac;
 }
 
 .icon-fechar {
