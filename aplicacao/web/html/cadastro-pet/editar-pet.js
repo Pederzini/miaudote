@@ -204,7 +204,7 @@ function atualizaInfosPet() {
       break;
   }
 
-  let fotos = ""
+  let fotos = null;
 
   for (let index = 0; index < urlImagem.length; index++) {
     const element = urlImagem[index];
