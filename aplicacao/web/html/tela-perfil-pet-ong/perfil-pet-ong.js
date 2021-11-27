@@ -1,4 +1,4 @@
-let fotosPet;
+let fotosPet = [];
 
 function topo() {
     window.scrollTo(0, 0)
@@ -76,9 +76,11 @@ function getInfosPet() {
         campo_descricao.innerHTML = response.data.descricao
         img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
 
-        fotosPet = response.data.urlImagem.split(',')
+        if(response.data.urlImagem != null) {
+            fotosPet = response.data.urlImagem.split(',')
+          }
         let divFotoPrincipal = document.getElementById('fotoPrincipal')
-        divFotoPrincipal.style.backgroundImage = fotosPet[0].length > 0 ? `url(${fotosPet[0]})` : `url(https://i.imgur.com/s8t0M4S.png)`
+        divFotoPrincipal.style.backgroundImage = fotosPet.length > 0 ? `url(${fotosPet[0]})` : "url(https://i.imgur.com/s8t0M4S.png)"
         let fotos = document.querySelectorAll('.imagem')
         for (let index = 0; index < fotosPet.length; index++) {
             if (index + 1 != fotosPet.length) {
