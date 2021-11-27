@@ -17,7 +17,7 @@
     <title>MiauDote - Home</title>
 </head>
 
-<body onload="validarSessao(), getQtdAnimais()">
+<body onload="validarSessao(), getQtdAnimais(), getFeedback()">
     <div class="container-page-1">
         <header id="topo">
             <div class="menu">
@@ -289,29 +289,25 @@
         <div class="feedback">
             
             <div class="image-feedback">
-                <img src="../../imagens/pets-teste/tabata.svg" alt="">
-
-
+                <img id="fotoAdotante" src="https://i.imgur.com/s8t0M4S.png" alt="">
             </div>
 
             <img src="../../imagens/home-adotante/forma-feedback.svg" alt="">
             <div class="container-text">
                 <div class="nome">
 
-                    <p>TABATA FERNANDA</p>
+                    <p id="nomeFeedback">-</p>
                     <div class="estrelas">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-
+                        <img id="starFeed1" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed1" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed1" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed1" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed1" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
                     </div>
 
                 </div>
                 <div class="comentario">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga ex id
-
+                   -
                 </div>
 
             </div>
@@ -319,29 +315,25 @@
         </div>
         <div class="feedback">
             <div class="image-feedback">
-                <img src="../../imagens/pets-teste/tabata.svg" alt="">
-
-
+                <img id="fotoAdotante" src="https://i.imgur.com/s8t0M4S.png" alt="">
             </div>
 
             <img src="../../imagens/home-adotante/forma-feedback.svg" alt="">
             <div class="container-text">
                 <div class="nome">
 
-                    <p>TABATA FERNANDA</p>
+                    <p id="nomeFeedback">-</p>
                     <div class="estrelas">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-                        <img src="../../imagens/home-adotante/estrela.svg" alt="">
-
+                        <img id="starFeed2" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed2" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed2" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed2" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
+                        <img id="starFeed2" src="../../imagens/home-adotante/estrela-cinza.svg" alt="">
                     </div>
 
                 </div>
                 <div class="comentario">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga ex id
-
+                    -
                 </div>
 
             </div>
@@ -349,15 +341,6 @@
         </div>
 
     </div>
-
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-    </div>
-
     <a href="#topo" style="cursor: pointer;">
         <div class="container-gato">
             <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
@@ -466,38 +449,6 @@
 
     </footer>
 
-
-
-
 </body>
 
 </html>
-
-<!-- <script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-</script> -->
