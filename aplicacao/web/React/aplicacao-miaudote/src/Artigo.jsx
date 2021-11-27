@@ -131,16 +131,27 @@ function Artigo() {
 
                 <div className="texto">
                     <p>
-                    Antes de qualquer coisa, se você está lendo isso e adotou um peludo, PARABÉNS! Resgatar um animal abandonado é um lindo ato de compaixão que deve ser reconhecido e parabenizado, então, mais uma vez, parabéns! Se você está nessa situação e chegou até esse post, é porque se importa com seu novo amigo e quer saber quais são os primeiros passos que você deve dar nessa nova jornada, certo? Pra te ajudarmos, vamos dar algumas 4 dicas importantes que nem todo mundo sabe sobre pet resgatados!
+                    Antes de qualquer coisa, se você está lendo isso e adotou um peludo, PARABÉNS! Resgatar um animal abandonado é um lindo ato de compaixão que deve ser reconhecido e parabenizado, então, mais uma vez, parabéns! Se você está nessa situação e chegou até esse post, é porque se importa com seu novo amigo e quer saber quais são os primeiros passos que você deve dar nessa nova jornada, certo? Pra te ajudarmos, vamos dar algumas dicas importantes que nem todo mundo sabe sobre pet resgatados!
+                   <br/> <br/> Prepare sua casa! 
+Você pode achar que, apesar de sua casa não ser a mais bagunçada do mundo, ela já está pronta para receber um pet, mas o que muitas pessoas não sabem, é que existem vários objetos e itens que todo mundo tem em casa que são tóxicos e podem fazer mal à qualquer animal.
+Além de preparar sua casa pensando no que pode fazer mal ao seu novo pet, é importante que você pense em você também, certo? Afinal, acredito que você não acharia legal se chegasse em casa e encontrasse aquele vaso que sua bisavó te deu em cacos, no chão. 
+<br/> <br/>
+ Cuidados com sua saúde e do seu novo pet
+Agora, se você resgatou um peludinho das ruas, é importante que você tome algumas medidas o mais breve possível para evitar que ele, você e as pessoas que convivem com você tenham qualquer problema de saúde.
+Então, leve o novo membro da sua família em uma consulta veterinária o quanto antes para fazer um checkup e garantir que esteja tudo certo com a saúde dele! Dessa forma, você previne que ele e sua família tenha alguma doença. Muitos dos cãezinhos que vivem nas ruas são contaminados com doenças que podem ser transmitidas para humanos.
+<br/> <br/>
+
+Por fim, para você ganhar o prêmio de adotante do ano é necessário… Estar sempre com ele! Sim, um bom companheiro está sempre por perto, observando, cuidando e mimando muito seu pet, né? A sua verdadeira missão é fazer seu animalzinho se sentir especial todos os dias!
                     </p>
-                    <p>
-                        Fonte do artigo: [Fonte]
+                    <p id="fonte">
+                    FONTE: https://petanjo.com/blog/adotei-um-cachorro-e-agora/
+                    <br/>FONTE: https://www.maxtotalalimentos.com.br/dica-cao/comportamento/acabou-adotar-cachorro-10-dicas-para-ser-mamae-do-ano/
                     </p>
                 </div>
             </div>
 
             <a href="#topo" >
-                <div class="container-gato">
+                {/* <div class="container-gato">
                     <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_1949:4093)">
@@ -185,7 +196,7 @@ function Artigo() {
                             </filter>
                         </defs>
                     </svg>
-                </div>
+                </div> */}
             </a>
 
             <div className="footer">

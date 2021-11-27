@@ -250,13 +250,13 @@ span {
 }
 
 .div-imagem img {
-    width: 100%;
+    width: 90%;
 }
 
 .div-artigos {
     display: flex;
     margin-top: 5%;
-    width: 95%;
+    width: 85%;
     flex-direction: column;
     justify-content: flex-start;
 }
@@ -269,6 +269,12 @@ span {
     text-transform: uppercase;
     margin-bottom: 0;
     color: #434343;
+}
+
+#fonte {
+    margin-top: 2%;
+    font-size: 12px;
+    text-align: unset;
 }
 
 .artigo-link {
@@ -298,10 +304,10 @@ span {
 
 .texto p {
     text-align: justify;
-    margin-top: 1.5%;
+    /* margin-top: 1.5%; */
     font-family: Nunito Sans;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 0;
     color: #434343;
 }
