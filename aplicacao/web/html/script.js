@@ -14,9 +14,9 @@ function validarSessao() {
         let nomeResponsa = JSON.parse(login_usuario).nomeResponsavel;
         let nome = document.getElementById("nome");
         if (nomeResponsa == undefined) {
-            nome.innerHTML = `${JSON.parse(login_usuario).nome}`;
+            nome.innerHTML = `${JSON.parse(login_usuario).nome.split(" ")[0]}`;
         } else {
-            nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel}`;  
+            nome.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel.split(" ")[0]}`;  
         }        
     } 
 }
