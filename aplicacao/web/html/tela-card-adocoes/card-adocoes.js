@@ -2,12 +2,69 @@ let dadosCards = []
 let vetorComVetores = []
 let vetorFiltrados = []
 let contador = 1;
+let idFavorito;
 
 function topo() {
     window.scrollTo(0, 0)
 }
 
-let distMin = 200;
+function verificarFavorito(idAnimalFavorito, favoritado) {
+    if (favoritado) {
+        desfavoritar(idAnimalFavorito);
+        window[`petFavoritado${idAnimalFavorito}`] = false
+    } else {
+        favoritar(idAnimalFavorito);
+        window[`petFavoritado${idAnimalFavorito}`] = true
+    }
+}
+
+function favoritar(idAnimalFavorito, favoritado) {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimalFavorito}`, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true,
+        },
+    }).then(response => {
+        let cardsDentro = document.querySelectorAll(".favorito-card");
+        cardsDentro.forEach(elemento => {
+            if (elemento.id.replace(/\D/g, "") == idAnimalFavorito) {
+                elemento.querySelector('img').src = "../../imagens/geral/icon-coracao-vermelho.svg"
+            }
+        })
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao favoritar o animal. Tente novamente!',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+function desfavoritar(idAnimalFavorito) {
+    axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimalFavorito}`, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true,
+        },
+    }).then(response => {
+        let cardsDentro = document.querySelectorAll(".favorito-card");
+        cardsDentro.forEach(elemento => {
+            if (elemento.id.replace(/\D/g, "") == idAnimalFavorito) {
+                elemento.querySelector('img').src = "../../imagens/geral/coracao-cinza.svg"
+            }
+        })
+    }).catch(function (error) {
+        Swal.fire({
+            title: error.response,
+            text: 'Erro ao desfavoritar o animal. Tente novamente!',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    })
+}
+
+let distMax = 0;
 
 function getInfosCards() {
     axios.get(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).idAdotante}/cards`, {
@@ -17,15 +74,15 @@ function getInfosCards() {
         },
     }).then(response => {
         dadosCards = []
-        
+
         for (let index = 0; index < response.data.length; index++) {
             dadosCards[index] = response.data[index];
-            if(dadosCards[index].distancia < distMin) {
-                distMin = dadosCards[index].distancia + 1;
+            if (dadosCards[index].distancia > distMax) {
+                distMax = dadosCards[index].distancia + 1;
             }
         }
 
-        configuraRange(distMin)
+        configuraRange(distMax)
         criarDivVazia()
         criarVetoresDeCards()
         preencherVetorPrincipalComVetores()
@@ -44,7 +101,7 @@ function getInfosCards() {
 function configuraRange(distInicial) {
     document.getElementById('range').value = distInicial
     newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
-    newPosition = 10 - (newValue * 0.2);
+        newPosition = 10 - (newValue * 0.2);
     let valorDoRange = document.getElementById('rangeV')
     valorDistancia.innerHTML = range.value
     valorDoRange.style.left = `calc(${newValue}% + (${newPosition}px))`;
@@ -72,9 +129,9 @@ function criarDivVazia() {
     let divContainer = document.querySelector(".container");
 
     let div = document.createElement('div')
-        divContainer.appendChild(div)
-        if (div.classList) div.classList.add("cards");
-        else div.className += " cards";
+    divContainer.appendChild(div)
+    if (div.classList) div.classList.add("cards");
+    else div.className += " cards";
 }
 
 function limparDivVazia() {
@@ -168,36 +225,36 @@ function mostrarDivs() {
             if (divImgPet.classList) divImgPet.classList.add("img-pet");
             else divImgPet.className += " img-pet";
             divImgPet.id = `divImgPet${elementoDoVetorDaPagina.idAnimal}`
-            if(elementoDoVetorDaPagina.adotado != 1) {
+            if (elementoDoVetorDaPagina.adotado != 1) {
                 divImgPet.style.cursor = "pointer";
                 divImgPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimalAdotante`] = divImgPet.id.replace(/\D/g,'');
+                    sessionStorage[`cardAnimalAdotante`] = divImgPet.id.replace(/\D/g, '');
                     window.location.href = "../tela-perfil-pet/perfil-pet.html"
                 })
             }
+
+            window[`petFavoritado${elementoDoVetorDaPagina.idAnimal}`] = elementoDoVetorDaPagina.favoritado
 
             let divFavoritoCard = document.createElement('div')
             divCardDentro.appendChild(divFavoritoCard)
             if (divFavoritoCard.classList) divFavoritoCard.classList.add("favorito-card");
             else divFavoritoCard.className += " favorito-card";
             divFavoritoCard.id = `divFavoritoCard${elementoDoVetorDaPagina.idAnimal}`
-            if(elementoDoVetorDaPagina.adotado != 1) {
-                divFavoritoCard.style.cursor = "pointer";
-                divFavoritoCard.addEventListener('click', () => {
-                    sessionStorage[`idFavorito`] = divFavoritoCard.id.replace(/\D/g,'');
-                    // window.location.href = "../cadastro-pet/editar-pet.html"
-                })
-            }
+            divFavoritoCard.style.cursor = "pointer";
+            divFavoritoCard.addEventListener('click', () => {
+                idFavorito = divFavoritoCard.id.replace(/\D/g, '');
+                verificarFavorito(idFavorito, window[`petFavoritado${elementoDoVetorDaPagina.idAnimal}`])
+            })
 
             let imgFavoritoCard = document.createElement('img')
             divFavoritoCard.appendChild(imgFavoritoCard)
             if (imgFavoritoCard.classList) imgFavoritoCard.classList.add("img-favoritar-card");
             else imgFavoritoCard.className += " img-favoritar-card";
-			elementoDoVetorDaPagina.favoritado == true ? imgFavoritoCard.src = "../../imagens/geral/icon-coracao-vermelho.svg" : imgFavoritoCard.src = "../../imagens/geral/coracao-cinza.svg";
+            elementoDoVetorDaPagina.favoritado == true ? imgFavoritoCard.src = "../../imagens/geral/icon-coracao-vermelho.svg" : imgFavoritoCard.src = "../../imagens/geral/coracao-cinza.svg";
 
             let imagemAnimal;
 
-            if (elementoDoVetorDaPagina.urlImagem === null) {
+            if (elementoDoVetorDaPagina.urlImagem === null || elementoDoVetorDaPagina.urlImagem == "") {
                 imagemAnimal = "../../imagens/geral/placeholder-imagem-pet.svg";
             } else if (elementoDoVetorDaPagina.urlImagem.includes(',')) {
                 let imagem = elementoDoVetorDaPagina.urlImagem.split(',')
@@ -220,7 +277,7 @@ function mostrarDivs() {
             if (elementoDoVetorDaPagina.adotado != 1) {
                 divInformacoesPet.style.cursor = "pointer";
                 divInformacoesPet.addEventListener('click', () => {
-                    sessionStorage[`cardAnimalAdotante`] = divInformacoesPet.id.replace(/\D/g,'');
+                    sessionStorage[`cardAnimalAdotante`] = divInformacoesPet.id.replace(/\D/g, '');
                     window.location.href = "../tela-perfil-pet/perfil-pet.html"
                 })
             }
@@ -265,16 +322,16 @@ function mostrarDivs() {
             pDescAnimal.innerHTML = elementoDoVetorDaPagina.descricao;
             divContainerDadosDesc.appendChild(pDescAnimal);
 
-			let divContainerDadosDistancia = document.createElement('div')
+            let divContainerDadosDistancia = document.createElement('div')
             divInformacoesPet.appendChild(divContainerDadosDistancia)
             if (divContainerDadosDistancia.classList) divContainerDadosDistancia.classList.add("container-dados");
             else divContainerDadosDistancia.className += " container-dados";
 
-			let imgIconeDistancia = document.createElement('img')
+            let imgIconeDistancia = document.createElement('img')
             imgIconeDistancia.src = "../../imagens/geral/distancia.svg";
             divContainerDadosDistancia.appendChild(imgIconeDistancia)
 
-			let distancia = Math.round(elementoDoVetorDaPagina.distancia * 10) / 10;		
+            let distancia = Math.round(elementoDoVetorDaPagina.distancia * 10) / 10;
 
             let pDistancia = document.createElement('p')
             pDistancia.innerHTML = distancia == 1 ? `Está a ${distancia}km de você` : `Está a ${distancia}kms de você`;
@@ -421,12 +478,12 @@ function resetaSelects() {
         element.selectedIndex = 0
     })
 
-    document.getElementById('range').value = distMin
+    document.getElementById('range').value = distMax
 }
 
 function trocarCoracao() {
     let imgFiltroFavorito = document.getElementById('filtroDeFavorito')
-    if(imgFiltroFavorito.src.includes('vermelho')) {
+    if (imgFiltroFavorito.src.includes('vermelho')) {
         imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro.svg"
     } else {
         imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro-vermelho.svg"
@@ -451,7 +508,7 @@ function filtrar() {
 
     vetorFiltrados = dadosCards;
 
-    if(sFavorito.includes('vermelho')) {
+    if (sFavorito.includes('vermelho')) {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
             return elemento.favoritado == true;
         });

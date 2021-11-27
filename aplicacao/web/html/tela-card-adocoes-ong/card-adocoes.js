@@ -219,7 +219,7 @@ function mostrarDivs() {
 
             let imagemAnimal;
 
-            if (elementoDoVetorDaPagina.url === null) {
+            if (elementoDoVetorDaPagina.url === null || elementoDoVetorDaPagina.url == "") {
                 imagemAnimal = "../../imagens/geral/placeholder-imagem-pet.svg";
             } else if (elementoDoVetorDaPagina.url.includes(',')) {
                 let imagem = elementoDoVetorDaPagina.url.split(',')

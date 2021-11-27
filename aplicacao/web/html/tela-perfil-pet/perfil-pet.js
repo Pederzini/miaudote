@@ -2,6 +2,7 @@ var telOng;
 var emailOng;
 var nomePet;
 var fotoPet;
+let fotosPet = [];
 let idAnimal = sessionStorage.cardAnimalAdotante
 let idAdotante = JSON.parse(sessionStorage.login_usuario).idAdotante
 
@@ -198,7 +199,9 @@ function getInfosPet() {
       img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
 
-      fotosPet = response.data.urlImagem.split(',')
+      if(response.data.urlImagem != null) {
+        fotosPet = response.data.urlImagem.split(',')
+      }
       nomePet = response.data.nome.toUpperCase();
     } else {
       console.log(response.data)
@@ -219,10 +222,12 @@ function getInfosPet() {
       img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
 
-      fotosPet = response.data.animal.urlImagem.split(',')
+      if(response.data.animal.urlImagem != null) {
+        fotosPet = response.data.animal.urlImagem.split(',')
+      }
       nomePet = response.data.animal.nome.toUpperCase()
     }
-    document.getElementById('fotoPrincipal').style.backgroundImage = fotosPet[0].length > 0 ? `url(${fotosPet[0]})` : "https://i.imgur.com/s8t0M4S.png"
+    document.getElementById('fotoPrincipal').style.backgroundImage = fotosPet.length > 0 ? `url(${fotosPet[0]})` : "url(https://i.imgur.com/s8t0M4S.png)"
     let fotos = document.querySelectorAll('.imagem')
     for (let index = 0; index < fotosPet.length; index++) {
       if (index + 1 != fotosPet.length) {
@@ -233,7 +238,7 @@ function getInfosPet() {
 
     //envia nome e foto do animal
     
-    fotoPet = fotosPet[0].length > 0 ? fotosPet[0] : ""
+    fotoPet = fotosPet.length > 0 ? fotosPet[0] : ""
     // apiWhats()
     // apiEmail()
   }).catch(function (error) {
