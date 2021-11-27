@@ -10,6 +10,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.swal2-warning {
+  height: 6rem;
+  width: 6rem;
+}
+
 *,
 *:before,
 *:after {
