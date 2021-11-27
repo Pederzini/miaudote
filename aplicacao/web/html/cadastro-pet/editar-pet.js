@@ -18,7 +18,7 @@ filePhoto.onchange = evt => {
   const [file] = filePhoto.files
 
   if (file != placeholder && file) {
-    imagePerfil2.src = URL.createObjectURL(file)
+    imagePerfil1.src = URL.createObjectURL(file)
     arrayFoto[0] = file;
     postImagem(file)
   }
@@ -143,6 +143,7 @@ function getInfosPet() {
           }
         }
       }
+      urlImagem = fotosPet
     }
 
   }).catch(function (error) {
@@ -204,7 +205,8 @@ function atualizaInfosPet() {
       break;
   }
 
-  let fotos = null;
+  let fotos = "";
+  console.log(fotos)
 
   for (let index = 0; index < urlImagem.length; index++) {
     const element = urlImagem[index];
@@ -231,9 +233,7 @@ function atualizaInfosPet() {
     "comportamento": comportamento,
     "adotado": false,
     "necessidadeEspeciais": campo_especial.value == "-" ? "" : campo_especial.value,
-    "urlImagem": fotos,
-    "fkOng": JSON.parse(sessionStorage.login_usuario).idOng
-
+    "urlImagem": fotos == "" ? null : fotos
   }).then(response => {
     Swal.fire({
       title: 'Dados atualizados com sucesso!',
