@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -52,11 +53,15 @@ public class ProcessoAdocaoController {
 
         Collections.shuffle(feedbacks);
 
+        List<FeedbackDTO> feedbackSelecionados = feedbacks.stream().
+                filter(feedbackDTO -> feedbackDTO.getFeedback() != null || feedbackDTO.getFeedback().length() != 0)
+                .limit(2).collect(Collectors.toList());
+
         if (feedbacks.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
 
-        return ResponseEntity.status(200).body(feedbacks);
+        return ResponseEntity.status(200).body(feedbackSelecionados);
     }
 
     @GetMapping("/{cnpj}/animais-favoritados")
