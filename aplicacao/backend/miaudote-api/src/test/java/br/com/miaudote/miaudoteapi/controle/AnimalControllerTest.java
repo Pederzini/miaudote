@@ -1,25 +1,30 @@
 package br.com.miaudote.miaudoteapi.controle;
 
 import br.com.miaudote.miaudoteapi.dominio.Animal;
+import br.com.miaudote.miaudoteapi.dominio.Ong;
+import br.com.miaudote.miaudoteapi.dto.AnimalDTO;
+import br.com.miaudote.miaudoteapi.dto.AnimalVitrineDTO;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
 import org.apache.catalina.LifecycleState;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = {AnimalController.class, AnimalRepository.class, Animal.class, OngRepository.class})
+@SpringBootTest(classes = {AnimalController.class, AnimalRepository.class, Animal.class, OngRepository.class,
+        OngRepository.class, ProcessoAdocaoRepository.class})
 class AnimalControllerTest {
     @Autowired
     AnimalController controller;
@@ -49,16 +54,24 @@ class AnimalControllerTest {
     @Test
     void get_Animal_status200ComCorpo(){
         Integer id = 100;
-        Optional<Animal> animalMock = Optional.ofNullable(new Animal());
-        when(repository.existsById(id)).thenReturn(true);
-        when(repository.findById(id)).thenReturn(animalMock);
-
+        Animal animalMock = mock(Animal.class);
+        when(repository.findById(id)).thenReturn(Optional.ofNullable(animalMock));
         ResponseEntity response = controller.getAnimal(id);
 
         assertEquals(200,response.getStatusCodeValue());
         assertTrue(response.hasBody());
-        assertEquals(animalMock, response.getBody());
+    }
 
+    @Test
+    void get_AnimaisOng_status204SemCorpo(){
+        String cnpj = "";
+        Ong ongMock = mock(Ong.class);
+        when(ongRepository.findByCnpj(cnpj)).thenReturn(ongMock);
+        when(repository.findByOngId(ongMock.getIdOng())).thenReturn(new ArrayList<>());
+
+        ResponseEntity response = controller.getAnimalOng(cnpj);
+
+        assertEquals(204,response.getStatusCodeValue());
     }
 
 }

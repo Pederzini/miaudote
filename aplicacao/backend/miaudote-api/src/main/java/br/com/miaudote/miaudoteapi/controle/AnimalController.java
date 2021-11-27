@@ -132,6 +132,9 @@ public class AnimalController {
     ) {
         if (animalRepository.existsById(id)) {
             animalAlterado.setIdAnimal(id);
+            Animal animalOriginal = animalRepository.getById(id);
+            Ong ong = animalOriginal.getOng();
+            animalAlterado.setOng(ong);
             animalRepository.save(animalAlterado);
             return ResponseEntity.status(200).build();
         }
