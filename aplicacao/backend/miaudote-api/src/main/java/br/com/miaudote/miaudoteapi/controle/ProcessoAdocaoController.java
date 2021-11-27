@@ -54,7 +54,7 @@ public class ProcessoAdocaoController {
         Collections.shuffle(feedbacks);
 
         List<FeedbackDTO> feedbackSelecionados = feedbacks.stream().
-                filter(feedbackDTO -> feedbackDTO.getFeedback() != null || feedbackDTO.getFeedback().length() != 0)
+                filter(feedbackDTO -> feedbackDTO.getAvaliacaoSite() > 0)
                 .limit(2).collect(Collectors.toList());
 
         if (feedbacks.isEmpty()) {
