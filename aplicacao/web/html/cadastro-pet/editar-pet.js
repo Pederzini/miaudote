@@ -22,12 +22,6 @@ filePhoto.onchange = evt => {
     arrayFoto[0] = file;
     postImagem(file)
   }
-
-  // if (file) {
-  //   imagePerfil1.src = URL.createObjectURL(file)
-  //   arrayFoto[0] = file;
-  //   postImagem(file)
-  // }
 }
 
 filePhoto2.onchange = evt => {
@@ -38,12 +32,6 @@ filePhoto2.onchange = evt => {
     arrayFoto[1] = file2;
     postImagem(file2)
   }
-
-  // if (file2) {
-  //   imagePerfil2.src = URL.createObjectURL(file2)
-  //   arrayFoto[1] = file2;
-  //   postImagem(file2)
-  // }
 }
 
 filePhoto3.onchange = evt => {
@@ -54,12 +42,6 @@ filePhoto3.onchange = evt => {
     arrayFoto[2] = file3;
     postImagem(file3)
   }
-
-  // if (file3) {
-  //   imagePerfil3.src = URL.createObjectURL(file3)
-  //   arrayFoto[2] = file3;
-  //   postImagem(file3)
-  // }
 }
 
 filePhoto4.onchange = evt => {
@@ -70,12 +52,6 @@ filePhoto4.onchange = evt => {
     arrayFoto[3] = file4;
     postImagem(file4)
   }
-
-  // if (file4) {
-  //   imagePerfil4.src = URL.createObjectURL(file4)
-  //   arrayFoto[3] = file4;
-  //   postImagem(file4)
-  // }
 }
 
 var urlImagem = [];

@@ -9,6 +9,10 @@
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
   <link rel="stylesheet" href="cadastro-pet.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script defer src="../script.js"></script>
   <script defer src="cadastro-pet.js"></script>
 
@@ -74,6 +78,15 @@
         
           <label class="titulos-campos" for="nome">Nome do Pet</label>
           <input class="campos" type="text" id="campo_nome" placeholder="Nome do Pet" required="required" name="cmp_nome" />
+
+          <label class="titulos-campos" for="especie">Espécie</label>
+          <div class="checkbox">
+            <input class="campos-checkbox" type="radio" id="cmp_gato" name="cmp_especie" value="gato">
+            <label class="texto-checkbox" for="gato">Gato</label>
+
+            <input class="campos-checkbox2" type="radio" id="cmp_cachorro" name="cmp_especie" value="cachorro">
+            <label class="texto-checkbox" for="cachorro">Cachorro</label>
+          </div>
 
           <label class="titulos-campos" for="nasc">Data de Nascimento</label>
           <input class="campos" type="date" id="campo_nascimento" required="required" name="cmp_nasc" />
@@ -154,8 +167,8 @@
 
           <div class="grid-imagem1">
             <div class="">
-              <div class="uploader" onclick="$('#filePhoto').click()">
-                  <img id="imagePerfil" src="" style="object-fit: contain;"/>
+              <div class="uploader" onclick="('#filePhoto').click()">
+                  <img id="imagePerfil1" src="" style="object-fit: contain;"/>
                   <input type="file" name="userprofile_picture" id="filePhoto" />
               </div>
             </div>
@@ -184,15 +197,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="div-arquivo-upload"> 
-            <div class="div-botao-cadastro">
-              <button class="botao-cadastro-selecao" onclick="selecionar()">SELECIONAR IMAGEM</button>
-            </div>
-            <div class="div-botao-cadastro-upload">
-              <button class="botao-cadastro-selecao" onclick="selecionar()">ENVIAR IMAGEM</button>
-            </div>
-          </div> -->
 
           <p class="texto-sugestao margem-texto">*Caso não complete as fotos, a imagem exibida será a imagem do cachorro exibido acima</p>
 
