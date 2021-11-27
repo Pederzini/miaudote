@@ -11,13 +11,18 @@ import iconInfo from '../imagens/Geral/icon-info.png';
 
 function Card(props) {
 
+    let imagem = props.image == null ? "https://i.imgur.com/s8t0M4S.png" : props.image
+
     function linkTela() {
         window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/login.html')
     }
 
     const imagemCard = {
-        backgroundImage: `url(${props.image})`
+        
+        backgroundImage: `url(${imagem})`
     }
+
+
 
     return (
 
