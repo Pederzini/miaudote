@@ -3,6 +3,9 @@ let feedbacks = [];
 function referenciaMeuPets() {
     window.location.href = "../tela-card-adocoes/tela-card-adocoes.html"
 }
+function topo() {
+    window.scrollTo(0, 0)
+  }
 
 function getQtdAnimais() {
 

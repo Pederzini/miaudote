@@ -703,16 +703,14 @@ header{
   width: 40%;
 }
 
-.text-footer P{
-  font-family: Nunito Sans;
+.text-footer P {
+  font-family: 'Nunito';
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 0.01em;
   color: #434343;
-  margin-top: 5%;
-
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .text-footer {
@@ -722,13 +720,14 @@ header{
   align-items: flex-end;
 }
 
-.coluna-2{
+.coluna-2 {
   width: 33%;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-transform: uppercase;
 }
 
 .container-rede-sociais{
@@ -745,16 +744,20 @@ header{
   margin: 2%;
 }
 
+.container-rede-sociais a {
+  margin: 2%;
+}
+
 .coluna-2 p {
-  font-family: Nunito Sans;
+  font-family: 'Nunito';
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
   letter-spacing: 0.01em;
   color: #434343;
-  margin-top: 6%;
-
+  margin-top: 10px;
+  overflow: hidden;
 }
 
 .coluna-3{
@@ -768,24 +771,21 @@ header{
 }
 
 .container-contato p {
-  font-family: Nunito Sans;
+  font-family: 'Nunito';
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px;
   letter-spacing: 0.01em;
   color: #434343;
-
 }
 
 .alinhamento-contato {
   height: 100%;
-  width: 30%;
+  width: 46%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
- justify-content: center;
- 
+  justify-content: space-between;
+  text-transform: uppercase;
 }
 
 .container-contato {
@@ -798,34 +798,30 @@ header{
 }
 
 .text-titulo-contato {
-  font-family: Nunito Sans;
+  font-family: 'Nunito';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: 0.01em;
   color: #434343;
-
+  overflow: hidden;
 }
 
 .container-btn-contato{
   height: 100%;
-  width: 10%;
-  
+  width: 10%;  
 }
 
-
 .btn-contato {
-  height: 20.994733810424805px;
-  width: 21.818056106567383px;
+  height: 20px;
+  width: 20px;
   border-radius: 100%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
   cursor: pointer;
-  margin-left: 6%;
 }
-

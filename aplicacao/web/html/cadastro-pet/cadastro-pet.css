@@ -15,6 +15,10 @@ html {
   width: 6rem;
 }
 
+.swal2-icon-content {
+  font-size: 3.7em !important;
+}
+
 *,
 *:before,
 *:after {
@@ -704,7 +708,11 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: row;  
+}
+
+.container-rede-sociais a {
+  margin: 2%;
 }
 
 .container-rede-sociais img {
@@ -745,7 +753,7 @@ h3 {
 
 .alinhamento-contato {
   height: 100%;
-  width: 30%;
+  width: 46%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

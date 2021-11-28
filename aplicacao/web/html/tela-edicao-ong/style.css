@@ -1,51 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
 
-body{
+body {
     overflow-x: hidden;
 }
 
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  font-family: Nunito Sans;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: Nunito Sans;
+    scroll-behavior: smooth;
 }
-html{
+
+html {
     /*PARA O ONLY PAGE*/
-       scroll-behavior: smooth; 
-   }
-  
- 
+    scroll-behavior: smooth;
+}
+
+
 
 /* width */
 ::-webkit-scrollbar {
     width: 17.9px;
-  }
-  
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 17.9px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background-color: #FFD8D5;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #fdbbb6; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fdbbb6;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:#fc7b72; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fc7b72;
+}
 
 
 main {
@@ -62,7 +63,7 @@ header {
 .container-header {
     width: 100%;
     height: 25%;
-    
+
 }
 
 .menu {
@@ -72,7 +73,7 @@ header {
     flex-direction: row;
     position: absolute;
     z-index: 1;
-    
+
 }
 
 .logo-header {
@@ -81,7 +82,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -89,17 +90,17 @@ header {
     width: 80%;
 }
 
-.text-menu{
+.text-menu {
     height: 100%;
     width: 60%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-  
+
 }
 
-.text-menu a{
+.text-menu a {
     font-family: Nunito;
     font-size: 23px;
     font-style: normal;
@@ -118,7 +119,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .container-sair {
@@ -133,7 +134,7 @@ header {
     width: 30%;
 }
 
-.btn-login{
+.btn-login {
     height: 33%;
     width: 72%;
     border: 0.637931px solid #434343;
@@ -145,19 +146,19 @@ header {
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 }
-  
+
 
 .btn-login img {
     width: 37%;
     margin-right: 7%;
 }
 
-.btn-login p{
+.btn-login p {
     font-family: Nunito;
     font-size: 17px;
     font-style: normal;
     font-weight: 800;
-    line-height: 28px;  
+    line-height: 28px;
     letter-spacing: 0.01em;
     color: #434343;
 }
@@ -167,7 +168,7 @@ header img {
     width: 100%;
 }
 
-.img-menu{
+.img-menu {
     height: 100%;
     width: 32%;
     position: absolute;
@@ -178,7 +179,7 @@ header img {
 
 .img-menu img {
     width: 100%;
- 
+
 
 }
 
@@ -187,7 +188,7 @@ header img {
     height: 5%;
     display: flex;
     justify-content: center;
-  
+
 }
 
 
@@ -213,15 +214,15 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
 }
 
 .uploader {
-    position:relative; 
-    overflow:hidden; 
-    width:200px; 
-    height:200px; 
-    background:#f3f3f3; 
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background: #f3f3f3;
     border: 2px dashed #8F7FAC;
     box-sizing: border-box;
     border-radius: 100%;
@@ -240,38 +241,38 @@ header img {
     color: #8F7FAC;
 }
 
-#filePhoto{
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:-50px;
-    left:0;
-    z-index:2;
-    opacity:0;
-    cursor:pointer;
+#filePhoto {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -50px;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
 }
 
 
 #imagePerfil {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
     overflow: hidden;
     border-radius: 100%;
     z-index: 0;
-    
+
 }
 
 
 
-.uploader img{
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:-1px;
-    left:-1px;
-    z-index:1;
-    border:none;
+.uploader img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -1px;
+    left: -1px;
+    z-index: 1;
+    border: none;
 
 }
 
@@ -286,13 +287,13 @@ header img {
     background: rgba(67, 67, 67, 0.8);
     top: 37%;
     left: 55%;
-  
+
 }
 
 .editar img {
     width: 50%;
 }
-  
+
 .container-input {
     width: 100%;
     height: 80%;
@@ -306,7 +307,7 @@ header img {
     width: 25%;
     display: flex;
     flex-direction: column;
-  
+
 }
 
 .titulos-campos {
@@ -334,7 +335,7 @@ header img {
 
 .campos:focus {
     border-color: var(--titulo-campos);
-  }
+}
 
 .container-campos {
     width: 335px;
@@ -345,7 +346,7 @@ header img {
 }
 
 #campo_razao {
-    background-image: url(../../imagens/geral/icon-cadeado.svg) ;
+    background-image: url(../../imagens/geral/icon-cadeado.svg);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center;
@@ -353,7 +354,7 @@ header img {
 }
 
 #campo_cnpj {
-    background-image: url(../../imagens/geral/icon-cadeado.svg) ;
+    background-image: url(../../imagens/geral/icon-cadeado.svg);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center;
@@ -370,7 +371,7 @@ header img {
     margin-top: -25px;
     position: relative;
     z-index: 2;
-  }
+}
 
 
 .container-endereco {
@@ -407,7 +408,7 @@ header img {
     font-weight: normal;
     line-height: 23px;
 
-} 
+}
 
 .campos-numero {
     width: 100%;
@@ -420,7 +421,7 @@ header img {
     font-size: 18px;
 }
 
-.campos-complemento{
+.campos-complemento {
     height: 59px;
     width: 100%;
     padding-left: 12px;
@@ -436,7 +437,7 @@ header img {
     height: 20%;
     display: flex;
     justify-content: center;
- 
+
 }
 
 .btn-edicao button {
@@ -461,7 +462,7 @@ header img {
     z-index: 1;
 }
 
-.container-footer{
+.container-footer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -483,13 +484,14 @@ header img {
     width: 180px;
 }
 
-.text-footer P{
-    font-family: Nunito Sans;
+.text-footer P {
+    font-family: 'Nunito';
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
     color: #434343;
     margin-top: 10px;
+    text-transform: uppercase;
 }
 
 .text-footer {
@@ -499,16 +501,18 @@ header img {
     align-items: flex-end;
 }
 
-.coluna-2{
+
+.coluna-2 {
     width: 33%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-transform: uppercase;
 }
 
-.container-rede-sociais{
+.container-rede-sociais {
     width: 100%;
     display: flex;
     align-items: center;
@@ -521,8 +525,12 @@ header img {
     margin: 2%;
 }
 
+.container-rede-sociais a {
+    margin: 2%;
+}
+
 .coluna-2 p {
-    font-family: Nunito Sans;
+    font-family: 'Nunito';
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -530,9 +538,10 @@ header img {
     letter-spacing: 0.01em;
     color: #434343;
     margin-top: 10px;
+    overflow: hidden;
 }
 
-.coluna-3{
+.coluna-3 {
     width: 33%;
     height: 89%;
     display: flex;
@@ -542,7 +551,7 @@ header img {
 }
 
 .container-contato p {
-    font-family: Nunito Sans;
+    font-family: 'Nunito';
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -552,10 +561,11 @@ header img {
 
 .alinhamento-contato {
     height: 100%;
-    width: 30%;
+    width: 46%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 .container-contato {
@@ -566,17 +576,18 @@ header img {
 }
 
 .text-titulo-contato {
-    font-family: Nunito Sans;
+    font-family: 'Nunito';
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
     letter-spacing: 0.01em;
     color: #434343;
+    overflow: hidden;
 }
 
-.container-btn-contato{
-    height: 100%;   
+.container-btn-contato {
+    height: 100%;
 }
 
 .btn-contato {
@@ -590,7 +601,7 @@ header img {
     background-color: #ffffff;
     box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
     cursor: pointer;
-}
+  }
 
 #svg1 {
     display: flex;
@@ -625,6 +636,6 @@ footer {
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: 292px; 
+    height: 292px;
     margin-top: 150px;
 }

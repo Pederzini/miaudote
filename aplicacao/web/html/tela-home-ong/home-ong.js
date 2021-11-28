@@ -1,3 +1,7 @@
+function topo() {
+    window.scrollTo(0, 0)
+  }
+
 function getQtdAnimais() {
     let qtdAnimais = document.querySelectorAll("#qtdAnimais")
 

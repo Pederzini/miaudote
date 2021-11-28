@@ -5,16 +5,17 @@
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  font-family: Nunito Sans;
-  
+    margin: 0;
+    padding: 0;
+    font-family: Nunito Sans;
+
 }
-html{
+
+html {
     /*PARA O ONLY PAGE*/
-       scroll-behavior: smooth; 
-   }
-  
+    scroll-behavior: smooth;
+}
+
 
 body {
     min-width: 1348.1px;
@@ -23,24 +24,24 @@ body {
 /* width */
 ::-webkit-scrollbar {
     width: 17.9px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background-color: #FFD8D5;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #fdbbb6; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fdbbb6;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:#fc7b72; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fc7b72;
+}
 
 .menu {
     width: 100%;
@@ -49,7 +50,7 @@ body {
     flex-direction: row;
     position: absolute;
     z-index: 2;
-    
+
 }
 
 .logo-header {
@@ -58,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -66,17 +67,17 @@ body {
     width: 80%;
 }
 
-.text-menu{
+.text-menu {
     height: 100%;
     width: 60%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-  
+
 }
 
-.text-menu a{
+.text-menu a {
     font-family: Nunito;
     font-size: 23px;
     font-style: normal;
@@ -95,7 +96,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .container-sair {
@@ -110,7 +111,7 @@ body {
     width: 30%;
 }
 
-.btn-login{
+.btn-login {
     height: 33%;
     width: 72%;
     border: 0.637931px solid #434343;
@@ -122,7 +123,7 @@ body {
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 }
-  
+
 
 
 .btn-login img {
@@ -131,12 +132,12 @@ body {
 }
 
 
-.btn-login p{
+.btn-login p {
     font-family: Nunito;
     font-size: 17px;
     font-style: normal;
     font-weight: 800;
-    line-height: 28px;  
+    line-height: 28px;
     letter-spacing: 0.01em;
     color: #434343;
 }
@@ -203,7 +204,7 @@ body {
     display: flex;
     width: 100%;
     min-height: 720px;
-    flex-direction: row-reverse;   
+    flex-direction: row-reverse;
 }
 
 header img {
@@ -211,7 +212,7 @@ header img {
     object-fit: cover;
 }
 
-.img-menu{
+.img-menu {
     height: 100%;
     width: 32%;
     position: absolute;
@@ -222,11 +223,11 @@ header img {
 
 .img-menu img {
     width: 100%;
- 
+
 
 }
 
-.container-menu{
+.container-menu {
     display: flex;
     flex-direction: column;
     align-self: self-end;
@@ -240,7 +241,7 @@ header img {
     width: 70%;
 }
 
-.mensagem p{
+.mensagem p {
     font-family: Nunito Sans;
     font-size: 57px;
     font-style: normal;
@@ -248,24 +249,24 @@ header img {
     line-height: 77px;
     letter-spacing: 0.01em;
     color: #434343;
-  
+
 
 
 }
 
-#btn-ver-pets{ 
-  width: 201.23px;
-  height: 59.2px;
-  border: none;
-  border-radius: 94.86px;
-  background: #8675A5;
-  box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
-  color: white;
-  font-weight: 800;
-  font-size: 20.87px;
-  text-transform: uppercase;
-  cursor: pointer;
- 
+#btn-ver-pets {
+    width: 201.23px;
+    height: 59.2px;
+    border: none;
+    border-radius: 94.86px;
+    background: #8675A5;
+    box-shadow: 0px 3.79px 3.79px rgba(0, 0, 0, 0.25);
+    color: white;
+    font-weight: 800;
+    font-size: 20.87px;
+    text-transform: uppercase;
+    cursor: pointer;
+
 
 }
 
@@ -291,7 +292,7 @@ header img {
     width: 100%;
 }
 
-.contador-adocoes{
+.contador-adocoes {
     width: 17%;
     height: 28%;
     display: flex;
@@ -336,13 +337,13 @@ header img {
 .texto-adocoes p {
     color: #6250D1;
 }
-  
+
 .texto-adocoes p::after {
     color: #434343;
     content: " animais já encontraram um lar";
 
-  }
-  
+}
+
 .container-page-3 {
     width: 1349px;
     min-height: 410px;
@@ -351,7 +352,7 @@ header img {
     justify-content: center;
     flex-direction: column;
     margin-top: 150px;
-  }
+}
 
 .text-doar {
     width: 100%;
@@ -362,7 +363,7 @@ header img {
     margin-bottom: 50px;
 }
 
-  .text-doar p {
+.text-doar p {
     font-family: Nunito Sans;
     font-size: 38px;
     font-style: normal;
@@ -370,12 +371,12 @@ header img {
     line-height: 52px;
     letter-spacing: 0.01em;
     color: #434343;
-    
-  }
 
-  .container-page-3 img {
-      width: 70%;
-  }
+}
+
+.container-page-3 img {
+    width: 70%;
+}
 
 .svg-footer {
     position: absolute;
@@ -383,7 +384,7 @@ header img {
     z-index: 1;
 }
 
-.container-footer{
+.container-footer {
     width: 100%;
     display: flex;
     align-items: center;
@@ -405,13 +406,14 @@ header img {
     width: 180px;
 }
 
-.text-footer P{
-    font-family: Nunito Sans;
+.text-footer P {
+    font-family: 'Nunito';
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
     color: #434343;
     margin-top: 10px;
+    text-transform: uppercase;
 }
 
 .text-footer {
@@ -421,16 +423,19 @@ header img {
     align-items: flex-end;
 }
 
-.coluna-2{
-    width: 33%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.coluna-2 p {
+    font-family: 'Nunito';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
-.container-rede-sociais{
+.container-rede-sociais {
     width: 100%;
     display: flex;
     align-items: center;
@@ -443,18 +448,21 @@ header img {
     margin: 2%;
 }
 
-.coluna-2 p {
-    font-family: Nunito Sans;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    color: #434343;
-    margin-top: 10px;
+.container-rede-sociais a {
+    margin: 2%;
 }
 
-.coluna-3{
+.coluna-2 {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.coluna-3 {
     width: 33%;
     height: 89%;
     display: flex;
@@ -464,7 +472,7 @@ header img {
 }
 
 .container-contato p {
-    font-family: Nunito Sans;
+    font-family: 'Nunito';
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -474,10 +482,11 @@ header img {
 
 .alinhamento-contato {
     height: 100%;
-    width: 30%;
+    width: 46%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 .container-contato {
@@ -488,17 +497,18 @@ header img {
 }
 
 .text-titulo-contato {
-    font-family: Nunito Sans;
+    font-family: 'Nunito';
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
     letter-spacing: 0.01em;
     color: #434343;
+    overflow: hidden;
 }
 
-.container-btn-contato{
-    height: 100%;   
+.container-btn-contato {
+    height: 100%;
 }
 
 .btn-contato {
@@ -512,7 +522,7 @@ header img {
     background-color: #ffffff;
     box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
     cursor: pointer;
-}
+  }
 
 #svg1 {
     display: flex;
@@ -547,6 +557,6 @@ footer {
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: 292px; 
+    height: 292px;
     margin-top: 150px;
 }

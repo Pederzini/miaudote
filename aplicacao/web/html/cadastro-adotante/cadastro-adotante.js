@@ -1,6 +1,38 @@
 var contador = 0;
 var senhas = false;
 
+function mostraLoading() {
+    let progresso = 0;
+    var bar = new ldBar(".myBar", {
+        "value": 0
+    });
+
+    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+
+    function alteraValor() {
+        bar.set(
+            progresso,
+            false
+        )
+        if (progresso >= 100) {
+            progresso = 0;
+        } else {
+            progresso += 20;
+        }
+    }
+
+    window.setInterval(function () {
+        alteraValor();
+    }, 700);
+}
+
+function escondeLoading() {
+    document.getElementsByClassName('ldBar')[0].style.display = "none"
+    document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('campo-logradouro').value = ("");
@@ -25,39 +57,40 @@ function endereco(conteudo) {
             text: 'Verifique o número informado',
             icon: 'error',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     }
 }
 
-function validaCpf(elemento, cpf){
+function validaCpf(elemento, cpf) {
     trocaCorBorda(elemento);
 
     cpf = cpf.replace(/\D/g, '');
-    if(cpf.toString().length != 11 || /^(\d)\1{10}$/.test(cpf)) {
+    if (cpf.toString().length != 11 || /^(\d)\1{10}$/.test(cpf)) {
         Swal.fire({
             title: 'Este CPF não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     }
 
-    [9,10].forEach(function(j){
-        var soma = 0, r;
-        cpf.split(/(?=)/).splice(0,j).forEach(function(e, i){
-            soma += parseInt(e) * ((j+2)-(i+1));
+    [9, 10].forEach(function (j) {
+        var soma = 0,
+            r;
+        cpf.split(/(?=)/).splice(0, j).forEach(function (e, i) {
+            soma += parseInt(e) * ((j + 2) - (i + 1));
         });
         r = soma % 11;
-        r = (r <2)?0:11-r;
-        if(r != cpf.substring(j, j+1)) {
+        r = (r < 2) ? 0 : 11 - r;
+        if (r != cpf.substring(j, j + 1)) {
             Swal.fire({
                 title: 'Este CPF não é válido!',
                 text: 'Verifique o número informado',
                 icon: 'error',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             })
             document.getElementById('campo-cpf').value = "";
         }
@@ -65,14 +98,14 @@ confirmButtonColor: '#8675A5'
 }
 
 function trocaCorBorda(elemento) {
-    if(elemento.value != "") {
+    if (elemento.value != "") {
         elemento.style.borderColor = '#949494';
     }
 }
 
 function verificaCamposVazios() {
     contador = 0;
-    
+
     var nome = document.getElementById("campo-nome")
     var nascimento = document.getElementById("campo-nascimento")
     var cpf = document.getElementById("campo-cpf")
@@ -98,41 +131,52 @@ function verificaCamposVazios() {
     email.style.borderColor = '#949494';
     senha.style.borderColor = '#949494';
     confirmarSenha.style.borderColor = '#949494';
-    
+
     if (!nome.validity.valid) {
         nome.style.borderColor = '#ff0000';
         contador++;
-    } if (!nascimento.validity.valid) {
+    }
+    if (!nascimento.validity.valid) {
         nascimento.style.borderColor = '#ff0000';
         contador++;
-    } if (!cpf.validity.valid) {
+    }
+    if (!cpf.validity.valid) {
         cpf.style.borderColor = '#ff0000';
         contador++;
-    } if (!telefone.validity.valid) {
+    }
+    if (!telefone.validity.valid) {
         telefone.style.borderColor = '#ff0000';
         contador++;
-    } if (!cep.validity.valid) {
+    }
+    if (!cep.validity.valid) {
         cep.style.borderColor = '#ff0000';
         contador++;
-    } if (!logradouro.validity.valid) {
+    }
+    if (!logradouro.validity.valid) {
         logradouro.style.borderColor = '#ff0000';
         contador++;
-    } if (!bairro.validity.valid) {
+    }
+    if (!bairro.validity.valid) {
         bairro.style.borderColor = '#ff0000';
         contador++;
-    } if (!numero.validity.valid) {
+    }
+    if (!numero.validity.valid) {
         numero.style.borderColor = '#ff0000';
         contador++;
-    } if (!complemento.validity.valid) {
+    }
+    if (!complemento.validity.valid) {
         complemento.style.borderColor = '#ff0000';
         contador++;
-    } if (!email.validity.valid) {
+    }
+    if (!email.validity.valid) {
         email.style.borderColor = '#ff0000';
         contador++;
-    } if (!senha.validity.valid) {
+    }
+    if (!senha.validity.valid) {
         senha.style.borderColor = '#ff0000';
         contador++;
-    } if (!confirmarSenha.validity.valid) {
+    }
+    if (!confirmarSenha.validity.valid) {
         confirmarSenha.style.borderColor = '#ff0000';
         contador++;
     }
@@ -177,7 +221,7 @@ function pesquisacep(elemento, valor) {
                 text: 'Verifique o número informado',
                 icon: 'error',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             })
         }
     } //end if.
@@ -220,61 +264,58 @@ function mascara(i, t) {
     }
 
     if (t == "tel") {
-        v = v.replace(/\D/g,""); //Remove tudo o que não é dígito
-        v = v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-        v = v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
         i.value = v;
     }
 };
 
-function exibeSenha()
-{
-  var passwordInput = document.getElementById('campo-senha');
-  var iconeOlhoOn = document.getElementById('eye-icon-on');
-  var iconeOlhoOff = document.getElementById('eye-icon-off');
- 
-  if (passwordInput.type == 'password'){
-    passwordInput.type='text';
-    passwordInput.placeholder = 'Senha';
-    iconeOlhoOn.style.display = 'none'
-    iconeOlhoOff.style.display = 'block'
-    
-  }
-  else{
-    passwordInput.type='password';
-    passwordInput.placeholder = '******';
-    iconeOlhoOn.style.display = 'block'
-    iconeOlhoOff.style.display = 'none'
-   
-  }
+function exibeSenha() {
+    var passwordInput = document.getElementById('campo-senha');
+    var iconeOlhoOn = document.getElementById('eye-icon-on');
+    var iconeOlhoOff = document.getElementById('eye-icon-off');
+
+    if (passwordInput.type == 'password') {
+        passwordInput.type = 'text';
+        passwordInput.placeholder = 'Senha';
+        iconeOlhoOn.style.display = 'none'
+        iconeOlhoOff.style.display = 'block'
+
+    } else {
+        passwordInput.type = 'password';
+        passwordInput.placeholder = '******';
+        iconeOlhoOn.style.display = 'block'
+        iconeOlhoOff.style.display = 'none'
+
+    }
 }
-function exibeConfirmaSenha()
-{
-  var passwordInput = document.getElementById('campo-confirmar-senha');
-  var iconeOlhoOn = document.getElementById('eye-icon-on2');
-  var iconeOlhoOff = document.getElementById('eye-icon-off2');
- 
-  if (passwordInput.type == 'password'){
-    passwordInput.type='text';
-    passwordInput.placeholder = 'Senha';
-    iconeOlhoOn.style.display = 'none'
-    iconeOlhoOff.style.display = 'block'
-    
-  }
-  else{
-    passwordInput.type='password';
-    passwordInput.placeholder = '******';
-    iconeOlhoOn.style.display = 'block'
-    iconeOlhoOff.style.display = 'none'
-   
-  }
+
+function exibeConfirmaSenha() {
+    var passwordInput = document.getElementById('campo-confirmar-senha');
+    var iconeOlhoOn = document.getElementById('eye-icon-on2');
+    var iconeOlhoOff = document.getElementById('eye-icon-off2');
+
+    if (passwordInput.type == 'password') {
+        passwordInput.type = 'text';
+        passwordInput.placeholder = 'Senha';
+        iconeOlhoOn.style.display = 'none'
+        iconeOlhoOff.style.display = 'block'
+
+    } else {
+        passwordInput.type = 'password';
+        passwordInput.placeholder = '******';
+        iconeOlhoOn.style.display = 'block'
+        iconeOlhoOff.style.display = 'none'
+
+    }
 }
 
 function validaSenhas() {
     var senha = document.getElementById('campo-senha').value
     var confirmarSenha = document.getElementById('campo-confirmar-senha').value
 
-    if(senha != confirmarSenha) {
+    if (senha != confirmarSenha) {
         return false
     } else {
         return true
@@ -285,28 +326,28 @@ function postCadastroAdotante() {
     var camposVazios = verificaCamposVazios()
     senhas = validaSenhas()
 
-    if(camposVazios != 0) {
+    if (camposVazios != 0) {
         Swal.fire({
             title: 'Campo(s) vazio(s)!',
             text: 'Não deixe nenhum campo vazio',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
-    } else if(!senhas){
+    } else if (!senhas) {
         Swal.fire({
             title: 'Senhas não são iguais!',
             text: 'Verifique as senhas digitadas para serem iguais',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
-    } else {   
+    } else {
         var nome = document.getElementById("campo-nome").value;
         var nascimento = (document.getElementById("campo-nascimento").value).split('-').reverse().join('/');
-        var cpf = (document.getElementById("campo-cpf").value).replace(".","").replace(".","").replace("-","");
-        var telefone = (document.getElementById("campo-telefone").value).replace("(","").replace(")","").replace(" ","").replace("-", "");
-        var cep = (document.getElementById("campo-cep").value).replace("-","");
+        var cpf = (document.getElementById("campo-cpf").value).replace(".", "").replace(".", "").replace("-", "");
+        var telefone = (document.getElementById("campo-telefone").value).replace("(", "").replace(")", "").replace(" ", "").replace("-", "");
+        var cep = (document.getElementById("campo-cep").value).replace("-", "");
         var logradouro = document.getElementById("campo-logradouro").value;
         var bairro = document.getElementById("campo-bairro").value;
         var numero = document.getElementById("campo-numero").value;
@@ -314,8 +355,12 @@ confirmButtonColor: '#8675A5'
         var email = document.getElementById("campo-email").value;
         var senha = document.getElementById("campo-senha").value;
 
+       
         axios.post('http://localhost:8080/miaudote/adotantes', {
-            headers: {"Access-Control-Allow-Origin": "*", "crossorigin": true},
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "crossorigin": true
+            },
             "nome": nome,
             "dataNascimento": nascimento,
             "cpf": cpf,
@@ -329,25 +374,25 @@ confirmButtonColor: '#8675A5'
                 "numero": numero,
                 "complemento": complemento,
             },
-        }).then(response => {
+        }).then(response => {          
             Swal.fire({
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             }).then((result) => {
                 if (result.value) {
                     window.location.href = '../login/login.html'
                 }
             })
-        }).catch(function(error) {
+        }).catch(function (error) {
             Swal.fire({
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
                 icon: 'warning',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             })
         })
     }
