@@ -26,11 +26,11 @@ function validarSessao() {
         let nome = document.querySelectorAll("#nome");
         if (nomeResponsa == undefined) {
             nome.forEach(element => {
-                element.innerHTML = `${JSON.parse(login_usuario).nome.split(" ")[0]}}`;
+                element.innerHTML = `${JSON.parse(login_usuario).nome.split(" ")[0]}`;
             });
         } else {
             nome.forEach(element => {
-                element.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel.split(" ")[0]}}`;
+                element.innerHTML = `${JSON.parse(login_usuario).nomeResponsavel.split(" ")[0]}`;
             });
         }
     }
