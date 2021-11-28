@@ -84,9 +84,7 @@ function desfavoritar(idAnimalFavorito) {
                 elemento.querySelector('img').src = "../../imagens/geral/coracao-cinza.svg"
             }
         })
-        escondeLoading();
     }).catch(function (error) {
-        escondeLoading();
         Swal.fire({
             title: error.response,
             text: 'Erro ao desfavoritar o animal. Tente novamente!',
@@ -553,7 +551,6 @@ function filtrar() {
 
     if (sEspecie != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de espécie")
             return elemento.especie.toUpperCase() == sEspecie;
         });
     }
@@ -567,7 +564,6 @@ function filtrar() {
                 sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
 
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de idade")
             return elemento.idade >= min &&
                 elemento.idade <= max;
         });
@@ -575,28 +571,24 @@ function filtrar() {
 
     if (sPorte != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de porte")
             return elemento.porte.toUpperCase() == sPorte;
         });
     }
 
     if (sCor != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de cor")
             return elemento.corPelagem.toUpperCase().includes(sCor);
         });
     }
 
     if (sPelagem != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de tipo pelagem")
             return elemento.tipoPelagem.toUpperCase() == sPelagem;
         });
     }
 
     if (sComportamento != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de comportamento")
             return elemento.comportamento.toUpperCase() == sComportamento;
         });
     }

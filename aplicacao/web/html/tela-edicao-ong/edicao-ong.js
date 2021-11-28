@@ -14,6 +14,35 @@ function topo() {
     window.scrollTo(0, 0)
 }
 
+function mostraLoading() {
+    let progresso = 0;
+    var bar = new ldBar(".myBar", {"value": 0});
+    
+    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+    function alteraValor() {
+        bar.set(
+            progresso,
+            false
+        )
+        if (progresso >= 100) {
+            progresso = 0;
+        } else {
+            progresso += 20;
+        }
+    }
+
+    window.setInterval(function () {
+        alteraValor();
+    }, 700);
+}
+
+function escondeLoading() {
+    document.getElementsByClassName('ldBar')[0].style.display = "none"
+    document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('campo_logradouro').value = ("");
@@ -324,6 +353,7 @@ function postImagem(arquivo) {
 }
 
 function getInfosOng() {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
@@ -345,7 +375,9 @@ function getInfosOng() {
             document.getElementById("imagePerfil").src = response.data.urlImagem;
             document.getElementById("textoUploader").innerHTML = "";
         }
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações da ONG',
@@ -377,6 +409,7 @@ confirmButtonColor: '#8675A5'
 confirmButtonColor: '#8675A5'
         })
     } else {
+        mostraLoading()
         var razao = document.getElementById("campo_razao").value;
         var cnpj = (document.getElementById("campo_cnpj_escondido").value).replace(".", "").replace(".", "").replace("/", "").replace("-", "");
         var dataFundacao = document.getElementById("campo_fundacao").value;
@@ -425,6 +458,7 @@ function atualizaEndereco() {
         "complemento": complemento,
         "cidade": "São Paulo",
     }).then(response => {
+        escondeLoading()
         Swal.fire({
             title: 'Perfil atualizado com sucesso!',
             text: 'Clique em ok para atualizar a página',
@@ -438,12 +472,13 @@ confirmButtonColor: '#8675A5'
             }
         })
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response.data,
             text: 'Verifique as informações digitadas',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
