@@ -6,31 +6,10 @@ function topo() {
 }
 
 function mostraLoading() {
-    let progresso = 0;
-    var bar = new ldBar(".myBar", {"value": 0});
-    
-    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
-    document.getElementsByClassName('ldBar')[0].style.display = "flex";
     document.getElementsByClassName('loading')[0].style.display = "flex"
-    function alteraValor() {
-        bar.set(
-            progresso,
-            false
-        )
-        if (progresso >= 100) {
-            progresso = 0;
-        } else {
-            progresso += 20;
-        }
-    }
-
-    window.setInterval(function () {
-        alteraValor();
-    }, 300);
 }
-
+  
 function escondeLoading() {
-    document.getElementsByClassName('ldBar')[0].style.display = "none"
     document.getElementsByClassName('loading')[0].style.display = "none"
 }
 
