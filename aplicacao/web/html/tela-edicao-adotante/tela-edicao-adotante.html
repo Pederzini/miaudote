@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <title>MiauDote</title>
   <link rel="stylesheet" href="tela-edicao-adotante.css">
+  <link rel="stylesheet" href="../loading.css">
   <script defer src="tela-edicao-adotante.js"></script>
   <script defer src="../script.js"></script>
+  <script src="../loading-bar.js"></script>
 </head>
 
 <body onload="validarSessao(), getInfosAdotante()">
@@ -384,6 +386,11 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <div class="loading">
+    <div class="loading-content">
+        <div class="myBar label-center" data-type="fill" data-img="../../imagens/geral/logo.svg"></div>
+    </div>
+</div>
 </body>
 
 <script>

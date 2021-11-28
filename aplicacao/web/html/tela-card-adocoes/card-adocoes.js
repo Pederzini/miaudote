@@ -8,6 +8,35 @@ function topo() {
     window.scrollTo(0, 0)
 }
 
+function mostraLoading() {
+    let progresso = 0;
+    var bar = new ldBar(".myBar", {"value": 0});
+    
+    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+    function alteraValor() {
+        bar.set(
+            progresso,
+            false
+        )
+        if (progresso >= 100) {
+            progresso = 0;
+        } else {
+            progresso += 20;
+        }
+    }
+
+    window.setInterval(function () {
+        alteraValor();
+    }, 700);
+}
+
+function escondeLoading() {
+    document.getElementsByClassName('ldBar')[0].style.display = "none"
+    document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function verificarFavorito(idAnimalFavorito, favoritado) {
     if (favoritado) {
         desfavoritar(idAnimalFavorito);
@@ -69,6 +98,7 @@ confirmButtonColor: '#8675A5'
 let distMax = 0;
 
 function getInfosCards() {
+    mostraLoading();
     axios.get(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).idAdotante}/cards`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -90,7 +120,9 @@ function getInfosCards() {
         preencherVetorPrincipalComVetores()
         limparDivVazia()
         mostrarDivs()
+        escondeLoading();
     }).catch(function (error) {
+        escondeLoading();
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar os cards. Tente novamente!',
@@ -519,7 +551,6 @@ function filtrar() {
 
     if (sEspecie != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de espécie")
             return elemento.especie.toUpperCase() == sEspecie;
         });
     }
@@ -533,7 +564,6 @@ function filtrar() {
                 sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
 
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de idade")
             return elemento.idade >= min &&
                 elemento.idade <= max;
         });
@@ -541,28 +571,24 @@ function filtrar() {
 
     if (sPorte != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de porte")
             return elemento.porte.toUpperCase() == sPorte;
         });
     }
 
     if (sCor != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de cor")
             return elemento.corPelagem.toUpperCase().includes(sCor);
         });
     }
 
     if (sPelagem != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de tipo pelagem")
             return elemento.tipoPelagem.toUpperCase() == sPelagem;
         });
     }
 
     if (sComportamento != "QUALQUER") {
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
-            console.log("entrei no filtro de comportamento")
             return elemento.comportamento.toUpperCase() == sComportamento;
         });
     }
