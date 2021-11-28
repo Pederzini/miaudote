@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -114,9 +115,10 @@ public class ProcessoAdocaoController {
 
         adocoesConcluidas.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
 
-        PilhaObj<AdocaoFinalizadaDTO> pilha = new PilhaObj(adocoesConcluidas.size());
+        List<AdocaoFinalizadaDTO> ordenada = adocoesConcluidas.stream().sorted(Comparator.comparing(AdocaoFinalizadaDTO::getDataAdocao)).collect(Collectors.toList());
+        PilhaObj<AdocaoFinalizadaDTO> pilha = new PilhaObj(ordenada.size());
 
-        for (AdocaoFinalizadaDTO adocao : adocoesConcluidas){
+        for (AdocaoFinalizadaDTO adocao : ordenada){
             pilha.push(adocao);
         }
         adocoesConcluidas.clear();
