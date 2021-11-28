@@ -79,7 +79,8 @@ function getOngAnimal(idAnimal) {
       title: error.response,
       text: 'Erro ao abrir a ONG escolhida',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 
@@ -101,7 +102,8 @@ function patchMetodoContato(contato) {
       title: error.response,
       text: 'Erro ao abrir a ONG escolhida',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }
@@ -250,7 +252,8 @@ function getInfosPet() {
       title: error.response,
       text: 'Erro ao carregar as informações da ONG',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }
@@ -268,7 +271,8 @@ function getAdotar() {
       title: response.data,
       // text: 'Erro ao carregar as informações da ONG',
       icon: 'info',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
 
   }).catch(error => {
@@ -280,7 +284,8 @@ function getAdotar() {
         title: error.response,
         text: 'Erro ao carregar as informações',
         icon: 'warning',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
       })
     }
 
@@ -311,7 +316,8 @@ function favoritar() {
       title: error.response,
       text: 'Erro ao favoritar o animal. Tente novamente!',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }
@@ -329,7 +335,8 @@ function desfavoritar() {
       title: error.response,
       text: 'Erro ao desfavoritar o animal. Tente novamente!',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }

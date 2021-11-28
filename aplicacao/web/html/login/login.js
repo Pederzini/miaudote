@@ -58,7 +58,8 @@ function postLogin() {
           title: 'Campo(s) vazio(s)!',
           text: 'Não deixe nenhum campo vazio',
           icon: 'warning',
-          confirmButtonText: 'Ok'
+          confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
       })
   } else {
       var email = document.getElementById("campo_email").value;
@@ -83,7 +84,8 @@ function postLogin() {
               title: error.response.data,
               text: 'Email ou senha inválidos',
               icon: 'error',
-              confirmButtonText: 'Ok'
+              confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
           })
       })
   }

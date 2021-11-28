@@ -111,14 +111,14 @@ function getInfosFavoritos() {
         for (let index = 0; index < response.data.length; index++) {
             dadosFavoritados[index] = response.data[index];
         }
-        console.log("Favoritos: ", dadosFavoritados)
         mostrarDivs(1)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações de favoritos',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -134,14 +134,14 @@ function getInfosEmProcesso() {
         for (let index = 0; index < response.data.length; index++) {
             dadosProcesso[index] = response.data[index];
         }
-        console.log("Em processo: ", dadosProcesso)
         mostrarDivs(2)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos em processo',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -157,14 +157,14 @@ function getInfosAdotados() {
         for (let index = 0; index < response.data.length; index++) {
             dadosAdotados[index] = response.data[index];
         }
-        console.log("Em Adotados: ", dadosAdotados)
         mostrarDivs(3)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos adotados',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -178,13 +178,13 @@ function patchAdotou(idAdocao) {
     }).then(response => {
         apagarDivs()
         getInfosEmProcesso()
-        console.log("Uhul deu certo")
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao atualizar o adotou',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -198,13 +198,13 @@ function patchNaoAdotou(idAdocao) {
     }).then(response => {
         apagarDivs()
         getInfosEmProcesso()
-        console.log("Uhul deu certo")
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao atualizar o nao adotou',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -220,13 +220,13 @@ function getQuemFavoritou(idAnimal) {
         for (let index = 0; index < response.data.length; index++) {
             dadosFavoritosModal[index] = response.data[index];
         }
-        mostrarModalDiv(idAnimal)
     }).catch(function (error) {
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações do animal',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -249,7 +249,8 @@ function getQuemInteressouFav(idAdotante) {
             title: error.response,
             text: 'Erro ao carregar as informações dos adotados',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -434,7 +435,8 @@ function mostrarDivs(valor) {
                         title: "Ops",
                         text: 'Não há adotantes que favoritaram esse animal',
                         icon: 'warning',
-                        confirmButtonText: 'Ok'
+                        confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
                     })
                 } else {
                     abrirModal()
@@ -509,7 +511,6 @@ function mostrarDivs(valor) {
                 getQuemInteressouFav(element.adotante.idAdotante)
                 abrirModalAdo()
             })
-
 
             let divTipoContatoAdotante = document.createElement('div')
             divCardProcessoAdocao.appendChild(divTipoContatoAdotante)
@@ -589,7 +590,24 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnAdoutou)
             btnAdoutou.id = "btn-adotou"
             btnAdoutou.addEventListener('click', () => {
-                patchAdotou(element.id)
+                Swal.fire({
+                    title: 'Você tem certeza que deseja adotar?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#8675A5',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Sim, tenho certeza!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire(
+                        'Adotado!',
+                        'Seu animal foi adotado com sucesso!',
+                        'success'
+                      )
+                      patchAdotou(element.id)
+                    }
+                  })
             })
 
             let divContainerDentroBtn = document.createElement('div')
@@ -619,7 +637,25 @@ function mostrarDivs(valor) {
             divContainerBtn.appendChild(btnNaoAdoutou)
             btnNaoAdoutou.id = "btn-nao-adotou"
             btnNaoAdoutou.addEventListener('click', function () {
-                patchNaoAdotou(element.id)
+                Swal.fire({
+                    title: 'Você tem certeza que deseja excluir esse processo de adoção?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#8675A5',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Sim, tenho certeza!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire(
+                        'Excluido!',
+                        'O processo de adoção foi excluido com sucesso!',
+                        'success'
+                      )
+                      patchNaoAdotou(element.id)
+                    }
+                  })
+                
             })
 
             let divContainerDentroBtn2 = document.createElement('div')

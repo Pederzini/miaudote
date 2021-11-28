@@ -36,7 +36,8 @@ function favoritar(idAnimalFavorito, favoritado) {
             title: error.response,
             text: 'Erro ao favoritar o animal. Tente novamente!',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -59,7 +60,8 @@ function desfavoritar(idAnimalFavorito) {
             title: error.response,
             text: 'Erro ao desfavoritar o animal. Tente novamente!',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -93,7 +95,8 @@ function getInfosCards() {
             title: error.response,
             text: 'Erro ao carregar os cards. Tente novamente!',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }

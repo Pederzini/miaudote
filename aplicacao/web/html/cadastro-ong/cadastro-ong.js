@@ -33,7 +33,8 @@ function endereco(conteudo) {
             title: 'CEP não encontrado!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 }
@@ -74,7 +75,8 @@ function pesquisacep(elemento, valor) {
                 title: 'Este CEP não existe!',
                 text: 'Verifique o número informado',
                 icon: 'error',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         }
     } //end if.
@@ -150,7 +152,8 @@ function validarCNPJ(elemento, cnpj) {
             title: 'Este CNPJ não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     } 
 
@@ -159,7 +162,8 @@ function validarCNPJ(elemento, cnpj) {
             title: 'Este CNPJ não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 
@@ -178,7 +182,8 @@ function validarCNPJ(elemento, cnpj) {
             title: 'Este CNPJ não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 
@@ -199,7 +204,8 @@ function validarCNPJ(elemento, cnpj) {
             title: 'Este CNPJ não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 
@@ -218,7 +224,8 @@ function validarCNPJ(elemento, cnpj) {
             title: 'Este CNPJ não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 
@@ -286,14 +293,16 @@ function postCadastroOng() {
             title: 'Campo(s) vazio(s)!',
             text: 'Não deixe nenhum campo vazio',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     } else if (!senhas) {
         Swal.fire({
             title: 'Senhas não são iguais!',
             text: 'Verifique as senhas digitadas para serem iguais',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     } else {
         var razao = document.getElementById("campo_razao").value;
@@ -331,7 +340,8 @@ function postCadastroOng() {
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             }).then((result) => {
                 if (result.value) {
                     window.location.href = '../login/login.html'
@@ -342,7 +352,8 @@ function postCadastroOng() {
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
                 icon: 'warning',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         })
     }

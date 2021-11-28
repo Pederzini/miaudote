@@ -24,7 +24,8 @@ function endereco(conteudo) {
             title: 'CEP não encontrado!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 }
@@ -38,7 +39,8 @@ function validaCpf(elemento, cpf){
             title: 'Este CPF não é válido!',
             text: 'Verifique o número informado',
             icon: 'error',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     }
 
@@ -54,7 +56,8 @@ function validaCpf(elemento, cpf){
                 title: 'Este CPF não é válido!',
                 text: 'Verifique o número informado',
                 icon: 'error',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
             document.getElementById('campo-cpf').value = "";
         }
@@ -173,7 +176,8 @@ function pesquisacep(elemento, valor) {
                 title: 'Este CEP não existe!',
                 text: 'Verifique o número informado',
                 icon: 'error',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         }
     } //end if.
@@ -286,14 +290,16 @@ function postCadastroAdotante() {
             title: 'Campo(s) vazio(s)!',
             text: 'Não deixe nenhum campo vazio',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     } else if(!senhas){
         Swal.fire({
             title: 'Senhas não são iguais!',
             text: 'Verifique as senhas digitadas para serem iguais',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     } else {   
         var nome = document.getElementById("campo-nome").value;
@@ -328,7 +334,8 @@ function postCadastroAdotante() {
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             }).then((result) => {
                 if (result.value) {
                     window.location.href = '../login/login.html'
@@ -339,7 +346,8 @@ function postCadastroAdotante() {
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
                 icon: 'warning',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         })
     }

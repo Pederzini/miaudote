@@ -1,6 +1,6 @@
 let fotos = "";
 
-function forFoto(){
+function forFoto() {
   for (let index = 0; index < urlImagem.length; index++) {
     const element = urlImagem[index];
     if (index != arrayFoto.length - 1) {
@@ -11,62 +11,92 @@ function forFoto(){
   }
 }
 
-function postCadastroPet() {
-  var nome = document.getElementById("formulario").elements["cmp_nome"].value
-  var especie = document.getElementById("cmp_gato").checked ? "Gato" : "Cachorro";
-  var nascimento = (document.getElementById("formulario").elements['cmp_nasc'].value).split('-').reverse().join('/');
-  var chegada = (document.getElementById("formulario").elements['cmp_chegada'].value).split('-').reverse().join('/');
-  var sexo = document.getElementById("cmp_fem").checked ? "f" : "m"
-  var porte;
-  if (document.getElementById("cmp_peq").checked) {
-    porte = "Pequeno"
-  } else if (document.getElementById("cmp_med").checked) {
-    porte = "Medio"
-  } else {
-    porte = "Grande"
-  }
-  var pelagem = document.getElementById("cmp_curto").checked ? "Curto" : "Longo"
-  var cor = document.getElementById("formulario").elements['cmp_cor'].value
-  var castrado = document.getElementById("cmp_cast_sim").checked ? true : false
-  var vacinado = document.getElementById("cmp_vac_sim").checked ? true : false
-  var comportamento = document.getElementById("formulario").elements['comportamento']
-  comportamento = comportamento.options[comportamento.selectedIndex].text
-  var necessidadesEspeciais = document.getElementById('campo_especial').value
-  var descricao = document.getElementById("campo_desc").value
+function verificaCamposVazios() {
+  contador = 0;
 
-  forFoto()
-  
-  axios.post('http://localhost:8080/miaudote/animais', {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "crossorigin": true
-    },
-    "nome": nome,
-    "especie": especie,
-    "descricao": descricao,
-    "dataNascimento": nascimento,
-    "genero": sexo,
-    "dataChegada": chegada,
-    "corPelagem": cor,
-    "castrado": castrado,
-    "porte": porte,
-    "tipoPelagem": pelagem,
-    "vacinado": vacinado,
-    "comportamento": comportamento,
-    "adotado": false,
-    "necessidadeEspeciais": necessidadesEspeciais,
-    "urlImagem": fotos == "" ? null : fotos,
-    "ong": null,
-  }).then(response => {
-    putOng(response.data.idAnimal)
-  }).catch(function (error) {
+  let campos = document.querySelectorAll(".campos")
+
+  campos.forEach(element => {
+    element.style.borderColor = '#949494';
+    if (!element.validity.valid) {
+      element.style.borderColor = '#ff0000';
+      contador++;
+    }
+  });
+
+  return contador;
+}
+
+function postCadastroPet() {
+
+  let camposVazios = verificaCamposVazios()
+
+  if (camposVazios != 0) {
     Swal.fire({
-      title: error.response,
-      text: 'Verifique as informações digitadas',
+      title: 'Campo(s) vazio(s)!',
+      text: 'Não deixe nenhum campo vazio',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
-  })
+  } else {
+    var nome = document.getElementById("formulario").elements["cmp_nome"].value
+    var especie = document.getElementById("cmp_gato").checked ? "Gato" : "Cachorro";
+    var nascimento = (document.getElementById("formulario").elements['cmp_nasc'].value).split('-').reverse().join('/');
+    var chegada = (document.getElementById("formulario").elements['cmp_chegada'].value).split('-').reverse().join('/');
+    var sexo = document.getElementById("cmp_fem").checked ? "f" : "m"
+    var porte;
+    if (document.getElementById("cmp_peq").checked) {
+      porte = "Pequeno"
+    } else if (document.getElementById("cmp_med").checked) {
+      porte = "Medio"
+    } else {
+      porte = "Grande"
+    }
+    var pelagem = document.getElementById("cmp_curto").checked ? "Curto" : "Longo"
+    var cor = document.getElementById("formulario").elements['cmp_cor'].value
+    var castrado = document.getElementById("cmp_cast_sim").checked ? true : false
+    var vacinado = document.getElementById("cmp_vac_sim").checked ? true : false
+    var comportamento = document.getElementById("formulario").elements['comportamento']
+    comportamento = comportamento.options[comportamento.selectedIndex].text
+    var necessidadesEspeciais = document.getElementById('campo_especial').value
+    var descricao = document.getElementById("campo_desc").value
+
+    forFoto()
+
+    axios.post('http://localhost:8080/miaudote/animais', {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "crossorigin": true
+      },
+      "nome": nome,
+      "especie": especie,
+      "descricao": descricao,
+      "dataNascimento": nascimento,
+      "genero": sexo,
+      "dataChegada": chegada,
+      "corPelagem": cor,
+      "castrado": castrado,
+      "porte": porte,
+      "tipoPelagem": pelagem,
+      "vacinado": vacinado,
+      "comportamento": comportamento,
+      "adotado": false,
+      "necessidadeEspeciais": necessidadesEspeciais,
+      "urlImagem": fotos == "" ? null : fotos,
+      "ong": null,
+    }).then(response => {
+      putOng(response.data.idAnimal)
+    }).catch(function (error) {
+      Swal.fire({
+        title: "ERRO",
+        text: 'Verifique as informações digitadas',
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
+      })
+    })
+  }
 }
 
 function putOng(idAnimal) {
@@ -81,14 +111,16 @@ function putOng(idAnimal) {
       title: 'Cadastro concluído!',
       text: 'Animal cadastrado com sucesso!',
       icon: 'success',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   }).catch(function (error) {
     Swal.fire({
       title: "Erro",
       text: 'Verifique as informações digitadas',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }

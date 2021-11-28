@@ -67,7 +67,8 @@ function getInfosCards() {
             title: error.response,
             text: 'Erro ao carregar os cards. Tente novamente!',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }

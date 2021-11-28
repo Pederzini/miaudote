@@ -66,14 +66,16 @@ function postCadastroArquivo() {
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         }).catch(function (error) {
             Swal.fire({
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
                 icon: 'warning',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
             })
         })
     }

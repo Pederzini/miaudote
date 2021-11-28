@@ -98,7 +98,8 @@ function getInfosPet() {
             title: error.response,
             text: 'Erro ao carregar as informações da ONG',
             icon: 'warning',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
         })
     })
 }

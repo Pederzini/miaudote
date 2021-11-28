@@ -127,7 +127,8 @@ function getInfosPet() {
       title: error.response,
       text: 'Erro ao carregar as informações do Pet.',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }
@@ -215,7 +216,8 @@ function atualizaInfosPet() {
       title: 'Dados atualizados com sucesso!',
       text: 'Clique em ok para atualizar a página',
       icon: 'success',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     }).then((result) => {
       if (result.value) {
         topo();
@@ -228,7 +230,8 @@ function atualizaInfosPet() {
       title: error.response,
       text: 'Erro ao carregar as informações do Pet.',
       icon: 'warning',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+confirmButtonColor: '#8675A5'
     })
   })
 }

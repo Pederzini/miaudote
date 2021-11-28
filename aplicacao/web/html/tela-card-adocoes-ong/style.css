@@ -174,7 +174,7 @@ header img {
     /* display: flex; */
 }
 
-.active {
+.active-osso {
     position: relative;
     background: url("../../imagens/geral/icon-osso.svg") no-repeat;
     background-position: 49%;

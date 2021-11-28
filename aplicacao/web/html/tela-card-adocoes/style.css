@@ -93,13 +93,13 @@ header {
     margin-right: 25px;
   }
   
-  .active {
+.active-osso {
     position: relative;
     background: url("../../imagens/geral/icon-osso.svg") no-repeat;
     background-position: 63%;
     background-position-y: bottom;
     padding-bottom: 20px;
-  }
+}
 
 .text-menu {
     height: 100%;
