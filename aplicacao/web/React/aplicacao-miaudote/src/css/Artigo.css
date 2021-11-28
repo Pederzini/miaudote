@@ -33,6 +33,7 @@ header {
     position: absolute;
     top: 35px;
     margin-left: 15px;
+    display: none;
 }
 
 
@@ -118,7 +119,6 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 }
@@ -209,6 +209,7 @@ span {
     letter-spacing: 0.01em;
     text-align: left;
     margin-left: 6%;
+    width: 140px;
 }
 
 /* conteudo artigo */
@@ -251,6 +252,7 @@ span {
 
 .div-imagem img {
     width: 90%;
+    border-radius: 9px;
 }
 
 .div-artigos {
@@ -284,6 +286,7 @@ span {
 }
 
 .artigo-link u {
+    width: 100%;
     display: flex;
     font-family: 'Nunito';
     font-weight: 400;
@@ -291,7 +294,7 @@ span {
     text-transform: uppercase;
     color: #434343;
     margin-bottom: 0;
-    margin-left: 1%;;
+    margin-left: 15px;
 }
 
 .texto {
@@ -392,7 +395,7 @@ span {
     min-height: 177px;
     position: absolute;
     z-index: 3;
-    width: 100%;
+    width: 50%;
     justify-content: flex-end;
     display: flex;
     margin-top: 55px;
