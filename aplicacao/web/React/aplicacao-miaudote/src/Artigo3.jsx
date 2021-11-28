@@ -11,7 +11,7 @@ import imgDropdown from './imagens/Adote/dropdown.svg';
 import imgPata from './imagens/Adote/icon-pata.svg';
 import imgMenu from './imagens/Geral/icon-menu.svg';
 import imgSair from './imagens/Geral/sair.svg';
-import imgArtigo1 from './imagens/Artigos/artigo-1.png';
+import imgArtigo3 from './imagens/Artigos/artigo-3.png';
 import imgPataLaranja from './imagens/Artigos/img-pata-laranja.svg';
 
 import imgFacebook from './imagens/Geral/icon-facebook.svg';
@@ -24,7 +24,7 @@ import imgEmail from './imagens/Geral/icon-email-footer.svg';
 // import componentes
 import Titulo from './components/Titulo';
 
-function Artigo() {
+function Artigo3() {
 
     return (
         <div className="artigo">
@@ -47,7 +47,7 @@ function Artigo() {
 
                             <div className="dropdown-content">
                                 <div className="text-dropdown">
-                                    <img src={imgPataLaranja} alt="" />
+                                    <img src={imgPata} alt="" />
                                     <Link to={"/artigo1"}>
                                         <p>ADOTEI, E AGORA?</p>
                                     </Link>
@@ -59,7 +59,7 @@ function Artigo() {
                                     </Link>
                                 </div>
                                 <div className="text-dropdown">
-                                    <img src={imgPata} alt="" />
+                                    <img src={imgPataLaranja} alt="" />
                                     <Link to={"/artigo3"}>
                                         <p>PATINHAS QUE CURAM</p>
                                     </Link>
@@ -100,20 +100,20 @@ function Artigo() {
             </div>
 
             <div className="box-titulo">
-                <Titulo className="titulo" titulo="Adotei, e agora?" />
+                <Titulo className="titulo" titulo="Patinhas que curam" />
             </div>
 
             <div className="container-artigo">
                 <div className="div-esquerda-artigo">
                     <div className="div-imagem">
-                        <img src={imgArtigo1} alt="" />
+                        <img src={imgArtigo3} alt="" />
                     </div>
                     <div className="div-artigos">
                         <div className="artigos-relacionados">
                             ARTIGOS RELACIONADOS
                         </div>
                         <div className="artigo-link">
-                            <img src={imgPataLaranja} alt="" />
+                            <img src={imgPata} alt="" />
                             <Link to={"/artigo1"}>
                                 <u>Adotei, e agora?</u>
                             </Link>
@@ -127,7 +127,7 @@ function Artigo() {
                         </div>
                         <div className="artigo-link">
 
-                            <img src={imgPata} alt="" />
+                            <img src={imgPataLaranja} alt="" />
                             <Link to={"/artigo3"}>
                                 <u>Patinhas que curam</u>
                             </Link>
@@ -145,21 +145,18 @@ function Artigo() {
 
                 <div className="texto">
                     <p>
-                        Antes de qualquer coisa, se você está lendo isso e adotou um peludo, PARABÉNS! Resgatar um animal abandonado é um lindo ato de compaixão que deve ser reconhecido e parabenizado, então, mais uma vez, parabéns! Se você está nessa situação e chegou até esse post, é porque se importa com seu novo amigo e quer saber quais são os primeiros passos que você deve dar nessa nova jornada, certo? Pra te ajudarmos, vamos dar algumas dicas importantes que nem todo mundo sabe sobre pet resgatados!
-                        <br /> <br /> Prepare sua casa!
-                        Você pode achar que, apesar de sua casa não ser a mais bagunçada do mundo, ela já está pronta para receber um pet, mas o que muitas pessoas não sabem, é que existem vários objetos e itens que todo mundo tem em casa que são tóxicos e podem fazer mal à qualquer animal.
-                        Além de preparar sua casa pensando no que pode fazer mal ao seu novo pet, é importante que você pense em você também, certo? Afinal, acredito que você não acharia legal se chegasse em casa e encontrasse aquele vaso que sua bisavó te deu em cacos, no chão.
+                        A zooterapia é uma linha terapêutica que usa animais para ajudar no convívio e recuperação das pessoas. Essa terapia é feita no Brasil desde a década de 1960 quando a psiquiatra Nise da Silveira, usava um gato e um cachorro em suas sessões. Observando a interação dos pacientes com os animais, ela percebeu que ficavam mais calmos.
                         <br /> <br />
-                        Cuidados com sua saúde e do seu novo pet
-                        Agora, se você resgatou um peludinho das ruas, é importante que você tome algumas medidas o mais breve possível para evitar que ele, você e as pessoas que convivem com você tenham qualquer problema de saúde.
-                        Então, leve o novo membro da sua família em uma consulta veterinária o quanto antes para fazer um checkup e garantir que esteja tudo certo com a saúde dele! Dessa forma, você previne que ele e sua família tenha alguma doença. Muitos dos cãezinhos que vivem nas ruas são contaminados com doenças que podem ser transmitidas para humanos.
+                        A zooterapia trata desde os problemas físicos, emocionais e psicológicos. Os especialistas explicam que quando em contato com os bichos, o ser humano ativa o sistema límbico, responsável pelas emoções mais instintivas. Ocorre assim a liberação das endorfinas, gerando a sensação de tranquilidade, bem-estar, melhora da autoestima, entre outros.
                         <br /> <br />
-
-                        Por fim, para você ganhar o prêmio de adotante do ano é necessário… Estar sempre com ele! Sim, um bom companheiro está sempre por perto, observando, cuidando e mimando muito seu pet, né? A sua verdadeira missão é fazer seu animalzinho se sentir especial todos os dias!
+                        Em vários hospitais, os pacientes em estados graves e terminais tem a visita dos animais melhorando os seus quadros de saúde.
+                        O contato com animais é muito indicado como terapia complementar no tratamento de distúrbios psiquiátricos como: esquizofrenia, desordens de personalidade, ansiedade e depressão. Esses pacientes apresentam melhora nas estratégias de lidar com pessoas e situações e conseguem também evoluir na sua criação de vínculos.
+                        O contato com animais também ajuda crianças que dificuldades de aprendizado e concentração.
+                        <br /> <br />
+                        Podemos entender que ter a companhia de um animalzinho podem ajudar me vários aspectos da vida e que suas patinhas além de fofas também curam.
                     </p>
                     <p id="fonte">
-                        FONTE: https://petanjo.com/blog/adotei-um-cachorro-e-agora/
-                        <br />FONTE: https://www.maxtotalalimentos.com.br/dica-cao/comportamento/acabou-adotar-cachorro-10-dicas-para-ser-mamae-do-ano/
+                        FONTE: https://www.uol.com.br/vivabem/noticias/redacao/2019/03/21/animais-podem-ajudar-no-tratamento-de-depressao-doencas-do-coracao-e-mais.html
                     </p>
                 </div>
             </div>
@@ -276,4 +273,4 @@ function Artigo() {
     );
 }
 
-export default Artigo;
+export default Artigo3;

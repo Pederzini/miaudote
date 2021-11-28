@@ -11,7 +11,7 @@ import imgDropdown from './imagens/Adote/dropdown.svg';
 import imgPata from './imagens/Adote/icon-pata.svg';
 import imgMenu from './imagens/Geral/icon-menu.svg';
 import imgSair from './imagens/Geral/sair.svg';
-import imgArtigo1 from './imagens/Artigos/artigo-1.png';
+import imgArtigo2 from './imagens/Artigos/artigo-2.png';
 import imgPataLaranja from './imagens/Artigos/img-pata-laranja.svg';
 
 import imgFacebook from './imagens/Geral/icon-facebook.svg';
@@ -24,7 +24,7 @@ import imgEmail from './imagens/Geral/icon-email-footer.svg';
 // import componentes
 import Titulo from './components/Titulo';
 
-function Artigo() {
+function Artigo2() {
 
     return (
         <div className="artigo">
@@ -47,13 +47,13 @@ function Artigo() {
 
                             <div className="dropdown-content">
                                 <div className="text-dropdown">
-                                    <img src={imgPataLaranja} alt="" />
+                                    <img src={imgPata} alt="" />
                                     <Link to={"/artigo1"}>
                                         <p>ADOTEI, E AGORA?</p>
                                     </Link>
                                 </div>
                                 <div className="text-dropdown">
-                                    <img src={imgPata} alt="" />
+                                    <img src={imgPataLaranja} alt="" />
                                     <Link to={"/artigo2"}>
                                         <p>CONHECENDO SEU PET</p>
                                     </Link>
@@ -100,27 +100,27 @@ function Artigo() {
             </div>
 
             <div className="box-titulo">
-                <Titulo className="titulo" titulo="Adotei, e agora?" />
+                <Titulo className="titulo" titulo="Conhecendo seu pet" />
             </div>
 
             <div className="container-artigo">
                 <div className="div-esquerda-artigo">
                     <div className="div-imagem">
-                        <img src={imgArtigo1} alt="" />
+                        <img src={imgArtigo2} alt="" />
                     </div>
                     <div className="div-artigos">
                         <div className="artigos-relacionados">
                             ARTIGOS RELACIONADOS
                         </div>
                         <div className="artigo-link">
-                            <img src={imgPataLaranja} alt="" />
+                            <img src={imgPata} alt="" />
                             <Link to={"/artigo1"}>
                                 <u>Adotei, e agora?</u>
                             </Link>
 
                         </div>
                         <div className="artigo-link">
-                            <img src={imgPata} alt="" />
+                            <img src={imgPataLaranja} alt="" />
                             <Link to={"/artigo2"}>
                                 <u>Conhecendo seu pet</u>
                             </Link>
@@ -145,21 +145,19 @@ function Artigo() {
 
                 <div className="texto">
                     <p>
-                        Antes de qualquer coisa, se você está lendo isso e adotou um peludo, PARABÉNS! Resgatar um animal abandonado é um lindo ato de compaixão que deve ser reconhecido e parabenizado, então, mais uma vez, parabéns! Se você está nessa situação e chegou até esse post, é porque se importa com seu novo amigo e quer saber quais são os primeiros passos que você deve dar nessa nova jornada, certo? Pra te ajudarmos, vamos dar algumas dicas importantes que nem todo mundo sabe sobre pet resgatados!
-                        <br /> <br /> Prepare sua casa!
-                        Você pode achar que, apesar de sua casa não ser a mais bagunçada do mundo, ela já está pronta para receber um pet, mas o que muitas pessoas não sabem, é que existem vários objetos e itens que todo mundo tem em casa que são tóxicos e podem fazer mal à qualquer animal.
-                        Além de preparar sua casa pensando no que pode fazer mal ao seu novo pet, é importante que você pense em você também, certo? Afinal, acredito que você não acharia legal se chegasse em casa e encontrasse aquele vaso que sua bisavó te deu em cacos, no chão.
+                        Falar de comportamento animal é mais do que ensinar a resolver o xixi e coco no lugar certo. É mais do que minimizar o medo de trovão e fogos. É pensar sobre o bem estar dos animais. Algumas pessoas relacionam esse bem estar com demonstrações de afeto, estar bem alimentado e receber carinho.
                         <br /> <br />
-                        Cuidados com sua saúde e do seu novo pet
-                        Agora, se você resgatou um peludinho das ruas, é importante que você tome algumas medidas o mais breve possível para evitar que ele, você e as pessoas que convivem com você tenham qualquer problema de saúde.
-                        Então, leve o novo membro da sua família em uma consulta veterinária o quanto antes para fazer um checkup e garantir que esteja tudo certo com a saúde dele! Dessa forma, você previne que ele e sua família tenha alguma doença. Muitos dos cãezinhos que vivem nas ruas são contaminados com doenças que podem ser transmitidas para humanos.
+                        Mas qual é o ponto de felicidade de cada animal?
+                        Observar o comportamento do animal é importante não apenas para saber se ele está feliz ou triste, mas para reconhecer se a saúde está ok. Ninguém chega ao veterinário dizendo: “doutor, meu gato está com poliúria”. Mas vai dizer que o gato está bebendo menos água e fazendo xixi no lugar errado.
                         <br /> <br />
-
-                        Por fim, para você ganhar o prêmio de adotante do ano é necessário… Estar sempre com ele! Sim, um bom companheiro está sempre por perto, observando, cuidando e mimando muito seu pet, né? A sua verdadeira missão é fazer seu animalzinho se sentir especial todos os dias!
+                        Através do comportamento do animal, que certos problemas de saúde podem ser detectados.
+                        Se para o ser humano já é difícil falar sobre saúde mental, imagina em animais. É compreensível que um cão tenha um adestrador, mas se consultar com psicólogo ou psiquiatra pode beirar a frescura ou modismo, para alguns. Pode não parecer, mas cães e gatos ficam estressados, depressivos e tristes.
+                        Adquirir um novo animal, sem fazer uma adaptação adequada, pode facilitar o estresse e até o aparecimento de doenças.
+                        <br /> <br />
+                        Para saber se está tudo bem, ou não, como seu pequeno, é importante reconhecer suas necessidades básicas e os comportamentos específicos de cada espécie. O cão é um animal social. Deixá-lo muitas horas por dia sozinho e sem atividade pode gerar um grande problema comportamental. Uma das principais necessidades da espécie não está sendo atendida, enquanto da mesma forma, gatos tem dificuldade a se adaptar com novos indivíduos, devido a sua característica mais individualista.  Por isso, é extremamente importante que observe qualquer alteração no comportamento do animal e já leve ao médico veterinário
                     </p>
                     <p id="fonte">
-                        FONTE: https://petanjo.com/blog/adotei-um-cachorro-e-agora/
-                        <br />FONTE: https://www.maxtotalalimentos.com.br/dica-cao/comportamento/acabou-adotar-cachorro-10-dicas-para-ser-mamae-do-ano/
+                        FONTE: https://emais.estadao.com.br/blogs/comportamento-animal/10-sinais-que-seu-caogato-nao-esta-feliz/
                     </p>
                 </div>
             </div>
@@ -276,4 +274,4 @@ function Artigo() {
     );
 }
 
-export default Artigo;
+export default Artigo2;

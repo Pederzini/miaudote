@@ -15,6 +15,35 @@ var modalA = document.getElementById("modalAjuda");
 var fechar = document.getElementsByClassName("close")[0];
 var fecharA = document.getElementsByClassName("closeA")[0];
 
+function mostraLoading() {
+  let progresso = 0;
+  var bar = new ldBar(".myBar", {"value": 0});
+  
+  document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+  document.getElementsByClassName('ldBar')[0].style.display = "flex";
+  document.getElementsByClassName('loading')[0].style.display = "flex"
+  function alteraValor() {
+      bar.set(
+          progresso,
+          false
+      )
+      if (progresso >= 100) {
+          progresso = 0;
+      } else {
+          progresso += 20;
+      }
+  }
+
+  window.setInterval(function () {
+      alteraValor();
+  }, 700);
+}
+
+function escondeLoading() {
+  document.getElementsByClassName('ldBar')[0].style.display = "none"
+  document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 // When the user clicks on <div> (x), close the modal
 fechar.onclick = function () {
   modal.style.display = "none";
@@ -55,14 +84,12 @@ function queroAjudar() {
 }
 
 function getOngAnimal(idAnimal) {
-  // localhost:8080/miaudote/ongs/10/contato-ong
   axios.get(`http://localhost:8080/miaudote/ongs/${idAnimal}/contato-ong`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
     },
   }).then(response => {
-    console.log(response)
     document.querySelectorAll("#modal-card-logo")[0].src = response.data.urlImagem;
     document.querySelectorAll("#modal-nome-ong")[0].innerHTML = response.data.razaoSocial;
     document.querySelectorAll("#modal-ano-ong")[0].innerHTML = formataData(response.data.dataFundacao);
@@ -79,7 +106,7 @@ function getOngAnimal(idAnimal) {
       text: 'Erro ao abrir a ONG escolhida',
       icon: 'warning',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   })
 
@@ -87,7 +114,6 @@ confirmButtonColor: '#8675A5'
 
 //var idAnimal = sessionStorage.getItem(idAnimal) -> ARRUMAR
 function patchMetodoContato(contato) {
-  // ver como pegar o idAnimal 
   axios.patch(`http://localhost:8080/miaudote/adocoes/inicia-processo-adocao/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}/${contato}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -95,7 +121,6 @@ function patchMetodoContato(contato) {
     },
   }).then(response => {
     console.log(response)
-
   }).catch(function (error) {
     Swal.fire({
       title: error.response,
@@ -191,6 +216,7 @@ function formataData(data) {
 }
 
 function getInfosPet() {
+  mostraLoading()
   axios.get(`http://localhost:8080/miaudote/animais/perfil-animal/${idAnimal}/${idAdotante}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -257,10 +283,11 @@ function getInfosPet() {
     //envia nome e foto do animal
 
     fotoPet = fotosPet.length > 0 ? fotosPet[0] : ""
+    escondeLoading()
     // apiWhats()
     // apiEmail()
   }).catch(function (error) {
-    console.log(error)
+    escondeLoading()
     Swal.fire({
       title: error.response,
       text: 'Erro ao carregar as informações da ONG',

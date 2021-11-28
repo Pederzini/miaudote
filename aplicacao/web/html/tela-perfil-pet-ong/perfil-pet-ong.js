@@ -5,6 +5,35 @@ function topo() {
     window.scrollTo(0, 0)
 }
 
+function mostraLoading() {
+    let progresso = 0;
+    var bar = new ldBar(".myBar", {"value": 0});
+    
+    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+    function alteraValor() {
+        bar.set(
+            progresso,
+            false
+        )
+        if (progresso >= 100) {
+            progresso = 0;
+        } else {
+            progresso += 20;
+        }
+    }
+
+    window.setInterval(function () {
+        alteraValor();
+    }, 300);
+}
+
+function escondeLoading() {
+    document.getElementsByClassName('ldBar')[0].style.display = "none"
+    document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function redirecionarTela() {
     sessionStorage.trocaMenu = 2
     window.location.href = ".././tela-adocoes/adocoes.html"
@@ -61,6 +90,7 @@ function calcIdade(data) {
 }
 
 function getInfosPet() {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
@@ -92,8 +122,9 @@ function getInfosPet() {
             }
         }
         organizaFotos()
-
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações da ONG',
