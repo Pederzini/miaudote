@@ -4,6 +4,7 @@ let dadosCards = []
 let vetorComVetores = []
 let vetorFiltrados = []
 let contador = 1;
+let progresso = 0;
 
 var modal = document.getElementById("modalCadastro");
 // Get the <span> element that closes the modal
@@ -11,6 +12,38 @@ var fechar = document.getElementsByClassName("close")[0];
 
 function topo() {
     window.scrollTo(0, 0)
+}
+
+function mostraLoading() {
+    
+    var bar = new ldBar(".myBar", {
+        "value": 0
+    });
+
+    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
+    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+
+    function alteraValor() {
+        bar.set(
+            progresso,
+            false
+        )
+        if (progresso >= 100) {
+            progresso = 0;
+        } else {
+            progresso += 20;
+        }
+    }
+
+    window.setInterval(function () {
+        alteraValor();
+    }, 700);
+}
+
+function escondeLoading() {
+    document.getElementsByClassName('ldBar')[0].style.display = "none"
+    document.getElementsByClassName('loading')[0].style.display = "none"
 }
 
 function redirecionarCadastro() {
@@ -44,7 +77,10 @@ function gerarRelatorio() {
     window.location.href = `http://localhost:8080/miaudote/animais/exportacao/${cnpj}`
 }
 
+
 function getInfosCards() {
+    setTimeout(mostraLoading(), 5000)
+    // mostraLoading();    
     axios.get(`http://localhost:8080/miaudote/animais/animais-ong/${JSON.parse(sessionStorage.login_usuario).cnpj}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -62,13 +98,15 @@ function getInfosCards() {
         preencherVetorPrincipalComVetores()
         limparDivVazia()
         mostrarDivs()
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar os cards. Tente novamente!',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -95,9 +133,9 @@ function criarDivVazia() {
     let divContainer = document.querySelector(".container");
 
     let div = document.createElement('div')
-        divContainer.appendChild(div)
-        if (div.classList) div.classList.add("cards");
-        else div.className += " cards";
+    divContainer.appendChild(div)
+    if (div.classList) div.classList.add("cards");
+    else div.className += " cards";
 }
 
 function limparDivVazia() {
@@ -366,7 +404,9 @@ function limparFiltros() {
     }
 
     let divsDeCards = document.querySelectorAll(".cards");
-    divsDeCards.forEach(element => { element.remove() });
+    divsDeCards.forEach(element => {
+        element.remove()
+    });
     document.querySelector(".pagination").remove();
     criarDivVazia();
 
@@ -455,7 +495,7 @@ function filtrar() {
 
         sIdade == 2 ? (min = 1, max = 3) :
             sIdade == 3 ? (min = 4, max = 7) :
-                sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
+            sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
 
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
             console.log("entrei no filtro de idade")
@@ -521,7 +561,9 @@ function filtrar() {
     }
 
     let divsDeCards = document.querySelectorAll(".cards");
-    divsDeCards.forEach(element => { element.remove() });
+    divsDeCards.forEach(element => {
+        element.remove()
+    });
     document.querySelector(".pagination").remove();
 
     if (vetorFiltrados.length > 0) {
@@ -582,8 +624,7 @@ function limparVetores() {
             } else {
                 break;
             }
-        }
-        catch (err) {
+        } catch (err) {
             console.log("erro")
         }
     }
