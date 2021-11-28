@@ -65,12 +65,11 @@ function getOngAnimal(idAnimal) {
     console.log(response)
     document.querySelectorAll("#modal-card-logo")[0].src = response.data.urlImagem;
     document.querySelectorAll("#modal-nome-ong")[0].innerHTML = response.data.razaoSocial;
-    document.querySelectorAll("#modal-ano-ong")[0].innerHTML = response.data.dataFundacao;
+    document.querySelectorAll("#modal-ano-ong")[0].innerHTML = formataData(response.data.dataFundacao);
     document.querySelectorAll("#modal-endereco-ong")[0].innerHTML = response.data.cidade;
-
     document.querySelectorAll("#modal-card-logo")[1].src = response.data.urlImagem;
     document.querySelectorAll("#modal-nome-ong")[1].innerHTML = response.data.razaoSocial;
-    document.querySelectorAll("#modal-ano-ong")[1].innerHTML = response.data.dataFundacao;
+    document.querySelectorAll("#modal-ano-ong")[1].innerHTML = formataData(response.data.dataFundacao);
     document.querySelectorAll("#modal-endereco-ong")[1].innerHTML = response.data.cidade;
     telOng = response.data.telefone;
     emailOng = response.data.email;
@@ -175,6 +174,20 @@ function calcIdade(data) {
     quantos_anos--;
   }
   return quantos_anos < 0 ? 0 : quantos_anos;
+}
+
+function formataData(data) {
+
+  dataParaCalcular = data
+
+  const date = new Date(data)
+
+  const day = date.getDate().toString().padStart(2, '0')
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const year = date.getFullYear()
+
+  const formatted = `${day}/${month}/${year}`
+  return formatted;
 }
 
 function getInfosPet() {
