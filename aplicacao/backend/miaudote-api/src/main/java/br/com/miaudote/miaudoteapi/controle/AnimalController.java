@@ -40,7 +40,7 @@ public class AnimalController {
 
     @GetMapping("/{id}")
     public ResponseEntity getAnimal(@PathVariable Integer id) {
-        if (animalRepository.findById(id).isPresent()) {
+        if (animalRepository.existsById(id)) {
             Animal animal = animalRepository.findById(id).get();
             AnimalDTO animalRetorno = new AnimalDTO(animal.getNome(),
                     animal.getDescricao(),
@@ -59,7 +59,7 @@ public class AnimalController {
                     animal.getEspecie());
             return ResponseEntity.status(200).body(animalRetorno);
         }
-        return ResponseEntity.status(204).build();
+        return ResponseEntity.status(404).build();
     }
 
     @GetMapping
@@ -74,7 +74,7 @@ public class AnimalController {
     }
 
     @GetMapping("/animais-ong/{cnpj}")
-    public ResponseEntity getAnimalOng(@PathVariable String cnpj) {
+    public ResponseEntity getAnimaisOng(@PathVariable String cnpj) {
         Ong ong = ongRepository.findByCnpj(cnpj);
 
         List<CardAnimalOngDTO> animais = animalRepository.findByOngId(ong.getIdOng());

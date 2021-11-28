@@ -47,7 +47,8 @@ class AdotanteControllerTest {
 
     @Test
     void post_CadastroAdotante_status201SemCorpo() {
-        Endereco enderecoMock = new Endereco("",1,"","","","");
+        Endereco enderecoMock =
+                new Endereco("Rua Haddock Lobo",595,"Prédio Comercial","Consolação","01414-001","São Paulo");
         Adotante adotanteMock = new Adotante("tel", "email", "senha", "url", enderecoMock, "nome", new Date(), "cpf");
 
         when(repository.save(adotanteMock)).thenReturn(adotanteMock);
@@ -59,7 +60,8 @@ class AdotanteControllerTest {
 
     @Test
     void post_CadastroAdotantes_status409ComExceptionEmail() {
-        Endereco enderecoMock = new Endereco("",1,"","","","");
+        Endereco enderecoMock =
+                new Endereco("Rua Haddock Lobo",595,"Prédio Comercial","Consolação","01414-001","São Paulo");
         Adotante adotanteMock = new Adotante("tel", "email", "senha", "url", enderecoMock, "nome", new Date(), "cpf");
 
         when(repository.save(adotanteMock)).thenThrow(new DataIntegrityViolationException("@"));
@@ -72,7 +74,8 @@ class AdotanteControllerTest {
 
     @Test
     void post_Adotantes_status409ComExceptionCPF() {
-        Endereco enderecoMock = new Endereco("",1,"","","","");
+        Endereco enderecoMock =
+                new Endereco("Rua Haddock Lobo",595,"Prédio Comercial","Consolação","01414-001","São Paulo");
         Adotante adotanteMock = new Adotante("tel", "email", "senha", "url", enderecoMock, "nome", new Date(), "cpf");
 
         when(repository.save(adotanteMock)).thenThrow(new DataIntegrityViolationException(""));
@@ -135,13 +138,4 @@ class AdotanteControllerTest {
         assertFalse(response.hasBody());
 
     }
-
-//    @Test
-//    void get_LateLong_status200(){
-//        Endereco enderecoMock = new Endereco("",1,"","","","");
-//        Adotante adotanteMock = new Adotante("tel", "email", "senha", "url", enderecoMock, "nome", new Date(), "cpf");
-//
-//        when(repository.buscaLatLongAdotante(adotanteMock.getIdAdotante())).thenReturn(enderecoMock.getLatitude() + enderecoMock.getLongitude());
-//    }
-
 }

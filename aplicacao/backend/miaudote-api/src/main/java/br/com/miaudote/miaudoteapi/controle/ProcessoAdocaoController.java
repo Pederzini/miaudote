@@ -114,6 +114,17 @@ public class ProcessoAdocaoController {
 
         adocoesConcluidas.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
 
+        PilhaObj<AdocaoFinalizadaDTO> pilha = new PilhaObj(adocoesConcluidas.size());
+
+        for (AdocaoFinalizadaDTO adocao : adocoesConcluidas){
+            pilha.push(adocao);
+        }
+        adocoesConcluidas.clear();
+
+        while(!pilha.isEmpty()){
+            adocoesConcluidas.add(pilha.pop());
+        }
+
         if (adocoesConcluidas.isEmpty()) {
             return ResponseEntity.status(204).build();
         }
