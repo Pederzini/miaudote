@@ -127,6 +127,20 @@ header {
 
 }
 
+li {
+    font-family: Nunito;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 8px;
+    list-style-type: none;
+    width: 140px;
+}
+
 .container-btn {
     height: 100%;
     width: 13%;
