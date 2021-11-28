@@ -7,6 +7,24 @@ body {
     overflow-x: hidden;
 }
 
+/* SWEET ALERT QIUEBRANDO*/
+.swal2-warning {
+    height: 6rem;
+    width: 6rem;
+  }
+  
+  .swal2-icon-content {
+    font-size: 3.7em !important;
+  }
+  
+  .swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    height: 5rem;
+    width: 5rem;
+    overflow: visible !important;
+  }
+
 *,
 *:before,
 *:after {
@@ -15,6 +33,8 @@ body {
     font-family: Nunito Sans;
     /* display: flex; */
 }
+
+
 
 html {
     /*PARA O ONLY PAGE*/

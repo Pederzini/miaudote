@@ -184,6 +184,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
     </main>
     <a style="cursor: pointer;">
@@ -331,7 +332,6 @@
     }
 
     function fecharModal() {
-        document.querySelector(".clique-favorito").style = "pointer-events: all;"
         modalFav.style.display = "none";
         document.querySelector("body").style.overflow = 'visible';
         limparModal();
@@ -344,7 +344,6 @@
 
     window.onclick = function (event) {
         if (event.target == modalFav) {
-            document.querySelector(".clique-favorito").style = "pointer-events: all;"
             modalFav.style.display = "none";
             document.querySelector("body").style.overflow = 'visible';
             limparModal();

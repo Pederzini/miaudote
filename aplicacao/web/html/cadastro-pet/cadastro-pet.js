@@ -1,5 +1,14 @@
 let fotos = "";
 
+function mostraLoading() {
+  document.getElementsByClassName('loading')[0].style.display = "flex"
+}
+
+function escondeLoading() {
+  document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
+
 function forFoto() {
   for (let index = 0; index < urlImagem.length; index++) {
     const element = urlImagem[index];
@@ -37,7 +46,7 @@ function postCadastroPet() {
       text: 'Não deixe nenhum campo vazio',
       icon: 'warning',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   } else {
     var nome = document.getElementById("formulario").elements["cmp_nome"].value
@@ -63,7 +72,7 @@ confirmButtonColor: '#8675A5'
     var descricao = document.getElementById("campo_desc").value
 
     forFoto()
-
+    mostraLoading()
     axios.post('http://localhost:8080/miaudote/animais', {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -87,40 +96,44 @@ confirmButtonColor: '#8675A5'
       "ong": null,
     }).then(response => {
       putOng(response.data.idAnimal)
+      escondeLoading()
     }).catch(function (error) {
+      escondeLoading()
       Swal.fire({
         title: "ERRO",
         text: 'Verifique as informações digitadas',
         icon: 'warning',
         confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+        confirmButtonColor: '#8675A5'
       })
     })
   }
 }
 
 function putOng(idAnimal) {
-
+  mostraLoading()
   axios.put(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
     },
   }).then(response => {
+    escondeLoading()
     Swal.fire({
       title: 'Cadastro concluído!',
       text: 'Animal cadastrado com sucesso!',
       icon: 'success',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   }).catch(function (error) {
+    escondeLoading()
     Swal.fire({
       title: "Erro",
       text: 'Verifique as informações digitadas',
       icon: 'warning',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   })
 }

@@ -9,31 +9,10 @@ function topo() {
 }
 
 function mostraLoading() {
-    let progresso = 0;
-    var bar = new ldBar(".myBar", {"value": 0});
-    
-    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
-    document.getElementsByClassName('ldBar')[0].style.display = "flex";
     document.getElementsByClassName('loading')[0].style.display = "flex"
-    function alteraValor() {
-        bar.set(
-            progresso,
-            false
-        )
-        if (progresso >= 100) {
-            progresso = 0;
-        } else {
-            progresso += 20;
-        }
-    }
-
-    window.setInterval(function () {
-        alteraValor();
-    }, 700);
 }
 
 function escondeLoading() {
-    document.getElementsByClassName('ldBar')[0].style.display = "none"
     document.getElementsByClassName('loading')[0].style.display = "none"
 }
 
@@ -66,7 +45,7 @@ function favoritar(idAnimalFavorito, favoritado) {
             text: 'Erro ao favoritar o animal. Tente novamente!',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -90,7 +69,7 @@ function desfavoritar(idAnimalFavorito) {
             text: 'Erro ao desfavoritar o animal. Tente novamente!',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -128,7 +107,7 @@ function getInfosCards() {
             text: 'Erro ao carregar os cards. Tente novamente!',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -450,7 +429,9 @@ function limparFiltros() {
     }
 
     let divsDeCards = document.querySelectorAll(".cards");
-    divsDeCards.forEach(element => { element.remove() });
+    divsDeCards.forEach(element => {
+        element.remove()
+    });
     document.querySelector(".pagination").remove();
     criarDivVazia();
 
@@ -561,7 +542,7 @@ function filtrar() {
 
         sIdade == 2 ? (min = 1, max = 3) :
             sIdade == 3 ? (min = 4, max = 7) :
-                sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
+            sIdade == 4 ? (min = 8, max = 10) : (min = 11, max = 30)
 
         vetorFiltrados = vetorFiltrados.filter(function (elemento) {
             return elemento.idade >= min &&
@@ -626,7 +607,9 @@ function filtrar() {
     }
 
     let divsDeCards = document.querySelectorAll(".cards");
-    divsDeCards.forEach(element => { element.remove() });
+    divsDeCards.forEach(element => {
+        element.remove()
+    });
     document.querySelector(".pagination").remove();
 
     if (vetorFiltrados.length > 0) {
@@ -687,8 +670,7 @@ function limparVetores() {
             } else {
                 break;
             }
-        }
-        catch (err) {
+        } catch (err) {
             console.log("erro")
         }
     }

@@ -5,6 +5,14 @@ function topo() {
   window.scrollTo(0, 0)
 }
 
+function mostraLoading() {
+  document.getElementsByClassName('loading')[0].style.display = "flex"
+}
+
+function escondeLoading() {
+  document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function imgPlaceholder() {
   imagePerfil1.src = placeholder;
   imagePerfil2.src = placeholder;
@@ -80,6 +88,7 @@ let myVars = {
 };
 
 function getInfosPet() {
+  mostraLoading()
   axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -97,15 +106,15 @@ function getInfosPet() {
     response.data.vacinado.toUpperCase() == "SIM" ? cmp_vac_sim.checked = true : cmp_vac_nao.checked = true
     response.data.corPelagem.toUpperCase() == "BEGE" ? corPelagem.value = 1 :
       response.data.corPelagem.toUpperCase() == "BRANCO" ? corPelagem.value = 2 :
-        response.data.corPelagem.toUpperCase() == "CARAMELO" ? corPelagem.value = 3 :
-          response.data.corPelagem.toUpperCase() == "CINZA" ? corPelagem.value = 4 :
-            response.data.corPelagem.toUpperCase() == "MALHADO" ? corPelagem.value = 5 :
-                corPelagem.value = 6;
+      response.data.corPelagem.toUpperCase() == "CARAMELO" ? corPelagem.value = 3 :
+      response.data.corPelagem.toUpperCase() == "CINZA" ? corPelagem.value = 4 :
+      response.data.corPelagem.toUpperCase() == "MALHADO" ? corPelagem.value = 5 :
+      corPelagem.value = 6;
     response.data.comportamento.toUpperCase() == "CALMO" ? comp.value = 5 :
       response.data.comportamento.toUpperCase() == "ANSIOSO" ? comp.value = 4 :
-        response.data.comportamento.toUpperCase() == "ANIMADO" ? comp.value = 3 :
-          response.data.comportamento.toUpperCase() == "AGITADO" ? comp.value = 1 :
-            comp.value = 2;
+      response.data.comportamento.toUpperCase() == "ANIMADO" ? comp.value = 3 :
+      response.data.comportamento.toUpperCase() == "AGITADO" ? comp.value = 1 :
+      comp.value = 2;
     campo_desc.value = response.data.descricao
     response.data.necessidadeEspeciais.length > 0 ? campo_especial.value = response.data.necessidadeEspeciais : campo_especial.value = "-"
     if (response.data.urlImagem != null) {
@@ -121,14 +130,15 @@ function getInfosPet() {
       }
       urlImagem = fotosPet
     }
-
+    escondeLoading()
   }).catch(function (error) {
+    escondeLoading()
     Swal.fire({
       title: error.response,
       text: 'Erro ao carregar as informações do Pet.',
       icon: 'warning',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   })
 }
@@ -194,8 +204,12 @@ function atualizaInfosPet() {
     }
   }
 
+  mostraLoading()
   axios.put(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
-    headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true
+    },
     "nome": campo_nome.value,
     "descricao": campo_desc.value,
     "especie": cmp_gato.checked ? "Gato" : "Cachorro",
@@ -217,21 +231,22 @@ function atualizaInfosPet() {
       text: 'Clique em ok para atualizar a página',
       icon: 'success',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     }).then((result) => {
       if (result.value) {
         topo();
         window.location.reload;
       }
     })
-
+    escondeLoading()
   }).catch(function (error) {
+    escondeLoading()
     Swal.fire({
       title: error.response,
       text: 'Erro ao carregar as informações do Pet.',
       icon: 'warning',
       confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+      confirmButtonColor: '#8675A5'
     })
   })
 }

@@ -5,6 +5,25 @@
     --branco: #FFFFFF;
 }
 
+
+.swal2-warning {
+    height: 6rem;
+    width: 6rem;
+  }
+  
+  .swal2-icon-content {
+    font-size: 3.7em !important;
+  }
+  
+  /* SWEET ALERT QIUEBRANDO*/
+  .swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    height: 5rem;
+    width: 5rem;
+    overflow: visible !important;
+  }
+
 * {
     margin: 0;
     padding: 0;

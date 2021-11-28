@@ -1,3 +1,6 @@
+function topo() {
+    window.scrollTo(0, 0)
+}
 
 var arquivo;
 
@@ -19,8 +22,14 @@ function readfiles(files) {
 }
 
 var holder = document.getElementById('holder');
-holder.ondragover = function () { this.className = 'hover'; return false; };
-holder.ondragend = function () { this.className = ''; return false; };
+holder.ondragover = function () {
+    this.className = 'hover';
+    return false;
+};
+holder.ondragend = function () {
+    this.className = '';
+    return false;
+};
 holder.ondrop = function (e) {
     this.className = '';
     e.preventDefault();

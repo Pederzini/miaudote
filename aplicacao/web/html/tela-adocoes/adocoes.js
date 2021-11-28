@@ -237,7 +237,6 @@ function patchNaoAdotou(idAdocao) {
 }
 
 function getQuemFavoritou(idAnimal) {
-    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${idAnimal}/pessoas-que-favoritaram`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -248,9 +247,8 @@ function getQuemFavoritou(idAnimal) {
         for (let index = 0; index < response.data.length; index++) {
             dadosFavoritosModal[index] = response.data[index];
         }
-        escondeLoading()
+        mostrarModalDiv(idAnimal)
     }).catch(function (error) {
-        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações do animal',
@@ -262,7 +260,6 @@ function getQuemFavoritou(idAnimal) {
 }
 
 function getQuemInteressouFav(idAdotante) {
-    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${idAdotante}/informacoes-pessoa-que-favoritou`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -275,9 +272,7 @@ function getQuemInteressouFav(idAdotante) {
         document.getElementById("adotante-endereco").innerHTML = response.data.endereco.cidade;
         document.getElementById("modal-mail-adotante").innerHTML = response.data.email;
         document.getElementById("modal-tel-adotante").innerHTML = formataTelefone(response.data.telefone);
-        escondeLoading()
     }).catch(function (error) {
-        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos adotados',
@@ -436,9 +431,8 @@ function mostrarDivs(valor) {
             if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
             else containerFavorito.className += " container-favorito";
 
-            containerFavorito.addEventListener('click', () => {
+            divImgFavorito.addEventListener('click', () => {
                 getQuemFavoritou(element.idAnimal)
-                containerFavorito.style = "pointer-events: none;";
                 if (!element.favoritado) {
                     Swal.fire({
                         title: "Ops",
@@ -477,7 +471,6 @@ function mostrarDivs(valor) {
 
             cliqueFavorito.addEventListener('click', () => {
                 getQuemFavoritou(element.idAnimal)
-                cliqueFavorito.style = "pointer-events: none;";
                 if (!element.favoritado) {
                     Swal.fire({
                         title: "Ops",

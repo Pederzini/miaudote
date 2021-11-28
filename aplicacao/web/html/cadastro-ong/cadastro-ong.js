@@ -13,39 +13,13 @@ window.onload = function () {
 }
 let progresso = 0;
 
-function mostraLoading() {    
-    progresso = 0;
-    var bar = new ldBar(".myBar", {
-        "value": 0
-    });
-
-    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
-    document.getElementsByClassName('ldBar')[0].style.display = "flex";
+function mostraLoading() {
     document.getElementsByClassName('loading')[0].style.display = "flex"
-
-    function alteraValor() {
-        bar.set(
-            progresso,
-            false
-        )
-        // if (progresso < 100) {
-            progresso += 20;
-        // }
-    }
-
-    if (progresso < 100) {
-        window.setInterval(function () {
-            alteraValor();
-        }, 700);
-    }
-    
-}
-
-function escondeLoading() {
-    document.getElementsByClassName('ldBar')[0].style.display = "none"
+  }
+  
+  function escondeLoading() {
     document.getElementsByClassName('loading')[0].style.display = "none"
-    progresso = 0;
-}
+  }
 
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.

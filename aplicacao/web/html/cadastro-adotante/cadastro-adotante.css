@@ -5,6 +5,25 @@
     --branco: #FFFFFF;
 }
 
+
+.swal2-warning {
+    height: 6rem;
+    width: 6rem;
+}
+
+.swal2-icon-content {
+    font-size: 3.7em !important;
+}
+
+/* SWEET ALERT QIUEBRANDO*/
+.swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    height: 5rem;
+    width: 5rem;
+    overflow: visible !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,19 +39,19 @@ body {
 
 /* Início - Header */
 header {
-	background: url('../../imagens/cadastro/forma-header-cadastro.svg') no-repeat;
+    background: url('../../imagens/cadastro/forma-header-cadastro.svg') no-repeat;
     height: 39%;
-	background-size: cover;
+    background-size: cover;
     background-attachment: local;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-header .overlay{
-	width: 100%;
-	height: 100%;
-	padding: 50px;	
+header .overlay {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
 }
 
 .seta-voltar {
@@ -153,7 +172,7 @@ input {
 
 .campos:focus {
     border-color: var(--titulo-campos);
-  }
+}
 
 .container-campos {
     width: 335px;
@@ -208,7 +227,7 @@ form {
     margin-top: -25px;
     position: relative;
     z-index: 2;
-  }
+}
 
 /* Fim - Grupos de cadastro */
 
@@ -226,7 +245,7 @@ form {
 }
 
 .linhas-esquerda img {
-    max-width:100%;
+    max-width: 100%;
 }
 
 .titulo-divisoria {
@@ -241,7 +260,7 @@ form {
 }
 
 .linhas-direita img {
-    max-width:100%;
+    max-width: 100%;
 }
 
 /* Fim - Divisória */
@@ -291,7 +310,7 @@ form {
 
 footer {
     width: 100%;
-    display: flex;   
+    display: flex;
 }
 
 footer img {

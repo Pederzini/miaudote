@@ -3,16 +3,20 @@ let feedbacks = [];
 function referenciaMeuPets() {
     window.location.href = "../tela-card-adocoes/tela-card-adocoes.html"
 }
+
 function topo() {
     window.scrollTo(0, 0)
-  }
+}
 
 function getQtdAnimais() {
 
     let qtdAnimais = document.querySelectorAll("#qtdAnimais")
 
     axios.get(`http://localhost:8080/miaudote/animais/numero-adotados`, {
-      headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true
+        },
     }).then(response => {
         qtdAnimais[0].innerHTML = `${response.data}`
         qtdAnimais[1].innerHTML = `${response.data}`
@@ -32,7 +36,10 @@ function getFeedback() {
     let starAdotante2 = document.querySelectorAll("#starFeed2")
 
     axios.get(`http://localhost:8080/miaudote/adocoes/feedbacks`, {
-        headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "crossorigin": true
+        },
     }).then(response => {
         console.log(response.data)
 
@@ -56,7 +63,7 @@ function getFeedback() {
             text: 'Erro ao carregar as informações da ONG',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
