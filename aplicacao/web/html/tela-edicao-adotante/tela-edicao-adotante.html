@@ -107,8 +107,7 @@
         </div>
 
         <span class="titulos-campos">Email</span>
-        <input placeholder="email@exemplo.com" class="campos" id="campo_email" type="text" name="cmp_email"
-          required>
+        <input placeholder="email@exemplo.com" class="campos" id="campo_email" type="text" name="cmp_email" required>
 
         <span class="titulos-campos">Senha</span>
         <div class="container-senha">
@@ -345,7 +344,7 @@
       <img class="modal-caminho" src="../../imagens/perfil-adotante/caminho-modal.svg" alt="">
       <span class="modal-titulo">VEJA OS PETS QUE JÁ ADOTOU</span>
 
-      <div class="cards-adocoes-adotante">        
+      <div class="cards-adocoes-adotante">
       </div>
     </div>
 
@@ -356,32 +355,34 @@
 
     <!-- Modal content -->
     <div class="modal-content-feed">
-      <span class="closeFb">&times;</span>   
-      <img class="bola-um" src="../../imagens/modal/feedback-bola-esquerda.svg" alt="">  
-      <img class="bola-dois" src="../../imagens/modal/feedback-bola-direita.svg" alt="">      
+      <span class="closeFb">&times;</span>
+      <img class="bola-um" src="../../imagens/modal/feedback-bola-esquerda.svg" alt="">
+      <img class="bola-dois" src="../../imagens/modal/feedback-bola-direita.svg" alt="">
       <span class="modal-titulo-feed">COMO FOI A SUA ADOÇÃO? </br>
         CONTE UM POUCO PARA A GENTE
       </span>
 
       <div class="borda-feedback">
-        <textarea id="feedback-text" placeholder="DIGITE SUA EXPERIÊNCIA (MÁXIMO DE 180 CARACTERES)" class="borda-input" maxlength="180"  rows="4" cols="50" required></textarea>
+        <textarea id="feedback-text" placeholder="DIGITE SUA EXPERIÊNCIA (MÁXIMO DE 180 CARACTERES)" class="borda-input"
+          maxlength="180" rows="4" cols="50" required></textarea>
 
         <span class="feedback-span">COMO FOI SUA EXPERIÊNCIA COM A GENTE?</span>
         <div class="modal-estrelas">
           <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" checked/><label for="star5"></label>
+            <input type="radio" id="star5" name="rating" value="5" checked /><label for="star5"></label>
             <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
             <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
             <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
             <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
           </div>
         </div>
-        
+
         <div class="btn-feed">
           <button id="enviar-feedback" onclick="patchFeedback()">Enviar</button>
         </div>
       </div>
     </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
@@ -421,91 +422,91 @@
     this._selectDate(id)
   }
 
-  
-// Get the modal
-var modalF = document.getElementById("myModal");
-var modalA = document.getElementById("myModal2");
-var modalFb = document.getElementById("myModalFeed");
 
-// Get the button that opens the modal
-var btnF = document.getElementById("btnF");
-var btnA = document.getElementById("btnA");
-var btnFb = document.getElementById("btnFb");
+  // Get the modal
+  var modalF = document.getElementById("myModal");
+  var modalA = document.getElementById("myModal2");
+  var modalFb = document.getElementById("myModalFeed");
 
-// Get the <span> element that closes the modal
-var spanF = document.getElementsByClassName("closeF")[0];
-var spanA = document.getElementsByClassName("closeA")[0];
-var spanFb = document.getElementsByClassName("closeFb")[0];
+  // Get the button that opens the modal
+  var btnF = document.getElementById("btnF");
+  var btnA = document.getElementById("btnA");
+  var btnFb = document.getElementById("btnFb");
 
-// When the user clicks the button, open the modal 
-btnF.onclick = function () {
+  // Get the <span> element that closes the modal
+  var spanF = document.getElementsByClassName("closeF")[0];
+  var spanA = document.getElementsByClassName("closeA")[0];
+  var spanFb = document.getElementsByClassName("closeFb")[0];
+
+  // When the user clicks the button, open the modal 
+  btnF.onclick = function () {
     getAnimaisFavoritos()
     modalF.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
-}
+  }
 
-btnA.onclick = function () {
-    getAnimaisAdotados() 
+  btnA.onclick = function () {
+    getAnimaisAdotados()
     modalA.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
-}
+  }
 
-function abrirModalFeed() {
+  function abrirModalFeed() {
     modalFb.style.display = "block";
     document.querySelector("body").style.overflow = 'hidden';
-}
+  }
 
-// When the user clicks on <span> (x), close the modal
-spanF.onclick = function () {
+  // When the user clicks on <span> (x), close the modal
+  spanF.onclick = function () {
     modalF.style.display = "none";
     document.querySelector("body").style.overflow = 'visible';
     limparModal()
-}
+  }
 
-spanA.onclick = function () {
+  spanA.onclick = function () {
     modalA.style.display = "none";
     document.querySelector("body").style.overflow = 'visible';
     limparModal2()
-}
+  }
 
-spanFb.onclick = function () {
+  spanFb.onclick = function () {
     modalFb.style.display = "none";
     document.querySelector("body").style.overflow = 'visible';
     idAnimalFeed = "";
-}
+  }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
     if (event.target == modalF) {
-        modalF.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-        limparModal()
+      modalF.style.display = "none";
+      document.querySelector("body").style.overflow = 'visible';
+      limparModal()
     } else if (event.target == modalA) {
-        modalA.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-        limparModal2()
+      modalA.style.display = "none";
+      document.querySelector("body").style.overflow = 'visible';
+      limparModal2()
     } else if (event.target == modalFb) {
-        modalFb.style.display = "none";
-        document.querySelector("body").style.overflow = 'visible';
-        cnpjOngFeed = "";
-        idAnimalFeed = "";
+      modalFb.style.display = "none";
+      document.querySelector("body").style.overflow = 'visible';
+      cnpjOngFeed = "";
+      idAnimalFeed = "";
     }
-}
+  }
 
-function limparModal() {
+  function limparModal() {
     var node = document.querySelector(".cards-adocoes");
     var nodeAdotante = document.querySelector(".cards-adocoes-adotante");
     if (node.parentNode) {
-        node.innerHTML = "";
-    } 
-}
+      node.innerHTML = "";
+    }
+  }
 
-function limparModal2() {
+  function limparModal2() {
     var node = document.querySelector(".cards-adocoes-adotante");
     if (node.parentNode) {
-        node.innerHTML = "";
-    } 
-}
+      node.innerHTML = "";
+    }
+  }
 
 
 </script>

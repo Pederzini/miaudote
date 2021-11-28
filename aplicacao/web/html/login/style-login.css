@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap%27');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --titulo-campos: #6250D1;
+  --fonte-padrao: #434343;
+  --roxo: #8F7FAC;
+  --branco: #FFFFFF;
+}
+
 *,
 *:before,
 *:after {
@@ -296,9 +303,8 @@ header img {
 .container-botao-entrar p::after {
   color: #6250D1;
   content: " ACESSE AQUI";
+  cursor: pointer;
 }
-
-
 
 /* FIM LOGIN */
 
@@ -322,3 +328,157 @@ footer img {
 /* FIM FOOTER */
 
 
+/* MODAL */
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  padding-top: 130px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding-bottom: 4%;
+  border: 1px solid #888;  
+  width: 45%;
+  height: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.modal-titulo {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: -24px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 20px;
+  z-index: 10;
+  position: sticky;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-cadastro {
+  top: 20vh;
+  left: 25vw;
+  position: fixed;
+  height: 450px;
+  width: 656px;
+  display: flex;
+  background-color: white;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.container-direita {
+  z-index: 1;
+  width: 50%;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.container-esquerda {
+  z-index: 1;
+  width: 50%;
+}
+
+.container-conteudo {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: baseline;
+}
+
+.container-central {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  height: 100%;
+  align-items: center;
+}
+
+.btn-css {
+  margin: 15px;
+  width: 158px;
+  height: 49px;
+  border: none;
+  border-radius: 94.86px;
+  background-color: var(--roxo);
+  box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
+  color: var(--branco);
+  font-family: var(--nunito);
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+.conteudo-texto {
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 38px;
+  width: 130px;
+  font-weight: 400;
+}
+
+.container-acesso {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  place-self: end;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.container-acesso button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 14px;
+  font-family: 'Nunito';
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #8f7fac;
+}
+
+.modal-acesse {
+  cursor: pointer;
+  color:#8F7FAC;
+}
