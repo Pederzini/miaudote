@@ -6,7 +6,7 @@
   z-index: 10;
 }
 
-.ldBar.label-center > .ldBar-label {
+.ldBar.label-center>.ldBar-label {
   position: absolute;
   left: 50%;
   top: 100%;
@@ -46,7 +46,15 @@
 }
 
 .loading-content {
+  background: url('../imagens/geral/giffycanvas.gif');
   margin: auto;
   padding-bottom: 4%;
   overflow: hidden;
+}
+
+.position-loading {
+  top: 13rem;
+  width: 20%;
+  position: absolute;
+  left: 27rem;
 }

@@ -7,11 +7,18 @@ let dadosAdoInteressado = []
 
 function topo() {
     window.scrollTo(0, 0)
+}
+
+function mostraLoading() {
+    document.getElementsByClassName('loading')[0].style.display = "flex"
   }
   
+  function escondeLoading() {
+    document.getElementsByClassName('loading')[0].style.display = "none"
+  }
 
 function trocaMenu(valor) {
-    
+
     sessionStorage.trocaMenu = 1
     let todasDivs = document.querySelectorAll('.opcoes-adocoes');
 
@@ -106,6 +113,7 @@ function getEndpoint(valor) {
 }
 
 function getInfosFavoritos() {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/animais-favoritados`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -117,18 +125,21 @@ function getInfosFavoritos() {
             dadosFavoritados[index] = response.data[index];
         }
         mostrarDivs(1)
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações de favoritos',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function getInfosEmProcesso() {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-em-processo`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -140,18 +151,21 @@ function getInfosEmProcesso() {
             dadosProcesso[index] = response.data[index];
         }
         mostrarDivs(2)
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos em processo',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function getInfosAdotados() {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-concluidas`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -163,18 +177,21 @@ function getInfosAdotados() {
             dadosAdotados[index] = response.data[index];
         }
         mostrarDivs(3)
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos adotados',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function patchAdotou(idAdocao) {
+    mostraLoading()
     axios.patch(`http://localhost:8080/miaudote/adocoes/finaliza-adocao/${idAdocao}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -183,18 +200,21 @@ function patchAdotou(idAdocao) {
     }).then(response => {
         apagarDivs()
         getInfosEmProcesso()
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao atualizar o adotou',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function patchNaoAdotou(idAdocao) {
+    mostraLoading()
     axios.patch(`http://localhost:8080/miaudote/adocoes/cancela-adocao/${idAdocao}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -203,18 +223,21 @@ function patchNaoAdotou(idAdocao) {
     }).then(response => {
         apagarDivs()
         getInfosEmProcesso()
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao atualizar o nao adotou',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function getQuemFavoritou(idAnimal) {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${idAnimal}/pessoas-que-favoritaram`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -225,18 +248,21 @@ function getQuemFavoritou(idAnimal) {
         for (let index = 0; index < response.data.length; index++) {
             dadosFavoritosModal[index] = response.data[index];
         }
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações do animal',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
 
 function getQuemInteressouFav(idAdotante) {
+    mostraLoading()
     axios.get(`http://localhost:8080/miaudote/adocoes/${idAdotante}/informacoes-pessoa-que-favoritou`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -249,13 +275,15 @@ function getQuemInteressouFav(idAdotante) {
         document.getElementById("adotante-endereco").innerHTML = response.data.endereco.cidade;
         document.getElementById("modal-mail-adotante").innerHTML = response.data.email;
         document.getElementById("modal-tel-adotante").innerHTML = formataTelefone(response.data.telefone);
+        escondeLoading()
     }).catch(function (error) {
+        escondeLoading()
         Swal.fire({
             title: error.response,
             text: 'Erro ao carregar as informações dos adotados',
             icon: 'warning',
             confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+            confirmButtonColor: '#8675A5'
         })
     })
 }
@@ -456,7 +484,7 @@ function mostrarDivs(valor) {
                         text: 'Não há adotantes que favoritaram esse animal',
                         icon: 'warning',
                         confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                        confirmButtonColor: '#8675A5'
                     })
                 } else {
                     abrirModal()
@@ -618,16 +646,16 @@ confirmButtonColor: '#8675A5'
                     cancelButtonColor: '#d33',
                     cancelButtonText: 'Cancelar',
                     confirmButtonText: 'Sim, tenho certeza!'
-                  }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
-                      Swal.fire(
-                        'Adotado!',
-                        'Seu animal foi adotado com sucesso!',
-                        'success'
-                      )
-                      patchAdotou(element.id)
+                        Swal.fire(
+                            'Adotado!',
+                            'Seu animal foi adotado com sucesso!',
+                            'success'
+                        )
+                        patchAdotou(element.id)
                     }
-                  })
+                })
             })
 
             let divContainerDentroBtn = document.createElement('div')
@@ -665,17 +693,17 @@ confirmButtonColor: '#8675A5'
                     cancelButtonColor: '#d33',
                     cancelButtonText: 'Cancelar',
                     confirmButtonText: 'Sim, tenho certeza!'
-                  }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
-                      Swal.fire(
-                        'Excluido!',
-                        'O processo de adoção foi excluido com sucesso!',
-                        'success'
-                      )
-                      patchNaoAdotou(element.id)
+                        Swal.fire(
+                            'Excluido!',
+                            'O processo de adoção foi excluido com sucesso!',
+                            'success'
+                        )
+                        patchNaoAdotou(element.id)
                     }
-                  })
-                
+                })
+
             })
 
             let divContainerDentroBtn2 = document.createElement('div')
