@@ -420,5 +420,8 @@ footer p {
   align-items: center;
 }
 
+.a {
+  cursor: default;
+}
 
 /* FIM FOOTER */

@@ -386,6 +386,7 @@ span {
 }
 
 .svg-gato {
+    cursor: pointer;
     position: absolute;
     z-index: 3;
     margin-right: 100px;

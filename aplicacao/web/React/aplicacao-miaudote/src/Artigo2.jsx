@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './css/Artigo.css';
-import React from 'react'
+import React, {useRef} from 'react'
 import { Link } from 'react-router-dom'
 
 //import imagens
@@ -26,8 +26,14 @@ import Titulo from './components/Titulo';
 
 function Artigo2() {
 
+    const homeRef = useRef(null);
+
+    function scroll(ref) {
+        ref.current.scrollIntoView();
+    }
+
     return (
-        <div className="artigo">
+        <div ref={homeRef} className="artigo">
 
             <header id="topo">
                 <div className="menu">
@@ -77,7 +83,7 @@ function Artigo2() {
                     <div className="container-btn">
                         <button className="btn-login">
                             <img src={imgMenu} alt="" />
-                            <p id="nome">JOANA</p>
+                            <p id="nome">Natália</p>
                         </button>
                     </div>
 
@@ -162,9 +168,9 @@ function Artigo2() {
                 </div>
             </div>
 
-            <a href="#topo" >
-                <div class="container-gato">
-                    <svg class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
+            <a className="a">
+                <div className="container-gato">
+                    <svg onClick={() => scroll(homeRef, 0)} class="svg-gato" width="180" height="177" viewBox="0 0 180 177" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_1949:4093)">
                             <circle cx="54" cy="120" r="50" fill="white" />
