@@ -197,7 +197,7 @@ function getInfosPet() {
       campo_vacinacao.innerHTML = response.data.vacinado
       response.data.necessidadeEspeciais == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.necessidadeEspeciais
       campo_descricao.innerHTML = response.data.descricao
-      img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
+      img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog.svg" : "../../imagens/geral/cat.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
       favoritado = 'favoritado' in response.data == true ? true : false;
 
@@ -221,7 +221,7 @@ function getInfosPet() {
       campo_vacinacao.innerHTML = response.data.animal.vacinado
       response.data.animal.necessidadeEspeciais == "" ? necessidade.style.display = "none" : campo_necessidadesEspeciais.innerHTML = response.data.animal.necessidadeEspeciais
       campo_descricao.innerHTML = response.data.animal.descricao
-      img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
+      img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog.svg" : "../../imagens/geral/cat.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
       favoritado = 'favoritado' in response.data == true ? true : false;
 

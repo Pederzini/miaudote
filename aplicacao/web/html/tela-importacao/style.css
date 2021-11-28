@@ -152,7 +152,6 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 
@@ -322,7 +321,8 @@ height: 657px;
     margin-top: 7%;
 }
 
-.download u {
+.download a {
+    text-decoration: underline;
     font-family: Nunito;
     font-size: 17px;
     font-style: normal;
