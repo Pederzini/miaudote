@@ -4,17 +4,37 @@ function topo() {
 
 var arquivo;
 
+function mostraLoading() {
+    document.getElementsByClassName('loading')[0].style.display = "flex"
+}
+  
+function escondeLoading() {
+    document.getElementsByClassName('loading')[0].style.display = "none"
+}
+
 function readfiles(files) {
     for (var i = 0; i < files.length; i++) {
         if (files[i].type == "text/plain") {
-            if (files[i].size <= 10000) { // valor certo 65535
+            if (files[i].size <= 65535) {
                 arquivo = files[i]
                 document.getElementById('fileDragName').value = files[i].name
             } else {
-                alert("Tamanho do arquivo exede o permitido")
+                Swal.fire({
+                    title: "Tamanho de arquivo excede o permitido",
+                    text: 'Faça o upload de um arquivo com tamanho até 65Kb',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: '#8675A5'
+                })
             }
         } else {
-            alert("Tipo de arquivo não permitido")
+            Swal.fire({
+                title: "Arquivo inválido!",
+                text: 'Faça o upload de um tipo de arquivo válido (.txt)',
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#8675A5'
+            })
         }
 
         reader = new FileReader();
@@ -48,21 +68,32 @@ $input.addEventListener('change', function () {
 var upload = document.getElementById("input-file");
 upload.addEventListener("change", function (e) {
     var size = upload.files[0].size;
-    if (size < 1) { //valor certo = 65535
+    if (size < 65535) {
         arquivo.upload.files[0]
-        alert('Permitido'); //Abaixo do permitido
     } else {
-        alert('Não permitido'); //Acima do limite
-        upload.value = ""; //Limpa o campo
+        Swal.fire({
+            title: error.response.data,
+            text: 'Tamanho do arquivo exede o permitido',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#8675A5'
+        })
+        upload.value = "";
     }
     e.preventDefault();
 });
 
 function postCadastroArquivo() {
-
     if (arquivo === undefined) {
-        alert("Coloca um arquivo amiguinho :D")
+        Swal.fire({
+            title: error.response.data,
+            text: 'Coloca um arquivo amiguinho :D',
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#8675A5'
+        })
     } else {
+        mostraLoading();
         var formData = new FormData();
         formData.append("arquivo", arquivo);
 
@@ -71,20 +102,23 @@ function postCadastroArquivo() {
                 "Content-Type": 'multipart/form-data'
             }
         }).then(response => {
+            document.getElementById('fileDragName').value = ""
+            escondeLoading()
             Swal.fire({
                 title: 'Cadastro concluído!',
                 text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             })
         }).catch(function (error) {
+            escondeLoading()
             Swal.fire({
                 title: error.response.data,
                 text: 'Verifique as informações digitadas',
                 icon: 'warning',
                 confirmButtonText: 'Ok',
-confirmButtonColor: '#8675A5'
+                confirmButtonColor: '#8675A5'
             })
         })
     }

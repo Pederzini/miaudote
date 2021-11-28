@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   font-family: Nunito Sans;
+  scroll-behavior: smooth;
 }
 
 /* width */
@@ -658,6 +659,7 @@ input[type='file'] {
     position: absolute;
     z-index: 3;
     margin-right: 100px;
+    cursor: pointer
 }
 
 .container-gato {
