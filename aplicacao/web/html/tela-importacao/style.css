@@ -222,7 +222,7 @@ height: 657px;
 .next {
     cursor: pointer;
     position: absolute;
-    top: 34%;
+    top: 44%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -239,7 +239,7 @@ height: 657px;
   .prev {
     cursor: pointer;
     position: absolute;
-    top: 34%;
+    top: 44%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
