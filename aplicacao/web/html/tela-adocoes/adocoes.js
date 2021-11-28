@@ -5,6 +5,11 @@ let dadosAdotados = []
 let dadosFavoritosModal = []
 let dadosAdoInteressado = []
 
+function topo() {
+    window.scrollTo(0, 0)
+  }
+  
+
 function trocaMenu(valor) {
     
     sessionStorage.trocaMenu = 1
@@ -401,6 +406,21 @@ function mostrarDivs(valor) {
             divImgFavorito.appendChild(containerFavorito)
             if (containerFavorito.classList) containerFavorito.classList.add("container-favorito");
             else containerFavorito.className += " container-favorito";
+
+            containerFavorito.addEventListener('click', () => {
+                getQuemFavoritou(element.idAnimal)
+                containerFavorito.style = "pointer-events: none;";
+                if (!element.favoritado) {
+                    Swal.fire({
+                        title: "Ops",
+                        text: 'Não há adotantes que favoritaram esse animal',
+                        icon: 'warning',
+                        confirmButtonText: 'Ok'
+                    })
+                } else {
+                    abrirModal()
+                }
+            })
 
             let divContador = document.createElement('div')
             containerFavorito.appendChild(divContador)
