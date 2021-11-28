@@ -18,7 +18,6 @@
 
 </head>
 
-<!-- <body onload="validarSessao()"> -->
 <body onload="validarSessao(), getInfosPet(), getOngAnimal(sessionStorage.cardAnimalAdotante)">
     <main>
         <header id="topo">
@@ -30,8 +29,8 @@
 
                 </div>
                 <div class="text-menu">
-                    <a href="../../home-adotante/home-adotante.html">HOME</a>
-                    <a href="tela-card-adocoes.html">ADOTE</a>
+                    <a href="../home-adotante/home-adotante.html">HOME</a>
+                    <a href="../tela-card-adocoes/tela-card-adocoes.html">ADOTE</a>
                     <div class="dropdown">
 
                         <span>
@@ -93,7 +92,7 @@
             <div class="container-descricao">
                 <div class="container-nome">
                     <img id="img_pet" src="" alt="">
-                    <img id="img_favorito" src="../../imagens/geral/coracao-cinza.svg" alt="">
+                    <img style="cursor: pointer;" onclick="verificarFavorito()" id="img_favorito" src="../../imagens/geral/coracao-cinza.svg" alt="">
                     <p id="campo_nome">THOR</p>
                 </div>
                 <div class="container-colunas">

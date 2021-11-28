@@ -1,4 +1,5 @@
 let fotosPet = [];
+let idAnimal = sessionStorage.cardAnimal;
 
 function topo() {
     window.scrollTo(0, 0)
@@ -7,6 +8,11 @@ function topo() {
 function redirecionarTela() {
     sessionStorage.trocaMenu = 2
     window.location.href = ".././tela-adocoes/adocoes.html"
+}
+
+function redirecionarEditar() {
+    sessionStorage.idEdicao = idAnimal
+    window.location.href = "../cadastro-pet/editar-pet.html"
 }
 
 function organizaFotos() {
@@ -53,8 +59,6 @@ function calcIdade(data) {
     }
     return quantos_anos < 0 ? 0 : quantos_anos;
 }
-
-let idAnimal = sessionStorage.cardAnimal;
 
 function getInfosPet() {
     axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {

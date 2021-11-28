@@ -88,6 +88,19 @@ header {
     width: 80%;
 }
 
+.container-active{
+    margin-top: 21px;
+    margin-right: 25px;
+  }
+  
+  .active {
+    position: relative;
+    background: url("../../imagens/geral/icon-osso.svg") no-repeat;
+    background-position: 63%;
+    background-position-y: bottom;
+    padding-bottom: 20px;
+  }
+
 .text-menu {
     height: 100%;
     width: 60%;
@@ -149,7 +162,6 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 }

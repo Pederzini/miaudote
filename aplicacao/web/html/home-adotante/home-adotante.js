@@ -1,5 +1,9 @@
 let feedbacks = [];
 
+function referenciaMeuPets() {
+    window.location.href = "../tela-card-adocoes/tela-card-adocoes.html"
+}
+
 function getQtdAnimais() {
 
     let qtdAnimais = document.querySelectorAll("#qtdAnimais")

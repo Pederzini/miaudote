@@ -119,10 +119,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
-
 }
   
 
@@ -143,13 +141,36 @@ body {
     color: #434343;
 }
 
-header{
+.header-inicial {
     width: 100%;
     position: relative;
     min-height: 720px;
     overflow: hidden;
     display: flex;
+    z-index: 3;
 }
+
+.header { 
+    top: 0;
+    width: 100%;
+    position: fixed;
+    min-height: 720px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.container-active{
+    margin-top: 21px;
+    margin-right: 25px;
+}
+
+.active {
+    position: relative;
+    background: url("../../imagens/geral/icon-osso.svg") no-repeat;
+    background-position: 70%;
+    background-position-y: bottom;
+    padding-bottom: 20px;
+} 
 
 .container-mulher {
     z-index: 3;

@@ -142,7 +142,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
 }
@@ -166,6 +166,22 @@ header {
 header img {
     width: 100%;
 }
+
+.container-active{
+    width: 120px;
+    margin-top: 21px;
+    /* margin-right: 25px; */
+    /* display: flex; */
+}
+
+.active {
+    position: relative;
+    background: url("../../imagens/geral/icon-osso.svg") no-repeat;
+    background-position: 49%;
+    background-position-y: bottom;
+    padding-bottom: 20px;
+    padding-right: 10px;
+} 
 
 .img-menu{
     height: 100%;

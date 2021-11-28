@@ -5,6 +5,7 @@ var fotoPet;
 let fotosPet = [];
 let idAnimal = sessionStorage.cardAnimalAdotante
 let idAdotante = JSON.parse(sessionStorage.login_usuario).idAdotante
+let favoritado;
 
 // MODAL
 // Get the modal
@@ -198,8 +199,9 @@ function getInfosPet() {
       campo_descricao.innerHTML = response.data.descricao
       img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
+      favoritado = 'favoritado' in response.data == true ? true : false;
 
-      if(response.data.urlImagem != null) {
+      if (response.data.urlImagem != null) {
         fotosPet = response.data.urlImagem.split(',')
       }
       nomePet = response.data.nome.toUpperCase();
@@ -221,8 +223,9 @@ function getInfosPet() {
       campo_descricao.innerHTML = response.data.animal.descricao
       img_pet.src = response.data.animal.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
       img_favorito.src = 'favoritado' in response.data == true ? "../../imagens/geral/icon-coracao-vermelho.svg" : "../../imagens/geral/coracao-cinza.svg"
+      favoritado = 'favoritado' in response.data == true ? true : false;
 
-      if(response.data.animal.urlImagem != null) {
+      if (response.data.animal.urlImagem != null) {
         fotosPet = response.data.animal.urlImagem.split(',')
       }
       nomePet = response.data.animal.nome.toUpperCase()
@@ -237,7 +240,7 @@ function getInfosPet() {
     organizaFotos()
 
     //envia nome e foto do animal
-    
+
     fotoPet = fotosPet.length > 0 ? fotosPet[0] : ""
     // apiWhats()
     // apiEmail()
@@ -281,5 +284,52 @@ function getAdotar() {
       })
     }
 
+  })
+}
+
+function verificarFavorito() {
+
+  if (favoritado) {
+    desfavoritar();
+    favoritado = false
+  } else {
+    favoritar();
+    favoritado = true
+  }
+}
+
+function favoritar() {
+  axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimal}`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true,
+    },
+  }).then(response => {
+    img_favorito.src = "../../imagens/geral/icon-coracao-vermelho.svg"
+  }).catch(function (error) {
+    Swal.fire({
+      title: error.response,
+      text: 'Erro ao favoritar o animal. Tente novamente!',
+      icon: 'warning',
+      confirmButtonText: 'Ok'
+    })
+  })
+}
+
+function desfavoritar() {
+  axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimal}`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "crossorigin": true,
+    },
+  }).then(response => {
+    img_favorito.src = "../../imagens/geral/coracao-cinza.svg"
+  }).catch(function (error) {
+    Swal.fire({
+      title: error.response,
+      text: 'Erro ao desfavoritar o animal. Tente novamente!',
+      icon: 'warning',
+      confirmButtonText: 'Ok'
+    })
   })
 }

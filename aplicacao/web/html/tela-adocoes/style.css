@@ -77,6 +77,21 @@ header {
     width: 80%;
 }
 
+.container-active{
+    /* width: 121px; */
+    margin-top: 21px;
+    /* margin-right: 25px; */
+    margin-left: 15px;
+}
+
+.active {
+    position: relative;
+    background: url("../../imagens/geral/icon-osso.svg") no-repeat;
+    background-position: 60%;
+    background-position-y: bottom;
+    padding-bottom: 20px;
+}
+
 .text-menu {
     height: 100%;
     width: 60%;
@@ -129,10 +144,9 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: rgba(240, 255, 255, 0);
     cursor: pointer;
-
 }
 
 .btn-login img {
