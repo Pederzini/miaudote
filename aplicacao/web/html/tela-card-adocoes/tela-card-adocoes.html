@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../loading.css">
     <link rel="shortcut icon" href="../../imagens/geral/logo.svg" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>MiauDote</title>
     <script src="card-adocoes.js"></script>
     <script defer src="../script.js"></script>
+    <script src="../loading-bar.js"></script>
 </head>
 
 <body onload="validarSessao(), criarDivVazia(), getInfosCards()">
@@ -307,7 +309,11 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <div class="loading">
+        <div class="loading-content">
+            <div class="myBar label-center" data-type="fill" data-img="../../imagens/geral/logo.svg"></div>
+        </div>
+    </div>
 </body>
 
 <script>
