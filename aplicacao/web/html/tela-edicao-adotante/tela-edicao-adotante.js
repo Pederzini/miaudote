@@ -23,31 +23,10 @@ function topo() {
 }
 
 function mostraLoading() {
-    let progresso = 0;
-    var bar = new ldBar(".myBar", {"value": 0});
-    
-    document.getElementsByClassName('ldBar-label')[0].style.display = "none"
-    document.getElementsByClassName('ldBar')[0].style.display = "flex";
     document.getElementsByClassName('loading')[0].style.display = "flex"
-    function alteraValor() {
-        bar.set(
-            progresso,
-            false
-        )
-        if (progresso >= 100) {
-            progresso = 0;
-        } else {
-            progresso += 20;
-        }
-    }
-
-    window.setInterval(function () {
-        alteraValor();
-    }, 700);
 }
-
+  
 function escondeLoading() {
-    document.getElementsByClassName('ldBar')[0].style.display = "none"
     document.getElementsByClassName('loading')[0].style.display = "none"
 }
 
@@ -472,9 +451,10 @@ function mostrarDivFav() {
         else divImgPet.className += " img-pet"
 
         let imagemAnimal;
+        console.log(element.animal.urlImagem)
 
         if (element.animal.urlImagem === null) {
-            imagemAnimal = "https://i.imgur.com/s8t0M4S.png"
+            imagemAnimal = 'https://i.imgur.com/s8t0M4S.png'
         } else if (element.animal.urlImagem.includes(',')) {
             let imagem = element.animal.urlImagem.split(',')
             imagemAnimal = imagem[0]
