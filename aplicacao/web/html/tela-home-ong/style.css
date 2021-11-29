@@ -50,7 +50,7 @@ body {
     flex-direction: row;
     position: absolute;
     z-index: 2;
-
+    pointer-events: all;
 }
 
 .logo-header {
@@ -158,6 +158,7 @@ body {
     min-height: 720px;
     overflow: hidden;
     z-index: 2;
+    pointer-events: none;
 }
 
 .container-active{
@@ -540,6 +541,7 @@ header img {
     position: absolute;
     z-index: 3;
     margin-right: 100px;
+    cursor: pointer;
 }
 
 .container-gato {

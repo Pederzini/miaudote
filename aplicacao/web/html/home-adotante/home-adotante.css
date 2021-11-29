@@ -62,7 +62,7 @@ html{
     flex-direction: row;
     position: absolute;
     z-index: 1;
-    
+    pointer-events: all;
 }
 
 
@@ -231,6 +231,7 @@ li {
   min-height: 720px;
   overflow: hidden;
   z-index: 2;
+  pointer-events: none;
 }
 
 .container-active{
@@ -696,6 +697,7 @@ header{
   position: absolute;
   z-index: 3;
   margin-right: 100px;
+  cursor: pointer;
 }
 
 .container-gato {
