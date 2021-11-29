@@ -26,10 +26,12 @@ function verificaCamposVazios() {
   let campos = document.querySelectorAll(".campos")
 
   campos.forEach(element => {
-    element.style.borderColor = '#949494';
-    if (!element.validity.valid) {
-      element.style.borderColor = '#ff0000';
-      contador++;
+    if (element.id != 'campo_especial') {
+      element.style.borderColor = '#949494';
+      if (!element.validity.valid) {
+        element.style.borderColor = '#ff0000';
+        contador++;
+      }
     }
   });
 

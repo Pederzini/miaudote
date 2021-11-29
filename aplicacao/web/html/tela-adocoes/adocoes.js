@@ -408,11 +408,11 @@ function mostrarDivs(valor) {
             else divSexoPet.className += " sexo-pet";
 
             let pSexo = document.createElement('p')
-            pSexo.innerHTML = element.genero === "f" ? "Fêmea" : "Macho"
+            pSexo.innerHTML = element.genero.toUpperCase() === "F" ? "Fêmea" : "Macho"
             divSexoPet.appendChild(pSexo)
 
             let imgSexo = document.createElement('img')
-            imgSexo.src = element.genero === "m" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexo.src = element.genero.toUpperCase() === "M" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
             divSexoPet.appendChild(imgSexo)
 
             // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
@@ -615,11 +615,11 @@ function mostrarDivs(valor) {
             else divSexoPetProcesso.className += " sexo-pet-processo";
 
             let pSexoPet = document.createElement('p')
-            pSexoPet.innerHTML = element.animal.genero === "Femea" ? "Fêmea" : "Macho"
+            pSexoPet.innerHTML = element.animal.genero.toUpperCase() === "FEMEA" ? "Fêmea" : "Macho"
             divSexoPetProcesso.appendChild(pSexoPet)
 
             let imgSexoPetProcesso = document.createElement('img')
-            imgSexoPetProcesso.src = element.genero === "m" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexoPetProcesso.src = element.animal.genero.toUpperCase() === "MACHO" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
             divSexoPetProcesso.appendChild(imgSexoPetProcesso)
 
             let divContainerBtn = document.createElement('div')
@@ -838,11 +838,11 @@ function mostrarDivs(valor) {
             else divSexoPet.className += " sexo-pet";
 
             let pSexoPet = document.createElement('p')
-            pSexoPet.innerHTML = element.animal.genero === "Femea" ? "FÊMEA" : "MACHO"
+            pSexoPet.innerHTML = element.animal.genero.toUpperCase() === "FEMEA" ? "FÊMEA" : "MACHO"
             divSexoPet.appendChild(pSexoPet)
 
             let imgSexoPet = document.createElement('img')
-            imgSexoPet.src = imgSexoPet.src = element.animal.genero === "Femea" ? "../../imagens/adocoes/sexo-feminino.svg" : "../../imagens/adocoes/sexo-masculino.svg"
+            imgSexoPet.src = imgSexoPet.src = element.animal.genero.toUpperCase() === "FEMEA" ? "../../imagens/adocoes/sexo-feminino.svg" : "../../imagens/adocoes/sexo-masculino.svg"
             divSexoPet.appendChild(imgSexoPet)
         });
     }

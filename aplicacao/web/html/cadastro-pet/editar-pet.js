@@ -243,7 +243,7 @@ function atualizaInfosPet() {
     escondeLoading()
     Swal.fire({
       title: error.response,
-      text: 'Erro ao carregar as informações do Pet.',
+      text: 'Erro ao atualizar as informações do Pet.',
       icon: 'warning',
       confirmButtonText: 'Ok',
       confirmButtonColor: '#8675A5'

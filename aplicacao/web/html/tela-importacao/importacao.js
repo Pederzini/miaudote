@@ -106,7 +106,7 @@ function postCadastroArquivo() {
             escondeLoading()
             Swal.fire({
                 title: 'Cadastro concluído!',
-                text: 'Agora você pode receber doações! Clique em ok para fazer o login!',
+                text: 'Agora seu animalzinho poderá ser adotado! Clique em ok para concluir!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
                 confirmButtonColor: '#8675A5'
