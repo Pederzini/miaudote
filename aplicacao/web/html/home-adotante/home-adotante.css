@@ -686,6 +686,12 @@ header{
   /* margin-bottom: 3%; */
 }
 
+#comentario {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .container-branco{
     background-color: white;
     height:657px;

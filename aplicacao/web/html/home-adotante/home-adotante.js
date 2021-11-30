@@ -31,7 +31,7 @@ function getFeedback() {
 
     let fotoAdotante = document.querySelectorAll('#fotoAdotante')
     let nomeAdotante = document.querySelectorAll('#nomeFeedback')
-    let comentarioAdotante = document.querySelectorAll('.comentario')
+    let comentarioAdotante = document.querySelectorAll('#comentario')
     let starAdotante1 = document.querySelectorAll("#starFeed1")
     let starAdotante2 = document.querySelectorAll("#starFeed2")
 

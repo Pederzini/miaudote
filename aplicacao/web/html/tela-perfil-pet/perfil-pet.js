@@ -116,6 +116,7 @@ function apiWhats(botaoModal) {
   var msg = "";
   if (botaoModal == "adotar") {
     msg = `Olá! Gostaria de adotar o pet ${nomePet} ${fotoPet}`;
+    patchMetodoContato("whatsapp")
   } else {
     msg = `Olá! Gostaria de apoiar a ONG! Como posso ajudar?`
   }
@@ -129,6 +130,7 @@ function apiEmail(botaoModal) {
   if (botaoModal == "adotar") {
     assuntoEmail = "Quero adotar um pet!"
     msg = `Olá! Gostaria de adotar o pet ${nomePet} ${fotoPet}`;
+    patchMetodoContato("email")
   } else {
     assuntoEmail = "Quero ajudar a ONG!"
     msg = `Olá! Gostaria de apoiar a ONG! Como posso ajudar?`
