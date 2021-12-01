@@ -632,7 +632,7 @@ function mostrarDivs(valor) {
             btnAdoutou.id = "btn-adotou"
             btnAdoutou.addEventListener('click', () => {
                 Swal.fire({
-                    title: 'Você tem certeza que deseja encerrar o processo?',
+                    title: 'Você tem certeza que deseja concluir o processo?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#8675A5',
