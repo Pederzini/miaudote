@@ -60,8 +60,6 @@ public class ManipulaArquivo {
                 if (animal.getUrlImagem().trim().length() != 0) {
                     corpo += String.format("\n03%-1000.1000s", animal.getUrlImagem());
                 }
-            } else {
-                corpo += String.format("%-1000.1000s", "");
             }
 
 
@@ -153,62 +151,5 @@ public class ManipulaArquivo {
         scanner.close();
 
         return animais;
-    }
-
-    public static List<Animal> leArquivoTxt(String conteudo) {
-        BufferedReader entrada = null;
-        String tipoRegistro;
-        Animal a = null;
-        Integer contaRegDados;
-        Integer qtdRegistrosGravados;
-        String[] conteudoVetorizado = conteudo.split(System.lineSeparator());
-        List<Animal> listaLida = new ArrayList<>();
-
-        try {
-            entrada = new BufferedReader(new FileReader(conteudo));
-        } catch (FileNotFoundException e) {
-            System.out.println("Erro ao abrir o arquivo: " + e.getMessage());
-        }
-
-        try {
-            for (int i = 0; i < conteudoVetorizado.length; i++) {
-                tipoRegistro = conteudoVetorizado[i].substring(0, 2);
-                if (tipoRegistro.equals("01")) {
-                    qtdRegistrosGravados = Integer.valueOf(conteudoVetorizado[i].substring(2, 12));
-                    if (qtdRegistrosGravados == listaLida.size()) {
-                        //?
-                    }
-                } else if (tipoRegistro.equals("02")) {
-                    a.setNome(conteudoVetorizado[i].substring(2, 53).trim());
-                    a.setEspecie(conteudoVetorizado[i].substring(53, 61));
-                    a.setDescricao(conteudoVetorizado[i].substring(61, 341).trim());
-                    a.setGenero(conteudoVetorizado[i].substring(341, 342));
-                    Date dataChegada = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(conteudoVetorizado[i].substring(342, 352));
-                    a.setDataChegada(dataChegada);
-                    a.setCorPelagem(conteudoVetorizado[i].substring(352, 362));
-                    a.setTipoPelagem(conteudoVetorizado[i].substring(362, 369));
-                    a.setCastrado(conteudoVetorizado[i].substring(369, 374).trim().equalsIgnoreCase("true"));
-                    a.setVacinado(conteudoVetorizado[i].substring(374, 379).trim().equalsIgnoreCase("true"));
-                    a.setPorte(conteudoVetorizado[i].substring(379, 386));
-                    a.setComportamento(conteudoVetorizado[i].substring(386, 431));
-                    a.setNecessidadeEspeciais(conteudoVetorizado[i].substring(431, 711));
-                    Date dataNascimento = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(conteudoVetorizado[i].substring(711, 721));
-                    a.setDataNascimento(dataNascimento);
-
-                }
-                if (conteudoVetorizado[i + 1].equals("03")) {
-                    a.setUrlImagem(conteudoVetorizado[i].substring(03, 1003));
-                    i++;
-                }
-
-                listaLida.add(a);
-                a = null;
-
-            }
-        } catch (ParseException e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-        }
-
-        return listaLida;
     }
 }
