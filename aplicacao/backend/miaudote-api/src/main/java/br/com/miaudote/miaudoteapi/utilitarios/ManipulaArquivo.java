@@ -58,7 +58,7 @@ public class ManipulaArquivo {
 
             if (animal.getUrlImagem() != null) {
                 if (animal.getUrlImagem().trim().length() != 0) {
-                    corpo += String.format("%-1000.1000s", animal.getUrlImagem());
+                    corpo += String.format("\n03%-1000.1000s", animal.getUrlImagem());
                 }
             } else {
                 corpo += String.format("%-1000.1000s", "");
