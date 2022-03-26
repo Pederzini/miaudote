@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Miaudote</string>
+    <string name="texto_animal">O Tom teve o\nprocesso de\nadoção iniciado</string>
+    <string name="ou">ou</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="adotante">Adotante</string>
+    <string name="ong">ONG</string>
+    <string name="esqueceu_a_senha">Esqueceu a senha?</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="senha">Senha</string>
+    <string name="digite_seu_e_mail">Digite seu e-mail</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login">LOGIN</string>
+    <string name="cadastro">CADASTRO</string>
+    <string name="informacoes_iniciais">Informações iniciais</string>
+    <string name="razao_social_nome_da_ong">Razão social (nome da ONG)</string>
+    <string name="nome_do_responsavel">Nome do responsável</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="telefone">Telefone</string>
+    <string name="data_de_fundacao">Data de fundação</string>
+    <string name="continuar">CONTINUAR</string>
+    <string name="informacoes_de_endereco">Informações de endereço</string>
+    <string name="cep">CEP</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="bairro">Bairro</string>
+    <string name="numero">Número</string>
+    <string name="complemento">Complemento</string>
+    <string name="voltar">VOLTAR</string>
+    <string name="informacoes_de_login">Informações de login</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="finalizar">FINALIZAR</string>
+</resources>

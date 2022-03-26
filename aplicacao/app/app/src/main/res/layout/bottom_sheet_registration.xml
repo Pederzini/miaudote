@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/registration_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_cat_success" />
+
+    <TextView
+        style="@style/otherTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="CADASTRADO COM\nSUCESSO"
+        android:textAlignment="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/purpleButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_height_button"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_twenty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/button_background"
+        android:text="FAZER LOGIN" />
+
+</LinearLayout>
