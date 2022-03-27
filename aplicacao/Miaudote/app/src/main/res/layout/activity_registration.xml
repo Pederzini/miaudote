@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_flipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/informacoes_iniciais" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:hint="@string/razao_social_nome_da_ong">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/nome_do_responsavel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/inputTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:layout_weight="1"
+                android:hint="@string/cnpj">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/inputValueText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/inputTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:layout_weight="1"
+                android:hint="@string/telefone"
+                android:paddingStart="@dimen/space_sixteen">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/inputValueText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/data_de_fundacao">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continue_button_page_one"
+            style="@style/purpleButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_height_button"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:background="@drawable/button_background"
+            android:selectAllOnFocus="true"
+            android:text="@string/continuar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/informacoes_de_endereco" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:hint="@string/cep">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789-"
+                android:inputType="textPostalAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/logradouro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/bairro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/inputTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:layout_weight="1"
+                android:hint="@string/numero"
+                android:paddingEnd="@dimen/space_thirty_two">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/inputValueText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/inputTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty_four"
+                android:layout_weight="1"
+                android:hint="@string/complemento">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/inputValueText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/back_button_page_two"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginEnd="@dimen/space_eight"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:text="@string/voltar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button_page_two"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/continuar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/informacoes_de_login" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:hint="@string/e_mail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/senha"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:hint="@string/confirmar_senha"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/inputTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:visibility="invisible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/inputValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/back_button_page_three"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginEnd="@dimen/space_eight"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:text="@string/voltar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/finish_button_page_three"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="@string/finalizar" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ViewFlipper>
