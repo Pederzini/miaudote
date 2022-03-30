@@ -12,9 +12,26 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="blueTitle" parent="pageTitle">
+        <item name="android:textSize">@dimen/text_eighteen</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
     <style name="otherTitle" parent="mainText">
         <item name="android:textColor">@color/main_gray</item>
         <item name="android:textSize">@dimen/text_twenty</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="orangeTitle" parent="mainText">
+        <item name="android:textColor">@color/main_orange</item>
+        <item name="android:textSize">@dimen/text_twenty</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="counterDashboard" parent="mainText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_twelve</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -42,6 +59,15 @@
 
     <style name="regularText" parent="mainText">
         <item name="android:textSize">@dimen/text_sixteen</item>
+    </style>
+
+    <style name="regularTextBold" parent="mainText">
+        <item name="android:textSize">@dimen/text_sixteen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="smallText" parent="mainText">
+        <item name="android:textSize">@dimen/text_ten</item>
     </style>
 
     <style name="purpleButtonText" parent="mainText">

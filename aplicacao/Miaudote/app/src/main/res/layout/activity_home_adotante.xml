@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeAdotanteActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        style="@style/regularTextBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_twenty"
+        android:layout_marginTop="@dimen/space_twenty_four"
+        android:text="@string/boas_vindas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hello_person"
+        style="@style/orangeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ola_placeholder"
+        app:layout_constraintStart_toStartOf="@id/welcome"
+        app:layout_constraintTop_toBottomOf="@id/welcome" />
+
+    <TextView
+        android:id="@+id/filter"
+        style="@style/regularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_twenty"
+        android:drawablePadding="@dimen/space_eight"
+        android:text="@string/filtrar"
+        app:drawableEndCompat="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/hello_person"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/welcome" />
+
+    <ImageView
+        android:id="@+id/girl_with_dog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sixteen"
+        android:layout_marginTop="@dimen/space_forty"
+        android:src="@drawable/ic_girl_with_dog"
+        app:layout_constraintStart_toStartOf="@id/welcome"
+        app:layout_constraintTop_toBottomOf="@id/hello_person" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_thirty_two"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/girl_with_dog"
+        app:layout_constraintEnd_toEndOf="@id/filter"
+        app:layout_constraintTop_toTopOf="@id/girl_with_dog">
+
+        <com.miaudote.AdoptedCustomView
+            android:id="@+id/view1"
+            android:layout_width="@dimen/size_ninety_six"
+            android:layout_height="@dimen/size_seventy_five" />
+
+        <com.miaudote.AdoptedCustomView
+            android:id="@+id/view2"
+            android:layout_width="@dimen/size_ninety_six"
+            android:layout_height="@dimen/size_seventy_five"
+            android:layout_marginTop="@dimen/space_eight" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/blueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_forty_five"
+        android:text="@string/animais_para_adocao"
+        app:layout_constraintStart_toStartOf="@id/welcome"
+        app:layout_constraintTop_toBottomOf="@id/girl_with_dog" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_linear_layout" />
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_sixty"
+            android:background="@color/white"
+            app:itemIconTint="@color/bottom_navigation_colors"
+            app:itemTextColor="@color/bottom_navigation_colors"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

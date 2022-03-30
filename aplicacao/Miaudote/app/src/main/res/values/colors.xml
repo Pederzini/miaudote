@@ -13,4 +13,6 @@
     <color name="light_gray">#FF6F6F6F</color>
     <color name="lightest_gray">#FFC4C4C4</color>
     <color name="main_blue">#FF7386AE</color>
+    <color name="main_orange">#FFE35D1C</color>
+    <color name="lightest_orange">#59FFD0B9</color>
 </resources>

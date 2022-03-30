@@ -30,4 +30,14 @@
     <string name="informacoes_de_login">Informações de login</string>
     <string name="confirmar_senha">Confirmar senha</string>
     <string name="finalizar">FINALIZAR</string>
+    <string name="boas_vindas">Boas-vindas</string>
+    <string name="ola">Olá, %s</string>
+    <string name="ola_placeholder">Olá, Tabata</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="favoritados">Favoritados</string>
+    <string name="adotados">Adotados</string>
+    <string name="animais_para_adocao">Animais para adoção</string>
+    <string name="home">HOME</string>
+    <string name="artigos">ARTIGOS</string>
+    <string name="perfil">PERFIL</string>
 </resources>

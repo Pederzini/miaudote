@@ -16,4 +16,12 @@
     <dimen name="size_height_button">44dp</dimen>
     <dimen name="size_height_line">0.5dp</dimen>
     <dimen name="space_twenty_four">24dp</dimen>
+    <dimen name="space_twenty">20dp</dimen>
+    <dimen name="space_forty">40dp</dimen>
+    <dimen name="size_eight">8dp</dimen>
+    <dimen name="size_ninety_six">96dp</dimen>
+    <dimen name="size_seventy_five">75dp</dimen>
+    <dimen name="text_eighteen">18sp</dimen>
+    <dimen name="size_sixty">60dp</dimen>
+    <dimen name="space_twelve">12dp</dimen>
 </resources>
