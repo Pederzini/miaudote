@@ -24,4 +24,5 @@
     <dimen name="text_eighteen">18sp</dimen>
     <dimen name="size_sixty">60dp</dimen>
     <dimen name="space_twelve">12dp</dimen>
+    <dimen name="size_four">4dp</dimen>
 </resources>
