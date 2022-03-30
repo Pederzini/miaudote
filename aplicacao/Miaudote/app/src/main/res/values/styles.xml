@@ -12,6 +12,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="subTitleFilter" parent="mainText">
+        <item name="android:textColor">@color/main_blue</item>
+        <item name="android:textSize">@dimen/text_fourteen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="otherTitle" parent="mainText">
         <item name="android:textColor">@color/main_gray</item>
         <item name="android:textSize">@dimen/text_twenty</item>
