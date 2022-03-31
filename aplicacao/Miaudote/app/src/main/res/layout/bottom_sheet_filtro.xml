@@ -366,10 +366,7 @@
             android:layout_marginTop="@dimen/space_eight"
             android:layout_marginEnd="@dimen/space_forty_five"
             android:valueFrom="0.0"
-            android:valueTo="100.0"
-            android:trackColor="@color/main_purple"
-            android:thumbColor="@color/main_purple"
-            app:values="@array/initialValues" />
+            android:valueTo="100.0" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/continue_button_page_one"
