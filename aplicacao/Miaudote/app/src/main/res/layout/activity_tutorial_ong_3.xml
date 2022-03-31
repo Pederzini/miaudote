@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/screen_title"
+        style="@style/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_thirty_two"
+        android:text="@string/tutorial_de_uso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/other_title_text"
+        style="@style/inputTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sixteen"
+        android:text="@string/fale_com_os_adotante_sem_preocupacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screen_title" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_thirty_two"
+        android:src="@drawable/ic_men_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/other_title_text" />
+
+    <TextView
+        android:id="@+id/text_ong"
+        style="@style/regularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_forty_five"
+        android:text="@string/texto_tutorial_ong_3"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ong"
+        android:layout_marginTop="@dimen/space_seventy_two">
+
+        <RadioButton
+            android:id="@+id/radio_dica_ong_1"
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            android:checked="true"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/skip_button"
+            style="@style/transparentButtonText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/size_height_button"
+            android:background="@drawable/button_background_stroke"
+            android:text="@string/pular" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next_button"
+            style="@style/purpleButtonText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/size_height_button"
+            android:background="@drawable/button_background"
+            android:text="@string/continuar" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

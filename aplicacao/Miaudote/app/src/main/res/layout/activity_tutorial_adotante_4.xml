@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_sixteen"
-        android:text="@string/saiba_tudo_sobre_sua_organizacao"
+        android:text="Ajude da forma que puder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/screen_title" />
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_thirty_two"
-        android:src="@drawable/ic_dog_chart"
+        android:src="@drawable/ic_dogs_in_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/other_title_text" />
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_forty_five"
-        android:text="@string/texto_tutorial_ong_1"
+        android:text="@string/texto_tutorial_adotante_4"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,27 +64,26 @@
             android:layout_width="@dimen/space_forty_five"
             android:layout_height="wrap_content"
             android:buttonTint="@color/main_purple"
-
+            android:layoutDirection="rtl"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
+            android:layoutDirection="rtl"
+            />
+        <RadioButton
+            android:layout_width="@dimen/space_forty_five"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/main_purple"
             android:layoutDirection="rtl"
             android:checked="true"
-            />
-        <RadioButton
-            android:layout_width="@dimen/space_forty_five"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/main_purple"
-            android:layoutDirection="rtl"
-            />
-        <RadioButton
-            android:layout_width="@dimen/space_forty_five"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/main_purple"
-            android:layoutDirection="rtl"
-            />
-        <RadioButton
-            android:layout_width="@dimen/space_forty_five"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/main_purple"
-            android:layoutDirection="rtl"
             />
     </RadioGroup>
     <LinearLayout

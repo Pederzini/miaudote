@@ -30,4 +30,17 @@
     <string name="informacoes_de_login">Informações de login</string>
     <string name="confirmar_senha">Confirmar senha</string>
     <string name="finalizar">FINALIZAR</string>
+    <string name="tutorial_de_uso">TUTORIAL DE USO</string>
+    <string name="saiba_tudo_sobre_sua_organizacao">Saiba tudo sobre sua organização</string>
+    <string name="texto_tutorial_ong_1">Na tela da home você podera ver \n algumas estatisticas dos seus \n animaizinhos e clicando no você terá \n mais detalhes</string>
+    <string name="pular">Pular</string>
+    <string name="altere_seu_perfil_a_hora_que_precisar">Altere seu perfil a hora que precisar</string>
+    <string name="texto_tutorial_ong_2">Se quiser aterar algo em seu perfil ou ver \n algumas informações, você poderá fazer \n isso clicando no botão de perfil</string>
+    <string name="fale_com_os_adotante_sem_preocupacao">Fale com os adotante sem preocupação</string>
+    <string name="texto_tutorial_ong_3">Para contato ou duvidas você pode clicar \n no botão de chat após iniciado ele \n sempre podera ser visto por você!</string>
+    <string name="veja_os_animais_que_voc_colocou_para_o_publico">Veja os animais que você colocou para o publico</string>
+    <string name="texto_tutorial_adotante_1">Para navegar entre os animais, clique no botao do menu \n você também poderá utilizar os filtros \n para para pesquisar</string>
+    <string name="escolha_o_pet_que_mais_combine_com_voce">Escolha o pet que mais combine com \n você</string>
+    <string name="fale_com_as_ongs_a_sem_preocupacao">fale com as Ongs a sem preocupação</string>
+    <string name="texto_tutorial_adotante_4">Você sempre pode ajudar, na tela de \n perfi dos animais temos um botão de \n doação doe para ajudar as ONGS</string>
 </resources>
