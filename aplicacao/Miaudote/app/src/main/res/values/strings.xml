@@ -21,13 +21,18 @@
     <string name="data_de_fundacao">Data de fundação</string>
     <string name="continuar">CONTINUAR</string>
     <string name="informacoes_de_endereco">Informações de endereço</string>
+    <string name="endereco">Endereço</string>
     <string name="cep">CEP</string>
     <string name="logradouro">Logradouro</string>
     <string name="bairro">Bairro</string>
     <string name="numero">Número</string>
     <string name="complemento">Complemento</string>
+    <string name="estado">Estado</string>
     <string name="voltar">VOLTAR</string>
     <string name="informacoes_de_login">Informações de login</string>
     <string name="confirmar_senha">Confirmar senha</string>
     <string name="finalizar">FINALIZAR</string>
+    <string name="salvar">SALVAR</string>
+    <string name="trocar_senha">TROCAR SENHA</string>
+    <string name="sair">SAIR</string>
 </resources>

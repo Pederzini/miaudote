@@ -16,4 +16,6 @@
     <dimen name="size_height_button">44dp</dimen>
     <dimen name="size_height_line">0.5dp</dimen>
     <dimen name="space_twenty_four">24dp</dimen>
+    <dimen name="size_height_edit_icon">107dp</dimen>
+    <dimen name="space_fifty">50dp</dimen>
 </resources>
