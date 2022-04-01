@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_flipper_tutorial"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    Inicio Pagina um tutorial de uso ONG-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_de_uso" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/saiba_tudo_sobre_sua_organizacao" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:src="@drawable/ic_dog_chart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_forty_five"
+            android:text="@string/texto_tutorial_ong_1"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_button_page_one"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:selectAllOnFocus="true"
+                android:text="@string/pular" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button_page_one"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:selectAllOnFocus="true"
+                android:text="@string/continuar" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--Fim pagina um tutorial de uso ONG-->
+
+
+    <!--Inicio pagina dois tutorial de uso ONG-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_de_uso" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/altere_seu_perfil_a_hora_que_precisar" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:src="@drawable/ic_dog_ask" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_forty_five"
+            android:text="@string/texto_tutorial_2"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_button_page_two"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:selectAllOnFocus="true"
+                android:text="@string/pular" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button_page_two"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:selectAllOnFocus="true"
+                android:text="@string/continuar" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--Fim pagina dois tutorial de uso ONG-->
+
+
+    <!--Inicio pagina três tutorial de uso ONG-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_de_uso" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/fale_com_os_adotante_sem_preocupacao" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:src="@drawable/ic_men_chat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_forty_five"
+            android:text="@string/texto_tutorial_3"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                 />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_button_page_three"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:selectAllOnFocus="true"
+                android:text="@string/pular" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button_page_three"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:selectAllOnFocus="true"
+                android:text="@string/continuar" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--Fim pagina três tutorial de uso ONG-->
+
+
+    <!--Inicio pagina quatro tutorial de uso ONG-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_sixty_four"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial_de_uso" />
+
+        <TextView
+            style="@style/regularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/veja_os_animais_que_voc_colocou_para_o_publico" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixty_four"
+            android:src="@drawable/ic_men_tutor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_forty_five"
+            android:text="@string/texto_tutorial_ong_4"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray"
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_button_page_four"
+                style="@style/transparentButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background_stroke"
+                android:selectAllOnFocus="true"
+                android:text="@string/pular" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button_page_four"
+                style="@style/purpleButtonText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginStart="@dimen/space_eight"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:selectAllOnFocus="true"
+                android:text="@string/continuar" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--Fim pagina quatro tutorial de uso ONG-->
+</ViewFlipper>
