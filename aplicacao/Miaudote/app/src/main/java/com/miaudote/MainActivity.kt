@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 private const val SECONDS = 2000L
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         initUI()
         setupAnimation()
         initAnimation()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun initUI() {
