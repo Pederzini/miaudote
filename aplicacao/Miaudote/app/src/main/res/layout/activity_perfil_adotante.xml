@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/background"
@@ -27,11 +30,11 @@
                 />
 
             <TextView
-                android:id="@+id/tv_razao_social"
+                android:id="@+id/tv_nome_exibicao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_sixteen"
-                android:text="@string/razao_social_nome_da_ong"
+                android:text="@string/nome_completo"
                 android:textSize="@dimen/text_sixteen"/>
 
             <LinearLayout
@@ -49,10 +52,10 @@
                     style="@style/inputTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/nome_do_responsavel">
+                    android:hint="@string/nome_completo">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_nome_responsavel"
+                        android:id="@+id/et_nome_completo"
                         style="@style/inputValueText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -65,12 +68,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_twenty_four"
-                    android:hint="@string/cnpj"
+                    android:hint="@string/cpf"
                     app:endIconMode="custom"
                     app:endIconDrawable="@drawable/ic_cadeado">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_cnpj"
+                        android:id="@+id/et_cpf"
                         style="@style/inputValueText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -109,12 +112,12 @@
 
                         android:layout_marginEnd="@dimen/space_sixteen"
                         android:layout_weight="1"
-                        android:hint="@string/data_de_fundacao"
+                        android:hint="@string/data_nascimento"
                         app:endIconMode="custom"
                         app:endIconDrawable="@drawable/ic_cadeado">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_data_funcacao"
+                            android:id="@+id/et_data_nascimento"
                             style="@style/inputValueText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -255,7 +258,7 @@
                     android:text="@string/salvar" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/trocar_senha_button"
+                    android:id="@+id/registration_button"
                     style="@style/transparentButtonText"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_height_button"
@@ -277,7 +280,8 @@
 
         </LinearLayout>
 
-    </ScrollView>
 
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

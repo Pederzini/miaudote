@@ -35,4 +35,9 @@
     <string name="salvar">SALVAR</string>
     <string name="trocar_senha">TROCAR SENHA</string>
     <string name="sair">SAIR</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="cpf">CPF</string>
+    <string name="data_nascimento">Data de Nascimento</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
 </resources>
