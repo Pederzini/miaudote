@@ -60,6 +60,14 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
 
+    <style name="transparentButtonTextContact" parent="mainText">
+        <item name="android:textSize">@dimen/text_ten</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/main_purple</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/design_default_color_primary</item>
@@ -73,6 +81,42 @@
 
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="namePet" parent="mainText">
+        <item name="android:textColor">@color/main_gray</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="petText" parent="mainText">
+        <item name="android:textSize">@dimen/text_twelve</item>
+    </style>
+
+    <style name="pageTitlePet" parent="mainText">
+        <item name="android:textColor">@color/main_blue</item>
+        <item name="android:textSize">@dimen/space_fifteen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="essePetText" parent="mainText">
+        <item name="android:textSize">@dimen/text_seven</item>
+    </style>
+    <style name="nameOng" parent="mainText">
+        <item name="android:textSize">@dimen/text_twelve</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="helpText" parent="mainText">
+        <item name="android:textSize">@dimen/text_twelve</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/main_purple</item>
+    </style>
+
+    <style name="favoriteOngText" parent="mainText">
+        <item name="android:textSize">@dimen/text_twenty</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+
     </style>
 
 </resources>

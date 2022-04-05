@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_doubt"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:background="@drawable/ic_man_doubt"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="@dimen/space_fifteen"
+        >
+
+        <TextView
+            style="@style/pageTitlePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_one_hundred_five"
+            android:layout_marginTop="@dimen/space_forty"
+            android:layout_marginEnd="@dimen/space_sixty_five"
+            android:text="@string/d_vidas_sobre_seu_pet"
+            android:textColor="@color/dark_orange">
+
+        </TextView>
+
+        <TextView
+            style="@style/helpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_one_hundred_five"
+            android:layout_marginTop="@dimen/space_fifteen"
+            android:layout_marginEnd="@dimen/space_sixty_four"
+            android:text="@string/nossos_artigos_podem_te_ajudar"
+            android:textAllCaps="true">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        app:layout_constraintTop_toBottomOf="@id/layout_doubt">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:elevation="4.49dp"
+            android:outlineSpotShadowColor="@color/dark_orange">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/pageTitlePet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adotei_e_agora"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/articles_resume"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
