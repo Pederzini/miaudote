@@ -3,6 +3,8 @@ package com.miaudote
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -41,9 +43,22 @@ class AnimalAdotanteGridAdapter(
                         .placeholder(R.drawable.loading_animation)
                         .error(R.drawable.ic_broken_image)
                 )
-//                .into(itemView.movie_poster)
+                .into(itemView.findViewById(R.id.iv_picture))
 
-//            itemView.movie_title.text = movie.title
+            itemView.findViewById<TextView>(R.id.tv_animal_name).text = animal.name
+            itemView.findViewById<TextView>(R.id.tv_birthday).text = animal.birthday
+            itemView.findViewById<TextView>(R.id.tv_location).text = animal.location
+
+            when(animal.gender) {
+                "macho" -> itemView.findViewById<ImageView>(R.id.iv_gender).setImageResource(R.drawable.ic_card_male)
+                "femea" -> itemView.findViewById<ImageView>(R.id.iv_gender).setImageResource(R.drawable.ic_card_female)
+            }
+
+            when(animal.bookmarked) {
+                true -> itemView.findViewById<ImageView>(R.id.iv_bookmark).setImageResource(R.drawable.ic_card_animal_heart)
+                else -> itemView.findViewById<ImageView>(R.id.iv_bookmark).setImageResource(R.drawable.ic_card_animal_empty_heart)
+            }
+
         }
     }
 

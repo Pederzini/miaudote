@@ -25,4 +25,6 @@
     <dimen name="size_sixty">60dp</dimen>
     <dimen name="space_twelve">12dp</dimen>
     <dimen name="size_four">4dp</dimen>
+    <dimen name="space_four">4dp</dimen>
+    <dimen name="size_one_hundred_sixty_eight">168dp</dimen>
 </resources>

@@ -39,64 +39,82 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/welcome" />
 
-    <ImageView
-        android:id="@+id/girl_with_dog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_sixteen"
-        android:layout_marginTop="@dimen/space_forty"
-        android:src="@drawable/ic_girl_with_dog"
-        app:layout_constraintStart_toStartOf="@id/welcome"
-        app:layout_constraintTop_toBottomOf="@id/hello_person" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/space_thirty_two"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/girl_with_dog"
-        app:layout_constraintEnd_toEndOf="@id/filter"
-        app:layout_constraintTop_toTopOf="@id/girl_with_dog">
-
-        <com.miaudote.AdoptedCustomView
-            android:id="@+id/view1"
-            android:layout_width="@dimen/size_ninety_six"
-            android:layout_height="@dimen/size_seventy_five" />
-
-        <com.miaudote.AdoptedCustomView
-            android:id="@+id/view2"
-            android:layout_width="@dimen/size_ninety_six"
-            android:layout_height="@dimen/size_seventy_five"
-            android:layout_marginTop="@dimen/space_eight" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/title"
-        style="@style/blueTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_forty_five"
-        android:text="@string/animais_para_adocao"
-        app:layout_constraintStart_toStartOf="@id/welcome"
-        app:layout_constraintTop_toBottomOf="@id/girl_with_dog" />
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_twenty"
-        android:layout_marginEnd="@dimen/space_twenty"
-        android:paddingTop="@dimen/space_sixteen"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:spanCount="2"
-        tools:listitem="@layout/item_animal_adotante" />
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_twenty"
+        app:layout_constraintTop_toBottomOf="@id/hello_person"
+        app:layout_constraintBottom_toTopOf="@id/shadow">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/girl_with_dog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty"
+                android:layout_marginStart="@dimen/space_twenty"
+                android:src="@drawable/ic_girl_with_dog"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/girl_with_dog"
+                app:layout_constraintStart_toEndOf="@id/girl_with_dog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/girl_with_dog">
+
+                <com.miaudote.AdoptedCustomView
+                    android:id="@+id/view1"
+                    android:layout_width="@dimen/size_ninety_six"
+                    android:layout_height="@dimen/size_seventy_five" />
+
+                <com.miaudote.AdoptedCustomView
+                    android:id="@+id/view2"
+                    android:layout_width="@dimen/size_ninety_six"
+                    android:layout_height="@dimen/size_seventy_five"
+                    android:layout_marginTop="@dimen/space_eight" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/blueTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_forty_five"
+                android:text="@string/animais_para_adocao"
+                app:layout_constraintStart_toStartOf="@id/girl_with_dog"
+                app:layout_constraintTop_toBottomOf="@id/girl_with_dog" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_twenty"
+                android:layout_marginEnd="@dimen/space_twenty"
+                android:paddingTop="@dimen/space_sixteen"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:spanCount="2"
+                tools:listitem="@layout/item_animal_adotante" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <View
+        android:id="@+id/shadow"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_four"
         android:background="@drawable/shadow"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_linear_layout" />
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_linear_layout"
+        app:layout_constraintTop_toBottomOf="@id/scroll_view" />
 
     <LinearLayout
         android:id="@+id/bottom_navigation_linear_layout"
