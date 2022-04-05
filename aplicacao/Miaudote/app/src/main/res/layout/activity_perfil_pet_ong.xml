@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray"
+    tools:context=".LoginActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_fifteen"
+        app:layout_constraintBottom_toTopOf="@id/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/dark_pink" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/space_three_hundred_fifty"
+        android:src="@drawable/rounded_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/nome_pet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_thirty_two"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/background">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_cat_perfil"
+            app:tint="@color/dark_pink">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_edit">
+
+        </ImageView>
+
+        <TextView
+            style="@style/namePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nome_pet"
+            android:textSize="@dimen/text_twenty"
+            android:textAllCaps="true">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_twenty"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/nome_pet">
+
+
+        <LinearLayout
+            android:id="@+id/img_process"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:background="@drawable/ic_cat_man"
+            android:gravity="center">
+
+            <TextView
+                style="@style/namePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_one_hundred_eighty"
+                android:layout_marginTop="@dimen/space_fifteen"
+                android:layout_marginEnd="@dimen/space_forty_five"
+                android:text="@string/o_tom_teve_o_processo_de_ado_o_iniciado">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/petText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_fifteen"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:text="@string/text_adoption">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_adoption_buttom"
+        style="@style/transparentButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_height_button"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_twenty"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:background="@drawable/button_background_stroke"
+        android:text="@string/confirmar_ado_o"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_adoption_buttom"
+        style="@style/transparentButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_height_button"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_twenty"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:background="@drawable/button_cancel_background_stroke"
+        android:text="@string/cancelar_ado_o"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/confirm_adoption_buttom" />
+
+    <LinearLayout
+        android:id="@+id/layout_favorite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_thirty_two"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/light_pink"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_forty"
+        android:paddingTop="@dimen/space_twenty"
+        android:paddingEnd="@dimen/space_forty"
+        android:paddingBottom="@dimen/space_twenty"
+        app:layout_constraintEnd_toEndOf="@id/cancel_adoption_buttom"
+        app:layout_constraintStart_toStartOf="@id/cancel_adoption_buttom"
+        app:layout_constraintTop_toBottomOf="@id/cancel_adoption_buttom">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_eight"
+            android:background="@drawable/ic_heart_ong"
+            android:backgroundTint="@color/medium_red"
+            android:gravity="center">
+
+            <TextView
+                style="@style/favoriteOngText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_5">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/petText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tom_j_foi_favoritado_5_vezes">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_information_pet"
+        style="@style/pageTitlePet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:text="@string/informa_es_do_pet"
+        app:layout_constraintStart_toStartOf="@id/layout_favorite"
+        app:layout_constraintTop_toBottomOf="@id/layout_favorite">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/Layout_information_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title_information_pet">
+
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_fifteen"
+            android:layout_weight="1"
+            android:background="@drawable/card_background"
+            android:backgroundTint="@color/light_pink"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/space_sixteen"
+            android:paddingBottom="@dimen/space_sixteen">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cake"
+                app:tint="@color/dark_pink" />
+
+            <TextView
+                style="@style/petText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_eight"
+                android:text="@string/_3_anos" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_fifteen"
+            android:layout_weight="1"
+            android:background="@drawable/card_background"
+            android:backgroundTint="@color/light_pink"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/space_sixteen"
+            android:paddingBottom="@dimen/space_sixteen">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sexo_masculino"
+                app:tint="@color/dark_pink" />
+
+            <TextView
+                style="@style/petText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_eight"
+                android:text="@string/macho" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/card_background"
+            android:backgroundTint="@color/light_pink"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/space_sixteen"
+            android:paddingBottom="@dimen/space_sixteen">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_icon_pelagem"
+                app:tint="@color/dark_pink" />
+
+            <TextView
+                style="@style/petText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_eight"
+                android:text="@string/pelo_curto" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/Layout_information_pet">
+
+        <TextView
+            style="@style/pageTitlePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/descricao" />
+
+        <TextView
+            style="@style/petText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_eight"
+            android:text="@string/descricao_pet" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_porte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/descricao">
+
+        <TextView
+            style="@style/pageTitlePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/porte" />
+
+        <LinearLayout
+            android:id="@+id/porte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_thirty_two"
+                    android:src="@drawable/ic_little_cat" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/pequeno" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:backgroundTint="@color/light_purple"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_twenty"
+                    android:src="@drawable/ic_medium_cat" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/m_dio" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_big_cat" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/grande" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layot_dados_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layout_porte">
+
+        <TextView
+            style="@style/pageTitlePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/esse_pet" />
+
+        <LinearLayout
+            android:id="@+id/dadosPet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen"
+                android:backgroundTint="@color/light_pink">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_band_aid"
+                    app:tint="@color/dark_pink"/>
+
+                <TextView
+                    style="@style/essePetText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/j_foi_vacinado" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen"
+                android:backgroundTint="@color/light_pink">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_band_aid"
+                    app:tint="@color/dark_pink"/>
+
+                <TextView
+                    style="@style/essePetText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/j_foi_castrado" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen"
+                android:backgroundTint="@color/light_pink">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_band_aid"
+                    app:tint="@color/dark_pink"/>
+
+                <TextView
+                    style="@style/essePetText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/chegou_em_2020"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_necessidades_especial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_forty_five"
+        android:layout_marginTop="@dimen/space_fifteen"
+        android:layout_marginEnd="@dimen/space_forty_five"
+        android:background="@drawable/card_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layot_dados_pet"
+        android:backgroundTint="@color/light_pink">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_band_aid"
+            app:tint="@color/dark_pink">
+
+        </ImageView>
+
+        <TextView
+            style="@style/essePetText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tem_como_necessidade_especial_erlichiose">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     <dimen name="text_sixteen">16sp</dimen>
     <dimen name="text_twenty">20sp</dimen>
     <dimen name="text_twelve">12sp</dimen>
+    <dimen name="text_seven">7sp</dimen>
     <dimen name="text_ten">10sp</dimen>
     <dimen name="space_thirty_two">32dp</dimen>
     <dimen name="text_fourteen">14sp</dimen>
@@ -16,4 +17,15 @@
     <dimen name="size_height_button">44dp</dimen>
     <dimen name="size_height_line">0.5dp</dimen>
     <dimen name="space_twenty_four">24dp</dimen>
+    <dimen name="space_twenty">20dp</dimen>
+    <dimen name="space_forty_two">42dp</dimen>
+    <dimen name="space_fifteen">15dp</dimen>
+    <dimen name="space_three_hundred_fifty">350dp</dimen>
+    <dimen name="space_fifty">50dp</dimen>
+    <dimen name="size_width_button_contact">148dp</dimen>
+    <dimen name="space_forty">40dp</dimen>
+    <dimen name="space_one_hundred_eighty">180dp</dimen>
+    <dimen name="space_one_hundred_five">105dp</dimen>
+    <dimen name="space_sixty_five">65dp</dimen>
+
 </resources>
