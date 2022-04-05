@@ -81,6 +81,17 @@
         app:layout_constraintStart_toStartOf="@id/welcome"
         app:layout_constraintTop_toBottomOf="@id/girl_with_dog" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_twenty"
+        android:layout_marginEnd="@dimen/space_twenty"
+        android:paddingTop="@dimen/space_sixteen"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:spanCount="2"
+        tools:listitem="@layout/item_animal_adotante" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_four"

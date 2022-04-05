@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="152dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_sixteen"
+    android:layout_marginBottom="@dimen/space_twenty"
+    android:background="@drawable/rounded_card_background"
+    android:elevation="@dimen/size_four"
+    android:orientation="vertical">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius" />
+
+    <TextView
+        android:id="@+id/tv_animal_name"
+        style="@style/regularTextBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_eight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_picture"
+        tools:text="Tom" />
+
+    <ImageView
+        android:id="@+id/iv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_eight"
+        app:layout_constraintBottom_toBottomOf="@id/tv_animal_name"
+        app:layout_constraintStart_toEndOf="@id/tv_animal_name"
+        app:layout_constraintTop_toTopOf="@id/tv_animal_name"
+        tools:src="@drawable/ic_card_male" />
+
+    <ImageView
+        android:id="@+id/iv_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_eight"
+        android:src="@drawable/ic_card_animal_heart"
+        app:layout_constraintBottom_toBottomOf="@id/tv_animal_name"
+        app:layout_constraintEnd_toEndOf="@id/iv_picture"
+        app:layout_constraintTop_toTopOf="@id/tv_animal_name" />
+
+    <ImageView
+        android:id="@+id/iv_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_card_birthday"
+        app:layout_constraintBottom_toBottomOf="@id/tv_birthday"
+        app:layout_constraintStart_toStartOf="@id/tv_animal_name"
+        app:layout_constraintTop_toTopOf="@id/tv_birthday" />
+
+    <TextView
+        android:id="@+id/tv_birthday"
+        style="@style/regularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_eight"
+        android:layout_marginTop="@dimen/space_eight"
+        app:layout_constraintStart_toEndOf="@id/iv_birthday"
+        app:layout_constraintTop_toBottomOf="@id/tv_animal_name"
+        tools:text="3 anos" />
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_card_location"
+        app:layout_constraintBottom_toBottomOf="@id/tv_location"
+        app:layout_constraintStart_toStartOf="@id/tv_animal_name"
+        app:layout_constraintTop_toTopOf="@id/tv_location" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        style="@style/regularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_eight"
+        android:layout_marginTop="@dimen/space_eight"
+        android:layout_marginBottom="@dimen/space_eight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_birthday"
+        app:layout_constraintTop_toBottomOf="@id/tv_birthday"
+        tools:text="2km de você" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
