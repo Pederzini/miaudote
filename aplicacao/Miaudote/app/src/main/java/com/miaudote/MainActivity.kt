@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupAnimation() {
         bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_slide)
         logo.startAnimation(bottomAnimation)
-    }
+    } 
 
     private fun initAnimation() {
         Handler().postDelayed({

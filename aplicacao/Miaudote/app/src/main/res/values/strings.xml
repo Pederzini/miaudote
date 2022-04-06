@@ -57,4 +57,9 @@
     <string name="adotado">Adotado</string>
     <string name="sim">Sim</string>
     <string name="distancia">Distância</string>
+    <string name="numero_de_pets_que">NÚMERO DE PETS QUE...</string>
+    <string name="boas_vindas">Boas-vindas</string>
+    <string name="foram_adotados">Foram adotados</string>
+    <string name="estao_em_processo_de_adocao">Estão em processo de adoção</string>
+    <string name="ainda_nao_foram_adotados">Ainda não foram adotados</string>
 </resources>
