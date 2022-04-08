@@ -136,15 +136,15 @@
             android:layout_marginTop="@dimen/space_twenty"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/nome_pet">
+            app:layout_constraintTop_toBottomOf="@id/nome_pet"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginEnd="@dimen/space_forty_five">
 
 
             <LinearLayout
                 android:id="@+id/img_process"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_forty_five"
-                android:layout_marginEnd="@dimen/space_forty_five"
                 android:background="@drawable/ic_cat_man"
                 android:gravity="center">
 
