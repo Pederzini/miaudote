@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="56dp"
+    android:paddingRight="56dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_seventy_two"
+                android:text="@string/cadastro_pet"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_twenty"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_twenty_four"
+                android:text="@string/informacoes_gerais"
+                android:textColor="@color/main_blue"
+                android:textSize="@dimen/dimen_sixteen"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_adicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:background="@drawable/ic_plus_cadastro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_titulo" />
+
+        <ImageView
+            android:id="@+id/img_adicao_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_twenty_four"
+            android:background="@drawable/ic_plus_cadastro_pequeno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_adicao"
+            app:layout_constraintTop_toBottomOf="@+id/layout_titulo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_eight"
+            android:background="@drawable/ic_plus_cadastro_pequeno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_adicao"
+            app:layout_constraintTop_toBottomOf="@+id/img_adicao_2" />
+
+        <TextView
+            android:id="@+id/tv_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:text="Nome"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_adicao" />
+
+        <EditText
+            android:id="@+id/et_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_eight"
+            android:hint="Ex: Totó"
+            android:textSize="@dimen/dimen_sixteen"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nome" />
+
+        <LinearLayout
+
+            android:id="@+id/layout_data_nascimento"
+            android:layout_width="@dimen/size_one_hundred_fifty"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_nome">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Nascimento"
+                android:textSize="@dimen/dimen_sixteen"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="@dimen/size_one_hundred_fifty"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textSize="@dimen/dimen_sixteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/layout_data_chegada"
+            android:layout_width="@dimen/size_one_hundred_fifty"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/layout_data_nascimento"
+            app:layout_constraintTop_toBottomOf="@+id/et_nome">
+
+            <TextView
+                android:id="@+id/tv_data_chegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data_chegada"
+                android:textSize="@dimen/dimen_sixteen"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="@dimen/size_one_hundred_fifty"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textSize="@dimen/dimen_sixteen" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_especie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/especie"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_data_chegada" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_especie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_especie"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gato"
+                app:chipIcon="@drawable/ic_gato_cinza"
+                app:chipIconSize="20dp"
+                app:chipIconVisible="true"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cachorro"
+                app:chipIcon="@drawable/ic_cachorro_cinza"
+                app:chipIconSize="20dp"
+                app:chipIconVisible="true"
+                app:chipStartPadding="@dimen/space_eight" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/g_nero"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_especie" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genero"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/femea"
+                app:chipIcon="@drawable/ic_femea_cinza"
+                app:chipIconSize="20dp"
+                app:chipIconVisible="true"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/macho"
+                app:chipIcon="@drawable/ic_macho_cinza"
+                app:chipIconSize="20dp"
+                app:chipIconVisible="true"
+                app:chipStartPadding="@dimen/space_eight" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_informacoes_principais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="Informações Principais"
+            android:textColor="@color/main_blue"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_genero" />
+
+        <TextView
+            android:id="@+id/tv_porte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="Porte"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_informacoes_principais" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_porte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_porte"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pequeno"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/medio"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_grande"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_tipo_pelagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="Tipo Pelagem"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_porte" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_pelagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tipo_pelagem"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/curta"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/longa"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_cor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/cor"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_pelagem" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_cor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cor"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/branco"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/preto"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/marrom"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mesclado"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_castrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/castrado"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_cor" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_castrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_castrado"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nao"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sim"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_vacinado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/vacinado"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_castrado" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_vacinado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_vacinado"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nao"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_sim"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_comportamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/comportamento"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_vacinado" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_comportamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_comportamento"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amigavel"
+                android:textSize="@dimen/dimen_sixteen"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agitado"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calmo"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timido"
+                app:chipIconSize="20dp"
+                app:chipStartPadding="@dimen/space_eight" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_necessidades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/necessidades_especiais"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chips_comportamento" />
+
+        <EditText
+            android:id="@+id/et_necessidades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLines="6"
+            android:textSize="@dimen/dimen_sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_necessidades" />
+
+        <TextView
+            android:id="@+id/tv_descricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sixteen"
+            android:text="@string/descricao"
+            android:textSize="@dimen/dimen_sixteen"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_necessidades" />
+
+        <EditText
+            android:id="@+id/et_descricacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLines="6"
+            android:textSize="@dimen/dimen_sixteen"
+            app:layout_constraintTop_toBottomOf="@id/tv_descricao" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
