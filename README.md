@@ -16,10 +16,10 @@ Para <b>adotantes</b>, a chance de encontrar sua pata metade :cat::dog:🐾
 - ### API MiAuDote<br><br><img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot"/><br>
 
 ## Equipe
-![integrantes](https://user-images.githubusercontent.com/70399469/141662182-38f3b9a7-f68e-4013-aead-5c3df550d090.png)
+![integrantes](EM CONSTRUÇÃO)
 
 ## Sinta-se à vontade para:
 • Dar feedbacks referente ao projeto;<br>
 • Olhar nosso repositório;<br> 
 • Entrar em contato com algum de nossos membros<br>
-• Conhecer mais sobre nossa identidade visual: [Identidade Visual](https://github.com/P-Shoyo/miaudote/blob/master/Documentos/Identidade%20Visual/MiAuDote_Justificativa_Grupo06.pdf)<br>
+• Conhecer mais sobre nossa identidade visual: [Identidade Visual](https://github.com/Pederzini/miaudote/blob/master/Documentos/Identidade%20Visual/MiAuDote_Justificativa_Grupo06.pdf)<br>
