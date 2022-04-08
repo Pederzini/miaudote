@@ -152,10 +152,10 @@
                     style="@style/namePet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/space_one_hundred_eighty"
+                    android:layout_marginStart="150dp"
                     android:layout_marginTop="@dimen/space_fifteen"
-                    android:layout_marginEnd="@dimen/space_forty_five"
-                    android:text="@string/o_tom_teve_o_processo_de_ado_o_iniciado">
+                    android:text="@string/o_tom_teve_o_processo_de_ado_o_iniciado"
+                    android:layout_marginEnd="@dimen/space_sixteen">
 
                 </TextView>
 
@@ -238,7 +238,7 @@
 
 
             <TextView
-                style="@style/regularText"
+                style="@style/petText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tom_j_foi_favoritado_5_vezes">
@@ -525,7 +525,7 @@
                         app:tint="@color/dark_pink" />
 
                     <TextView
-                        style="@style/petText"
+                        style="@style/essePetText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_eight"
@@ -552,7 +552,7 @@
                         app:tint="@color/dark_pink" />
 
                     <TextView
-                        style="@style/petText"
+                        style="@style/essePetText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_eight"
@@ -578,7 +578,7 @@
                         app:tint="@color/dark_pink" />
 
                     <TextView
-                        style="@style/petText"
+                        style="@style/essePetText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_eight"
@@ -619,7 +619,7 @@
 
 
             <TextView
-                style="@style/petText"
+                style="@style/essePetText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tem como necessidade especial: Erlichiose">
