@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_gatinho"
+            app:layout_constraintBottom_toTopOf="@id/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+
+        <LinearLayout
+            android:id="@+id/buttonVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_fifteen"
+            android:layout_marginTop="@dimen/space_twenty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_buttom_voltar" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_fifteen"
+            app:layout_constraintBottom_toTopOf="@id/background">
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/dark_orange" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sixty_four"
+                android:layout_weight="1"
+                android:src="@drawable/page_indicator"
+                app:tint="@color/lightest_gray" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/space_three_hundred_thirty"
+            android:src="@drawable/rounded_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/nome_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/background">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_cat_perfil">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_heart">
+
+            </ImageView>
+
+            <TextView
+                style="@style/namePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nome_pet"
+                android:textAllCaps="true"
+                android:textSize="@dimen/text_twenty">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nome_pet">
+
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_cake" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/_3_anos" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_sexo_masculino" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/macho" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_sixteen"
+                android:paddingBottom="@dimen/space_sixteen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_icon_pelagem" />
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_eight"
+                    android:text="@string/pelo_curto" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+            <TextView
+                style="@style/pageTitlePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descricao" />
+
+            <TextView
+                style="@style/regularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_eight"
+                android:text="@string/descricao_pet" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_porte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/descricao">
+
+            <TextView
+                style="@style/pageTitlePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/porte" />
+
+            <LinearLayout
+                android:id="@+id/porte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/space_fifteen"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_thirty_two"
+                        android:src="@drawable/ic_little_cat" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/pequeno" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/space_fifteen"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_background"
+                    android:backgroundTint="@color/light_purple"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_twenty"
+                        android:src="@drawable/ic_medium_cat" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/m_dio" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_big_cat" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/grande" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_localizacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/layout_porte">
+
+            <TextView
+                style="@style/pageTitlePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOCALIZAÇÃO" />
+
+            <LinearLayout
+                android:id="@+id/localizacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mapa_test">
+
+                </ImageView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_fifteen"
+                    android:src="@drawable/ic_pin">
+
+                </ImageView>
+
+                <TextView
+                    style="@style/regularText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/est_h_2km_de_voc" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layot_dados_pet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/layout_localizacao">
+
+            <TextView
+                style="@style/pageTitlePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/esse_pet" />
+
+            <LinearLayout
+                android:id="@+id/dadosPet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_twenty"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_fifteen"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_vacina" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/j_foi_vacinado" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_fifteen"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_band_aid" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/j_foi_castrado" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_sixteen"
+                    android:paddingBottom="@dimen/space_sixteen">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_calendario" />
+
+                    <TextView
+                        style="@style/petText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_eight"
+                        android:text="@string/chegou_em_2020" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_necessidades_especial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_fifteen"
+            android:background="@drawable/card_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/space_forty"
+            android:paddingTop="@dimen/space_twenty"
+            android:paddingEnd="@dimen/space_forty"
+            android:paddingBottom="@dimen/space_twenty"
+            app:layout_constraintEnd_toEndOf="@id/layot_dados_pet"
+            app:layout_constraintStart_toStartOf="@id/layout_dados_ong"
+            app:layout_constraintTop_toBottomOf="@id/layot_dados_pet">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_fifteen"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:src="@drawable/ic_remedio">
+
+            </ImageView>
+
+
+            <TextView
+                style="@style/petText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tem como necessidade especial: Erlichiose">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tittle_ong"
+            style="@style/pageTitlePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:text="@string/ong_respons_vel"
+            app:layout_constraintStart_toStartOf="@id/layout_necessidades_especial"
+            app:layout_constraintTop_toBottomOf="@id/layout_necessidades_especial" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_dados_ong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_fifteen"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tittle_ong">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img_ong_test"
+                android:gravity="center"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_fifteen"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/nameOng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_eight"
+                    android:text="@string/pataamiga"
+                    android:textAllCaps="true">
+
+                </TextView>
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="São Paulo, desde 2001">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_buttom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_fifteen"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/layout_dados_ong"
+            app:layout_constraintStart_toStartOf="@id/layout_dados_ong"
+            app:layout_constraintTop_toBottomOf="@id/layout_dados_ong">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/whatsapp_button"
+                style="@style/transparentButtonTextContact"
+                android:layout_width="@dimen/size_width_button_contact"
+                android:layout_height="@dimen/size_height_button"
+                android:layout_marginEnd="@dimen/space_fifteen"
+                android:background="@drawable/button_background_stroke"
+                android:text="@string/whatsapp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/email_button"
+                style="@style/transparentButtonTextContact"
+                android:layout_width="@dimen/size_width_button_contact"
+                android:layout_height="@dimen/size_height_button"
+                android:background="@drawable/button_background_stroke"
+                android:text="@string/email" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_help"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_thirty_two"
+            android:background="@drawable/card_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/space_forty"
+            android:paddingTop="@dimen/space_twenty"
+            android:paddingEnd="@dimen/space_forty"
+            android:paddingBottom="@dimen/space_twenty"
+            app:layout_constraintEnd_toEndOf="@id/layout_buttom"
+            app:layout_constraintStart_toStartOf="@id/layout_dados_ong"
+            app:layout_constraintTop_toBottomOf="@id/layout_buttom">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_woman_dog">
+
+            </ImageView>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_fifteen"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/helpText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_eight"
+                    android:text="@string/n_o_pode_adotar_mas_gostaria_de_ajudar">
+
+                </TextView>
+
+                <TextView
+                    style="@style/petText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Entre contato com a ONG">
+
+                </TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hel_button"
+            style="@style/transparentButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_height_button"
+            android:layout_marginStart="@dimen/space_forty_five"
+            android:layout_marginTop="@dimen/space_twenty"
+            android:layout_marginEnd="@dimen/space_forty_five"
+            android:background="@drawable/button_background_stroke"
+            android:text="@string/ajudar"
+            app:layout_constraintTop_toBottomOf="@id/layout_help" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
