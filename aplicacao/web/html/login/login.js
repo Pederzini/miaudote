@@ -109,7 +109,7 @@ function postLogin() {
 function linkTela(tela) {
   switch (tela) {
     case "login":
-      window.location.href = '../login/login.html';
+      window.location.href = '../login/index.html';
       break;
     case "ong":
       window.location.href = '../cadastro-ong/cadastro-ong.html';
