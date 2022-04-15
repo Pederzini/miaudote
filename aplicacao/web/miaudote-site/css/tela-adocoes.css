@@ -1,0 +1,1248 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
+
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    font-family: Nunito Sans;
+    scroll-behavior: smooth;
+}
+
+/* SWEET ALERT QIUEBRANDO*/
+.swal2-warning {
+    height: 6rem;
+    width: 6rem;
+  }
+  
+  .swal2-icon-content {
+    font-size: 3.7em !important;
+  }
+  
+  .swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    height: 5rem;
+    width: 5rem;
+    overflow: visible !important;
+  }
+
+/* width */
+::-webkit-scrollbar {
+    width: 17.9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #FFD8D5;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fdbbb6;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fc7b72;
+}
+
+:root {
+    --nunito: 'Nunito', sans-serif;
+    --nunito-sans: 'Nunito Sans', sans-serif;
+    --roxo: #8675A5;
+    --branco: #fff;
+    --cinza: #434343;
+}
+
+
+/* Inicio da tela de adoções, opção de favorito*/
+
+header {
+
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.container-header {
+    width: 100%;
+    height: 22%;
+}
+
+.menu {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+
+}
+
+.logo-header {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-header a {
+    width: 80%;
+}
+
+.container-active{
+    /* width: 121px; */
+    margin-top: 21px;
+    /* margin-right: 25px; */
+    margin-left: 15px;
+}
+
+.active {
+    position: relative;
+    background: url("../../imagens/geral/icon-osso.svg") no-repeat;
+    background-position: 60%;
+    background-position-y: bottom;
+    padding-bottom: 20px;
+}
+
+.text-menu {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.text-menu a {
+    font-family: Nunito;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin: 3%;
+    text-decoration: none;
+
+}
+
+.container-btn {
+    height: 100%;
+    width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-sair {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+
+}
+
+.container-sair img {
+    width: 30%;
+}
+
+.btn-login {
+    height: 33%;
+    width: 72%;
+    border: 0.637931px solid #434343;
+    box-sizing: border-box;
+    border-radius: 94.8611px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: rgba(240, 255, 255, 0);
+    cursor: pointer;
+}
+
+.btn-login img {
+    width: 37%;
+    margin-right: 7%;
+}
+
+
+.btn-login p {
+    font-family: Nunito;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #434343;
+
+
+}
+
+
+
+header img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-menu {
+    height: 100%;
+    width: 32%;
+    position: absolute;
+    z-index: 1;
+    top: 22%;
+    left: 52%;
+}
+
+.img-menu img {
+    width: 100%;
+
+
+}
+
+.page {
+
+    height: 657px;
+}
+
+
+.svg-menu-menor {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.container-adocoes {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+
+
+
+.menu-lateral-adocoes {
+    width: 24%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 5%;
+}
+
+.container-linha {
+    width: 0.1%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linha-divisao {
+    width: 83%;
+    height: 85%;
+    background-color: #8675A5;
+}
+
+.cards-adocoes {
+    width: 66%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+
+}
+
+.cards-adocoes::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.cards-adocoes::-webkit-scrollbar-track {
+    background-color: #b8b0c7;
+    border-radius: 10px;
+}
+
+/* Handle */
+.cards-adocoes::-webkit-scrollbar-thumb {
+    background: #8675A5;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.cards-adocoes::-webkit-scrollbar-thumb:hover {
+    background: #61498f;
+}
+
+
+
+.cards-adocoes p {
+    text-transform: uppercase;
+}
+
+.opcoes-adocoes {
+    width: 100%;
+    height: 28%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.opcoes-adocoes:hover {
+    background-color: #f3ecff !important;
+}
+
+
+
+.img-opcoes {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.img-opcoes img {
+    width: 45%;
+}
+
+.texto-opcoes {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.texto-opcoes p {
+    color: #434343;
+    font-size: 20px;
+    padding-left: 10%;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0.01em;
+
+
+
+}
+
+
+.card-animais-favoritos {
+    width: 90%;
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    /* box-sizing: border-box; */
+    border-radius: 9px;
+    margin: 1%;
+    padding: 1%;
+}
+
+
+.dados-pet {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.img-pet {
+    width: 126px;
+    display: flex;
+    justify-content: center;
+    height: 87px;
+}
+
+.img-pet img {
+    width: 70%;
+    border-radius: 100%;
+}
+
+.texto-pet {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.texto-pet p {
+    color: #434343;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    /* padding: 0%; */
+}
+
+.sexo-pet {
+    width: 100%;
+    height: 19%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sexo-pet img {
+    margin-bottom: 1.5%;
+    width: 5.5%;
+    margin-left: 3%;
+}
+
+.dados-favoritos {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+}
+
+.img-favorito {
+    width: 100%;
+    height: 53%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container-favorito {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contador {
+    width: 10%;
+    height: 56%;
+    position: relative;
+    left: 29px;
+    top: -3px;
+}
+
+.contador p {
+    font-family: Nunito;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 31px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: white;
+}
+
+
+.img-favorito img {
+    width: 34%;
+}
+
+.clique-favorito {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container-clique {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-alinhamento {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container-alinhamento p {
+    color: #434343;
+    font-size: 13px;
+    text-align: center;
+    font-family: Nunito;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: 19px; */
+    letter-spacing: 0.01em;
+    cursor: pointer;
+}
+
+/* Inicio da tela de adoções, opção de processo de adoção*/
+
+.card-processo-adocao {
+    width: 90%;
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    /* box-sizing: border-box; */
+    border-radius: 9px;
+    margin: 1%;
+    padding: 1%;
+}
+
+
+
+.dados-adotante {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+
+
+
+}
+
+.texto-adotante {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+
+}
+
+.texto-adotante p {
+    color: #434343;
+    font-size: 14px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+
+}
+
+.img-adotante {
+    height: 100%;
+    width: 38%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-adotante img {
+    border-radius: 100%;
+    width: 88%;
+}
+
+.tipo-contato {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+
+}
+
+.linha-contato {
+    width: 100%;
+    height: 0.1%;
+    background-color: #8675A5;
+    position: absolute;
+
+}
+
+.img-contato {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dados-pet-processo {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.img-pet-processo {
+    width: 42%;
+    display: flex;
+    justify-content: center;
+}
+
+.img-pet-processo img {
+    border-radius: 100%;
+    width: 80%;
+
+}
+
+.texto-pet-processo {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+
+
+}
+
+.texto-pet-processo p {
+    color: #434343;
+    font-size: 14px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+
+
+
+}
+
+.sexo-pet-processo {
+    width: 100%;
+    height: 20%;
+    display: flex;
+
+    align-items: center;
+    flex-direction: row;
+}
+
+.sexo-pet-processo img {
+    width: 15%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+}
+
+.container-bnt {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}
+
+.container-dentro-btn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+#btn-adotou {
+    width: 89%;
+    height: 38%;
+    border: none;
+    border-radius: 63.8298px;
+    background-color: #8675A5;
+    cursor: pointer;
+}
+
+.texto-adotou {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 2%;
+}
+
+.texto-adotou P {
+    color: white;
+    font-family: Nunito;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-left: 4%;
+}
+
+.img-btn {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.img-btn img {
+    width: 53%;
+    padding-left: 20%;
+}
+
+#btn-nao-adotou {
+    width: 87%;
+    height: 38%;
+    border-radius: 63.8298px;
+    background-color: white;
+    border: 1px solid #FF5C5C;
+    cursor: pointer;
+    margin-top: 7%;
+}
+
+.texto-nao-adotou {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 2%;
+}
+
+.texto-nao-adotou P {
+    color: #FF5C5C;
+    font-family: Nunito;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-left: 3%;
+}
+
+/* Inicio da tela de adoções, opção de processo de animais adotados*/
+
+.card-animais-adotados {
+    width: 90%;
+    height: 19vh;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    box-sizing: border-box;
+    border-radius: 9px;
+    margin: 1%;
+    padding: 1%;
+}
+
+.informacoes-adotante {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    margin-left: 10%;
+
+
+}
+
+.text-adotante {
+    height: 100%;
+    width: 63%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.text-adotante p {
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: 30px; */
+    letter-spacing: 0.01em;
+}
+
+.imagem-adotante {
+    height: 100%;
+    width: 53%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-adotante img {
+    width: 75%;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.container-casa {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.linha-casa {
+    width: 100%;
+    height: 0.1%;
+    background-color: #8675A5;
+    position: absolute;
+}
+
+.img-casa-adocao {
+    /* z-index: 1; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-casa-adocao img {
+    width: 75%;
+    margin-bottom: 11%;
+}
+
+/* MODAL */
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    padding-top: 190px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding-bottom: 4%;
+    border: 1px solid #888;
+    width: 60%;
+    height: 50%;
+    overflow-y: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-content2{
+    background-color: #fefefe;
+    margin: auto;
+    padding-bottom: 4%;
+    border: 1px solid #888;
+    width: 50%;
+    height: 50%;
+    overflow-y: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-caminho {
+    height: 28%;
+}
+
+.modal-titulo {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.modal-conteudo {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: -25px;    
+    margin-left: 6%;
+}
+
+.modal-card {
+    width: 90%;
+    height: 19vh;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8675A5;
+    box-sizing: border-box;
+    border-radius: 9px;
+    margin: 1%;
+    padding: 1%;
+    margin-top: 4%;
+}
+
+.modal-card-conteudo, .modal-card-conteudo2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-card-img {
+    border-radius: 100%;
+    margin-left: 15%;
+}
+
+.modal-card-texto {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-card-texto p {
+    color: #434343;
+    font-family: Nunito;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+}
+
+
+/* The Close Button */
+.closeFav, .closeAdo {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.closeFav:hover,
+.closeFav:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeAdo:hover,
+.closeAdo:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*modal adotante card*/
+
+.modal-container {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content: space-evenly;
+    z-index: 1;
+    position: relative;
+    margin-top: 3%;
+}
+
+.bola-um {
+    position: absolute;
+    height: 17%;
+}
+
+.bola-dois {
+    border-radius: 0 0 10px 0;
+    position: absolute;
+    height: 33%;
+    right: 25%;
+    top: 34.4%;
+}
+
+.modal-logo {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 80%;
+    align-items: center;
+}
+
+.card-adotante {
+    border-radius: 100px;
+    height: 9rem;
+}
+
+.modal-btns {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.modal-adotante-info {
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-size: 24px;
+    margin-top: -20px;
+}
+
+.modal-contato {
+    display: flex;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-top: 2%;
+    width: 35%;
+}
+
+.modal-info-box {
+    font-family: Nunito;
+    font-weight: 600;
+}
+
+.contato-modal{
+    font-size: 18px;
+}
+
+.info-ong {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.modal-circulo {
+    border-radius: 100px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--roxo);
+    display: flex;
+    place-content: center;
+    align-self: center;
+    margin-right: 4%;
+}
+
+.icon-style-modal {
+    display: flex;
+    width: 25px;
+}
+
+/*FOOTER*/
+footer {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 292px;
+    margin-top: 150px;
+}
+
+.svg-footer {
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.container-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+#svg1 {
+    display: flex;
+    position: absolute;
+    z-index: 0;
+}
+
+#svg2 {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+}
+
+.svg-gato {
+    position: absolute;
+    z-index: 3;
+    margin-right: 100px;
+}
+
+.container-gato {
+    min-height: 177px;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 55px;
+}
+
+.coluna-1 {
+    width: 33%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.coluna-1 a {
+    width: 40%;
+}
+
+.text-footer P {
+    font-family: 'Nunito';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    color: #434343;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.text-footer {
+    width: 40%;
+    height: 29%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.coluna-2 {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+
+.container-rede-sociais {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.container-rede-sociais a {
+    margin: 2%;
+  }
+
+.container-rede-sociais img {
+    height: 80%;
+    margin: 2%;
+}
+
+.coluna-2 p {
+    font-family: 'Nunito';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.coluna-3 {
+    width: 33%;
+    height: 89%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    text-transform: uppercase;
+}
+
+.container-contato p {
+    font-family: 'Nunito';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #434343;
+}
+
+
+.alinhamento-contato {
+    height: 100%;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.container-contato {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+.text-titulo-contato {
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    color: #434343;
+    overflow: hidden;
+}
+
+.container-btn-contato {
+    height: 100%;
+    width: 10%;
+
+}
+
+
+.btn-contato {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    box-shadow: 0px 3.79px 3.79px rgb(0 0 0 / 25%);
+    cursor: pointer;
+  }

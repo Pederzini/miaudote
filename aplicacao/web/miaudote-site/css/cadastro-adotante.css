@@ -1,0 +1,321 @@
+:root {
+    --titulo-campos: #6250D1;
+    --fonte-padrao: #434343;
+    --roxo-botao: #8F7FAC;
+    --branco: #FFFFFF;
+}
+
+
+.swal2-warning {
+    height: 6rem;
+    width: 6rem;
+}
+
+.swal2-icon-content {
+    font-size: 3.7em !important;
+}
+
+/* SWEET ALERT QIUEBRANDO*/
+.swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    height: 5rem;
+    width: 5rem;
+    overflow: visible !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    color: var(--fonte-padrao);
+}
+
+/* Início - Header */
+header {
+    background: url('../../imagens/cadastro/forma-header-cadastro.svg') no-repeat;
+    height: 39%;
+    background-size: cover;
+    background-attachment: local;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+header .overlay {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.seta-voltar {
+    cursor: pointer;
+    position: absolute;
+    top: 8%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+header:first-child {
+    left: 0;
+}
+
+/* Fim - Header */
+
+/* Início - Título */
+
+.titulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.subtitulo {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* Fim - Título */
+
+/* Início - Campos formulário */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+input {
+    font-family: 'Nunito';
+    color: var(--fonte-padrao)
+}
+
+.coluna-esquerda {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.coluna-esquerda img {
+    height: 250px;
+}
+
+.coluna-centro {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.coluna-direita {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: center;
+}
+
+.coluna-direita img {
+    height: 250px;
+}
+
+@media (max-width: 40em) {
+    .coluna-direita {
+        display: none;
+    }
+
+    .coluna-centro {
+        margin-left: 12rem;
+    }
+
+    .coluna-esquerda {
+        display: none;
+    }
+}
+
+.titulos-campos {
+    width: 100%;
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: start;
+    color: var(--titulo-campos);
+}
+
+.campos {
+    width: 335px;
+    height: 59px;
+    padding-left: 12px;
+    border: 1px solid #949494;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 18px;
+}
+
+.campos:focus {
+    border-color: var(--titulo-campos);
+}
+
+.container-campos {
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fim - Campos formulário */
+
+/* Início - Grupos de cadastro */
+
+form {
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grupo-colunas-dados-pessoais {
+    background-color: transparent;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+}
+
+.grupo-colunas-endereco {
+    width: 100%;
+    height: 650px;
+    display: flex;
+    flex-direction: row;
+}
+
+.grupo-colunas-email {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.container-senha {
+    display: flex;
+    margin-left: -10px;
+}
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Fim - Grupos de cadastro */
+
+/* Início - Divisória */
+
+.divisoria {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.linhas-esquerda {
+    width: 30%;
+}
+
+.linhas-esquerda img {
+    max-width: 100%;
+}
+
+.titulo-divisoria {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linhas-direita {
+    width: 30%;
+}
+
+.linhas-direita img {
+    max-width: 100%;
+}
+
+/* Fim - Divisória */
+
+/* Início - Botão cadastro */
+
+.div-botao-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.botao-cadastro {
+    width: 335px;
+    height: 45px;
+    margin-top: 42px;
+    border: none;
+    border-radius: 94px;
+    padding: 11px;
+    background-color: var(--roxo-botao);
+    font-family: 'Nunito';
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--branco);
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.subtitulo-botao {
+    margin-top: 19px;
+}
+
+.palavra-clicavel {
+    cursor: pointer;
+    font-family: Nunito;
+    color: var(--roxo-botao);
+    text-decoration-line: underline;
+}
+
+/* Fim - Botão cadastro */
+
+/* Início - Footer */
+
+footer {
+    width: 100%;
+    display: flex;
+}
+
+footer img {
+    width: 100%;
+}
+
+
+/* Fim - Footer */
