@@ -2,7 +2,7 @@ let login_usuario;
 
 function redirecionar_login() {
     console.log("Redirecionado para a tela de login")
-    window.location.href = '../login/login.html';
+    window.location.href = '../login/index.html';
 }
 
 function validarSessao() {

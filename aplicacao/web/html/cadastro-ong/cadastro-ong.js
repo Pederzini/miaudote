@@ -28,7 +28,7 @@ function limpa_formulário_cep() {
 }
 
 function login() {
-    window.location.href = '../login/login.html'
+    window.location.href = '../login/index.html'
 }
 
 function endereco(conteudo) {
@@ -359,7 +359,7 @@ function postCadastroOng() {
                 confirmButtonColor: '#8675A5'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = '../login/login.html'
+                    window.location.href = '../login/index.html'
                 }
             })
            
