@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href="css/cadastro-ong.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/loading.css">
+    <script src="js/cadastro-ong.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Cadastro ONG</title>
+</head>
+
+<body>
+    <header>
+        <div class="overlay">  
+            <div class="logo">
+                <a href="http://localhost:3000/">
+                    <img id="logo" src="/imagens/geral/logo.svg">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="titulos">
+            <label class="titulo">CADASTRO</label>
+            <label class="subtitulo">CRIE SUA CONTA</label>
+        </div>
+
+        <div class="grupo-colunas-dados-pessoais">
+            <div class="coluna-esquerda"></div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <span class="titulos-campos">Razão Social</span>
+                    <input placeholder="Razão Social" class="campos" id="campo_razao" type="text" name="cmp_nme" required>
+
+                    <span class="titulos-campos">CNPJ</span>
+                    <input class="campos" placeholder="01.234.456/0001-99" id="campo_cnpj" type="text" name="cmp_cnpj" onblur="validarCNPJ(this,this.value)" oninput="mascara(this, 'cnpj')" required>
+
+                    <span class="titulos-campos">Data da Fundação</span>
+                    <input class="campos" id="campo_fundacao" type="date" name="cmp_fund" autocomplete="off" required>
+
+                    <span class="titulos-campos">Nome do Responsável</span>
+                    <input placeholder="Nome do Responsável" class="campos" id="campo_resp" type="text" name="cmp_rsp" required>
+
+                    <span class="titulos-campos">Telefone</span>
+                    <input class="campos" oninput="mascara(this, 'tel')" placeholder="(11) 99999-9999" id="campo_telefone" type="text"
+                        name="cmp_tel" maxlength="15" required>
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <img src="/imagens/cadastro/gato-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="divisoria">
+            <div class="linhas-esquerda">
+                <img src="/imagens/cadastro/caminho-esquerda-cadastro.svg">
+            </div>
+            <div class="titulo-divisoria">
+                <label class="titulo">ENDEREÇO</label>
+            </div>
+            <div class="linhas-direita">
+                <img src="/imagens/cadastro/caminho-direita-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="grupo-colunas-endereco">
+            <div class="coluna-esquerda">
+                <img src="/imagens/cadastro/cachorro-rosa-cadastro.svg">
+            </div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <form method="get" action=".">
+                        <span class="titulos-campos">CEP</span>
+                        <input class="campos" type="text" size="10" id="campo_cep" maxlength="9"
+                            onblur="pesquisacep(this,this.value)" placeholder="01235-000" oninput="mascara(this, 'cep')" required>
+
+                        <span class="titulos-campos">Logradouro</span>
+                        <input class="campos" type="text" placeholder="Rua Central" size="60" id="campo_logradouro" disabled="" required>
+
+                        <span class="titulos-campos">Bairro</span>
+                        <input class="campos" placeholder="Centro" type="text" size="40" id="campo_bairro" disabled="" required>
+
+                        <span class="titulos-campos">Número</span>
+                        <input class="campos" placeholder="123" type="text" id="campo_numero" maxlength="6" required>
+
+                        <span class="titulos-campos">Complemento</span>
+                        <input class="campos" placeholder="Casa 01" type="text" id="campo_complemento" required>
+                    </form>
+                </div>
+            </div>
+
+            <div class="coluna-direita"></div>
+        </div>
+
+        <div class="divisoria">
+            <div class="linhas-esquerda">
+                <img src="/imagens/cadastro/caminho-esquerda-cadastro.svg">
+            </div>
+            <div class="titulo-divisoria">
+                <label class="titulo">EMAIL</label>
+            </div>
+            <div class="linhas-direita">
+                <img src="/imagens/cadastro/caminho-direita-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="grupo-colunas-email">
+            <div class="coluna-esquerda"></div>
+
+            <div class="coluna-centro">
+                <div class="container-campos">
+                    <span class="titulos-campos">E-mail</span>
+                    <input class="campos" placeholder="email@mail.com" id="campo_email" type="text" required>
+
+                    <span class="titulos-campos">Senha</span>
+                    <div class="container-senha">
+                        <input placeholder="*****" class="campos" id="campo_senha" type="password" maxlength="16" required>
+                        <span onclick="exibeSenha()" id="eye-icon-on" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                            visibility
+                        </span>           
+                        <span onclick="exibeSenha()" id="eye-icon-off" class="material-icons" style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                            visibility_off
+                        </span>   
+                    </div>
+
+                    <span class="titulos-campos">Confirmar Senha</span>
+                    <div style="display: flex; margin-left: -10px;">
+                        <input placeholder="*****" class="campos" id="campo_confirmar_senha" type="password" maxlength="16" required>
+                        <span onclick="exibeConfirmaSenha()" id="eye-icon-on2" class="material-icons" style="display: block; cursor: pointer; align-self: center; margin-left: -30px;">
+                            visibility
+                        </span>           
+                        <span onclick="exibeConfirmaSenha()" id="eye-icon-off2" class="material-icons" style="display: none; cursor: pointer; align-self: center; margin-left: -30px;">
+                            visibility_off
+                        </span>                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <img src="/imagens/cadastro/cachorro-amarelo-cadastro.svg">
+            </div>
+        </div>
+
+        <div class="div-botao-cadastro">
+            <button class="botao-cadastro" onclick="postCadastroOng()">CADASTRAR</button>
+            <span class="subtitulo-botao">JÁ POSSUI UMA CONTA? 
+                <span class="palavra-clicavel" onclick="login()">CLIQUE
+                    AQUI
+                </span>
+            </span>
+        </div>
+
+    </div>
+    <footer>
+        <img src="/imagens/cadastro/forma-footer-cadastro.svg" alt="">
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <div class="loading">
+        <div class="loading-content">
+            <img class="position-loading" src="/imagens/geral/giffycanvas.gif"></img>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -72,7 +72,7 @@ function App() {
   function linkTela(tela) {
     switch (tela) {
       case "login":
-        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/login.html')
+        window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/login/index.html')
         break;
       case "ong":
         window.location.replace('https://pederzini.github.io/miaudote/aplicacao/web/html/cadastro-ong/cadastro-ong.html')
