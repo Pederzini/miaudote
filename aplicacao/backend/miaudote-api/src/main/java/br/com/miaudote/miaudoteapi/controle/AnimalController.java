@@ -174,6 +174,20 @@ public class AnimalController {
         return getAnimal(idAnimal);
     }
 
+    @GetMapping("/perfil-animal-com-ong/{idAnimal}/{idAdotante}")
+    public ResponseEntity getPerfilAnimalComOng(
+            @PathVariable Integer idAdotante,
+            @PathVariable Integer idAnimal
+    ) {
+        PerfilAnimalComOngDTO animal = processoAdocaoRepository.findByAnimalIdEqualsAndAdotanteIdAndFavoritadoTrue(idAnimal, idAdotante);
+
+        if (animal != null) {
+            return ResponseEntity.status(200).body(animal);
+        }
+
+        return getAnimal(idAnimal);
+    }
+
     @GetMapping("/{id}/cards")
     public ResponseEntity getNaoAdotados(@PathVariable Integer id) {
         List<CardAnimalSemDistanciaDTO> animais = animalRepository.findByAdotadoFalse();
