@@ -47,6 +47,14 @@ public interface PerfilAnimalComOngDTO {
 
         String getUrlImagem();
 
+        String getDataFundacao();
+
+        String getTelefone();
+
+        String getEmail();
+
+        String getNomeResponsavel();
+
         Endereco getEndereco();
     }
 

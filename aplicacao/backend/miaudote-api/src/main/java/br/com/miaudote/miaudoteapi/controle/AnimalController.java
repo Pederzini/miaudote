@@ -17,12 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -179,13 +176,55 @@ public class AnimalController {
             @PathVariable Integer idAdotante,
             @PathVariable Integer idAnimal
     ) {
+        Boolean favoritado = false;
+
         PerfilAnimalComOngDTO animal = processoAdocaoRepository.findByAnimalIdEqualsAndAdotanteIdAndFavoritadoTrue(idAnimal, idAdotante);
 
         if (animal != null) {
-            return ResponseEntity.status(200).body(animal);
+            favoritado = true;
         }
 
-        return getAnimal(idAnimal);
+        Animal animalSemOng = animalRepository.findById(idAnimal).get();
+        Ong ong = ongRepository.findById(animalSemOng.getOng().getIdOng()).get();
+        SimpleDateFormat formatoCerto = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFundacao = formatoCerto.format(ong.getDataFundacao());
+
+        PerfilAnimalComOngFavoritoDTO animalComOngSemFavorito = new PerfilAnimalComOngFavoritoDTO(
+                animalSemOng.getIdAnimal(),
+                animalSemOng.getNome(),
+                animalSemOng.getDataNascimento(),
+                animalSemOng.getGenero(),
+                animalSemOng.getTipoPelagem(),
+                animalSemOng.getCorPelagem(),
+                animalSemOng.getPorte(),
+                animalSemOng.getDataChegada(),
+                animalSemOng.getComportamento(),
+                animalSemOng.getCastrado(),
+                animalSemOng.getVacinado(),
+                animalSemOng.getUrlImagem(),
+                animalSemOng.getDescricao(),
+                animalSemOng.getNecessidadeEspeciais(),
+                animalSemOng.getEspecie(),
+                favoritado,
+                new InfosOng(
+                        ong.getIdOng(),
+                        ong.getRazaoSocial(),
+                        ong.getUrlImagem(),
+                        dataFundacao,
+                        ong.getTelefone(),
+                        ong.getEmail(),
+                        ong.getNomeResponsavel(),
+                        new InfosEndereco(
+                                ong.getEndereco().getLogradouro(),
+                                ong.getEndereco().getNumero(),
+                                ong.getEndereco().getBairro(),
+                                ong.getEndereco().getCep(),
+                                ong.getEndereco().getCidade()
+                        )
+                )
+        );
+
+        return ResponseEntity.status(200).body(animalComOngSemFavorito);
     }
 
     @GetMapping("/{id}/cards")
