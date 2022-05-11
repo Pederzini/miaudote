@@ -109,6 +109,19 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(200).body(adocoesEmProcesso);
     }
 
+    @GetMapping("/{cnpj}/adocoes-em-processo/{idAnimal}")
+    public ResponseEntity getEmProcessoIdAnimal(@PathVariable String cnpj, @PathVariable int idAnimal) {
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
+        adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+        adocoesEmProcesso.removeIf(adocaoId -> !adocaoId.getAnimal().getIdAnimal().equals(idAnimal));
+
+        if (adocoesEmProcesso.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(adocoesEmProcesso);
+    }
+
     @GetMapping("/{cnpj}/adocoes-concluidas")
     public ResponseEntity getAdocoesConcluidas(@PathVariable String cnpj) {
         List<AdocaoFinalizadaDTO> adocoesConcluidas = processoAdocaoRepository.findByDataAdocaoNotNull();

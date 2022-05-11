@@ -157,6 +157,9 @@ public class AnimalController {
         return ResponseEntity.status(200).body(numeroAdotados);
     }
 
+
+
+
     @GetMapping("/perfil-animal/{idAnimal}/{idAdotante}")
     public ResponseEntity getPerfilAnimal(
             @PathVariable Integer idAdotante,
