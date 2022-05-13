@@ -1,9 +1,8 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
-import br.com.miaudote.miaudoteapi.dto.ContatoOngDTO;
-import br.com.miaudote.miaudoteapi.dto.OngMapaDTO;
-import br.com.miaudote.miaudoteapi.dto.OngSemEnderecoDTO;
+import br.com.miaudote.miaudoteapi.dto.*;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.utilitarios.AnalisaException;
@@ -107,6 +106,49 @@ public class OngController {
 
         return ResponseEntity.status(200).body(numeroAdotados);
     }
+
+/*    @GetMapping("/{cnpj}/numero-nao-adotados")
+    public ResponseEntity getAdotadosTipoERestante(@PathVariable String cnpj) {
+        Integer idOng = ongRepository.findByCnpj(cnpj).getIdOng();
+        Ong ong = ongRepository.findByCnpj(cnpj);
+        Integer numeroAdotados = animalRepository.countByAdotadoTrueAndOngId(idOng);
+        List<Animal> animaisOng = animalRepository.findByOng(ong);
+        Integer totalRestante = numeroAdotados - animaisOng.size();
+        animaisOng.removeIf(gatos -> !gatos.getAdotado().equals("True"));
+        animaisOng.removeIf(gatos -> gatos.getEspecie().equals("Cachorro"));
+        Integer quantidadeGatos = animaisOng.size();
+
+        return ResponseEntity.status(200).body(numeroAdotados);
+    }*/
+
+
+    @GetMapping("/{cnpj}/numero-nao-adotados")
+    public ResponseEntity getAdotadosTipoERestante(@PathVariable String cnpj) {
+        Integer idOng = ongRepository.findByCnpj(cnpj).getIdOng();
+        Ong ong = ongRepository.findByCnpj(cnpj);
+        Integer numeroAdotados = animalRepository.countByAdotadoTrueAndOngId(idOng);
+        List<Animal> animaisDisponiveis = animalRepository.findByAdotadoFalseAndOngId(idOng);
+        Integer numGatos = 0;
+        Integer numCachorros = 0;
+
+        for (Animal animal : animaisDisponiveis) {
+            if(animal.getEspecie().equals("Cachorro")){
+                numCachorros++;
+            }else{
+                numGatos++;
+            }
+        }
+        AnimaisDisponiveisDTO animaisDisponiveisDTO = new AnimaisDisponiveisDTO(
+                animaisDisponiveis.size(),
+                numGatos,
+                numCachorros,
+                numeroAdotados
+        );
+
+        return ResponseEntity.status(200).body(animaisDisponiveisDTO);
+    }
+
+
 
     @GetMapping("/informacoes-ongs-mapa")
     public ResponseEntity getOngsMapa() {

@@ -18,7 +18,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<AnimalVitrineDTO> findRandomTop3();
 
     Integer countByAdotadoTrue();
-
+    List<Animal> findByAdotadoFalseAndOngId(Integer idOng);
     Integer countByAdotadoTrueAndOngId(Integer idOng);
 
     List<CardAnimalSemDistanciaDTO> findByAdotadoFalse();
