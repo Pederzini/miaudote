@@ -5,7 +5,7 @@ function topo() {
 function getQtdAnimais() {
     let qtdAnimais = document.querySelectorAll("#qtdAnimais")
 
-    axios.get(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).cnpj}/numero-adotados`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).cnpj}/numero-adotados`, {
       headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         qtdAnimais[0].innerHTML = `${response.data}`
