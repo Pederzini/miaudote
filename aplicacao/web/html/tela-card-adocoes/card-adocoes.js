@@ -27,7 +27,7 @@ function verificarFavorito(idAnimalFavorito, favoritado) {
 }
 
 function favoritar(idAnimalFavorito, favoritado) {
-    axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimalFavorito}`, {
+    axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimalFavorito}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true,
@@ -51,7 +51,7 @@ function favoritar(idAnimalFavorito, favoritado) {
 }
 
 function desfavoritar(idAnimalFavorito) {
-    axios.patch(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimalFavorito}`, {
+    axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimalFavorito}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true,
@@ -78,7 +78,7 @@ let distMax = 0;
 
 function getInfosCards() {
     mostraLoading();
-    axios.get(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).idAdotante}/cards`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).idAdotante}/cards`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true,

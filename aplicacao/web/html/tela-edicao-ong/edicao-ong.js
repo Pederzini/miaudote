@@ -333,7 +333,7 @@ function postImagem(arquivo) {
 
 function getInfosOng() {
     mostraLoading()
-    axios.get(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         document.getElementById("campo_razao").value = response.data.razaoSocial;
@@ -397,7 +397,7 @@ confirmButtonColor: '#8675A5'
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.patch(`http://localhost:8080/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
+        axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs/${JSON.parse(sessionStorage.login_usuario).idOng}`, {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
             "razaoSocial": razao,
             "cnpj": cnpj,
@@ -428,7 +428,7 @@ function atualizaEndereco() {
     var numero = document.getElementById("campo_numero").value;
     var complemento = document.getElementById("campo_complemento").value;
 
-    axios.patch(`http://localhost:8080/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
+    axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
         "cep": cep,
         "logradouro": logradouro,
