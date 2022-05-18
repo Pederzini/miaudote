@@ -88,9 +88,9 @@ function postLogin() {
       sessionStorage.login_usuario = JSON.stringify(response.data)
       sessionStorage.trocaMenu = 1
       if (usuario == "ongs") {
-        window.location.href = "../tela-home-ong/home-ong.html"
+        window.location.href = "../home-ong.html"
       } else {
-        window.location.href = "../home-adotante/home-adotante.html"
+        window.location.href = "../home-adotante.html"
       }
       escondeLoading()
     }).catch(function (error) {
@@ -109,13 +109,13 @@ function postLogin() {
 function linkTela(tela) {
   switch (tela) {
     case "login":
-      window.location.href = '../login/index.html';
+      window.location.href = '../index.html';
       break;
     case "ong":
       window.location.href = '../cadastro-ong.html';
       break
     case "adotante":
-      window.location.href = '../cadastro-adotante/cadastro-adotante.html';
+      window.location.href = '../cadastro-adotante.html';
       break
     default:
       break;

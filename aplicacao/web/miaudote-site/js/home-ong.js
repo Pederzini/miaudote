@@ -17,5 +17,5 @@ function getQtdAnimais() {
 }
 
 function referenciaMeuPets() {
-    window.location.href = "../tela-card-adocoes-ong/cards-ong.html"
+    window.location.href = "../cards-ong.html"
 }

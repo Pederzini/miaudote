@@ -2,7 +2,7 @@ let login_usuario;
 
 function redirecionar_login() {
     console.log("Redirecionado para a tela de login")
-    window.location.href = '../login/index.html';
+    window.location.href = '../index.html';
 }
 
 function validarSessao() {
@@ -12,9 +12,9 @@ function validarSessao() {
     login.forEach(element => {
         element.addEventListener('click', () => {
             if ('nomeResponsavel' in JSON.parse(login_usuario)) {
-                window.location.href = '../tela-edicao-ong/edicao-ong.html'
+                window.location.href = '../edicao-ong.html'
             } else {
-                window.location.href = '../tela-edicao-adotante/tela-edicao-adotante.html'
+                window.location.href = '../tela-edicao-adotante.html'
             }
         })
     });

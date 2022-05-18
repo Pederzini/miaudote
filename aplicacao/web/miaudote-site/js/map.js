@@ -14,7 +14,7 @@ function initMap() {
         animation: google.maps.Animation.DROP,
         title: "Sua residência",
         icon:{
-            url: "../../imagens/home-adotante/pin-mapa-casa.svg",
+            url: "../imagens/home-adotante/pin-mapa-casa.svg",
             scaledSize: new google.maps.Size(40, 50)
         }
     })
@@ -28,7 +28,7 @@ function initMap() {
             title: `${arrayDadosOng[i].razaoSocial} \n${arrayDadosOng[i].logradouro}, ${arrayDadosOng[i].numero}\n${arrayDadosOng[i].cep}\n`+
             `Telefone: ${arrayDadosOng[i].telefone}\n${arrayDadosOng[i].cidade}`, 
             icon: {
-                url: '../../imagens/home-adotante/pin-mapa-pata.svg',
+                url: '../imagens/home-adotante/pin-mapa-pata.svg',
                 scaledSize: new google.maps.Size(40, 50)
             }
         });

@@ -29,7 +29,7 @@ function limpa_formulário_cep() {
 }
 
 function login() {
-    window.location.href = '../login/index.html'
+    window.location.href = '../index.html'
 }
 
 function endereco(conteudo) {

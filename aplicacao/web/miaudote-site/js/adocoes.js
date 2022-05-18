@@ -412,7 +412,7 @@ function mostrarDivs(valor) {
             divSexoPet.appendChild(pSexo)
 
             let imgSexo = document.createElement('img')
-            imgSexo.src = element.genero.toUpperCase() === "M" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexo.src = element.genero.toUpperCase() === "M" ? "../imagens/adocoes/sexo-masculino.svg" : "../imagens/adocoes/sexo-feminino.svg"
             divSexoPet.appendChild(imgSexo)
 
             // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
@@ -455,7 +455,7 @@ function mostrarDivs(valor) {
             divContador.appendChild(pContador)
 
             let imgCoracaoVermelho = document.createElement('img')
-            imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
+            imgCoracaoVermelho.src = "../imagens/geral/icon-coracao-vermelho.svg"
             imgCoracaoVermelho.style = "cursor: pointer;"
             containerFavorito.appendChild(imgCoracaoVermelho)
 
@@ -569,7 +569,7 @@ function mostrarDivs(valor) {
             else divImgContato.className += " img-contato";
 
             let imgContato = document.createElement('img')
-            imgContato.src = element.modoContato === "whatsapp" ? "../../imagens/adocoes/icon-whatsapp.svg" : "../../imagens/adocoes/icon-gmail.svg"
+            imgContato.src = element.modoContato === "whatsapp" ? "../imagens/adocoes/icon-whatsapp.svg" : "../imagens/adocoes/icon-gmail.svg"
             divImgContato.appendChild(imgContato)
 
             let divDadosPetProcesso = document.createElement('div')
@@ -619,7 +619,7 @@ function mostrarDivs(valor) {
             divSexoPetProcesso.appendChild(pSexoPet)
 
             let imgSexoPetProcesso = document.createElement('img')
-            imgSexoPetProcesso.src = element.animal.genero.toUpperCase() === "MACHO" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+            imgSexoPetProcesso.src = element.animal.genero.toUpperCase() === "MACHO" ? "../imagens/adocoes/sexo-masculino.svg" : "../imagens/adocoes/sexo-feminino.svg"
             divSexoPetProcesso.appendChild(imgSexoPetProcesso)
 
             let divContainerBtn = document.createElement('div')
@@ -662,7 +662,7 @@ function mostrarDivs(valor) {
             else divImgBtn.className += " img-btn"
 
             let imgCasa = document.createElement('img')
-            imgCasa.src = "../../imagens/adocoes/icon-casa.svg"
+            imgCasa.src = "../imagens/adocoes/icon-casa.svg"
             divImgBtn.appendChild(imgCasa)
 
             let divTextoAdotou = document.createElement('div')
@@ -710,7 +710,7 @@ function mostrarDivs(valor) {
             else divImgBtn2.className += " img-btn"
 
             let imgLixeira = document.createElement('img')
-            imgLixeira.src = "../../imagens/adocoes/icon-lixeira.svg"
+            imgLixeira.src = "../imagens/adocoes/icon-lixeira.svg"
             divImgBtn2.appendChild(imgLixeira)
 
             let divTextoNaoAdotou = document.createElement('div')
@@ -792,7 +792,7 @@ function mostrarDivs(valor) {
             else divImgCasaAdocao.className += " img-casa-adocao";
 
             let imgCasaAdocao = document.createElement('img')
-            imgCasaAdocao.src = "../../imagens/geral/casa-azul.svg"
+            imgCasaAdocao.src = "../imagens/geral/casa-azul.svg"
             divImgCasaAdocao.appendChild(imgCasaAdocao)
 
             let divDadosPet = document.createElement('div')
@@ -842,7 +842,7 @@ function mostrarDivs(valor) {
             divSexoPet.appendChild(pSexoPet)
 
             let imgSexoPet = document.createElement('img')
-            imgSexoPet.src = imgSexoPet.src = element.animal.genero.toUpperCase() === "FEMEA" ? "../../imagens/adocoes/sexo-feminino.svg" : "../../imagens/adocoes/sexo-masculino.svg"
+            imgSexoPet.src = imgSexoPet.src = element.animal.genero.toUpperCase() === "FEMEA" ? "../imagens/adocoes/sexo-feminino.svg" : "../imagens/adocoes/sexo-masculino.svg"
             divSexoPet.appendChild(imgSexoPet)
         });
     }

@@ -15,12 +15,12 @@ function escondeLoading() {
 
 function redirecionarTela() {
     sessionStorage.trocaMenu = 2
-    window.location.href = ".././tela-adocoes/adocoes.html"
+    window.location.href = "../adocoes.html"
 }
 
 function redirecionarEditar() {
     sessionStorage.idEdicao = idAnimal
-    window.location.href = "../cadastro-pet/editar-pet.html"
+    window.location.href = "../editar-pet.html"
 }
 
 function organizaFotos() {
@@ -87,7 +87,7 @@ function getInfosPet() {
         campo_vacinacao.innerHTML = response.data.vacinado
         campo_necessidades.innerHTML = response.data.necessidadeEspeciais
         campo_descricao.innerHTML = response.data.descricao
-        img_pet.src = response.data.especie != "Gato" ? "../../imagens/geral/dog-rosa.svg" : "../../imagens/geral/cat-rosa.svg"
+        img_pet.src = response.data.especie != "Gato" ? "../imagens/geral/dog-rosa.svg" : "../imagens/geral/cat-rosa.svg"
 
         if(response.data.urlImagem != null) {
             fotosPet = response.data.urlImagem.split(',')

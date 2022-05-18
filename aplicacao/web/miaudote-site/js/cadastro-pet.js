@@ -140,7 +140,7 @@ function putOng(idAnimal) {
   })
 }
 
-var placeholder = "../../imagens/geral/placeholder-imagem-pet.svg"
+var placeholder = "../imagens/geral/placeholder-imagem-pet.svg"
 let fotosPet = []
 
 function topo() {

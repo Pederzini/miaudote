@@ -36,7 +36,7 @@ function favoritar(idAnimalFavorito, favoritado) {
         let cardsDentro = document.querySelectorAll(".favorito-card");
         cardsDentro.forEach(elemento => {
             if (elemento.id.replace(/\D/g, "") == idAnimalFavorito) {
-                elemento.querySelector('img').src = "../../imagens/geral/icon-coracao-vermelho.svg"
+                elemento.querySelector('img').src = "../imagens/geral/icon-coracao-vermelho.svg"
             }
         })
     }).catch(function (error) {
@@ -60,7 +60,7 @@ function desfavoritar(idAnimalFavorito) {
         let cardsDentro = document.querySelectorAll(".favorito-card");
         cardsDentro.forEach(elemento => {
             if (elemento.id.replace(/\D/g, "") == idAnimalFavorito) {
-                elemento.querySelector('img').src = "../../imagens/geral/coracao-cinza.svg"
+                elemento.querySelector('img').src = "../imagens/geral/coracao-cinza.svg"
             }
         })
     }).catch(function (error) {
@@ -170,7 +170,7 @@ function mostrarDivs() {
 
     let imgSetaEsquerda = document.createElement('img')
     aSetaEsquerda.appendChild(imgSetaEsquerda)
-    imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
+    imgSetaEsquerda.src = "../imagens/adote/icon-seta-esquerda-adote.svg";
 
     let aPagina1 = document.createElement('a')
     aPagina1.href = "#";
@@ -243,7 +243,7 @@ function mostrarDivs() {
                 divImgPet.style.cursor = "pointer";
                 divImgPet.addEventListener('click', () => {
                     sessionStorage[`cardAnimalAdotante`] = divImgPet.id.replace(/\D/g, '');
-                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                    window.location.href = "../perfil-pet.html"
                 })
             }
 
@@ -264,12 +264,12 @@ function mostrarDivs() {
             divFavoritoCard.appendChild(imgFavoritoCard)
             if (imgFavoritoCard.classList) imgFavoritoCard.classList.add("img-favoritar-card");
             else imgFavoritoCard.className += " img-favoritar-card";
-            elementoDoVetorDaPagina.favoritado == true ? imgFavoritoCard.src = "../../imagens/geral/icon-coracao-vermelho.svg" : imgFavoritoCard.src = "../../imagens/geral/coracao-cinza.svg";
+            elementoDoVetorDaPagina.favoritado == true ? imgFavoritoCard.src = "../imagens/geral/icon-coracao-vermelho.svg" : imgFavoritoCard.src = "../imagens/geral/coracao-cinza.svg";
 
             let imagemAnimal;
 
             if (elementoDoVetorDaPagina.urlImagem === null || elementoDoVetorDaPagina.urlImagem == "") {
-                imagemAnimal = "../../imagens/geral/placeholder-imagem-pet.svg";
+                imagemAnimal = "../imagens/geral/placeholder-imagem-pet.svg";
             } else if (elementoDoVetorDaPagina.urlImagem.includes(',')) {
                 let imagem = elementoDoVetorDaPagina.urlImagem.split(',')
                 imagemAnimal = imagem[0]
@@ -292,7 +292,7 @@ function mostrarDivs() {
                 divInformacoesPet.style.cursor = "pointer";
                 divInformacoesPet.addEventListener('click', () => {
                     sessionStorage[`cardAnimalAdotante`] = divInformacoesPet.id.replace(/\D/g, '');
-                    window.location.href = "../tela-perfil-pet/perfil-pet.html"
+                    window.location.href = "../perfil-pet.html"
                 })
             }
 
@@ -303,7 +303,7 @@ function mostrarDivs() {
 
             let imgIconeEspecie = document.createElement('img')
             let especie = elementoDoVetorDaPagina.especie;
-            especie == "gato" || especie == "Gato" ? imgIconeEspecie.src = "../../imagens/geral/cat.svg" : imgIconeEspecie.src = "../../imagens/geral/dog.svg";
+            especie == "gato" || especie == "Gato" ? imgIconeEspecie.src = "../imagens/geral/cat.svg" : imgIconeEspecie.src = "../imagens/geral/dog.svg";
             divContainerDadosNome.appendChild(imgIconeEspecie)
 
             let hNomePet = document.createElement('h1')
@@ -316,7 +316,7 @@ function mostrarDivs() {
             else divContainerDadosIdade.className += " container-dados";
 
             let imgIconeIdade = document.createElement('img')
-            imgIconeIdade.src = "../../imagens/geral/cake.svg";
+            imgIconeIdade.src = "../imagens/geral/cake.svg";
             divContainerDadosIdade.appendChild(imgIconeIdade)
 
             let pIdadeAnimal = document.createElement('p')
@@ -329,7 +329,7 @@ function mostrarDivs() {
             else divContainerDadosDesc.className += " container-dados";
 
             let imgIconeDesc = document.createElement('img')
-            imgIconeDesc.src = "../../imagens/geral/informacao.svg";
+            imgIconeDesc.src = "../imagens/geral/informacao.svg";
             divContainerDadosDesc.appendChild(imgIconeDesc)
 
             let pDescAnimal = document.createElement('p')
@@ -342,7 +342,7 @@ function mostrarDivs() {
             else divContainerDadosDistancia.className += " container-dados";
 
             let imgIconeDistancia = document.createElement('img')
-            imgIconeDistancia.src = "../../imagens/geral/distancia.svg";
+            imgIconeDistancia.src = "../imagens/geral/distancia.svg";
             divContainerDadosDistancia.appendChild(imgIconeDistancia)
 
             let distancia = Math.round(elementoDoVetorDaPagina.distancia * 10) / 10;
@@ -359,7 +359,7 @@ function mostrarDivs() {
 
     let imgSetaDireita = document.createElement('img')
     aSetaDireita.appendChild(imgSetaDireita)
-    imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
+    imgSetaDireita.src = "../imagens/adote/icon-seta-direita-adote.svg";
 }
 
 function preencherVetorPrincipalComVetores() {
@@ -452,7 +452,7 @@ function limparFiltros() {
 
         let imgSetaEsquerda = document.createElement('img')
         aSetaEsquerda.appendChild(imgSetaEsquerda)
-        imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
+        imgSetaEsquerda.src = "../imagens/adote/icon-seta-esquerda-adote.svg";
 
         let aPagina1 = document.createElement('a')
         aPagina1.href = "#";
@@ -468,7 +468,7 @@ function limparFiltros() {
 
         let imgSetaDireita = document.createElement('img')
         aSetaDireita.appendChild(imgSetaDireita)
-        imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
+        imgSetaDireita.src = "../imagens/adote/icon-seta-direita-adote.svg";
 
         let div = document.createElement('div')
         divContainer.appendChild(div)
@@ -479,12 +479,12 @@ function limparFiltros() {
         div.style.justifyContent = "center";
 
         let imgNaoEncontrado = document.createElement('img')
-        imgNaoEncontrado.src = "../../imagens/geral/nao-encontrado.svg"
+        imgNaoEncontrado.src = "../imagens/geral/nao-encontrado.svg"
         div.appendChild(imgNaoEncontrado);
     }
 
     resetaSelects()
-    document.getElementById('filtroDeFavorito').src = "../../imagens/adote/coracao-filtro.svg"
+    document.getElementById('filtroDeFavorito').src = "../imagens/adote/coracao-filtro.svg"
 
 }
 
@@ -500,9 +500,9 @@ function resetaSelects() {
 function trocarCoracao() {
     let imgFiltroFavorito = document.getElementById('filtroDeFavorito')
     if (imgFiltroFavorito.src.includes('vermelho')) {
-        imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro.svg"
+        imgFiltroFavorito.src = "../imagens/adote/coracao-filtro.svg"
     } else {
-        imgFiltroFavorito.src = "../../imagens/adote/coracao-filtro-vermelho.svg"
+        imgFiltroFavorito.src = "../imagens/adote/coracao-filtro-vermelho.svg"
     }
 }
 
@@ -629,7 +629,7 @@ function filtrar() {
 
         let imgSetaEsquerda = document.createElement('img')
         aSetaEsquerda.appendChild(imgSetaEsquerda)
-        imgSetaEsquerda.src = "../../imagens/adote/icon-seta-esquerda-adote.svg";
+        imgSetaEsquerda.src = "../imagens/adote/icon-seta-esquerda-adote.svg";
 
         let aPagina1 = document.createElement('a')
         aPagina1.href = "#";
@@ -645,7 +645,7 @@ function filtrar() {
 
         let imgSetaDireita = document.createElement('img')
         aSetaDireita.appendChild(imgSetaDireita)
-        imgSetaDireita.src = "../../imagens/adote/icon-seta-direita-adote.svg";
+        imgSetaDireita.src = "../imagens/adote/icon-seta-direita-adote.svg";
 
         let div = document.createElement('div')
         divContainer.appendChild(div)
@@ -656,7 +656,7 @@ function filtrar() {
         div.style.justifyContent = "center";
 
         let imgNaoEncontrado = document.createElement('img')
-        imgNaoEncontrado.src = "../../imagens/geral/nao-encontrado.svg"
+        imgNaoEncontrado.src = "../imagens/geral/nao-encontrado.svg"
         div.appendChild(imgNaoEncontrado);
     }
 

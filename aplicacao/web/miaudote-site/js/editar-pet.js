@@ -1,4 +1,4 @@
-let placeholder = "../../imagens/geral/placeholder-imagem-pet.svg"
+let placeholder = "../imagens/geral/placeholder-imagem-pet.svg"
 let fotosPet = []
 
 function topo() {

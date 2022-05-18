@@ -1,7 +1,7 @@
 let feedbacks = [];
 
 function referenciaMeuPets() {
-    window.location.href = "../tela-card-adocoes/tela-card-adocoes.html"
+    window.location.href = "../tela-card-adocoes.html"
 }
 
 function topo() {
@@ -47,14 +47,14 @@ function getFeedback() {
         nomeAdotante[0].innerHTML = response.data[0].adotante.nome
         comentarioAdotante[0].innerHTML = response.data[0].feedback
         for (let index = 0; index < response.data[0].avaliacaoSite; index++) {
-            starAdotante1[index].src = "../../imagens/home-adotante/estrela.svg"
+            starAdotante1[index].src = "../imagens/home-adotante/estrela.svg"
         }
 
         fotoAdotante[1].src = response.data[1].adotante.urlImagem == null ? "https://i.imgur.com/s8t0M4S.png" : response.data[1].adotante.urlImagem
         nomeAdotante[1].innerHTML = response.data[1].adotante.nome
         comentarioAdotante[1].innerHTML = response.data[1].feedback
         for (let index = 0; index < response.data[1].avaliacaoSite; index++) {
-            starAdotante2[index].src = "../../imagens/home-adotante/estrela.svg"
+            starAdotante2[index].src = "../imagens/home-adotante/estrela.svg"
         }
 
     }).catch(function (error) {

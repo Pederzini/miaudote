@@ -36,7 +36,7 @@ function limpa_formulário_cep() {
 }
 
 function login() {
-    window.location.href = '../login/index.html'
+    window.location.href = '../index.html'
 }
 
 function endereco(conteudo) {
@@ -489,7 +489,7 @@ function mostrarDivFav() {
         divSexoPet.appendChild(pSexo)
 
         let imgSexo = document.createElement('img')
-        imgSexo.src = element.animal.genero === "Macho" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+        imgSexo.src = element.animal.genero === "Macho" ? "../imagens/adocoes/sexo-masculino.svg" : "../imagens/adocoes/sexo-feminino.svg"
         divSexoPet.appendChild(imgSexo)
 
         // DIV DADOS FAVORITOS E OQ ESTÁ DENTRO DELA
@@ -509,7 +509,7 @@ function mostrarDivFav() {
         else containerFavorito.className += " container-favorito";
 
         let imgCoracaoVermelho = document.createElement('img')
-        imgCoracaoVermelho.src = "../../imagens/geral/icon-coracao-vermelho.svg"
+        imgCoracaoVermelho.src = "../imagens/geral/icon-coracao-vermelho.svg"
         containerFavorito.appendChild(imgCoracaoVermelho)
     })
 }
@@ -572,7 +572,7 @@ function mostrarDivAdotados() {
         divSexoPet.appendChild(pSexo)
 
         let imgSexo = document.createElement('img')
-        imgSexo.src = element.animal.genero === "Macho" ? "../../imagens/adocoes/sexo-masculino.svg" : "../../imagens/adocoes/sexo-feminino.svg"
+        imgSexo.src = element.animal.genero === "Macho" ? "../imagens/adocoes/sexo-masculino.svg" : "../imagens/adocoes/sexo-feminino.svg"
         divSexoPet.appendChild(imgSexo)
 
         let divBtnComentario = document.createElement('div')
