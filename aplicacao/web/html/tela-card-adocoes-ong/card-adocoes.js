@@ -50,14 +50,14 @@ window.onclick = function (event) {
 
 function gerarRelatorio() {
     let cnpj = JSON.parse(login_usuario).cnpj
-    window.location.href = `http://localhost:8080/miaudote/animais/exportacao/${cnpj}`
+    window.location.href = `ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/exportacao/${cnpj}`
 }
 
 
 function getInfosCards() {
     setTimeout(mostraLoading(), 5000)
     // mostraLoading();    
-    axios.get(`http://localhost:8080/miaudote/animais/animais-ong/${JSON.parse(sessionStorage.login_usuario).cnpj}`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/animais-ong/${JSON.parse(sessionStorage.login_usuario).cnpj}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true,

@@ -114,7 +114,7 @@ function getEndpoint(valor) {
 
 function getInfosFavoritos() {
     mostraLoading()
-    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/animais-favoritados`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/animais-favoritados`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -140,7 +140,7 @@ function getInfosFavoritos() {
 
 function getInfosEmProcesso() {
     mostraLoading()
-    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-em-processo`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-em-processo`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -166,7 +166,7 @@ function getInfosEmProcesso() {
 
 function getInfosAdotados() {
     mostraLoading()
-    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-concluidas`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).cnpj}/adocoes-concluidas`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -192,7 +192,7 @@ function getInfosAdotados() {
 
 function patchAdotou(idAdocao) {
     mostraLoading()
-    axios.patch(`http://localhost:8080/miaudote/adocoes/finaliza-adocao/${idAdocao}`, {
+    axios.patch(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/finaliza-adocao/${idAdocao}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -215,7 +215,7 @@ function patchAdotou(idAdocao) {
 
 function patchNaoAdotou(idAdocao) {
     mostraLoading()
-    axios.patch(`http://localhost:8080/miaudote/adocoes/cancela-adocao/${idAdocao}`, {
+    axios.patch(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/cancela-adocao/${idAdocao}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -237,7 +237,7 @@ function patchNaoAdotou(idAdocao) {
 }
 
 function getQuemFavoritou(idAnimal) {
-    axios.get(`http://localhost:8080/miaudote/adocoes/${idAnimal}/pessoas-que-favoritaram`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${idAnimal}/pessoas-que-favoritaram`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -260,7 +260,7 @@ function getQuemFavoritou(idAnimal) {
 }
 
 function getQuemInteressouFav(idAdotante) {
-    axios.get(`http://localhost:8080/miaudote/adocoes/${idAdotante}/informacoes-pessoa-que-favoritou`, {
+    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${idAdotante}/informacoes-pessoa-que-favoritou`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true

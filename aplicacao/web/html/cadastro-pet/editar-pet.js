@@ -89,7 +89,7 @@ let myVars = {
 
 function getInfosPet() {
   mostraLoading()
-  axios.get(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
+  axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true,
@@ -205,7 +205,7 @@ function atualizaInfosPet() {
   }
 
   mostraLoading()
-  axios.put(`http://localhost:8080/miaudote/animais/${idAnimal}`, {
+  axios.put(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true

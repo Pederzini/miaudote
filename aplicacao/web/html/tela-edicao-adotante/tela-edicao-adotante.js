@@ -285,7 +285,7 @@ function postImagem(arquivo) {
 
 function getInfosAdotante() {
     mostraLoading();
-    axios.get(`http://localhost:8080/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -350,7 +350,7 @@ function patchAdotante() {
         var email = document.getElementById("campo_email").value;
         var senha = document.getElementById("campo_senha").value;
 
-        axios.patch(`http://localhost:8080/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
+        axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adotantes/${JSON.parse(sessionStorage.login_usuario).idAdotante}`, {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "crossorigin": true
@@ -383,7 +383,7 @@ function atualizaEndereco() {
     var numero = document.getElementById("campo_numero").value;
     var complemento = document.getElementById("campo_complemento").value;
 
-    axios.patch(`http://localhost:8080/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
+    axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/enderecos/${JSON.parse(sessionStorage.login_usuario).endereco.id}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -597,7 +597,7 @@ function mostrarDivAdotados() {
 }
 
 function getAnimaisFavoritos() {
-    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritados`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritados`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -621,7 +621,7 @@ function getAnimaisFavoritos() {
 }
 
 function getAnimaisAdotados() {
-    axios.get(`http://localhost:8080/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/adotados`, {
+    axios.get(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/adotados`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -671,7 +671,7 @@ function patchFeedback() {
         })
     }
 
-    axios.patch(`http://localhost:8080/miaudote/adocoes/registra-feedback/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimalFeed}`, {
+    axios.patch(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/registra-feedback/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimalFeed}`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true

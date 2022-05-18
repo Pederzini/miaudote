@@ -75,7 +75,7 @@ function postCadastroPet() {
 
     forFoto()
     mostraLoading()
-    axios.post('http://localhost:8080/miaudote/animais', {
+    axios.post('ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais', {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "crossorigin": true
@@ -114,7 +114,7 @@ function postCadastroPet() {
 
 function putOng(idAnimal) {
   mostraLoading()
-  axios.put(`http://localhost:8080/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
+  axios.put(`ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/${JSON.parse(sessionStorage.login_usuario).cnpj}/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
