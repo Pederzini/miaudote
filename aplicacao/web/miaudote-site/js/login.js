@@ -77,7 +77,7 @@ function postLogin() {
 
     var usuario = document.getElementById("radio_ong").checked == true ? "ongs" : "adotantes"
     mostraLoading()
-    axios.post(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/${usuario}/login`, {
+    axios.post(`https://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/${usuario}/login`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "crossorigin": true
