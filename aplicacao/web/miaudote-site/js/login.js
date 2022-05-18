@@ -112,7 +112,7 @@ function linkTela(tela) {
       window.location.href = '../login/index.html';
       break;
     case "ong":
-      window.location.href = '../cadastro-ong/cadastro-ong.html';
+      window.location.href = '../cadastro-ong.html';
       break
     case "adotante":
       window.location.href = '../cadastro-adotante/cadastro-adotante.html';
