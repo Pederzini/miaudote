@@ -97,7 +97,7 @@ function postCadastroArquivo() {
         var formData = new FormData();
         formData.append("arquivo", arquivo);
 
-        axios.post(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/importacao/${JSON.parse(sessionStorage.login_usuario).cnpj}`, formData, {
+        axios.post(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/animais/importacao/${JSON.parse(sessionStorage.login_usuario).cnpj}`, formData, {
             headers: {
                 "Content-Type": 'multipart/form-data'
             }

@@ -70,7 +70,7 @@ function calcIdade(data) {
 
 function getInfosPet() {
     mostraLoading()
-    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/${idAnimal}`, {
+    axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/animais/${idAnimal}`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         let idade = calcIdade(response.data.dataNascimento)

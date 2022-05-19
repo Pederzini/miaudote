@@ -332,7 +332,7 @@ function postCadastroAdotante() {
         var senha = document.getElementById("campo-senha").value;
 
        
-        axios.post('http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adotantes', {
+        axios.post('https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adotantes', {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "crossorigin": true

@@ -329,7 +329,7 @@ function postCadastroOng() {
         var senha = document.getElementById("campo_senha").value;
 
         mostraLoading();
-        axios.post('http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs', {
+        axios.post('https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/ongs', {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "crossorigin": true

@@ -36,7 +36,7 @@ function initMap() {
     }
 }
 function popularCoordenadas() {
-    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs/informacoes-ongs-mapa`, {
+    axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/ongs/informacoes-ongs-mapa`, {
         headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
     }).then(response => {
         for (i = 0; i < response.data.length; i++) {

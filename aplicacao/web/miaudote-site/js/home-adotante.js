@@ -12,7 +12,7 @@ function getQtdAnimais() {
 
     let qtdAnimais = document.querySelectorAll("#qtdAnimais")
 
-    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/numero-adotados`, {
+    axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/animais/numero-adotados`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true
@@ -35,7 +35,7 @@ function getFeedback() {
     let starAdotante1 = document.querySelectorAll("#starFeed1")
     let starAdotante2 = document.querySelectorAll("#starFeed2")
 
-    axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/feedbacks`, {
+    axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adocoes/feedbacks`, {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "crossorigin": true

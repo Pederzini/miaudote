@@ -63,7 +63,7 @@ function queroAjudar() {
 }
 
 function getOngAnimal(idAnimal) {
-  axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/ongs/${idAnimal}/contato-ong`, {
+  axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/ongs/${idAnimal}/contato-ong`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -93,7 +93,7 @@ function getOngAnimal(idAnimal) {
 
 //var idAnimal = sessionStorage.getItem(idAnimal) -> ARRUMAR
 function patchMetodoContato(contato) {
-  axios.patch(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/inicia-processo-adocao/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}/${contato}`, {
+  axios.patch(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adocoes/inicia-processo-adocao/${JSON.parse(sessionStorage.login_usuario).idAdotante}/${idAnimal}/${contato}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -198,7 +198,7 @@ function formataData(data) {
 
 function getInfosPet() {
   mostraLoading()
-  axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/animais/perfil-animal/${idAnimal}/${idAdotante}`, {
+  axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/animais/perfil-animal/${idAnimal}/${idAdotante}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -280,7 +280,7 @@ confirmButtonColor: '#8675A5'
 }
 
 function getAdotar() {
-  axios.get(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/verifica-existencia-processo/${idAdotante}/${idAnimal}`, {
+  axios.get(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adocoes/verifica-existencia-processo/${idAdotante}/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true
@@ -325,7 +325,7 @@ function verificarFavorito() {
 }
 
 function favoritar() {
-  axios.patch(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimal}`, {
+  axios.patch(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/favoritar/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true,
@@ -344,7 +344,7 @@ confirmButtonColor: '#8675A5'
 }
 
 function desfavoritar() {
-  axios.patch(`http://ec2-44-198-214-72.compute-1.amazonaws.com/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimal}`, {
+  axios.patch(`https://ec2-44-198-214-72.compute-1.amazonaws.com:8443/miaudote/adocoes/${JSON.parse(sessionStorage.login_usuario).idAdotante}/desfavoritar/${idAnimal}`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "crossorigin": true,
