@@ -252,6 +252,7 @@ public class AnimalController {
                             animal.getDataNascimento(),
                             animal.getUrlImagem(),
                             animal.getEspecie(),
+                            animal.getGenero(),
                             animal.getDescricao(),
                             animal.getOng().getEndereco().getLatitude(),
                             animal.getOng().getEndereco().getLongitude(),

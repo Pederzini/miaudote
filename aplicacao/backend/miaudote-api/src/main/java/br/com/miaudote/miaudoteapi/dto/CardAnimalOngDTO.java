@@ -16,6 +16,8 @@ public interface CardAnimalOngDTO {
 
     String getNome();
 
+    Date getDataNascimento();
+
     String getGenero();
 
     Date getDataChegada();

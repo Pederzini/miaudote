@@ -16,6 +16,8 @@ public interface CardAnimalSemDistanciaDTO {
 
     String getEspecie();
 
+    String getGenero();
+
     Date getDataChegada();
 
     Boolean getCastrado();

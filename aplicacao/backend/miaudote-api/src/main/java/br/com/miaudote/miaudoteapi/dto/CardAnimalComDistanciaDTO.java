@@ -14,6 +14,8 @@ public class CardAnimalComDistanciaDTO {
     private int idade;
     private String urlImagem;
     private String especie;
+
+    private String genero;
     private String descricao;
     private Double distancia;
     private Date dataChegada;
@@ -44,6 +46,7 @@ public class CardAnimalComDistanciaDTO {
             Date dataNascimento,
             String urlImagem,
             String especie,
+            String genero,
             String descricao,
             double latitudeOng,
             double longitudeOng,
@@ -65,6 +68,7 @@ public class CardAnimalComDistanciaDTO {
         this.idade = calculaIdade(dataNascimento, new Date());
         this.urlImagem = urlImagem;
         this.especie = especie;
+        this.genero = genero;
         this.descricao = descricao;
         this.distancia = GoogleAdapter.calcularDistancia(latitudeOng, longitudeOng, latitudeAdotante, longitudeAdotante);
         this.dataChegada = dataChegada;
@@ -131,6 +135,14 @@ public class CardAnimalComDistanciaDTO {
 
     public void setEspecie(String especie) {
         this.especie = especie;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getDescricao() {
