@@ -222,7 +222,7 @@ public class ProcessoAdocaoController {
         ProcessoAdocao processoAdocaoCad = new ProcessoAdocao(
                 null,
                 DataHora.retornaDataHoraAtual(),
-                null,
+                false,
                 null,
                 null,
                 modoContato,
