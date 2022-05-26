@@ -365,4 +365,17 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(204).build();
     }
 
+    @GetMapping("/{cnpj}/animais-favoritados-com-adotantes")
+    public ResponseEntity getAnimaisFavoritadosPorCnpj(@PathVariable String cnpj) {
+        List<AnimaisFavoritadosDTO> animaisFavoritados = processoAdocaoRepository.findByDataAdocaoIsNullAndFavoritadoTrue();
+
+        animaisFavoritados.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+
+        if (animaisFavoritados.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(animaisFavoritados);
+    }
+
 }
