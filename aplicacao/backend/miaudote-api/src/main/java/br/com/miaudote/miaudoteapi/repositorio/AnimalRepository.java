@@ -25,7 +25,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
 
     @Query(value = "SELECT animal.nome, FLOOR((CAST (GetDate() AS DECIMAL) - CAST(animal.data_nascimento AS DECIMAL)) / 365.25) as idadeAnimal, " +
             "animal.url_imagem AS url, animal.descricao, animal.id_animal AS id, animal.especie, animal.genero, animal.data_chegada AS dataChegada, " +
-            "animal.cor_pelagem AS corPelagem, animal.tipo_pelagem AS tipoPelagem, animal.castrado, animal.vacinado, animal.adotado, " +
+            "animal.data_nascimento AS dataNascimento, animal.cor_pelagem AS corPelagem, animal.tipo_pelagem AS tipoPelagem, animal.castrado, animal.vacinado, animal.adotado, " +
             "animal.porte, animal.comportamento, animal.necessidade_especiais as necessidadeEspeciais, ong.id_ong as id_ong " +
             "FROM Animal INNER JOIN ong on fk_ong = id_ong WHERE ong.id_ong = ?1 ORDER BY adotado, data_chegada", nativeQuery = true)
     List<CardAnimalOngDTO> findByOngId(Integer idOng);
