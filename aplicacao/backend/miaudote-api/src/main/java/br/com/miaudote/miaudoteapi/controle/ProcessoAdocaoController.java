@@ -378,4 +378,22 @@ public class ProcessoAdocaoController {
         return ResponseEntity.status(200).body(animaisFavoritados);
     }
 
+    @GetMapping("/{cnpj}/status-adocao/{idAnimal}")
+    public ResponseEntity getEmProcessoIdAnimalCnpjOng(@PathVariable String cnpj, @PathVariable int idAnimal) {
+        Animal animal = animalRepository.findById(idAnimal).get();
+
+        if(animal.getAdotado().equals("Sim")) {
+            return ResponseEntity.status(404).build();
+        }
+
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByAnimal_IdAndDataAdocaoIsNullAndDataInicioProcessoNotNull(idAnimal);
+        adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+
+        if (adocoesEmProcesso.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+
+        return ResponseEntity.status(200).body(adocoesEmProcesso);
+    }
+
 }
