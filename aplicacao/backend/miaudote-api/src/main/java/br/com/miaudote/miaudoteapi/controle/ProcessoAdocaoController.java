@@ -115,7 +115,7 @@ public class ProcessoAdocaoController {
         adocoesConcluidas.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
 
         if(!adocoesConcluidas.isEmpty()) {
-            return ResponseEntity.status(404).body(adocoesConcluidas);
+            return ResponseEntity.status(209).body(adocoesConcluidas);
         }
 
         List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByAnimal_IdAndDataAdocaoIsNullAndDataInicioProcessoNotNull(idAnimal);
