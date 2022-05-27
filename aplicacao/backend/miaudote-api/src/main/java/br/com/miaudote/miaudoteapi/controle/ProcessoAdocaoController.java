@@ -111,9 +111,15 @@ public class ProcessoAdocaoController {
 
     @GetMapping("/{cnpj}/adocoes-em-processo/{idAnimal}")
     public ResponseEntity getEmProcessoIdAnimal(@PathVariable String cnpj, @PathVariable int idAnimal) {
-        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByDataAdocaoIsNullAndDataInicioProcessoNotNull();
+        List<AdocaoEmProcessoDTO> adocoesConcluidas = processoAdocaoRepository.findByAnimal_IdAndAndDataAdocaoNotNull(idAnimal);
+        adocoesConcluidas.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
+
+        if(!adocoesConcluidas.isEmpty()) {
+            return ResponseEntity.status(404).body(adocoesConcluidas);
+        }
+
+        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByAnimal_IdAndDataAdocaoIsNullAndDataInicioProcessoNotNull(idAnimal);
         adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
-        adocoesEmProcesso.removeIf(adocaoId -> !adocaoId.getAnimal().getIdAnimal().equals(idAnimal));
 
         if (adocoesEmProcesso.isEmpty()) {
             return ResponseEntity.status(204).build();
@@ -376,24 +382,6 @@ public class ProcessoAdocaoController {
         }
 
         return ResponseEntity.status(200).body(animaisFavoritados);
-    }
-
-    @GetMapping("/{cnpj}/status-adocao/{idAnimal}")
-    public ResponseEntity getEmProcessoIdAnimalCnpjOng(@PathVariable String cnpj, @PathVariable int idAnimal) {
-        Animal animal = animalRepository.findById(idAnimal).get();
-
-        if(animal.getAdotado().equals("Sim")) {
-            return ResponseEntity.status(404).build();
-        }
-
-        List<AdocaoEmProcessoDTO> adocoesEmProcesso = processoAdocaoRepository.findByAnimal_IdAndDataAdocaoIsNullAndDataInicioProcessoNotNull(idAnimal);
-        adocoesEmProcesso.removeIf(adocao -> !adocao.getAnimal().getOng().getCnpj().equals(cnpj));
-
-        if (adocoesEmProcesso.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        }
-
-        return ResponseEntity.status(200).body(adocoesEmProcesso);
     }
 
 }
