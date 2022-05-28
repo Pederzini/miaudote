@@ -165,7 +165,11 @@ public class ProcessoAdocaoController {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(id).get();
         processoAdocao.setDataAdocao(DataHora.retornaDataHoraAtual());
 
+        Animal animal = animalRepository.getById(processoAdocao.getAnimal().getIdAnimal());
+        animal.setAdotado(true);
+
         processoAdocaoRepository.save(processoAdocao);
+        animalRepository.save(animal);
 
         return ResponseEntity.status(200).build();
     }
