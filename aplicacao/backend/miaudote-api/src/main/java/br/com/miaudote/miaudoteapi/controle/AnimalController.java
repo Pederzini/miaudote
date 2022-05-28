@@ -1,8 +1,10 @@
 package br.com.miaudote.miaudoteapi.controle;
 
+import br.com.miaudote.miaudoteapi.dominio.Adotante;
 import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.*;
+import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
@@ -31,6 +33,9 @@ public class AnimalController {
 
     @Autowired
     private OngRepository ongRepository;
+
+    @Autowired
+    private AdotanteRepository adotanteRepository;
 
     @Autowired
     private ProcessoAdocaoRepository processoAdocaoRepository;
@@ -232,6 +237,7 @@ public class AnimalController {
 
     @GetMapping("/{id}/cards")
     public ResponseEntity getNaoAdotados(@PathVariable Integer id) {
+        Adotante adotante = adotanteRepository.findById(id).get();
         List<CardAnimalSemDistanciaDTO> animais = animalRepository.findByAdotadoFalse();
         List<InfosAdotanteDTO> infosAdotante = processoAdocaoRepository.findByAdotante_IdAndAnimal_AdotadoFalse(id);
         List<CardAnimalComDistanciaDTO> cards = new ArrayList<>();
@@ -241,6 +247,17 @@ public class AnimalController {
             if (info.getFavoritado()) {
                 idsFavoritados.add(info.getAnimal().getId());
             }
+        }
+
+        Double latitude;
+        Double longitude;
+
+        if(infosAdotante.isEmpty()) {
+            latitude = adotante.getEndereco().getLatitude();
+            longitude = adotante.getEndereco().getLongitude();
+        } else {
+            latitude = infosAdotante.get(0).getAdotante().getEndereco().getLatitude();
+            longitude = infosAdotante.get(0).getAdotante().getEndereco().getLongitude();
         }
 
         for (CardAnimalSemDistanciaDTO animal : animais) {
@@ -256,8 +273,8 @@ public class AnimalController {
                             animal.getDescricao(),
                             animal.getOng().getEndereco().getLatitude(),
                             animal.getOng().getEndereco().getLongitude(),
-                            infosAdotante.get(0).getAdotante().getEndereco().getLatitude(),
-                            infosAdotante.get(0).getAdotante().getEndereco().getLongitude(),
+                            latitude,
+                            longitude,
                             animal.getDataChegada(),
                             animal.getCastrado(),
                             animal.getPorte(),
