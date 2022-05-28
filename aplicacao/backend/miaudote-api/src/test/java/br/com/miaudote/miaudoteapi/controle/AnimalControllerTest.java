@@ -5,6 +5,7 @@ import br.com.miaudote.miaudoteapi.dominio.Animal;
 import br.com.miaudote.miaudoteapi.dominio.Endereco;
 import br.com.miaudote.miaudoteapi.dominio.Ong;
 import br.com.miaudote.miaudoteapi.dto.*;
+import br.com.miaudote.miaudoteapi.repositorio.AdotanteRepository;
 import br.com.miaudote.miaudoteapi.repositorio.AnimalRepository;
 import br.com.miaudote.miaudoteapi.repositorio.OngRepository;
 import br.com.miaudote.miaudoteapi.repositorio.ProcessoAdocaoRepository;
@@ -36,6 +37,9 @@ class AnimalControllerTest {
 
     @MockBean
     OngRepository ongRepository;
+
+    @MockBean
+    AdotanteRepository adotanteRepository;
 
     @MockBean
     ProcessoAdocaoRepository processoRepository;
